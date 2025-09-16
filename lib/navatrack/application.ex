@@ -22,7 +22,8 @@ defmodule Navatrack.Application do
       # Start to serve requests, typically the last entry
       NavatrackWeb.Endpoint,
       {Absinthe.Subscription, NavatrackWeb.Endpoint},
-      AshGraphql.Subscription.Batcher
+      AshGraphql.Subscription.Batcher,
+      {AshAuthentication.Supervisor, [otp_app: :navatrack]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

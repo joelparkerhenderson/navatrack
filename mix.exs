@@ -41,6 +41,8 @@ defmodule Navatrack.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:picosat_elixir, "~> 0.2"},
+      {:ash_authentication_phoenix, "~> 2.0"},
       {:absinthe_phoenix, "~> 2.0"},
       {:usage_rules, "~> 0.1"},
       {:sourceror, "~> 1.8"},

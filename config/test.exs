@@ -1,4 +1,6 @@
 import Config
+config :navatrack, token_signing_secret: "gYndTlBy8FSka0T0jx+Bu88K2L2UKwaT"
+config :bcrypt_elixir, log_rounds: 1
 config :navatrack, Oban, testing: :manual
 config :ash, policies: [show_policy_breakdowns?: true], disable_async?: true
 

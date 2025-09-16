@@ -1,5 +1,7 @@
 [
   import_deps: [
+    :ash_authentication,
+    :ash_authentication_phoenix,
     :backpex,
     :ash_state_machine,
     :ash_postgres,

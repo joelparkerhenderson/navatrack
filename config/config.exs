@@ -43,6 +43,8 @@ config :spark,
     remove_parens?: true,
     "Ash.Resource": [
       section_order: [
+        :authentication,
+        :tokens,
         :postgres,
         :json_api,
         :graphql,
@@ -80,7 +82,7 @@ config :spark,
 config :navatrack,
   ecto_repos: [Navatrack.Repo],
   generators: [timestamp_type: :utc_datetime],
-  ash_domains: []
+  ash_domains: [Navatrack.Accounts]
 
 # Configures the endpoint
 config :navatrack, NavatrackWeb.Endpoint,

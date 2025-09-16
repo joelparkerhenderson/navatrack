@@ -65,7 +65,7 @@ config :navatrack, NavatrackWeb.Endpoint,
   ]
 
 # Enable dev routes for dashboard and mailbox
-config :navatrack, dev_routes: true
+config :navatrack, dev_routes: true, token_signing_secret: "c1s+dj5IQ+HJJVXqbp38aIO5Msg4DF1T"
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :default_formatter, format: "[$level] $message\n"
