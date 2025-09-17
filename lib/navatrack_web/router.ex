@@ -105,6 +105,11 @@ defmodule NavatrackWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    live "/products", Products.IndexLive
+    live "/products/new", Products.FormLive, :new
+    live "/products/:id", Products.ShowLive
+    live "/products/:id/edit", Products.FormLive, :edit
   end
 
   # Other scopes may use custom stacks.
