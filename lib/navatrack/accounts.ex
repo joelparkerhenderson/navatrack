@@ -5,5 +5,6 @@ defmodule Navatrack.Accounts do
   resources do
     resource Navatrack.Accounts.Token
     resource Navatrack.Accounts.User
+    resource Navatrack.Accounts.Organization
   end
 end

@@ -34,4 +34,5 @@ mix ash.migrate
 Resources that we prefer to create:
 
 - [User](doc/user/)
+- [Organization](doc/organization/)
 - [Product](doc/product/)

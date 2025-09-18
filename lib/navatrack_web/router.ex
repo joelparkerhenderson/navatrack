@@ -106,6 +106,11 @@ defmodule NavatrackWeb.Router do
 
     get "/", PageController, :home
 
+    live "/organizations", Organizations.IndexLive
+    live "/organizations/new", Organizations.FormLive, :new
+    live "/organizations/:id", Organizations.ShowLive
+    live "/organizations/:id/edit", Organizations.FormLive, :edit
+
     live "/products", Products.IndexLive
     live "/products/new", Products.FormLive, :new
     live "/products/:id", Products.ShowLive
