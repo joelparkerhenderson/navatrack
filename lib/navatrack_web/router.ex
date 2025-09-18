@@ -110,6 +110,11 @@ defmodule NavatrackWeb.Router do
     live "/products/new", Products.FormLive, :new
     live "/products/:id", Products.ShowLive
     live "/products/:id/edit", Products.FormLive, :edit
+
+    live "/users", Users.IndexLive
+    live "/users/new", Users.FormLive, :new
+    live "/users/:id", Users.ShowLive
+    live "/users/:id/edit", Users.FormLive, :edit
   end
 
   # Other scopes may use custom stacks.
