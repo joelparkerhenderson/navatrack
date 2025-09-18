@@ -116,6 +116,11 @@ defmodule NavatrackWeb.Router do
     live "/products/:id", Products.ShowLive
     live "/products/:id/edit", Products.FormLive, :edit
 
+    live "/skills", Skills.IndexLive
+    live "/skills/new", Skills.FormLive, :new
+    live "/skills/:id", Skills.ShowLive
+    live "/skills/:id/edit", Skills.FormLive, :edit
+
     live "/users", Users.IndexLive
     live "/users/new", Users.FormLive, :new
     live "/users/:id", Users.ShowLive
