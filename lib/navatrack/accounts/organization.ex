@@ -4,6 +4,14 @@ defmodule Navatrack.Accounts.Organization do
     domain: Navatrack.Accounts,
     data_layer: AshPostgres.DataLayer
 
+  def title_singular do
+    "Organization"
+  end
+
+  def title_plural do
+    "Organizations"
+  end
+
   postgres do
     table "organizations"
     repo Navatrack.Repo

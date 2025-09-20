@@ -1,9 +1,6 @@
 # Skill
 
-We create a typical skill resource.
-
-This is uses many flat fields i.e. not relations, because for this project we
-prefer the simplest maintainability and leanest lookups.
+<https://github.com/contactopensource/contactopensource/tree/master/api/skill>
 
 Run:
 
@@ -13,7 +10,6 @@ mix ash.gen.resource Navatrack.Works.Skill \
   --default-actions create,read,update,destroy \
   --extend postgres \
   --uuid-primary-key id \
-  --timestamps \
   --attribute title:string \
   --attribute status:string \
   --attribute tags:string:array \
@@ -24,19 +20,15 @@ mix ash.gen.resource Navatrack.Works.Skill \
   --attribute avatar_400x400_url:string \
   --attribute avatar_400x400_alt:string \
   \
-  --attribute image_1080x1080_url:string \
-  --attribute image_1080x1080_alt:string \
+  --attribute main_image_1080x1080_url:string \
+  --attribute main_image_1080x1080_alt:string \
   \
-  --attribute image_1920x1080_url:string \
-  --attribute image_1920x1080_alt:string \
+  --attribute main_image_1920x1080_url:string \
+  --attribute main_image_1920x1080_alt:string \
   \
-  --attribute image_1080x1920_url:string \
-  --attribute image_1080x1920_alt:string \
-```
+  --attribute main_image_1080x1920_url:string \
+  --attribute main_image_1080x1920_alt:string \
 
-Run:
-
-```sh
 mix ash.codegen create_skills
 mix ash.migrate
 ```

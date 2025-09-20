@@ -6,6 +6,14 @@ defmodule Navatrack.Accounts.User do
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication]
 
+  def title_singular do
+    "User"
+  end
+
+  def title_plural do
+    "Users"
+  end
+
   authentication do
     add_ons do
       log_out_everywhere do

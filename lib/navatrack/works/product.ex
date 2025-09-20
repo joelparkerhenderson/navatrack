@@ -4,6 +4,14 @@ defmodule Navatrack.Works.Product do
     domain: Navatrack.Works,
     data_layer: AshPostgres.DataLayer
 
+  def title_singular do
+    "Product"
+  end
+
+  def title_plural do
+    "Products"
+  end
+
   postgres do
     table "products"
     repo Navatrack.Repo

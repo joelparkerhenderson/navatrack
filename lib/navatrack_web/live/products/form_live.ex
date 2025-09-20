@@ -15,7 +15,7 @@ defmodule NavatrackWeb.Products.FormLive do
     x = Ash.get!(X, id)
 
     {:ok, assign(socket,
-      page_title: "Update Product",
+      page_title: "Update #{X.title_singular}",
       form: to_form(form),
       x: x
     )}
@@ -25,7 +25,7 @@ defmodule NavatrackWeb.Products.FormLive do
     form = AshPhoenix.Form.for_create(X, :create)
 
     {:ok, assign(socket,
-      page_title: "Create Product",
+      page_title: "Create #{X.title_singular}",
       form: to_form(form)
     )}
   end
@@ -212,9 +212,9 @@ defmodule NavatrackWeb.Products.FormLive do
           <.input field={form[:arc42_07_deployment_view_as_markdown]} type="textarea" label="Arc42 section 07: Deployment View " />
           <.input field={form[:arc42_08_crosscutting_concepts_as_markdown]} type="textarea" label="Arc42 section 08: Crosscutting Concerns " />
           <.input field={form[:arc42_09_architectural_decisions_as_markdown]} type="textarea" label="Arc42 section 09: Architectural Decisions " />
-          <.input field={form[:arc42_10_quality_requirements_as_markdown]} type="textarea" label="" />
-          <.input field={form[:arc42_11_risks_and_technical_debt_as_markdown]} type="textarea" label="" />
-          <.input field={form[:arc42_12_glossary_as_markdown]} type="textarea" label="" />
+          <.input field={form[:arc42_10_quality_requirements_as_markdown]} type="textarea" label="Arc42 section 10: Quality Requirements" />
+          <.input field={form[:arc42_11_risks_and_technical_debt_as_markdown]} type="textarea" label="Arc42 section 11: Risks and Technical Debt" />
+          <.input field={form[:arc42_12_glossary_as_markdown]} type="textarea" label="Arc42 section 12: Glossary" />
 
         </.section>
 

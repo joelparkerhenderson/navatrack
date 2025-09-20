@@ -24,6 +24,7 @@ mix ash.gen.resource Navatrack.Works.Product \
   --default-actions create,read,update,destroy \
   --extend postgres \
   --uuid-primary-key id \
+  --attribute parent:id \
   --attribute title:string:required \
   --attribute status:string \
   --attribute tags:string:array \

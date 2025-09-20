@@ -4,6 +4,14 @@ defmodule Navatrack.Works.Skill do
     domain: Navatrack.Works,
     data_layer: AshPostgres.DataLayer
 
+  def title_singular do
+    "Skill"
+  end
+
+  def title_plural do
+    "Skills"
+  end
+
   postgres do
     table "skills"
     repo Navatrack.Repo

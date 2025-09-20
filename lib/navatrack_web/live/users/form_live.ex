@@ -1,6 +1,7 @@
 defmodule NavatrackWeb.Users.FormLive do
   use NavatrackWeb, :live_view
   alias Navatrack.Accounts.User, as: X
+  @singular "User"
 
   require Logger
 
@@ -15,7 +16,7 @@ defmodule NavatrackWeb.Users.FormLive do
     x = Ash.get!(X, id)
 
     {:ok, assign(socket,
-      page_title: "Update User",
+      page_title: "Update #{X.title_singular}",
       form: to_form(form),
       x: x
     )}
@@ -25,7 +26,7 @@ defmodule NavatrackWeb.Users.FormLive do
     form = AshPhoenix.Form.for_create(X, :create)
 
     {:ok, assign(socket,
-      page_title: "Create User",
+      page_title: "Create #{X.title_singular}",
       form: to_form(form)
     )}
   end

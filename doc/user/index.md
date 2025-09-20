@@ -14,7 +14,6 @@ mix ash.gen.resource Navatrack.Accounts.User \
   --default-actions create,read,update,destroy \
   --extend postgres \
   --uuid-primary-key id \
-  --timestamps \
   --attribute title:string \
   --attribute status:string \
   --attribute tags:string:array \
@@ -48,14 +47,14 @@ mix ash.gen.resource Navatrack.Accounts.User \
   --attribute avatar_400x400_url:string \
   --attribute avatar_400x400_alt:string \
   \
-  --attribute image_1080x1080_url:string \
-  --attribute image_1080x1080_alt:string \
+  --attribute main_image_1080x1080_url:string \
+  --attribute main_image_1080x1080_alt:string \
   \
-  --attribute image_1920x1080_url:string \
-  --attribute image_1920x1080_alt:string \
+  --attribute main_image_1920x1080_url:string \
+  --attribute main_image_1920x1080_alt:string \
   \
-  --attribute image_1080x1920_url:string \
-  --attribute image_1080x1920_alt:string \
+  --attribute main_image_1080x1920_url:string \
+  --attribute main_image_1080x1920_alt:string \
   \
   --attribute work_profile_resume_as_pdf_url:string \
   --attribute work_profile_resume_as_markdown:string \

@@ -5,5 +5,6 @@ defmodule Navatrack.Works do
   resources do
     resource Navatrack.Works.Product
     resource Navatrack.Works.Skill
+    resource Navatrack.Works.LuminaFoundationSkillLevel
   end
 end

@@ -1,6 +1,7 @@
 defmodule NavatrackWeb.Organizations.FormLive do
   use NavatrackWeb, :live_view
   alias Navatrack.Accounts.Organization, as: X
+  @singular "Organization"
 
   require Logger
 
@@ -15,7 +16,7 @@ defmodule NavatrackWeb.Organizations.FormLive do
     x = Ash.get!(X, id)
 
     {:ok, assign(socket,
-      page_title: "Update Organization",
+      page_title: "Update #{X.title_singular}",
       form: to_form(form),
       x: x
     )}
@@ -25,7 +26,7 @@ defmodule NavatrackWeb.Organizations.FormLive do
     form = AshPhoenix.Form.for_create(X, :create)
 
     {:ok, assign(socket,
-      page_title: "Create Organization",
+      page_title: "Create #{X.title_singular}",
       form: to_form(form)
     )}
   end
