@@ -68,7 +68,7 @@ defmodule Navatrack.Repo.Migrations.CreateUsers do
         default: fragment("(now() AT TIME ZONE 'utc')")
     end
 
-    alter table(:products) do
+    alter table(:initiatives) do
       remove :net_promoter_score_value
       remove :six_pager_as_markdown
       remove :six_pager_as_url
@@ -76,7 +76,7 @@ defmodule Navatrack.Repo.Migrations.CreateUsers do
   end
 
   def down do
-    alter table(:products) do
+    alter table(:initiatives) do
       add :six_pager_as_url, :text
       add :six_pager_as_markdown, :text
       add :net_promoter_score_value, :float

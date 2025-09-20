@@ -111,10 +111,10 @@ defmodule NavatrackWeb.Router do
     live "/organizations/:id", Organizations.ShowLive
     live "/organizations/:id/edit", Organizations.FormLive, :edit
 
-    live "/products", Products.IndexLive
-    live "/products/new", Products.FormLive, :new
-    live "/products/:id", Products.ShowLive
-    live "/products/:id/edit", Products.FormLive, :edit
+    live "/initiatives", Initiatives.IndexLive
+    live "/initiatives/new", Initiatives.FormLive, :new
+    live "/initiatives/:id", Initiatives.ShowLive
+    live "/initiatives/:id/edit", Initiatives.FormLive, :edit
 
     live "/skills", Skills.IndexLive
     live "/skills/new", Skills.FormLive, :new

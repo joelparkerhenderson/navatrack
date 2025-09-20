@@ -8,7 +8,7 @@ defmodule Navatrack.Repo.Migrations.CreateProducts do
   use Ecto.Migration
 
   def up do
-    create table(:products, primary_key: false) do
+    create table(:initiatives, primary_key: false) do
       add :six_pager_as_url, :text
       add :six_pager_as_markdown, :text
       add :net_promoter_score_value, :float
@@ -189,6 +189,6 @@ defmodule Navatrack.Repo.Migrations.CreateProducts do
   end
 
   def down do
-    drop table(:products)
+    drop table(:initiatives)
   end
 end

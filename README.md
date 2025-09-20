@@ -35,4 +35,4 @@ Resources that we prefer to create:
 
 - [User](doc/user/)
 - [Organization](doc/organization/)
-- [Product](doc/product/)
+- [Initiative](doc/initiative/)

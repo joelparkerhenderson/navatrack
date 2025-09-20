@@ -1,4 +1,4 @@
-# Product
+# Initiative
 
 Create a domain:
 
@@ -12,14 +12,14 @@ You may need to edit file [`config/config.exs`](config/config.exs) to add:
 ash_domains: [Navatrack.Accounts, Navatrack.Works]
 ```
 
-Create a product:
+Create a initiative:
 
 ```sh
-### Works.Product
+### Works.Initiative
 
 ```sh
 mix ash.gen.domain Navatrack.Works
-mix ash.gen.resource Navatrack.Works.Product \
+mix ash.gen.resource Navatrack.Works.Initiative \
   --conflicts replace \
   --default-actions create,read,update,destroy \
   --extend postgres \
@@ -256,7 +256,7 @@ Unused:
 Migrate:
 
 ```sh
-mix ash.codegen create_products
+mix ash.codegen create_initiatives
 mix ash.migrate
 ```
 
@@ -268,17 +268,17 @@ scope "/", MyAppWeb do
 
     get "/", PageController, :home
 
-    live "/products", Products.IndexLive
-    live "/products/new", Products.FormLive, :new
-    live "/products/:id", Products.ShowLive
-    live "/products/:id/edit", Products.FormLive, :edit
+    live "/initiatives", Initiatives.IndexLive
+    live "/initiatives/new", Initiatives.FormLive, :new
+    live "/initiatives/:id", Initiatives.ShowLive
+    live "/initiatives/:id/edit", Initiatives.FormLive, :edit
 end
 ```
 
-Create a products directory for views:
+Create a initiatives directory for views:
 
 ```sh
-mkdir -p ~/git/sixarm/navatrack/lib/navatrack_web/live/products
+mkdir -p ~/git/sixarm/navatrack/lib/navatrack_web/live/initiatives
 ```
 
 ## Debug

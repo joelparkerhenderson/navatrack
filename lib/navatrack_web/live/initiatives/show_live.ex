@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.Products.ShowLive do
+defmodule NavatrackWeb.Initiatives.ShowLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Works.Product, as: X
+  alias Navatrack.Works.Initiative, as: X
 
   require Logger
 
@@ -50,10 +50,10 @@ defmodule NavatrackWeb.Products.ShowLive do
         {:noreply,
          socket
          |> put_flash(:info, "Deleted.")
-         |> push_navigate(to: ~p"/products")
+         |> push_navigate(to: Path.join(["/", X.plural_snake_case()]))
         }
       {:error, error} ->
-          Logger.warning("Delete failed for product '#{id}':
+          Logger.warning("Delete failed for initiative '#{id}':
           #{inspect(error)}")
           {:noreply,
             socket

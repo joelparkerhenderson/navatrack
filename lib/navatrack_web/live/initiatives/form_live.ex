@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.Products.FormLive do
+defmodule NavatrackWeb.Initiatives.FormLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Works.Product, as: X
+  alias Navatrack.Works.Initiative, as: X
 
   require Logger
 
@@ -446,7 +446,7 @@ defmodule NavatrackWeb.Products.FormLive do
         {:noreply,
           socket
           |> put_flash(:info, "Saved.")
-          |> push_navigate(to: ~p"/products/#{x}")
+          |> push_navigate(to: ~p"/#{X.plural_snake_case()}/#{x}")
         }
 
       {:error, form} ->

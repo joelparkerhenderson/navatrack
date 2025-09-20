@@ -4,21 +4,10 @@ defmodule Navatrack.Works.Skill do
     domain: Navatrack.Works,
     data_layer: AshPostgres.DataLayer
 
-  def singular_snake_case do
-    "skill"
-  end
-
-  def plural_snake_case do
-    "skills"
-  end
-
-  def singular_title_case do
-    "Skill"
-  end
-
-  def plural_title_case do
-    "Skills"
-  end
+  def singular_snake_case(), do: "skill"
+  def plural_snake_case(), do: "skills"
+  def singular_title_case(), do: "Skill"
+  def plural_title_case(), do: "Skills"
 
   postgres do
     table "skills"
