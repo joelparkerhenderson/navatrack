@@ -15,7 +15,7 @@ defmodule NavatrackWeb.Products.FormLive do
     x = Ash.get!(X, id)
 
     {:ok, assign(socket,
-      page_title: "Update #{X.title_singular}",
+      page_title: "Update #{X.singular_title_case}",
       form: to_form(form),
       x: x
     )}
@@ -25,7 +25,7 @@ defmodule NavatrackWeb.Products.FormLive do
     form = AshPhoenix.Form.for_create(X, :create)
 
     {:ok, assign(socket,
-      page_title: "Create #{X.title_singular}",
+      page_title: "Create #{X.singular_title_case}",
       form: to_form(form)
     )}
   end

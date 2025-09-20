@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.Skills.IndexLive do
+defmodule NavatrackWeb.LuminaFoundationSkillLevels.IndexLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Accounts.User, as: X
+  alias Navatrack.Works.LuminaFoundationSkillLevel, as: X
 
   require Logger
 
@@ -31,7 +31,7 @@ defmodule NavatrackWeb.Skills.IndexLive do
         {@page_title}
         <:actions>
           <.button
-            navigate={~p"/skills/new"}
+            navigate={~p"/#{X.plural_snake_case}/new"}
           >
             New
           </.button>
@@ -43,24 +43,32 @@ defmodule NavatrackWeb.Skills.IndexLive do
           None.
         </div>
       <% else %>
-        <ul>
-          <li :for={x <- @xx}>
-            <.render_skill x={x} />
-          </li>
-        </ul>
+        <table>
+          <tr :for={x <- @xx}>
+            <.render_x x={x} />
+          </tr>
+        </table>
       <% end %>
     </Layouts.app>
     """
   end
 
-  def render_skill(assigns) do
+  def render_x(assigns) do
     ~H"""
-    <.link
-      navigate={~p"/skills/#{@x.id}"}
-      data-role="x-name"
-    >
-      {@x.title}
-    </.link>
+    <td>
+      <.link
+        navigate={~p"/#{X.plural_snake_case}/#{@x.id}"}
+        data-role="x-title"
+      >
+        {@x.title}
+      </.link>
+    </td>
+    <td>
+      {@x.status}
+    </td>
+    <td>
+      {@x.tags}
+    </td>
     """
   end
 

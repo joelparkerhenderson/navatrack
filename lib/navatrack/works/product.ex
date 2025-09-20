@@ -4,11 +4,19 @@ defmodule Navatrack.Works.Product do
     domain: Navatrack.Works,
     data_layer: AshPostgres.DataLayer
 
-  def title_singular do
+  def singular_snake_case do
+    "product"
+  end
+
+  def plural_snake_case do
+    "products"
+  end
+
+  def singular_title_case do
     "Product"
   end
 
-  def title_plural do
+  def plural_title_case do
     "Products"
   end
 

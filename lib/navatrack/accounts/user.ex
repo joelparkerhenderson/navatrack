@@ -6,11 +6,19 @@ defmodule Navatrack.Accounts.User do
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication]
 
-  def title_singular do
+  def singular_snake_case do
+    "user"
+  end
+
+  def plural_snake_case do
+    "users"
+  end
+
+  def singular_title_case do
     "User"
   end
 
-  def title_plural do
+  def plural_title_case do
     "Users"
   end
 

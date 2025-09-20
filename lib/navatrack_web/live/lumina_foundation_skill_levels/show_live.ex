@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.Skills.ShowLive do
+defmodule NavatrackWeb.LuminaFoundationSkillLevels.ShowLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Accounts.User, as: X
+  alias Navatrack.Works.LuminaFoundationSkillLevel, as: X
 
   require Logger
 
@@ -31,7 +31,7 @@ defmodule NavatrackWeb.Skills.ShowLive do
             Delete
           </.button>
           <.button
-            navigate={~p"/skills/#{@x.id}/edit"}
+            navigate={~p"/#{X.plural_snake_case}/#{@x.id}/edit"}
           >
             Edit
           </.button>
