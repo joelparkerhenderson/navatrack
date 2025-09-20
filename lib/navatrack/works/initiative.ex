@@ -1,27 +1,16 @@
-defmodule Navatrack.Works.Product do
+defmodule Navatrack.Works.Initiative do
   use Ash.Resource,
     otp_app: :navatrack,
     domain: Navatrack.Works,
     data_layer: AshPostgres.DataLayer
 
-  def singular_snake_case do
-    "product"
-  end
-
-  def plural_snake_case do
-    "products"
-  end
-
-  def singular_title_case do
-    "Product"
-  end
-
-  def plural_title_case do
-    "Products"
-  end
+  def singular_snake_case(), do: "initiative"
+  def plural_snake_case(), do: "initiatives"
+  def singular_title_case(), do: "Initiative"
+  def plural_title_case(), do: "Initiatives"
 
   postgres do
-    table "products"
+    table "initiatives"
     repo Navatrack.Repo
   end
 

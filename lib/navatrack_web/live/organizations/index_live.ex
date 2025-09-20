@@ -7,7 +7,7 @@ defmodule NavatrackWeb.Organizations.IndexLive do
   def mount(_params, _session, socket) do
     socket =
       socket
-      |> assign(:page_title, "Organizations")
+      |> assign(:page_title, X.plural_title_case)
 
     {:ok, socket}
   end
@@ -19,7 +19,7 @@ defmodule NavatrackWeb.Organizations.IndexLive do
 
     {:noreply,
       socket
-      |> assign(:page_title, "Organizations")
+      |> assign(:page_title, X.plural_title_case)
       |> assign(:xx, xx)
     }
   end

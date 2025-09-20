@@ -111,7 +111,7 @@ defmodule NavatrackWeb.LuminaFoundationSkillLevels.FormLive do
         {:noreply,
           socket
           |> put_flash(:info, "Saved.")
-          |> push_navigate(to: ~p"/skills/#{x}")
+          |> push_navigate(to: ~p"/#{X.plural_snake_case()}/#{x}")
         }
 
       {:error, form} ->

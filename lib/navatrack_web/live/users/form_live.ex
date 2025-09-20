@@ -226,7 +226,7 @@ defmodule NavatrackWeb.Users.FormLive do
         {:noreply,
           socket
           |> put_flash(:info, "Saved.")
-          |> push_navigate(to: ~p"/users/#{x}")
+          |> push_navigate(to: ~p"/#{X.plural_snake_case()}/#{x}")
         }
 
       {:error, form} ->

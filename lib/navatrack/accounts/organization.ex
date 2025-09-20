@@ -4,21 +4,10 @@ defmodule Navatrack.Accounts.Organization do
     domain: Navatrack.Accounts,
     data_layer: AshPostgres.DataLayer
 
-  def singular_snake_case do
-    "organization"
-  end
-
-  def plural_snake_case do
-    "organizations"
-  end
-
-  def singular_title_case do
-    "Organization"
-  end
-
-  def plural_title_case do
-    "Organizations"
-  end
+  def singular_snake_case(), do: "organization"
+  def plural_snake_case(), do: "organizations"
+  def singular_title_case(), do: "Organization"
+  def plural_title_case(), do: "Organizations"
 
   postgres do
     table "organizations"

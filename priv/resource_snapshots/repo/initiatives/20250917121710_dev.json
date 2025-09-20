@@ -2085,7 +2085,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "1C7942EE06A9D0AED2837169809E1DA92690B067FDDF3C3C172F99EE35A8BFD6",
+  "hash": "86B5306B1E424B3BB451F10759B009B799BCD44F7DD3B3E5D278519E02402D9A",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -2094,5 +2094,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "products"
+  "table": "initiatives"
 }

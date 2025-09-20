@@ -1,6 +1,42 @@
 {
   "attributes": [
     {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "six_pager_as_url",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "six_pager_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "net_promoter_score_value",
+      "type": "float"
+    },
+    {
       "allow_nil?": false,
       "default": "fragment(\"gen_random_uuid()\")",
       "generated?": false,
@@ -2085,7 +2121,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "86B5306B1E424B3BB451F10759B009B799BCD44F7DD3B3E5D278519E02402D9A",
+  "hash": "878B543A31532E4D2E95C6A0063A99E4FC80B8002C67D0B29BA874452AC1BD5A",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -2094,5 +2130,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "products"
+  "table": "initiatives"
 }
