@@ -1,7 +1,6 @@
 defmodule NavatrackWeb.Organizations.FormLive do
   use NavatrackWeb, :live_view
   alias Navatrack.Accounts.Organization, as: X
-  @singular "Organization"
 
   require Logger
 

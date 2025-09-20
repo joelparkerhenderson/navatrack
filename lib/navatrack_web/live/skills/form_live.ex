@@ -1,7 +1,6 @@
 defmodule NavatrackWeb.Skills.FormLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Accounts.User, as: X
-  @singular "Skill"
+  alias Navatrack.Works.Skill, as: X
 
   require Logger
 

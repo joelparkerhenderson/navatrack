@@ -31,7 +31,7 @@ defmodule NavatrackWeb.Organizations.ShowLive do
             Delete
           </.button>
           <.button
-            navigate={~p"/#{X.plural_snake_case}/#{@x.id}/edit"}
+            navigate={~p"/#{X.plural_snake_case()}/#{@x.id}/edit"}
           >
             Edit
           </.button>

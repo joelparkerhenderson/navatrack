@@ -43,32 +43,21 @@ defmodule NavatrackWeb.Users.IndexLive do
           None.
         </div>
       <% else %>
-        <table>
-          <tr :for={x <- @xx}>
-            <.render_x x={x} />
-          </tr>
-        </table>
+        <.table id="xx" rows={@xx}>
+          <:col :let={x} label="id">
+            <.link
+              navigate={~p"/#{X.plural_snake_case()}/#{x.id}"}
+              data-role="x-id"
+            >
+              {x.id}
+            </.link>
+          </:col>
+          <:col :let={x} label="title">{x.title}</:col>
+          <:col :let={x} label="status">{x.status}</:col>
+          <:col :let={x} label="tags">{x.tags}</:col>
+        </.table>
       <% end %>
     </Layouts.app>
-    """
-  end
-
-  def render_x(assigns) do
-    ~H"""
-    <td>
-      <.link
-        navigate={~p"/#{X.plural_snake_case}/#{@x.id}"}
-        data-role="x-title"
-      >
-        {@x.title}
-      </.link>
-    </td>
-    <td>
-      {@x.status}
-    </td>
-    <td>
-      {@x.tags}
-    </td>
     """
   end
 

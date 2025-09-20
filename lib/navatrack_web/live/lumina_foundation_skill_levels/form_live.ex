@@ -1,7 +1,6 @@
 defmodule NavatrackWeb.LuminaFoundationSkillLevels.FormLive do
   use NavatrackWeb, :live_view
   alias Navatrack.Works.LuminaFoundationSkillLevel, as: X
-  @singular "Lumina Foundation Skill Level"
 
   require Logger
 
