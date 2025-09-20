@@ -31,6 +31,75 @@
     </script>
   </head>
   <body>
+    <div class="navbar bg-base-100 shadow-sm">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+        </div>
+        <ul
+          tabindex="0"
+          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+          <li><a href="/products">Products</a></li>
+          <li><a href="/users">Users</a></li>
+          <li><a href="/skills">Skills</a></li>
+          <li>
+            <a>Helpers</a>
+            <ul class="p-2">
+              <li><a href="/lumina_foundation_skill_level">Lumina Foundation Skill Level</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <a class="btn btn-ghost text-xl">Navatrack</a>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="/products">Products</a></li>
+        <li><a href="/users">Users</a></li>
+        <li><a href="/skills">Skills</a></li>
+        <li>
+          <details>
+            <summary>Helpers</summary>
+            <ul class="p-2">
+              <li><a href="/lumina_foundation_skill_level">Lumina Foundation Skill Level</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-end">
+      <div class="card relative flex flex-row items-center border-2 border-base-300 bg-base-300 rounded-full">
+        <div class="absolute w-1/3 h-full rounded-full border-1 border-base-200 bg-base-100 brightness-200 left-0 [[data-theme=light]_&]:left-1/3 [[data-theme=dark]_&]:left-2/3 transition-[left]" />
+
+        <button
+          class="flex p-2 cursor-pointer w-1/3"
+          phx-click={JS.dispatch("phx:set-theme")}
+          data-phx-theme="system"
+        >
+          <.icon name="hero-computer-desktop-micro" class="size-4 opacity-75 hover:opacity-100" />
+        </button>
+
+        <button
+          class="flex p-2 cursor-pointer w-1/3"
+          phx-click={JS.dispatch("phx:set-theme")}
+          data-phx-theme="light"
+        >
+          <.icon name="hero-sun-micro" class="size-4 opacity-75 hover:opacity-100" />
+        </button>
+
+        <button
+          class="flex p-2 cursor-pointer w-1/3"
+          phx-click={JS.dispatch("phx:set-theme")}
+          data-phx-theme="dark"
+        >
+          <.icon name="hero-moon-micro" class="size-4 opacity-75 hover:opacity-100" />
+        </button>
+      </div>
+
+    </div>
+  </div>
+
     {@inner_content}
   </body>
 </html>
