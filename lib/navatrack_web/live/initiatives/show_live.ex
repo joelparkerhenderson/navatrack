@@ -31,7 +31,7 @@ defmodule NavatrackWeb.Initiatives.ShowLive do
             Delete
           </.button>
           <.button
-            navigate={~p"/#{X.plural_snake_case()}/#{@x.id}/edit"}
+            navigate={Path.join(["/", X.plural_snake_case(), @x.id, "edit"])}
           >
             Edit
           </.button>
@@ -50,7 +50,7 @@ defmodule NavatrackWeb.Initiatives.ShowLive do
         {:noreply,
          socket
          |> put_flash(:info, "Deleted.")
-         |> push_navigate(to: Path.join(["/", X.plural_snake_case()]))
+         |> push_navigate(to: path_index(X))
         }
       {:error, error} ->
           Logger.warning("Delete failed for initiative '#{id}':

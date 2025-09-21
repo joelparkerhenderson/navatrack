@@ -14,14 +14,23 @@ defmodule Navatrack.Works.LuminaFoundationSkillLevel do
     repo Navatrack.Repo
   end
 
-  actions do
-    defaults [:read, :destroy, create: [], update: []]
-  end
-
   attributes do
     uuid_primary_key :id
+    attribute :sign, :string
+    create_timestamp :created_at
+    update_timestamp :updated_at
     attribute :number, :integer
     attribute :title, :string
     attribute :description, :string
   end
+
+  actions do
+    defaults [:read, :destroy, create: [], update: []]
+    default_accept [
+      :number,
+      :title,
+      :description
+    ]
+  end
+
 end

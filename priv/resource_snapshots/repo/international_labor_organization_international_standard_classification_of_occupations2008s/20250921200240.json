@@ -21,8 +21,8 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "number",
-      "type": "bigint"
+      "source": "code",
+      "type": "text"
     },
     {
       "allow_nil?": true,
@@ -45,7 +45,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "description",
+      "source": "definition",
       "type": "text"
     }
   ],
@@ -54,7 +54,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "98E91380562E09ADF261052EB2EB321F4DA6CE43426C33ED2AD09E976EBA771E",
+  "hash": "588CD2E1DE3414A4A5154E41FE126E086DA470CB042C21344BBF30E6B63A253D",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -63,5 +63,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "lumina_foundation_skill_levels"
+  "table": "international_labor_organization_international_standard_classification_of_occupations2008s"
 }

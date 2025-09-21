@@ -66,9 +66,9 @@ defmodule NavatrackWeb.Users.FormLive do
         />
 
         <.section id="contact" title="Contacts">
-          <.input field={form[:url]} label="URL" placeholder="https://example.com" />
-          <.input field={form[:email]} label="Email" placeholder="example@example.com" />
-          <.input field={form[:phone]} label="Phone" placeholder="+1-415-555-5555"/>
+          <.input field={form[:url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:email]} type="email" label="Email" placeholder="example@example.com" />
+          <.input field={form[:phone]} type="tel" label="Phone" placeholder="+1-415-555-5555"/>
           <.input field={form[:messaging]} label="Messaging" placeholder="https://bsky.app/profile/example"/>
           <.input field={form[:postal]} label="Postal" placeholder="123 Main St, San Francisco, CA, US, 94100, US"/>
           <.input field={form[:orcid_pid]} label="ORCID PID" placeholder="0009-0000-4681-282X" />
@@ -222,11 +222,11 @@ defmodule NavatrackWeb.Users.FormLive do
   def handle_event("save", %{"form" => form_data}, socket) do
     form_data = convert_tags_param(form_data)
     case AshPhoenix.Form.submit(socket.assigns.form, params: form_data) do
-      {:ok, x} ->
+      {:ok, _x} ->
         {:noreply,
           socket
           |> put_flash(:info, "Saved.")
-          |> push_navigate(to: ~p"/#{X.plural_snake_case()}/#{x}")
+          |> push_navigate(to: path_index(X))
         }
 
       {:error, form} ->
@@ -250,24 +250,5 @@ defmodule NavatrackWeb.Users.FormLive do
 
     end
   end
-
-  @doc """
-  Convert tags param:
-    - parse from a string into a list.
-    - identity fallthrough.
-  """
-
-def convert_tags_param(%{"tags" => tags} = params) when is_binary(tags) do
-    # Convert comma-separated string to list if your schema expects an array
-    tags =
-      tags
-      |> String.split(",")
-      |> Enum.map(&String.trim/1)
-      |> Enum.reject(&(&1 == ""))
-
-    %{params | "tags" => tags}
-  end
-
-  def convert_tags_param(params), do: params
 
 end

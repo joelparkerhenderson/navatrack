@@ -14,12 +14,11 @@ defmodule Navatrack.Accounts.Organization do
     repo Navatrack.Repo
   end
 
-  actions do
-    defaults [:read, :destroy, create: [], update: []]
-  end
-
   attributes do
     uuid_primary_key :id
+    attribute :sign, :string
+    create_timestamp :created_at
+    update_timestamp :updated_at
     attribute :title, :string
     attribute :status, :string
     attribute :tags, {:array, :string}
@@ -87,6 +86,80 @@ defmodule Navatrack.Accounts.Organization do
     attribute :employee_handbook_policy_as_markdown, :string
     attribute :human_resources_policy_as_url, :string
     attribute :human_resources_policy_as_markdown, :string
-    timestamps()
   end
+
+  actions do
+    defaults [:read, :destroy, create: [], update: []]
+ 	  default_accept [
+      :sign,
+      :title,
+      :status,
+      :tags,
+      :url,
+      :email,
+      :phone,
+      :messaging,
+      :postal,
+      :orcid_pid,
+      :rdf,
+      :linkedin_url,
+      :github_url,
+      :codeberg_url,
+      :location_iso_3166_1_alpha_2,
+      :location_iso_3166_2,
+      :location_postal_code,
+      :location_latitude_as_decimal_degrees,
+      :location_longitude_as_decimal_degrees,
+      :note,
+      :daisyui_timeline_html,
+      :org_mode,
+      :task_list_as_markdown,
+      :ways_of_working_as_markdown,
+      :objectives_and_key_results_as_markdown,
+      :key_performance_indicators_as_markdown,
+      :agents_as_markdown,
+      :avatar_400x400_url,
+      :avatar_400x400_alt,
+      :image_1080x1080_url,
+      :image_1080x1080_alt,
+      :image_1920x1080_url,
+      :image_1920x1080_alt,
+      :image_1080x1920_url,
+      :image_1080x1920_alt,
+      :gs1_digital_link,
+      :gs1_country_code,
+      :gs1_global_location_number,
+      :international_standard_industrial_classification_v4_code,
+      :international_standard_industrial_classification_v4_name,
+      :copyright_policy_as_url,
+      :copyright_policy_as_markdown,
+      :corrections_policy_as_url,
+      :corrections_policy_as_markdown,
+      :legal_policy_as_url,
+      :legal_policy_as_markdown,
+      :ethics_policy_as_url,
+      :ethics_policy_as_markdown,
+      :privacy_policy_as_url,
+      :privacy_policy_as_markdown,
+      :security_policy_as_url,
+      :security_policy_as_markdown,
+      :coordinated_disclosure_policy_as_url,
+      :coordinated_disclosure_policy_as_markdown,
+      :open_source_policy_as_url,
+      :open_source_policy_as_markdown,
+      :code_of_conduct_policy_as_url,
+      :code_of_conduct_policy_as_markdown,
+      :equal_opportunity_policy_as_url,
+      :equal_opportunity_policy_as_markdown,
+      :social_network_policy_as_url,
+      :social_network_policy_as_markdown,
+      :health_and_safety_policy_as_url,
+      :health_and_safety_policy_as_markdown,
+      :employee_handbook_policy_as_url,
+      :employee_handbook_policy_as_markdown,
+      :human_resources_policy_as_url,
+      :human_resources_policy_as_markdown
+    ]
+  end
+
 end

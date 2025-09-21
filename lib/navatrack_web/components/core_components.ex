@@ -419,6 +419,56 @@ defmodule NavatrackWeb.CoreComponents do
     """
   end
 
+  @doc """
+  Format a path to a resource route "index" by using our convention of plural snake case.
+
+  Example:
+
+  ```elixir
+  path_index(resource_module)
+  ->
+  "/initiatives"
+  ```
+  """
+
+  def path_index(resource_module) do
+    Path.join(["/", resource_module.plural_snake_case()])
+  end
+
+  @doc """
+  Format a path to a resource route "show" by using our convention of plural snake case and id.
+
+  Example:
+
+  ```elixir
+  path_show(resource_instance)
+  ->
+  "/initiatives/f785eb8f-3913-4fd5-b7f4-7c6ea468ddb7"
+  ```
+  """
+
+  def path_show(resource_instance) do
+    Path.join(["/", resource_instance.__struct__.plural_snake_case(), resource_instance.id])
+  end
+
+  @doc """
+  Render a link to a resource route "show" by using our convention of plural snake case and id.
+
+  Example:
+
+  ```elixir
+  link_show(x)
+  ->
+  ~H <.link navigate=/initiatives/f785eb8f-3913-4fd5-b7f4-7c6ea468ddb7" data-role="x-id">➡️</.link>
+  ```
+  """
+
+  def link_show(assigns) do
+    ~H"""
+    <.link navigate={path_show(assigns.x)} data-role="x-id">➡️</.link>
+    """
+  end
+
   ## JS Commands
 
   def show(js \\ %JS{}, selector) do
@@ -469,4 +519,24 @@ defmodule NavatrackWeb.CoreComponents do
   def translate_errors(errors, field) when is_list(errors) do
     for {^field, {msg, opts}} <- errors, do: translate_error({msg, opts})
   end
+
+  @doc """
+  Convert tags param:
+    - parse from a string into a list.
+    - identity fallthrough.
+  """
+
+  def convert_tags_param(%{"tags" => tags} = params) when is_binary(tags) do
+    # Convert comma-separated string to list if your schema expects an array
+    tags =
+      tags
+      |> String.split(",")
+      |> Enum.map(&String.trim/1)
+      |> Enum.reject(&(&1 == ""))
+
+    %{params | "tags" => tags}
+  end
+
+  def convert_tags_param(params), do: params
+
 end

@@ -21,6 +21,42 @@
       "references": null,
       "scale": null,
       "size": null,
+      "source": "sign",
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "created_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": false,
+      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "updated_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
       "source": "title",
       "type": "text"
     },
@@ -432,7 +468,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "gs1_digital_link",
+      "source": "work_profile_resume_as_pdf_url",
       "type": "text"
     },
     {
@@ -444,7 +480,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "gs1_country_code",
+      "source": "work_profile_resume_as_markdown",
       "type": "text"
     },
     {
@@ -456,7 +492,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "gs1_global_location_number",
+      "source": "work_profile_curriculum_vitae_as_pdf_url",
       "type": "text"
     },
     {
@@ -468,7 +504,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "international_standard_industrial_classification_v4_code",
+      "source": "work_profile_curriculum_vitae_as_markdown",
       "type": "text"
     },
     {
@@ -480,7 +516,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "international_standard_industrial_classification_v4_name",
+      "source": "work_role_title",
       "type": "text"
     },
     {
@@ -492,7 +528,31 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "copyright_policy_as_url",
+      "source": "work_role_start_date",
+      "type": "date"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "work_role_stop_date",
+      "type": "date"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "work_role_level",
       "type": "text"
     },
     {
@@ -504,7 +564,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "copyright_policy_as_markdown",
+      "source": "work_role_description_as_markdown",
       "type": "text"
     },
     {
@@ -516,7 +576,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "corrections_policy_as_url",
+      "source": "work_role_professional_development_plan_markdown",
       "type": "text"
     },
     {
@@ -528,7 +588,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "corrections_policy_as_markdown",
+      "source": "work_role_onet_soc_2019_code",
       "type": "text"
     },
     {
@@ -540,7 +600,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "legal_policy_as_url",
+      "source": "work_role_united_kingdom_civil_service_grade_abbreviation",
       "type": "text"
     },
     {
@@ -552,7 +612,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "legal_policy_as_markdown",
+      "source": "work_role_united_kingdom_standard_occupational_classification_2020_code",
       "type": "text"
     },
     {
@@ -564,284 +624,8 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "ethics_policy_as_url",
+      "source": "work_role_united_kingdom_government_digital_and_data_profession_capability_framework_url",
       "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "ethics_policy_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "privacy_policy_as_url",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "privacy_policy_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "security_policy_as_url",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "security_policy_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "coordinated_disclosure_policy_as_url",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "coordinated_disclosure_policy_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "open_source_policy_as_url",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "open_source_policy_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "code_of_conduct_policy_as_url",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "code_of_conduct_policy_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "equal_opportunity_policy_as_url",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "equal_opportunity_policy_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "social_network_policy_as_url",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "social_network_policy_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "health_and_safety_policy_as_url",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "health_and_safety_policy_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "employee_handbook_policy_as_url",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "employee_handbook_policy_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "human_resources_policy_as_url",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "human_resources_policy_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
-      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "inserted_at",
-      "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": false,
-      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "updated_at",
-      "type": "utc_datetime_usec"
     }
   ],
   "base_filter": null,
@@ -849,8 +633,23 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "BF15E6166977F2605820CDB5D8AE555749F0756AFD702E0F155BFA7BA6991D92",
-  "identities": [],
+  "hash": "5A3CAB073A3533CE1A6228FB833D5DB2B0C7E2749D21520EEC5C6906DF1CDB4B",
+  "identities": [
+    {
+      "all_tenants?": false,
+      "base_filter": null,
+      "index_name": "users_unique_email_index",
+      "keys": [
+        {
+          "type": "atom",
+          "value": "email"
+        }
+      ],
+      "name": "unique_email",
+      "nils_distinct?": true,
+      "where": null
+    }
+  ],
   "multitenancy": {
     "attribute": null,
     "global": null,
@@ -858,5 +657,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "organizations"
+  "table": "users"
 }

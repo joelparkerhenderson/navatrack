@@ -31,7 +31,7 @@ defmodule NavatrackWeb.Skills.IndexLive do
         {@page_title}
         <:actions>
           <.button
-            navigate={~p"/#{X.plural_snake_case()}/new"}
+            navigate={Path.join(["/", X.plural_snake_case(), "new"])}
           >
             New
           </.button>
@@ -43,19 +43,15 @@ defmodule NavatrackWeb.Skills.IndexLive do
           None.
         </div>
       <% else %>
-        <.table id="xx" rows={@xx}>
-          <:col :let={x} label="id">
-            <.link
-              navigate={~p"/#{X.plural_snake_case()}/#{x.id}"}
-              data-role="x-id"
-            >
-              {x.id}
-            </.link>
+        <Cinder.Table.table resource={X}>
+          <:col :let={x} field="link" filter sort search>
+            <.link navigate={path_show(x)} data-role="x-id">➡️</.link>
           </:col>
-          <:col :let={x} label="title">{x.title}</:col>
-          <:col :let={x} label="status">{x.status}</:col>
-          <:col :let={x} label="tags">{x.tags}</:col>
-        </.table>
+          <:col :let={x} field="sign" filter sort search>{x.sign}</:col>
+          <:col :let={x} field="title" filter sort search>{x.status}</:col>
+          <:col :let={x} field="status" filter sort search>{x.status}</:col>
+          <:col :let={x} field="tags" filter sort search>{x.tags}</:col>
+        </Cinder.Table.table>
       <% end %>
     </Layouts.app>
     """

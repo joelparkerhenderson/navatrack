@@ -50,7 +50,7 @@ defmodule NavatrackWeb.Skills.ShowLive do
         {:noreply,
          socket
          |> put_flash(:info, "Deleted.")
-         |> push_navigate(to: ~p"/skills")
+         |> push_navigate(to: path_index(X))
         }
       {:error, error} ->
           Logger.warning("Delete failed for skill '#{id}':

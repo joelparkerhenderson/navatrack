@@ -51,7 +51,7 @@ defmodule NavatrackWeb.Skills.FormLive do
 
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:title]} label="Name" autofocus />
+        <.input field={form[:title]} label="Title" autofocus />
         <.input field={form[:status]} label="Status" />
         <.input
           field={form[:tags]}
@@ -148,11 +148,11 @@ defmodule NavatrackWeb.Skills.FormLive do
   def handle_event("save", %{"form" => form_data}, socket) do
     form_data = convert_tags_param(form_data)
     case AshPhoenix.Form.submit(socket.assigns.form, params: form_data) do
-      {:ok, x} ->
+      {:ok, _x} ->
         {:noreply,
           socket
           |> put_flash(:info, "Saved.")
-          |> push_navigate(to: ~p"/#{X.plural_snake_case()}/#{x}")
+          |> push_navigate(to: path_index(X))
         }
 
       {:error, form} ->
@@ -176,24 +176,5 @@ defmodule NavatrackWeb.Skills.FormLive do
 
     end
   end
-
-  @doc """
-  Convert tags param:
-    - parse from a string into a list.
-    - identity fallthrough.
-  """
-
-def convert_tags_param(%{"tags" => tags} = params) when is_binary(tags) do
-    # Convert comma-separated string to list if your schema expects an array
-    tags =
-      tags
-      |> String.split(",")
-      |> Enum.map(&String.trim/1)
-      |> Enum.reject(&(&1 == ""))
-
-    %{params | "tags" => tags}
-  end
-
-  def convert_tags_param(params), do: params
 
 end

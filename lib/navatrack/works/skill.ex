@@ -14,12 +14,11 @@ defmodule Navatrack.Works.Skill do
     repo Navatrack.Repo
   end
 
-  actions do
-    defaults [:read, :destroy, create: [], update: []]
-  end
-
   attributes do
     uuid_primary_key :id
+    attribute :sign, :string
+    create_timestamp :created_at
+    update_timestamp :updated_at
     attribute :title, :string
     attribute :status, :string
     attribute :tags, {:array, :string}
@@ -33,6 +32,28 @@ defmodule Navatrack.Works.Skill do
     attribute :image_1920x1080_alt, :string
     attribute :image_1080x1920_url, :string
     attribute :image_1080x1920_alt, :string
-    timestamps()
   end
+
+  actions do
+    defaults [:read, :destroy, create: [], update: []]
+    default_accept [
+      :sign,
+      :created_at,
+      :updated_at,
+      :title,
+      :status,
+      :tags,
+      :summary_as_markdown,
+      :description_as_markdown,
+      :avatar_400x400_url,
+      :avatar_400x400_alt,
+      :image_1080x1080_url,
+      :image_1080x1080_alt,
+      :image_1920x1080_url,
+      :image_1920x1080_alt,
+      :image_1080x1920_url,
+      :image_1080x1920_alt
+    ]
+  end
+
 end

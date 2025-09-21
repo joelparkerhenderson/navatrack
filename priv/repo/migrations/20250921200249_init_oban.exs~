@@ -1,0 +1,7 @@
+defmodule Navatrack.Repo.Migrations.InitOban do
+  use Ecto.Migration
+
+  def change do
+
+  end
+end

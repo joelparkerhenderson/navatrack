@@ -50,7 +50,7 @@ defmodule NavatrackWeb.Users.ShowLive do
         {:noreply,
          socket
          |> put_flash(:info, "Deleted.")
-         |> push_navigate(to: ~p"/users")
+         |> push_navigate(to: path_index(X))
         }
       {:error, error} ->
           Logger.warning("Delete failed for user '#{id}':

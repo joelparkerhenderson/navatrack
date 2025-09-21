@@ -7,6 +7,7 @@
 # General application configuration
 import Config
 
+config :cinder, default_theme: "modern"
 config :backpex, pubsub_server: Navatrack.PubSub
 config :ash_oban, pro?: false
 

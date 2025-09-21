@@ -21,8 +21,44 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "code",
+      "source": "sign",
       "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "created_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": false,
+      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "updated_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "number",
+      "type": "bigint"
     },
     {
       "allow_nil?": true,
@@ -45,7 +81,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "definition",
+      "source": "description",
       "type": "text"
     }
   ],
@@ -54,7 +90,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "715B85C2F1A5FAF557621AB507F7B0C5C999FBE4D6A233336D030B0E701C7794",
+  "hash": "6C4209C339144A71BEA03366D318AEAF1E48CDA6CDF91353C754D9935BEF9AB3",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -63,5 +99,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "international_labor_organization_international_standard_classification_of_occupations2008s"
+  "table": "lumina_foundation_skill_levels"
 }
