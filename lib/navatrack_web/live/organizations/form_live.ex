@@ -72,7 +72,7 @@ defmodule NavatrackWeb.Organizations.FormLive do
           <.input field={form[:messaging]} label="Messaging" placeholder="https://bsky.app/profile/example"/>
           <.input field={form[:postal]} label="Postal" placeholder="123 Main St, San Francisco, CA, US, 94100, US"/>
           <.input field={form[:orcid_pid]} label="ORCID PID" placeholder="0009-0000-4681-282X" />
-          <.input field={form[:rdf]} label="RDF Type" />
+          <.input field={form[:rdf_type]} label="RDF Type" />
         </.section>
 
         <.section id="socials" title="Socials">
@@ -90,7 +90,7 @@ defmodule NavatrackWeb.Organizations.FormLive do
         </.section>
 
         <.section id="agents" title="AGENTS.md">
-          <.input field={form[:agents_as_url]} label="URL" placeholder="https://example.com"/>
+          <.input field={form[:agents_as_url]} type="url" label="URL" placeholder="https://example.com"/>
           <.input field={form[:agents_as_markdown]} type="textarea" label="Text" />
         </.section>
 
@@ -98,23 +98,23 @@ defmodule NavatrackWeb.Organizations.FormLive do
 
           <h3 class="h3">Avatar 400x400</h3>
 
-          <.input field={form[:avatar_400x400_url]} label="URL" placeholder="https://example.com" />
-          <.input field={form[:avatar_400x400_alt]} label="Alt" />
+          <.input field={form[:avatar_image_400x400_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:avatar_image_400x400_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1080x1080 square</h3>
 
-          <.input field={form[:splash_1080x1080_url]} label="URL" placeholder="https://example.com" />
-          <.input field={form[:splash_1080x1080_alt]} label="Alt" />
+          <.input field={form[:main_image_1080x1080_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1080x1080_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1920x1080 landscape</h3>
 
-          <.input field={form[:splash_1920x1080_url]} label="URL" placeholder="https://example.com" />
-          <.input field={form[:splash_1920x1080_alt]} label="Alt" />
+          <.input field={form[:main_image_1920x1080_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1920x1080_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1920x1080 portrait</h3>
 
-          <.input field={form[:splash_1080x1920_url]} label="URL" placeholder="https://example.com" />
-          <.input field={form[:splash_1080x1920_alt]} label="Alt" />
+          <.input field={form[:main_image_1080x1920_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1080x1920_alt]} label="Alt" />
 
         </.section>
 
@@ -146,81 +146,106 @@ defmodule NavatrackWeb.Organizations.FormLive do
 
         </.section>
 
+        <.section id="net_promoter_score" title="Net Promoter Score">
+
+          <h3 class="h3">Customer Net Promoter Score (CNPS)</h3>
+
+          <.input field={form[:customer_net_promoter_score_actual_value]} label="Actual Value" />
+          <.input field={form[:customer_net_promoter_score_target_value]} label="Target Value" />
+          <.input field={form[:customer_net_promoter_score_unit]} label="Unit" />
+          <.input field={form[:customer_net_promoter_score_description_as_markdown]} type="textarea" label="Description " />
+
+          <h3 class="h3">User Net Promoter Score (UNPS)</h3>
+
+          <.input field={form[:user_net_promoter_score_actual_value]} label="Actual Value" />
+          <.input field={form[:user_net_promoter_score_target_value]} label="Target Value" />
+          <.input field={form[:user_net_promoter_score_unit]} label="Unit" />
+          <.input field={form[:user_net_promoter_score_description_as_markdown]} type="textarea" label="Description " />
+
+          <h3 class="h3">Worker Net Promoter Score (WNPS)</h3>
+
+          <.input field={form[:worker_net_promoter_score_actual_value]} label="Actual Value" />
+          <.input field={form[:worker_net_promoter_score_target_value]} label="Target Value" />
+          <.input field={form[:worker_net_promoter_score_unit]} label="Unit" />
+          <.input field={form[:worker_net_promoter_score_description_as_markdown]} type="textarea" label="Description " />
+
+        </.section>
+
         <.section id="policies" title="Policies">
 
           <h3 class="h3">Ethics Policy</h3>
 
-          <.input field={form[:ethics_policy_as_url]} label="Code" />
+          <.input field={form[:ethics_policy_as_url]} type="url" label="Code" />
           <.input field={form[:ethics_policy_as_markdown]} label="Name" />
 
           <h3 class="h3">Copyright Policy</h3>
 
-          <.input field={form[:copyright_policy_as_url]} label="URL" />
+          <.input field={form[:copyright_policy_as_url]} type="url" label="URL" />
           <.input field={form[:copyright_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Corrections Policy</h3>
 
-          <.input field={form[:corrections_policy_as_url]} label="URL" />
+          <.input field={form[:corrections_policy_as_url]} type="url" label="URL" />
           <.input field={form[:corrections_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Legal Policy</h3>
 
-          <.input field={form[:legal_policy_as_url]} label="URL" />
+          <.input field={form[:legal_policy_as_url]} type="url" label="URL" />
           <.input field={form[:legal_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Privacy Policy</h3>
 
-          <.input field={form[:privacy_policy_as_url]} label="URL" />
+          <.input field={form[:privacy_policy_as_url]} type="url" label="URL" />
           <.input field={form[:privacy_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Security Policy</h3>
 
-          <.input field={form[:security_policy_as_url]} label="URL" />
+          <.input field={form[:security_policy_as_url]} type="url" label="URL" />
           <.input field={form[:security_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Security Policy</h3>
 
-          <.input field={form[:coordinated_disclosure_policy_as_url]} label="URL" />
+          <.input field={form[:coordinated_disclosure_policy_as_url]} type="url" label="URL" />
           <.input field={form[:coordinated_disclosure_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Coordinated Disclosure Policy</h3>
 
-          <.input field={form[:coordinated_disclosure_policy_as_url]} label="URL" />
+          <.input field={form[:coordinated_disclosure_policy_as_url]} type="url" label="URL" />
           <.input field={form[:coordinated_disclosure_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Coordinated Disclosure Policy</h3>
 
-          <.input field={form[:open_source_policy_as_url]} label="URL" />
+          <.input field={form[:open_source_policy_as_url]} type="url" label="URL" />
           <.input field={form[:open_source_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Code of Conduct Policy</h3>
 
-          <.input field={form[:code_of_conduct_policy_as_url]} label="URL" />
+          <.input field={form[:code_of_conduct_policy_as_url]} type="url" label="URL" />
           <.input field={form[:code_of_conduct_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Equal Opportunity Policy</h3>
 
-          <.input field={form[:equal_opportunity_policy_as_url]} label="URL" />
+          <.input field={form[:equal_opportunity_policy_as_url]} type="url" label="URL" />
           <.input field={form[:equal_opportunity_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Social Network Policy</h3>
 
-          <.input field={form[:social_network_policy_as_url]} label="URL" />
-          <.input field={form[:social_network_policy_as_url]} label="Text" />
+          <.input field={form[:social_network_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:social_network_policy_as_url]} type="url" label="Text" />
 
           <h3 class="h3">Health &amp; Safety Policy</h3>
 
-          <.input field={form[:health_and_safety_policy_as_url]} label="URL" />
+          <.input field={form[:health_and_safety_policy_as_url]} type="url" label="URL" />
           <.input field={form[:health_and_safety_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Employee Handbook Policy</h3>
 
-          <.input field={form[:employee_handbook_policy_as_url]} label="URL" />
+          <.input field={form[:employee_handbook_policy_as_url]} type="url" label="URL" />
           <.input field={form[:employee_handbook_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Human Resources Policy</h3>
 
-          <.input field={form[:human_resources_policy_as_url]} label="URL" />
+          <.input field={form[:human_resources_policy_as_url]} type="url" label="URL" />
           <.input field={form[:human_resources_policy_as_markdown]} label="Text" />
 
         </.section>

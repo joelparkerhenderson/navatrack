@@ -16,9 +16,10 @@ defmodule Navatrack.Accounts.Organization do
 
   attributes do
     uuid_primary_key :id
+    attribute :created_at, :utc_datetime_usec
+    attribute :updated_at, :utc_datetime_usec
+    attribute :deleted_at, :utc_datetime_usec
     attribute :sign, :string
-    create_timestamp :created_at
-    update_timestamp :updated_at
     attribute :title, :string
     attribute :status, :string
     attribute :tags, {:array, :string}
@@ -28,7 +29,7 @@ defmodule Navatrack.Accounts.Organization do
     attribute :messaging, :string
     attribute :postal, :string
     attribute :orcid_pid, :string
-    attribute :rdf, :string
+    attribute :rdf_type, :string
     attribute :linkedin_url, :string
     attribute :github_url, :string
     attribute :codeberg_url, :string
@@ -45,14 +46,14 @@ defmodule Navatrack.Accounts.Organization do
     attribute :objectives_and_key_results_as_markdown, :string
     attribute :key_performance_indicators_as_markdown, :string
     attribute :agents_as_markdown, :string
-    attribute :avatar_400x400_url, :string
-    attribute :avatar_400x400_alt, :string
-    attribute :image_1080x1080_url, :string
-    attribute :image_1080x1080_alt, :string
-    attribute :image_1920x1080_url, :string
-    attribute :image_1920x1080_alt, :string
-    attribute :image_1080x1920_url, :string
-    attribute :image_1080x1920_alt, :string
+    attribute :avatar_image_400x400_url, :string
+    attribute :avatar_image_400x400_alt, :string
+    attribute :main_image_1080x1080_url, :string
+    attribute :main_image_1080x1080_alt, :string
+    attribute :main_image_1920x1080_url, :string
+    attribute :main_image_1920x1080_alt, :string
+    attribute :main_image_1080x1920_url, :string
+    attribute :main_image_1080x1920_alt, :string
     attribute :gs1_digital_link, :string
     attribute :gs1_country_code, :string
     attribute :gs1_global_location_number, :string
@@ -89,8 +90,11 @@ defmodule Navatrack.Accounts.Organization do
   end
 
   actions do
-    defaults [:read, :destroy, create: [], update: []]
+ 	  defaults [:create, :read, :update, :destroy]
  	  default_accept [
+      :created_at,
+      :updated_at,
+      :deleted_at,
       :sign,
       :title,
       :status,
@@ -101,7 +105,7 @@ defmodule Navatrack.Accounts.Organization do
       :messaging,
       :postal,
       :orcid_pid,
-      :rdf,
+      :rdf_type,
       :linkedin_url,
       :github_url,
       :codeberg_url,
@@ -118,14 +122,14 @@ defmodule Navatrack.Accounts.Organization do
       :objectives_and_key_results_as_markdown,
       :key_performance_indicators_as_markdown,
       :agents_as_markdown,
-      :avatar_400x400_url,
-      :avatar_400x400_alt,
-      :image_1080x1080_url,
-      :image_1080x1080_alt,
-      :image_1920x1080_url,
-      :image_1920x1080_alt,
-      :image_1080x1920_url,
-      :image_1080x1920_alt,
+      :avatar_image_400x400_url,
+      :avatar_image_400x400_alt,
+      :main_image_1080x1080_url,
+      :main_image_1080x1080_alt,
+      :main_image_1920x1080_url,
+      :main_image_1920x1080_alt,
+      :main_image_1080x1920_url,
+      :main_image_1080x1920_alt,
       :gs1_digital_link,
       :gs1_country_code,
       :gs1_global_location_number,

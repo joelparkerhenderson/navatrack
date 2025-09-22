@@ -16,14 +16,14 @@ mix ash.gen.resource Accounts UserOrganization \
 Create `lib/your_app/accounts/user_organization.ex`:
 
 ```elixir
-defmodule MyApp.Accounts.UserOrganization do
+defmodule App.Accounts.UserOrganization do
   use Ash.Resource,
-    domain: MyApp.Accounts,
+    domain: App.Accounts,
     data_layer: AshPostgres.DataLayer
 
   postgres do
     table "user_organizations"
-    repo MyApp.Repo
+    repo App.Repo
   end
 
   attributes do
@@ -32,12 +32,12 @@ defmodule MyApp.Accounts.UserOrganization do
   end
 
   relationships do
-    belongs_to :user, MyApp.Accounts.User do
+    belongs_to :user, App.Accounts.User do
       primary_key? true
       allow_nil? false
     end
 
-    belongs_to :organization, MyApp.Accounts.Organization do
+    belongs_to :organization, App.Accounts.Organization do
       primary_key? true
       allow_nil? false
     end
@@ -58,14 +58,14 @@ end
 Add the many-to-many relationship to your User resource:
 
 ```elixir
-defmodule MyApp.Accounts.User do
+defmodule App.Accounts.User do
   use Ash.Resource, ...
 
   relationships do
     # Other relationships...
     
-    many_to_many :organizations, MyApp.Accounts.Organization do
-      through MyApp.Accounts.UserOrganization
+    many_to_many :organizations, App.Accounts.Organization do
+      through App.Accounts.UserOrganization
       source_attribute_on_join_resource :user_id
       destination_attribute_on_join_resource :organization_id
     end
@@ -78,14 +78,14 @@ end
 Add the corresponding relationship to your Organization resource:
 
 ```elixir
-defmodule MyApp.Accounts.Organization do
+defmodule App.Accounts.Organization do
   use Ash.Resource, ...
 
   relationships do
     # Other relationships...
     
-    many_to_many :users, MyApp.Accounts.User do
-      through MyApp.Accounts.UserOrganization
+    many_to_many :users, App.Accounts.User do
+      through App.Accounts.UserOrganization
       source_attribute_on_join_resource :organization_id
       destination_attribute_on_join_resource :user_id
     end
@@ -113,12 +113,12 @@ Now you can work with the many-to-many relationship:
 
 ```elixir
 # Load a user with their organizations
-user = MyApp.Accounts.User
+user = App.Accounts.User
 |> Ash.Query.load(:organizations)
 |> Ash.read_one!()
 
 # Add a user to an organization
-MyApp.Accounts.UserOrganization
+App.Accounts.UserOrganization
 |> Ash.Changeset.for_create(:create, %{
   user_id: user_id,
   organization_id: organization_id

@@ -16,9 +16,10 @@ defmodule Navatrack.Works.Initiative do
 
   attributes do
     uuid_primary_key :id
+    attribute :created_at, :utc_datetime_usec
+    attribute :updated_at, :utc_datetime_usec
+    attribute :deleted_at, :utc_datetime_usec
     attribute :sign, :string
-    create_timestamp :created_at
-    update_timestamp :updated_at
     attribute :title, :string
     attribute :status, :string
     attribute :tags, {:array, :string}
@@ -27,18 +28,21 @@ defmodule Navatrack.Works.Initiative do
     attribute :phone, :string
     attribute :messaging, :string
     attribute :postal, :string
-    attribute :orcid, :string
-    attribute :rdf, :string
+    attribute :orcid_pid, :string
+    attribute :rdf_type, :string
+    attribute :linkedin_url, :string
+    attribute :github_url, :string
+    attribute :codeberg_url, :string
     attribute :agents_as_url, :string
     attribute :agents_as_markdown, :string
-    attribute :avatar_400x400_url, :string
-    attribute :avatar_400x400_alt, :string
-    attribute :splash_1080x1080_url, :string
-    attribute :splash_1080x1080_alt, :string
-    attribute :splash_1920x1080_url, :string
-    attribute :splash_1920x1080_alt, :string
-    attribute :splash_1080x1920_url, :string
-    attribute :splash_1080x1920_alt, :string
+    attribute :avatar_image_400x400_url, :string
+    attribute :avatar_image_400x400_alt, :string
+    attribute :main_image_1080x1080_url, :string
+    attribute :main_image_1080x1080_alt, :string
+    attribute :main_image_1920x1080_url, :string
+    attribute :main_image_1920x1080_alt, :string
+    attribute :main_image_1080x1920_url, :string
+    attribute :main_image_1080x1920_alt, :string
     attribute :home_emoji_url, :string
     attribute :bellhop_bell_emoji_url, :string
     attribute :target_emoji_url, :string
@@ -125,10 +129,18 @@ defmodule Navatrack.Works.Initiative do
     attribute :quality_warrantability_as_markdown, :string
     attribute :apache_echart_as_url, :string
     attribute :apache_echart_as_typescript, :string
-    attribute :net_promoter_score_actual_value, :float
-    attribute :net_promoter_score_target_value, :float
-    attribute :net_promoter_score_unit, :string
-    attribute :net_promoter_score_description_as_markdown, :string
+    attribute :customer_net_promoter_score_actual_value, :float
+    attribute :customer_net_promoter_score_target_value, :float
+    attribute :customer_net_promoter_score_unit, :string
+    attribute :customer_net_promoter_score_description_as_markdown, :string
+    attribute :user_net_promoter_score_actual_value, :float
+    attribute :user_net_promoter_score_target_value, :float
+    attribute :user_net_promoter_score_unit, :string
+    attribute :user_net_promoter_score_description_as_markdown, :string
+    attribute :worker_net_promoter_score_actual_value, :float
+    attribute :worker_net_promoter_score_target_value, :float
+    attribute :worker_net_promoter_score_unit, :string
+    attribute :worker_net_promoter_score_description_as_markdown, :string
     attribute :active_users_actual_value, :integer
     attribute :active_users_target_value, :integer
     attribute :active_users_unit, :string
@@ -196,6 +208,9 @@ defmodule Navatrack.Works.Initiative do
   actions do
  	  defaults [:create, :read, :update, :destroy]
  	  default_accept [
+      :created_at,
+      :updated_at,
+      :deleted_at,
       :sign,
       :title,
       :status,
@@ -205,18 +220,18 @@ defmodule Navatrack.Works.Initiative do
       :phone,
       :messaging,
       :postal,
-      :orcid,
-      :rdf,
+      :orcid_pid,
+      :rdf_type,
       :agents_as_url,
       :agents_as_markdown,
-      :avatar_400x400_url,
-      :avatar_400x400_alt,
-      :splash_1080x1080_url,
-      :splash_1080x1080_alt,
-      :splash_1920x1080_url,
-      :splash_1920x1080_alt,
-      :splash_1080x1920_url,
-      :splash_1080x1920_alt,
+      :avatar_image_400x400_url,
+      :avatar_image_400x400_alt,
+      :main_image_1080x1080_url,
+      :main_image_1080x1080_alt,
+      :main_image_1920x1080_url,
+      :main_image_1920x1080_alt,
+      :main_image_1080x1920_url,
+      :main_image_1080x1920_alt,
       :home_emoji_url,
       :bellhop_bell_emoji_url,
       :target_emoji_url,
@@ -303,10 +318,18 @@ defmodule Navatrack.Works.Initiative do
       :quality_warrantability_as_markdown,
       :apache_echart_as_url,
       :apache_echart_as_typescript,
-      :net_promoter_score_actual_value,
-      :net_promoter_score_target_value,
-      :net_promoter_score_unit,
-      :net_promoter_score_description_as_markdown,
+      :customer_net_promoter_score_actual_value,
+      :customer_net_promoter_score_target_value,
+      :customer_net_promoter_score_unit,
+      :customer_net_promoter_score_description_as_markdown,
+      :user_net_promoter_score_actual_value,
+      :user_net_promoter_score_target_value,
+      :user_net_promoter_score_unit,
+      :user_net_promoter_score_description_as_markdown,
+      :worker_net_promoter_score_actual_value,
+      :worker_net_promoter_score_target_value,
+      :worker_net_promoter_score_unit,
+      :worker_net_promoter_score_description_as_markdown,
       :active_users_actual_value,
       :active_users_target_value,
       :active_users_unit,

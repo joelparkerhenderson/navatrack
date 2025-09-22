@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.Skills.FormLive do
+defmodule NavatrackWeb.ILOISCO2008s.FormLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Works.Skill, as: X
+  alias Navatrack.Codes.ILOISCO2008, as: X
 
   require Logger
 
@@ -51,48 +51,9 @@ defmodule NavatrackWeb.Skills.FormLive do
 
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:title]} label="Title" autofocus />
-        <.input field={form[:status]} label="Status" />
-        <.input
-          field={form[:tags]}
-          label="Tags"
-          value={
-            case @form[:tags].value do
-              tags when is_list(tags) -> tags
-              tags when is_binary(tags) -> [tags]
-              _ -> ""
-            end
-          }
-        />
-
-        <.section id="details" title="Details">
-          <.input field={form[:summary_as_markdown]} label="Summary" />
-          <.input field={form[:description_as_markdown]} label="Description" />
-        </.section>
-
-        <.section id="images" title="Images">
-
-          <h3 class="h3">Avatar 400x400</h3>
-
-          <.input field={form[:avatar_image_400x400_url]} label="URL" placeholder="https://example.com" />
-          <.input field={form[:avatar_image_400x400_alt]} label="Alt" />
-
-          <h3 class="h3">Splash 1080x1080 square</h3>
-
-          <.input field={form[:main_image_1080x1080_url]} label="URL" placeholder="https://example.com" />
-          <.input field={form[:main_image_1080x1080_alt]} label="Alt" />
-
-          <h3 class="h3">Splash 1920x1080 landscape</h3>
-
-          <.input field={form[:main_image_1920x1080_url]} label="URL" placeholder="https://example.com" />
-          <.input field={form[:main_image_1920x1080_alt]} label="Alt" />
-
-          <h3 class="h3">Splash 1920x1080 portrait</h3>
-
-          <.input field={form[:main_image_1080x1920_url]} label="URL" placeholder="https://example.com" />
-          <.input field={form[:main_image_1080x1920_alt]} label="Alt" />
-
-        </.section>
+        <.input field={form[:code]} label="Code" autofocus />
+        <.input field={form[:title]} label="Title" />
+        <.input field={form[:definition]} label="Definition" />
 
         <.button type="primary">Save</.button>
       </.form>
@@ -147,13 +108,6 @@ defmodule NavatrackWeb.Skills.FormLive do
 
   def handle_event("save", %{"form" => form_data}, socket) do
     form_data = convert_tags_param(form_data)
-    IO.inspect(form_data, label: "form_data")
-
-    changeset = Navatrack.Works.Skill
-    |> Ash.Changeset.for_create(:create, form_data)
-    IO.inspect(changeset.attributes, label: "Changeset attributes")
-    IO.inspect(changeset.errors, label: "Changeset errors")
-
     case AshPhoenix.Form.submit(socket.assigns.form, params: form_data) do
       {:ok, _x} ->
         {:noreply,

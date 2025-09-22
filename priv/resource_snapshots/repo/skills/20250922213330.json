@@ -21,24 +21,12 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "sign",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
-      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
       "source": "created_at",
       "type": "utc_datetime_usec"
     },
     {
-      "allow_nil?": false,
-      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
+      "allow_nil?": true,
+      "default": "nil",
       "generated?": false,
       "precision": null,
       "primary_key?": false,
@@ -47,6 +35,30 @@
       "size": null,
       "source": "updated_at",
       "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "deleted_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "sign",
+      "type": "text"
     },
     {
       "allow_nil?": true,
@@ -120,7 +132,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "avatar_400x400_url",
+      "source": "avatar_image_400x400_url",
       "type": "text"
     },
     {
@@ -132,7 +144,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "avatar_400x400_alt",
+      "source": "avatar_image_400x400_alt",
       "type": "text"
     },
     {
@@ -144,7 +156,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "image_1080x1080_url",
+      "source": "main_image_1080x1080_url",
       "type": "text"
     },
     {
@@ -156,7 +168,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "image_1080x1080_alt",
+      "source": "main_image_1080x1080_alt",
       "type": "text"
     },
     {
@@ -168,7 +180,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "image_1920x1080_url",
+      "source": "main_image_1920x1080_url",
       "type": "text"
     },
     {
@@ -180,7 +192,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "image_1920x1080_alt",
+      "source": "main_image_1920x1080_alt",
       "type": "text"
     },
     {
@@ -192,7 +204,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "image_1080x1920_url",
+      "source": "main_image_1080x1920_url",
       "type": "text"
     },
     {
@@ -204,7 +216,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "image_1080x1920_alt",
+      "source": "main_image_1080x1920_alt",
       "type": "text"
     }
   ],
@@ -213,7 +225,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "89DD9E8030F0222D5E64B5EFD4C6E854783D44B4EB200CCF7FE816FADDC7AE8C",
+  "hash": "B9453B9F04C6607920A64E02A107E7B57E5EB01972DD0799D02BA4CF9B810F6B",
   "identities": [],
   "multitenancy": {
     "attribute": null,

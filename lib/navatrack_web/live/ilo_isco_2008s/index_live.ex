@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.Skills.IndexLive do
+defmodule NavatrackWeb.ILOISCO2008s.IndexLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Works.Skill, as: X
+  alias Navatrack.Codes.ILOISCO2008, as: X
 
   require Logger
 
@@ -50,10 +50,9 @@ defmodule NavatrackWeb.Skills.IndexLive do
           <:col :let={x} field="id" sort search>
             <.link navigate={path_show(x)} data-role="x-id">➡️</.link>
           </:col>
-          <:col :let={x} field="sign" filter sort search>{x.sign}</:col>
+          <:col :let={x} field="code" filter sort search>{x.code}</:col>
           <:col :let={x} field="title" filter sort search>{x.title}</:col>
-          <:col :let={x} field="status" filter sort search>{x.status}</:col>
-          <:col :let={x} field="tags" filter sort search>{x.tags}</:col>
+          <:col :let={x} field="definition" filter sort search>{x.definition}</:col>
         </Cinder.Table.table>
       <% end %>
     </Layouts.app>

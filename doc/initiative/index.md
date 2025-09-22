@@ -34,23 +34,23 @@ mix ash.gen.resource Navatrack.Works.Initiative \
   --attribute phone:string \
   --attribute messaging:string \
   --attribute postal:string \
-  --attribute orcid:string \
-  --attribute rdf:string \
+  --attribute orcid_pid:string \
+  --attribute rdf_type:string \
   \
   --attribute agents_as_url:string \
   --attribute agents_as_markdown:string \
   \
-  --attribute avatar_400x400_url:string \
-  --attribute avatar_400x400_alt:string \
+  --attribute avatar_image_400x400_url:string \
+  --attribute avatar_image_400x400_alt:string \
   \
-  --attribute splash_1080x1080_url:string \
-  --attribute splash_1080x1080_alt:string \
+  --attribute main_image_1080x1080_url:string \
+  --attribute main_image_1080x1080_alt:string \
   \
-  --attribute splash_1920x1080_url:string \
-  --attribute splash_1920x1080_alt:string \
+  --attribute main_image_1920x1080_url:string \
+  --attribute main_image_1920x1080_alt:string \
   \
-  --attribute splash_1080x1920_url:string \
-  --attribute splash_1080x1920_alt:string \
+  --attribute main_image_1080x1920_url:string \
+  --attribute main_image_1080x1920_alt:string \
   \
   --attribute home_emoji_url:string \
   --attribute bellhop_bell_emoji_url:string \
@@ -263,7 +263,7 @@ mix ash.migrate
 Edit file [`lib/navatrack_web/router.ex`](lib/navatrack/router.ex) to add these live routes:
 
 ```elixir
-scope "/", MyAppWeb do
+scope "/", AppWeb do
     pipe_through :browser
 
     get "/", PageController, :home

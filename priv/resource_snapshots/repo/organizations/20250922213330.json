@@ -21,24 +21,12 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "sign",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
-      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
       "source": "created_at",
       "type": "utc_datetime_usec"
     },
     {
-      "allow_nil?": false,
-      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
+      "allow_nil?": true,
+      "default": "nil",
       "generated?": false,
       "precision": null,
       "primary_key?": false,
@@ -47,6 +35,30 @@
       "size": null,
       "source": "updated_at",
       "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "deleted_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "sign",
+      "type": "text"
     },
     {
       "allow_nil?": true,
@@ -168,7 +180,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "rdf",
+      "source": "rdf_type",
       "type": "text"
     },
     {
@@ -372,7 +384,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "avatar_400x400_url",
+      "source": "avatar_image_400x400_url",
       "type": "text"
     },
     {
@@ -384,7 +396,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "avatar_400x400_alt",
+      "source": "avatar_image_400x400_alt",
       "type": "text"
     },
     {
@@ -396,7 +408,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "image_1080x1080_url",
+      "source": "main_image_1080x1080_url",
       "type": "text"
     },
     {
@@ -408,7 +420,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "image_1080x1080_alt",
+      "source": "main_image_1080x1080_alt",
       "type": "text"
     },
     {
@@ -420,7 +432,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "image_1920x1080_url",
+      "source": "main_image_1920x1080_url",
       "type": "text"
     },
     {
@@ -432,7 +444,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "image_1920x1080_alt",
+      "source": "main_image_1920x1080_alt",
       "type": "text"
     },
     {
@@ -444,7 +456,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "image_1080x1920_url",
+      "source": "main_image_1080x1920_url",
       "type": "text"
     },
     {
@@ -456,7 +468,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "image_1080x1920_alt",
+      "source": "main_image_1080x1920_alt",
       "type": "text"
     },
     {
@@ -861,7 +873,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "9F142D6AE513919DBF8A3617D888BC0B2C65EB4AB6C06AA24C2D73F688097ADB",
+  "hash": "9CC173445F2386CACF772844B397885D0C70D39C68381752C7269F1666902C5C",
   "identities": [],
   "multitenancy": {
     "attribute": null,

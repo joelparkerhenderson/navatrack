@@ -43,8 +43,11 @@ defmodule NavatrackWeb.Organizations.IndexLive do
           None.
         </div>
       <% else %>
-        <Cinder.Table.table resource={X}>
-          <:col :let={x} field="link" filter sort>
+        <Cinder.Table.table
+          resource={X}
+          row_click={fn x -> JS.navigate(path_show(x)) end}
+        >
+          <:col :let={x} field="id" filter sort>
             <.link navigate={path_show(x)} data-role="x-id">➡️</.link>
           </:col>
           <:col :let={x} field="sign" filter sort search>{x.sign}</:col>

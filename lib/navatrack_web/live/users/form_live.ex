@@ -72,7 +72,7 @@ defmodule NavatrackWeb.Users.FormLive do
           <.input field={form[:messaging]} label="Messaging" placeholder="https://bsky.app/profile/example"/>
           <.input field={form[:postal]} label="Postal" placeholder="123 Main St, San Francisco, CA, US, 94100, US"/>
           <.input field={form[:orcid_pid]} label="ORCID PID" placeholder="0009-0000-4681-282X" />
-          <.input field={form[:rdf]} label="RDF Type" />
+          <.input field={form[:rdf_type]} label="RDF Type" />
         </.section>
 
         <.section id="socials" title="Socials">
@@ -90,7 +90,7 @@ defmodule NavatrackWeb.Users.FormLive do
         </.section>
 
         <.section id="agents" title="AGENTS.md">
-          <.input field={form[:agents_as_url]} label="URL" placeholder="https://example.com"/>
+          <.input field={form[:agents_as_url]} type="url" label="URL" placeholder="https://example.com"/>
           <.input field={form[:agents_as_markdown]} type="textarea" label="Text" />
         </.section>
 
@@ -98,23 +98,23 @@ defmodule NavatrackWeb.Users.FormLive do
 
           <h3 class="h3">Avatar 400x400</h3>
 
-          <.input field={form[:avatar_400x400_url]} label="URL" placeholder="https://example.com" />
-          <.input field={form[:avatar_400x400_alt]} label="Alt" />
+          <.input field={form[:avatar_image_400x400_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:avatar_image_400x400_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1080x1080 square</h3>
 
-          <.input field={form[:splash_1080x1080_url]} label="URL" placeholder="https://example.com" />
-          <.input field={form[:splash_1080x1080_alt]} label="Alt" />
+          <.input field={form[:main_image_1080x1080_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1080x1080_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1920x1080 landscape</h3>
 
-          <.input field={form[:splash_1920x1080_url]} label="URL" placeholder="https://example.com" />
-          <.input field={form[:splash_1920x1080_alt]} label="Alt" />
+          <.input field={form[:main_image_1920x1080_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1920x1080_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1920x1080 portrait</h3>
 
-          <.input field={form[:splash_1080x1920_url]} label="URL" placeholder="https://example.com" />
-          <.input field={form[:splash_1080x1920_alt]} label="Alt" />
+          <.input field={form[:main_image_1080x1920_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1080x1920_alt]} label="Alt" />
 
         </.section>
 

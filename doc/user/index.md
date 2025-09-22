@@ -24,7 +24,7 @@ mix ash.gen.resource Navatrack.Accounts.User \
   --attribute messaging:string \
   --attribute postal:string \
   --attribute orcid_pid:string \
-  --attribute rdf:string \
+  --attribute rdf_type:string \
   --attribute linkedin_url:string \
   --attribute github_url:string \
   --attribute codeberg_url:string \
@@ -44,17 +44,17 @@ mix ash.gen.resource Navatrack.Accounts.User \
   --attribute key_performance_indicators_as_markdown:string \
   --attribute agents_as_markdown:string \
   \
-  --attribute avatar_400x400_url:string \
-  --attribute avatar_400x400_alt:string \
+  --attribute avatar_image_400x400_url:string \
+  --attribute avatar_image_400x400_alt:string \
   \
-  --attribute main_image_1080x1080_url:string \
-  --attribute main_image_1080x1080_alt:string \
+  --attribute main_main_image_1080x1080_url:string \
+  --attribute main_main_image_1080x1080_alt:string \
   \
-  --attribute main_image_1920x1080_url:string \
-  --attribute main_image_1920x1080_alt:string \
+  --attribute main_main_image_1920x1080_url:string \
+  --attribute main_main_image_1920x1080_alt:string \
   \
-  --attribute main_image_1080x1920_url:string \
-  --attribute main_image_1080x1920_alt:string \
+  --attribute main_main_image_1080x1920_url:string \
+  --attribute main_main_image_1080x1920_alt:string \
   \
   --attribute work_profile_resume_as_pdf_url:string \
   --attribute work_profile_resume_as_markdown:string \

@@ -121,6 +121,16 @@ defmodule NavatrackWeb.Router do
     live "/skills/:id", Skills.ShowLive
     live "/skills/:id/edit", Skills.FormLive, :edit
 
+    live "/iloisco2008s", ILOISCO2008s.IndexLive
+    live "/iloisco2008s/new", ILOISCO2008s.FormLive, :new
+    live "/iloisco2008s/:id", ILOISCO2008s.ShowLive
+    live "/iloisco2008s/:id/edit", ILOISCO2008s.FormLive, :edit
+
+    live "/lumina_foundation_skill_levels", LuminaFoundationSkillLevels.IndexLive
+    live "/lumina_foundation_skill_levels/new", LuminaFoundationSkillLevels.FormLive, :new
+    live "/lumina_foundation_skill_levels/:id", LuminaFoundationSkillLevels.ShowLive
+    live "/lumina_foundation_skill_levels/:id/edit", LuminaFoundationSkillLevels.FormLive, :edit
+
     live "/users", Users.IndexLive
     live "/users/new", Users.FormLive, :new
     live "/users/:id", Users.ShowLive

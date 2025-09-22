@@ -1,7 +1,7 @@
-defmodule Navatrack.Works.LuminaFoundationSkillLevel do
+defmodule Navatrack.Codes.LuminaFoundationSkillLevel do
   use Ash.Resource,
     otp_app: :navatrack,
-    domain: Navatrack.Works,
+    domain: Navatrack.Codes,
     data_layer: AshPostgres.DataLayer
 
   def singular_snake_case(), do: "lumina_foundation_skill_level"
@@ -16,20 +16,27 @@ defmodule Navatrack.Works.LuminaFoundationSkillLevel do
 
   attributes do
     uuid_primary_key :id
+    attribute :created_at, :utc_datetime_usec
+    attribute :updated_at, :utc_datetime_usec
+    attribute :deleted_at, :utc_datetime_usec
     attribute :sign, :string
-    create_timestamp :created_at
-    update_timestamp :updated_at
+    attribute :tags, {:array, :string}
     attribute :number, :integer
     attribute :title, :string
     attribute :description, :string
   end
 
   actions do
-    defaults [:read, :destroy, create: [], update: []]
+ 	  defaults [:create, :read, :update, :destroy]
     default_accept [
+      :created_at,
+      :updated_at,
+      :deleted_at,
+      :sign,
+      :tags,
       :number,
       :title,
-      :description
+      :description,
     ]
   end
 

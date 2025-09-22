@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.LuminaFoundationSkillLevels.ShowLive do
+defmodule NavatrackWeb.ILOISCO2008s.ShowLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Codes.LuminaFoundationSkillLevel, as: X
+  alias Navatrack.Codes.ILOISCO2008, as: X
 
   require Logger
 
@@ -31,7 +31,7 @@ defmodule NavatrackWeb.LuminaFoundationSkillLevels.ShowLive do
             Delete
           </.button>
           <.button
-            navigate={Path.join(["/", X.plural_snake_case(), @x.id, "edit"])}
+            navigate={~p"/skills/#{@x.id}/edit"}
           >
             Edit
           </.button>

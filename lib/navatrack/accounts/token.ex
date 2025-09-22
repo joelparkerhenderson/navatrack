@@ -108,7 +108,5 @@ defmodule Navatrack.Accounts.Token do
       public? true
     end
 
-    create_timestamp :created_at
-    update_timestamp :updated_at
   end
 end

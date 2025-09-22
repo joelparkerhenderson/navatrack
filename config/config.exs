@@ -7,7 +7,7 @@
 # General application configuration
 import Config
 
-config :cinder, default_theme: "modern"
+config :cinder, default_theme: "daisy_ui"
 config :backpex, pubsub_server: Navatrack.PubSub
 config :ash_oban, pro?: false
 
@@ -83,7 +83,11 @@ config :spark,
 config :navatrack,
   ecto_repos: [Navatrack.Repo],
   generators: [timestamp_type: :utc_datetime],
-  ash_domains: [MyApp.Codes, Navatrack.Accounts, Navatrack.Works]
+  ash_domains: [
+    Navatrack.Accounts,
+    Navatrack.Codes,
+    Navatrack.Works
+  ]
 
 # Configures the endpoint
 config :navatrack, NavatrackWeb.Endpoint,
