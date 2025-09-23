@@ -35,8 +35,8 @@ defmodule NavatrackWeb.Layouts do
 
   def app(assigns) do
     ~H"""
-    <main class="px-4 py-10 sm:px-6 lg:px-8">
-      <div class="mx-auto space-y-4">
+    <main class="px-4 py-2 sm:px-6 lg:px-8">
+      <div class="mx-auto">
         {render_slot(@inner_block)}
       </div>
     </main>
