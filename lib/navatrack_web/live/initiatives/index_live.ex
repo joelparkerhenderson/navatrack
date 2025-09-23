@@ -38,8 +38,8 @@ defmodule NavatrackWeb.Initiatives.IndexLive do
         </:actions>
       </.header>
 
-      <.table id="xx" rows={@xx}>
-          <:col :let={x} label="Id">
+      <Cinder.Table.table  theme={Cinder.Themes.Smart} resource={X}>
+          <:col :let={x} field="id" sort search>
               <.link
                   navigate={Path.join(["/", X.plural_snake_case(), x.id])}
                   data-role="x-id"
@@ -47,12 +47,12 @@ defmodule NavatrackWeb.Initiatives.IndexLive do
                   🔗
               </.link>
           </:col>
-          <:col :let={x} label="Sign">{x.sign}</:col>
-          <:col :let={x} label="Name">{x.name}</:col>
-          <:col :let={x} label="Kind">{x.kind}</:col>
-          <:col :let={x} label="Status">{x.status}</:col>
-          <:col :let={x} label="Tagging">{x.tagging}</:col>
-      </.table>
+          <:col :let={x} field="sign" sort search>{x.sign}</:col>
+          <:col :let={x} field="name" sort search>{x.name}</:col>
+          <:col :let={x} field="kind" sort search>{x.kind}</:col>
+          <:col :let={x} field="status" sort search>{x.status}</:col>
+          <:col :let={x} field="tagging" sort search>{x.tagging}</:col>
+      </Cinder.Table.table>
     </Layouts.app>
     """
   end

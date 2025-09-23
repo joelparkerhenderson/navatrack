@@ -310,7 +310,7 @@ defmodule NavatrackWeb.CoreComponents do
       <.table id="users" rows={@users}>
         <:col :let={user} label="id">{user.id}</:col>
         <:col :let={user} label="username">{user.username}</:col>
-      </.table>
+      </Cinder.Table.table>
   """
   attr :id, :string, required: true
   attr :rows, :list, required: true

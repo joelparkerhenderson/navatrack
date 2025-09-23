@@ -31,8 +31,8 @@ defmodule NavatrackWeb.UkGdadPcfSkills.IndexLive do
         {@page_title}
       </.header>
 
-      <.table id="xx" rows={@xx}>
-          <:col :let={x} label="Id">
+      <Cinder.Table.table  theme={Cinder.Themes.Smart} resource={X}>
+          <:col :let={x} field="id" sort search>
               <.link
                   navigate={Path.join(["/", X.plural_snake_case(), x.id])}
                   data-role="x-id"
@@ -40,8 +40,8 @@ defmodule NavatrackWeb.UkGdadPcfSkills.IndexLive do
                   🔗
               </.link>
           </:col>
-          <:col :let={x} label="Name">{x.name}</:col>
-      </.table>
+          <:col :let={x} field="name" sort search>{x.name}</:col>
+      </Cinder.Table.table>
     </Layouts.app>
     """
   end
