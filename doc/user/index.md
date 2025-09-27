@@ -14,7 +14,7 @@ mix ash.gen.resource Navatrack.Accounts.User \
   --default-actions create,read,update,destroy \
   --extend postgres \
   --uuid-primary-key id \
-  --attribute title:string \
+  --attribute name:string \
   --attribute status:string \
   --attribute tags:string:array \
   \
@@ -61,7 +61,7 @@ mix ash.gen.resource Navatrack.Accounts.User \
   --attribute work_profile_curriculum_vitae_as_pdf_url:string \
   --attribute work_profile_curriculum_vitae_as_markdown:string \
   \
-  --attribute work_role_title:string \
+  --attribute work_role_name:string \
   --attribute work_role_start_date:date \
   --attribute work_role_stop_date:date \
   --attribute work_role_level:string \
@@ -70,7 +70,7 @@ mix ash.gen.resource Navatrack.Accounts.User \
   --attribute work_role_onet_soc_2019_code:string \
   --attribute work_role_united_kingdom_civil_service_grade_abbreviation:string \
   --attribute work_role_united_kingdom_standard_occupational_classification_2020_code:string \
-  --attribute work_role_united_kingdom_government_digital_and_data_profession_capability_framework_url:string \
+  --attribute work_role_uk_gdad_pcf_url:string \
 ```
 
 We need to fix two conflicts:

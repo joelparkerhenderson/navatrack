@@ -2,38 +2,26 @@
   "attributes": [
     {
       "allow_nil?": false,
-      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "updated_at",
-      "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": false,
-      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "created_at",
-      "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
+      "default": "fragment(\"gen_random_uuid()\")",
       "generated?": false,
       "precision": null,
       "primary_key?": true,
       "references": null,
       "scale": null,
       "size": null,
-      "source": "jti",
+      "source": "id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "locale_code",
       "type": "text"
     },
     {
@@ -45,7 +33,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "subject",
+      "source": "family",
       "type": "text"
     },
     {
@@ -57,8 +45,8 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "expires_at",
-      "type": "utc_datetime"
+      "source": "name",
+      "type": "text"
     },
     {
       "allow_nil?": false,
@@ -69,11 +57,11 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "purpose",
+      "source": "url",
       "type": "text"
     },
     {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -81,16 +69,76 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "extra_data",
-      "type": "map"
+      "source": "description_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "description_as_html",
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "level_name",
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "level_description_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "level_description_as_html",
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "senior_civil_service_flag",
+      "type": "boolean"
     }
   ],
   "base_filter": null,
   "check_constraints": [],
   "custom_indexes": [],
   "custom_statements": [],
-  "has_create_action": true,
-  "hash": "9794C4EF13D1B8F44C3B780AA8CB09A9A0973CF2BC8684EA91467B9AC5473A3E",
+  "has_create_action": false,
+  "hash": "2D8F2EB341C9400FEDFAF9C9FB66259BB6C8FA0DFA7AEBB33D138AB203BA503E",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -99,5 +147,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "tokens"
+  "table": "uk_gdad_pcf_roles"
 }

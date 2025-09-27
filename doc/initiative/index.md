@@ -25,7 +25,7 @@ mix ash.gen.resource Navatrack.Works.Initiative \
   --extend postgres \
   --uuid-primary-key id \
   --attribute parent:id \
-  --attribute title:string:required \
+  --attribute name:string:required \
   --attribute status:string \
   --attribute tags:string:array \
   \
@@ -160,8 +160,8 @@ mix ash.gen.resource Navatrack.Works.Initiative \
   --attribute apache_echart_as_url:string \
   --attribute apache_echart_as_typescript:string \
   \
-  --attribute net_promoter_score_actual_value:float \
-  --attribute net_promoter_score_target_value:float \
+  --attribute net_promoter_score_actual_value:decimal \
+  --attribute net_promoter_score_target_value:decimal \
   --attribute net_promoter_score_unit:string \
   --attribute net_promoter_score_description_as_markdown:string \
   \
@@ -170,8 +170,8 @@ mix ash.gen.resource Navatrack.Works.Initiative \
   --attribute active_users_unit:string \
   --attribute active_users_description_as_markdown:string \
   \
-  --attribute uptime_percentage_actual_value:float \
-  --attribute uptime_percentage_target_value:float \
+  --attribute uptime_percentage_actual_value:decimal \
+  --attribute uptime_percentage_target_value:decimal \
   --attribute uptime_percentage_unit:string \
   --attribute uptime_percentage_description_as_markdown:string \
   \
@@ -185,60 +185,60 @@ mix ash.gen.resource Navatrack.Works.Initiative \
   --attribute burn_rate_hours_per_week_unit:string \
   --attribute burn_rate_hours_per_week_description_as_markdown:string \
   \
-  --attribute total_project_control_dipp:float \
-  --attribute total_project_control_dipp_progress_index_ratio:float \
-  --attribute total_project_control_dipp_progress_index_numerator:float \
-  --attribute total_project_control_dipp_progress_index_denominator:float \
-  --attribute total_project_control_expected_monetary_value:float \
-  --attribute total_project_control_cost_estimate_to_complete:float \
+  --attribute total_project_control_dipp:decimal \
+  --attribute total_project_control_dipp_progress_index_ratio:decimal \
+  --attribute total_project_control_dipp_progress_index_numerator:decimal \
+  --attribute total_project_control_dipp_progress_index_denominator:decimal \
+  --attribute total_project_control_expected_monetary_value:decimal \
+  --attribute total_project_control_cost_estimate_to_complete:decimal \
   \
-  --attribute deployment_frequency_actual_value:float \
-  --attribute deployment_frequency_target_value:float \
+  --attribute deployment_frequency_actual_value:decimal \
+  --attribute deployment_frequency_target_value:decimal \
   --attribute deployment_frequency_unit:string \
   --attribute deployment_frequency_description_as_markdown:string \
   \
-  --attribute lead_time_for_changes_actual_value:float \
-  --attribute lead_time_for_changes_target_value:float \
+  --attribute lead_time_for_changes_actual_value:decimal \
+  --attribute lead_time_for_changes_target_value:decimal \
   --attribute lead_time_for_changes_unit:string \
   --attribute lead_time_for_changes_description_as_markdown:string \
   \
-  --attribute change_failure_rate_actual_value:float \
-  --attribute change_failure_rate_target_value:float \
+  --attribute change_failure_rate_actual_value:decimal \
+  --attribute change_failure_rate_target_value:decimal \
   --attribute change_failure_rate_unit:string \
   --attribute change_failure_rate_description_as_markdown:string \
   \
-  --attribute mean_time_to_recovery_actual_value:float \
-  --attribute mean_time_to_recovery_target_value:float \
+  --attribute mean_time_to_recovery_actual_value:decimal \
+  --attribute mean_time_to_recovery_target_value:decimal \
   --attribute mean_time_to_recovery_unit:string \
   --attribute mean_time_to_recovery_description_as_markdown:string\
   \
-  --attribute maintainability_index_actual_value:float \
-  --attribute maintainability_index_target_value:float \
+  --attribute maintainability_index_actual_value:decimal \
+  --attribute maintainability_index_target_value:decimal \
   --attribute maintainability_index_unit:string \
   --attribute maintainability_index_description_as_markdown:string \
   \
-  --attribute line_count_actual_value:float \
-  --attribute line_count_target_value:float \
+  --attribute line_count_actual_value:decimal \
+  --attribute line_count_target_value:decimal \
   --attribute line_count_unit:string \
   --attribute line_count_description_as_markdown:string \
   \
-  --attribute test_automation_code_coverage_actual_value:float \
-  --attribute test_automation_code_coverage_target_value:float \
+  --attribute test_automation_code_coverage_actual_value:decimal \
+  --attribute test_automation_code_coverage_target_value:decimal \
   --attribute test_automation_code_coverage_unit:string \
   --attribute test_automation_code_coverage_description_as_markdown:string \
   \
-  --attribute halstead_complexity_volume_actual_value:float \
-  --attribute halstead_complexity_volume_target_value:float \
+  --attribute halstead_complexity_volume_actual_value:decimal \
+  --attribute halstead_complexity_volume_target_value:decimal \
   --attribute halstead_complexity_volume_unit:string \
   --attribute halstead_complexity_volume_description_as_markdown:string \
   \
-  --attribute halstead_complexity_difficulty_actual_value:float \
-  --attribute halstead_complexity_difficulty_target_value:float \
+  --attribute halstead_complexity_difficulty_actual_value:decimal \
+  --attribute halstead_complexity_difficulty_target_value:decimal \
   --attribute halstead_complexity_difficulty_unit:string \
   --attribute halstead_complexity_difficulty_description_as_markdown:string \
   \
-  --attribute halstead_complexity_effort_actual_value:float \
-  --attribute halstead_complexity_effort_target_value:float \
+  --attribute halstead_complexity_effort_actual_value:decimal \
+  --attribute halstead_complexity_effort_target_value:decimal \
   --attribute halstead_complexity_effort_unit:string \
   --attribute halstead_complexity_effort_description_as_markdown:string \
 

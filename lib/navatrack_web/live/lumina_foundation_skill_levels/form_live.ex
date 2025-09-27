@@ -50,7 +50,7 @@ defmodule NavatrackWeb.LuminaFoundationSkillLevels.FormLive do
       >
 
         <.input field={form[:number]} label="Number (1-7)" autofocus />
-        <.input field={form[:title]} label="Title" />
+        <.input field={form[:title]} label="name" />
         <.input field={form[:description]} label="Description" />
 
         <.button type="primary">Save</.button>

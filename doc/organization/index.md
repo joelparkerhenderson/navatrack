@@ -17,7 +17,7 @@ mix ash.gen.resource Navatrack.Accounts.Organization \
   --extend postgres \
   --uuid-primary-key id \
   --attribute parent:id \
-  --attribute title:string \
+  --attribute name:string \
   --attribute status:string \
   --attribute tags:string:array \
   \
@@ -63,8 +63,8 @@ mix ash.gen.resource Navatrack.Accounts.Organization \
   --attribute gs1_country_code:string \
   --attribute gs1_global_location_number:string \
   \
-  --attribute international_standard_industrial_classification_v4_code:string \
-  --attribute international_standard_industrial_classification_v4_name:string \
+  --attribute isic_v4_code:string \
+  --attribute isic_v4_name:string \
   \
   --attribute copyright_policy_as_url:string \
   --attribute copyright_policy_as_markdown:string \

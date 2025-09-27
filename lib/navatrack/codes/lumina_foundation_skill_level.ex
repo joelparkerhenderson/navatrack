@@ -16,28 +16,30 @@ defmodule Navatrack.Codes.LuminaFoundationSkillLevel do
 
   attributes do
     uuid_primary_key :id
-    attribute :created_at, :utc_datetime_usec
-    attribute :updated_at, :utc_datetime_usec
-    attribute :deleted_at, :utc_datetime_usec
-    attribute :sign, :string
-    attribute :tags, {:array, :string}
-    attribute :number, :integer
-    attribute :title, :string
-    attribute :description, :string
+
+    attribute :locale_code, :string do
+      allow_nil? false
+      public? true
+    end
+
+    attribute :number, :integer do
+      allow_nil? false
+      public? true
+    end
+
+    attribute :name, :string do
+      allow_nil? false
+      public? true
+    end
+
+    attribute :description, :string do
+      allow_nil? false
+      public? true
+    end
   end
 
   actions do
- 	  defaults [:create, :read, :update, :destroy]
-    default_accept [
-      :created_at,
-      :updated_at,
-      :deleted_at,
-      :sign,
-      :tags,
-      :number,
-      :title,
-      :description,
-    ]
+ 	  defaults [:read]
   end
 
 end

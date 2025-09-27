@@ -69,7 +69,19 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "title",
+      "source": "kind",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "name",
       "type": "text"
     },
     {
@@ -1381,7 +1393,7 @@
       "scale": null,
       "size": null,
       "source": "customer_net_promoter_score_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1393,7 +1405,7 @@
       "scale": null,
       "size": null,
       "source": "customer_net_promoter_score_target_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1429,7 +1441,7 @@
       "scale": null,
       "size": null,
       "source": "user_net_promoter_score_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1441,7 +1453,7 @@
       "scale": null,
       "size": null,
       "source": "user_net_promoter_score_target_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1477,7 +1489,7 @@
       "scale": null,
       "size": null,
       "source": "worker_net_promoter_score_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1489,7 +1501,7 @@
       "scale": null,
       "size": null,
       "source": "worker_net_promoter_score_target_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1573,7 +1585,7 @@
       "scale": null,
       "size": null,
       "source": "uptime_percentage_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1585,7 +1597,7 @@
       "scale": null,
       "size": null,
       "source": "uptime_percentage_target_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1716,8 +1728,116 @@
       "references": null,
       "scale": null,
       "size": null,
+      "source": "earned_value_management_planned_value",
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "earned_value_management_earned_value",
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "earned_value_management_actual_cost",
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "earned_value_management_cost_variance",
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "earned_value_management_cost_variance_ratio",
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "earned_value_management_cost_performance_index",
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "earned_value_management_schedule_variance",
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "earned_value_management_schedule_variance_ratio",
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "earned_value_management_schedule_performance_index",
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
       "source": "total_project_control_dipp",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1729,7 +1849,7 @@
       "scale": null,
       "size": null,
       "source": "total_project_control_dipp_progress_index_ratio",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1741,7 +1861,7 @@
       "scale": null,
       "size": null,
       "source": "total_project_control_dipp_progress_index_numerator",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1753,7 +1873,7 @@
       "scale": null,
       "size": null,
       "source": "total_project_control_dipp_progress_index_denominator",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1765,7 +1885,7 @@
       "scale": null,
       "size": null,
       "source": "total_project_control_expected_monetary_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1777,7 +1897,7 @@
       "scale": null,
       "size": null,
       "source": "total_project_control_cost_estimate_to_complete",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1789,7 +1909,7 @@
       "scale": null,
       "size": null,
       "source": "deployment_frequency_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1801,7 +1921,7 @@
       "scale": null,
       "size": null,
       "source": "deployment_frequency_target_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1837,7 +1957,7 @@
       "scale": null,
       "size": null,
       "source": "lead_time_for_changes_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1849,7 +1969,19 @@
       "scale": null,
       "size": null,
       "source": "lead_time_for_changes_target_value",
-      "type": "float"
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "lead_time_for_changes_ratio",
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1885,7 +2017,7 @@
       "scale": null,
       "size": null,
       "source": "change_failure_rate_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1897,7 +2029,19 @@
       "scale": null,
       "size": null,
       "source": "change_failure_rate_target_value",
-      "type": "float"
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "change_failure_rate_ratio",
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1933,7 +2077,7 @@
       "scale": null,
       "size": null,
       "source": "mean_time_to_recovery_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1945,7 +2089,19 @@
       "scale": null,
       "size": null,
       "source": "mean_time_to_recovery_target_value",
-      "type": "float"
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "mean_time_to_recovery_ratio",
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1981,7 +2137,7 @@
       "scale": null,
       "size": null,
       "source": "maintainability_index_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1993,7 +2149,7 @@
       "scale": null,
       "size": null,
       "source": "maintainability_index_target_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -2029,7 +2185,7 @@
       "scale": null,
       "size": null,
       "source": "line_count_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -2041,7 +2197,7 @@
       "scale": null,
       "size": null,
       "source": "line_count_target_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -2077,7 +2233,7 @@
       "scale": null,
       "size": null,
       "source": "test_automation_code_coverage_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -2089,7 +2245,7 @@
       "scale": null,
       "size": null,
       "source": "test_automation_code_coverage_target_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -2125,7 +2281,7 @@
       "scale": null,
       "size": null,
       "source": "halstead_complexity_volume_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -2137,7 +2293,19 @@
       "scale": null,
       "size": null,
       "source": "halstead_complexity_volume_target_value",
-      "type": "float"
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "halstead_complexity_volume_ratio",
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -2173,7 +2341,7 @@
       "scale": null,
       "size": null,
       "source": "halstead_complexity_difficulty_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -2185,7 +2353,19 @@
       "scale": null,
       "size": null,
       "source": "halstead_complexity_difficulty_target_value",
-      "type": "float"
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "halstead_complexity_difficulty_ratio",
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -2221,7 +2401,7 @@
       "scale": null,
       "size": null,
       "source": "halstead_complexity_effort_actual_value",
-      "type": "float"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -2233,7 +2413,19 @@
       "scale": null,
       "size": null,
       "source": "halstead_complexity_effort_target_value",
-      "type": "float"
+      "type": "decimal"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "halstead_complexity_effort_ratio",
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -2265,7 +2457,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "2CD72355B55F112E16B25634DBFBBDAA9A1B464ECD9E52544A9F8ED619E6261E",
+  "hash": "9E1B48C9DD09D1D54C47BF5CFB2FEE5D509A63D608CDAD779B552A3207A3FD47",
   "identities": [],
   "multitenancy": {
     "attribute": null,

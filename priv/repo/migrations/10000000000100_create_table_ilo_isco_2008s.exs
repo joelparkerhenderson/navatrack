@@ -7,65 +7,46 @@ defmodule Navatrack.Repo.Migrations.CreateTableILOISCO2008s do
 
   def up do
     execute """
-    CREATE TABLE IF NOT EXISTS ilo_isco_2008s (
+    CREATE TABLE ilo_isco_2008s (
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-      created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
-      sign char,
-      tags text[],
-      code text CONSTRAINT check_code CHECK (code ~* '^[0-9]*$' AND char_length(code) < 4),
-      title text,
-      definition text
+      locale_code text not null,
+      code text not null CONSTRAINT check_code CHECK (code ~* '^[0-9]*$' AND char_length(code) < 4),
+      name text not null,
+      definition text not null
     );
     """
     execute """
-    CREATE TRIGGER trigger_ilo_isco_2008s_updated_at
-      BEFORE UPDATE ON ilo_isco_2008s
-      FOR EACH ROW
-      EXECUTE FUNCTION trigger_updated_at();
+    CREATE INDEX ilo_isco_2008s_locale_code_index ON ilo_isco_2008s (locale_code);
     """
     execute """
-    CREATE INDEX index_ilo_isco_2008s_created_at ON ilo_isco_2008s (created_at);
+    CREATE INDEX ilo_isco_2008s_code_index ON ilo_isco_2008s (code);
     """
     execute """
-    CREATE INDEX index_ilo_isco_2008s_updated_at ON ilo_isco_2008s (updated_at);
+    CREATE INDEX ilo_isco_2008s_code_index_tpo ON ilo_isco_2008s (code text_pattern_ops);
     """
     execute """
-    CREATE INDEX index_ilo_isco_2008s_deleted_at ON ilo_isco_2008s (deleted_at);
+    CREATE INDEX ilo_isco_2008s_name_index ON ilo_isco_2008s (name);
     """
     execute """
-    CREATE INDEX index_ilo_isco_2008s_sign ON ilo_isco_2008s (sign);
-    """
-    execute """
-    CREATE INDEX index_ilo_isco_2008s_tags ON ilo_isco_2008s (tags);
-    """
-    execute """
-    CREATE INDEX index_ilo_isco_2008s_code ON ilo_isco_2008s (code);
+    CREATE INDEX ilo_isco_2008s_name_index_tpo ON ilo_isco_2008s (name text_pattern_ops);
     """
   end
 
   def down do
     execute """
-    CREATE TRIGGER IF EXISTS trigger_ilo_isco_2008s_updated_at
+    DROP INDEX IF EXISTS ilo_isco_2008s_locale_code_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_ilo_isco_2008s_created_at;
+    DROP INDEX IF EXISTS ilo_isco_2008s_code_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_ilo_isco_2008s_updated_at;
+    DROP INDEX IF EXISTS ilo_isco_2008s_code_index_tpo;
     """
     execute """
-    DROP INDEX IF EXISTS index_ilo_isco_2008s_deleted_at;
+    DROP INDEX IF EXISTS ilo_isco_2008s_name_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_ilo_isco_2008s_sign;
-    """
-    execute """
-    DROP INDEX IF EXISTS index_ilo_isco_2008s_tags;
-    """
-    execute """
-    DROP INDEX IF EXISTS index_ilo_isco_2008s_code;
+    DROP INDEX IF EXISTS ilo_isco_2008s_name_index_tpo;
     """
     execute """
     DROP TABLE IF EXISTS ilo_isco_2008s;

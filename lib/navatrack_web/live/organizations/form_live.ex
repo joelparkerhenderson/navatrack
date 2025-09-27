@@ -51,7 +51,7 @@ defmodule NavatrackWeb.Organizations.FormLive do
 
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:title]} label="Title" autofocus />
+        <.input field={form[:title]} label="name" autofocus />
         <.input field={form[:status]} label="Status" />
         <.input
           field={form[:tags]}
@@ -139,10 +139,10 @@ defmodule NavatrackWeb.Organizations.FormLive do
 
         </.section>
 
-        <.section id="international_standard_industrial_classification_v4" title="International Standard Industrial Classification V4">
+        <.section id="isic_v4" title="International Standard Industrial Classification V4">
 
-          <.input field={form[:international_standard_industrial_classification_v4_code]} label="Code" />
-          <.input field={form[:international_standard_industrial_classification_v4_name]} label="Name" />
+          <.input field={form[:isic_v4_code]} label="Code" />
+          <.input field={form[:isic_v4_name]} label="Name" />
 
         </.section>
 

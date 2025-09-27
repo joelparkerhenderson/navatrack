@@ -7,13 +7,15 @@ defmodule Navatrack.Repo.Migrations.CreateTableSkills do
 
   def up do
     execute """
-    CREATE TABLE IF NOT EXISTS skills (
+    CREATE TABLE skills (
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
-      sign char,
-      title text,
+      locale_code text,
+      sign text,
+      kind text,
+      name text,
       status text,
       tags text[],
       summary_as_markdown text,
@@ -35,19 +37,31 @@ defmodule Navatrack.Repo.Migrations.CreateTableSkills do
       EXECUTE FUNCTION trigger_updated_at();
     """
     execute """
-    CREATE INDEX index_skills_created_at ON skills (created_at);
+    CREATE INDEX skills_created_at_index ON skills (created_at);
     """
     execute """
-    CREATE INDEX index_skills_updated_at ON skills (updated_at);
+    CREATE INDEX skills_updated_at_index ON skills (updated_at);
     """
     execute """
-    CREATE INDEX index_skills_deleted_at ON skills (deleted_at);
+    CREATE INDEX skills_deleted_at_index ON skills (deleted_at);
     """
     execute """
-    CREATE INDEX index_skills_sign ON skills (sign);
+    CREATE INDEX skills_locale_code_index ON skills (locale_code);
     """
     execute """
-    CREATE INDEX index_skills_tags ON skills (tags);
+    CREATE INDEX skills_sign_index ON skills (sign);
+    """
+    execute """
+    CREATE INDEX skills_sign_index_tpo ON skills (sign text_pattern_ops);
+    """
+    execute """
+    CREATE INDEX skills_kind_index ON skills (kind);
+    """
+    execute """
+    CREATE INDEX skills_kind_index_tpo ON skills (kind text_pattern_ops);
+    """
+    execute """
+    CREATE INDEX skills_tags_index ON skills (tags);
     """
   end
 
@@ -56,19 +70,31 @@ defmodule Navatrack.Repo.Migrations.CreateTableSkills do
     DROP TRIGGER IF EXISTS trigger_skills_updated_at;
     """
     execute """
-    DROP INDEX IF EXISTS index_skills_created_at;
+    DROP INDEX IF EXISTS skills_created_at_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_skills_updated_at;
+    DROP INDEX IF EXISTS skills_updated_at_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_skills_deleted_at;
+    DROP INDEX IF EXISTS skills_deleted_at_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_skills_sign;
+    DROP INDEX IF EXISTS skills_locale_code_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_skills_tags;
+    DROP INDEX IF EXISTS skills_sign_index;
+    """
+    execute """
+    DROP INDEX IF EXISTS skills_sign_index_tpo;
+    """
+    execute """
+    DROP INDEX IF EXISTS skills_kind_index;
+    """
+    execute """
+    DROP INDEX IF EXISTS skills_kind_index_tpo;
+    """
+    execute """
+    DROP INDEX IF EXISTS skills_tags_index;
     """
     execute """
     DROP TABLE IF EXISTS skills;

@@ -20,7 +20,8 @@ defmodule Navatrack.Accounts.Organization do
     attribute :updated_at, :utc_datetime_usec
     attribute :deleted_at, :utc_datetime_usec
     attribute :sign, :string
-    attribute :title, :string
+    attribute :kind, :string
+    attribute :name, :string
     attribute :status, :string
     attribute :tags, {:array, :string}
     attribute :url, :string
@@ -57,8 +58,8 @@ defmodule Navatrack.Accounts.Organization do
     attribute :gs1_digital_link, :string
     attribute :gs1_country_code, :string
     attribute :gs1_global_location_number, :string
-    attribute :international_standard_industrial_classification_v4_code, :string
-    attribute :international_standard_industrial_classification_v4_name, :string
+    attribute :isic_v4_code, :string
+    attribute :isic_v4_name, :string
     attribute :copyright_policy_as_url, :string
     attribute :copyright_policy_as_markdown, :string
     attribute :corrections_policy_as_url, :string
@@ -96,7 +97,7 @@ defmodule Navatrack.Accounts.Organization do
       :updated_at,
       :deleted_at,
       :sign,
-      :title,
+      :name,
       :status,
       :tags,
       :url,
@@ -133,8 +134,8 @@ defmodule Navatrack.Accounts.Organization do
       :gs1_digital_link,
       :gs1_country_code,
       :gs1_global_location_number,
-      :international_standard_industrial_classification_v4_code,
-      :international_standard_industrial_classification_v4_name,
+      :isic_v4_code,
+      :isic_v4_name,
       :copyright_policy_as_url,
       :copyright_policy_as_markdown,
       :corrections_policy_as_url,

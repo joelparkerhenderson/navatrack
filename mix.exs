@@ -41,7 +41,6 @@ defmodule Navatrack.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:cinder, git: "https://github.com/joelparkerhenderson/cinder"},
       {:picosat_elixir, "~> 0.2"},
       {:ash_authentication_phoenix, "~> 2.0"},
       {:absinthe_phoenix, "~> 2.0"},
@@ -61,8 +60,8 @@ defmodule Navatrack.MixProject do
       {:ash_ai, "~> 0.2"},
       {:ash_csv, "~> 0.9"},
       {:ash_admin, "~> 0.13"},
-      {:ash_phoenix, "~> 2.0"},
-      {:ash, "~> 3.0"},
+      {:ash_phoenix, "~> 2.3.16"},
+      {:ash, "~> 3.5.42"},
       {:igniter, "~> 0.6"},
       {:phoenix, "~> 1.8.1"},
       {:phoenix_ecto, "~> 4.5"},

@@ -51,7 +51,7 @@ defmodule NavatrackWeb.Skills.FormLive do
 
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:title]} label="Title" autofocus />
+        <.input field={form[:title]} label="name" autofocus />
         <.input field={form[:status]} label="Status" />
         <.input
           field={form[:tags]}

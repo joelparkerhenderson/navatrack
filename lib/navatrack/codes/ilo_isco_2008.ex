@@ -10,38 +10,37 @@ defmodule Navatrack.Codes.ILOISCO2008 do
   def plural_title_case(), do: "ILO ISCO 2008s"
 
   postgres do
-    table "ilo_isco_20082008s"
+    table "ilo_isco_2008s"
     repo Navatrack.Repo
-  end
-
-  actions do
- 	  defaults [:create, :read, :update, :destroy]
   end
 
   attributes do
     uuid_primary_key :id
-    attribute :created_at, :utc_datetime_usec
-    attribute :updated_at, :utc_datetime_usec
-    attribute :deleted_at, :utc_datetime_usec
-    attribute :sign, :string
-    attribute :tags, {:array, :string}
-    attribute :code, :string
-    attribute :title, :string
-    attribute :definition, :string
+
+    attribute :locale_code, :string do
+      allow_nil? false
+      public? true
+    end
+
+    attribute :code, :string do
+      allow_nil? false
+      public? true
+    end
+
+    attribute :name, :string do
+      allow_nil? false
+      public? true
+    end
+
+    attribute :definition, :string do
+      allow_nil? false
+      public? true
+    end
+
   end
 
   actions do
- 	  defaults [:create, :read, :update, :destroy]
-    default_accept [
-      :created_at,
-      :updated_at,
-      :deleted_at,
-      :sign,
-      :tags,
-      :code,
-      :title,
-      :definition,
-    ]
+ 	  defaults [:read]
   end
 
 end

@@ -27,7 +27,7 @@ From Phoenix table markup such as:
             {x.id}
         </.link>
     </:col>
-    <:col :let={x} label="title"></:col>
+    <:col :let={x} label="name">{x.name}</:col>
     <:col :let={x} label="status">{x.status}</:col>
 </.table>
 ```
@@ -44,7 +44,7 @@ Into Cinder table markup such as:
             {x.id}
         </.link>
     </:col>
-    <:col :let={x} field="title" filter sort search>{x.title}</:col>
+    <:col :let={x} field="title" filter sort search>{x.name}</:col>
     <:col :let={x} field="status" filter sort search>{x.status}</:col>
 </Cinder.Table.table>
 ```

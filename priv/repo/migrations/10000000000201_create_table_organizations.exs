@@ -7,13 +7,15 @@ defmodule Navatrack.Repo.Migrations.CreateTableOrganizations do
 
   def up do
     execute """
-    CREATE TABLE IF NOT EXISTS organizations (
+    CREATE TABLE organizations (
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
-      sign char,
-      title text,
+      locale_code text,
+      sign text,
+      kind text,
+      name text,
       status text,
       tags text[],
       url text,
@@ -51,8 +53,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableOrganizations do
       gs1_digital_link text,
       gs1_country_code text,
       gs1_global_location_number text,
-      international_standard_industrial_classification_v4_code text,
-      international_standard_industrial_classification_v4_name text,
+      isic_v4_code text,
+      isic_v4_name text,
       copyright_policy_as_url text CONSTRAINT check_copyright_policy_as_url CHECK (copyright_policy_as_url ~* '^https://'),
       copyright_policy_as_markdown text,
       corrections_policy_as_url text CONSTRAINT check_corrections_policy_as_url CHECK (corrections_policy_as_url ~* '^https://'),
@@ -90,31 +92,43 @@ defmodule Navatrack.Repo.Migrations.CreateTableOrganizations do
       EXECUTE FUNCTION trigger_updated_at();
     """
     execute """
-    CREATE INDEX index_organizations_created_at ON organizations (created_at);
+    CREATE INDEX organizations_created_at_index ON organizations (created_at);
     """
     execute """
-    CREATE INDEX index_organizations_updated_at ON organizations (updated_at);
+    CREATE INDEX organizations_updated_at_index ON organizations (updated_at);
     """
     execute """
-    CREATE INDEX index_organizations_deleted_at ON organizations (deleted_at);
+    CREATE INDEX organizations_deleted_at_index ON organizations (deleted_at);
     """
     execute """
-    CREATE INDEX index_organizations_sign ON organizations (sign);
+    CREATE INDEX organizations_locale_code_index ON organizations (locale_code);
     """
     execute """
-    CREATE INDEX index_organizations_tags ON organizations (tags);
+    CREATE INDEX organizations_sign_index ON organizations (sign);
     """
     execute """
-    CREATE INDEX index_organizations_gs1_digital_link ON organizations (gs1_digital_link);
+    CREATE INDEX organizations_sign_index_tpo ON organizations (sign text_pattern_ops);
     """
     execute """
-    CREATE INDEX index_organizations_gs1_country_code ON organizations (gs1_country_code);
+    CREATE INDEX organizations_kind_index ON organizations (kind);
     """
     execute """
-    CREATE INDEX index_organizations_gs1_global_location_number ON organizations (gs1_global_location_number);
+    CREATE INDEX organizations_kind_index_tpo ON organizations (kind text_pattern_ops);
     """
     execute """
-    CREATE INDEX index_organizations_international_standard_industrial_classification_v4_code ON organizations (international_standard_industrial_classification_v4_code);
+    CREATE INDEX organizations_tags_index ON organizations (tags);
+    """
+    execute """
+    CREATE INDEX organizations_gs1_digital_link_index ON organizations (gs1_digital_link);
+    """
+    execute """
+    CREATE INDEX organizations_gs1_country_code_index ON organizations (gs1_country_code);
+    """
+    execute """
+    CREATE INDEX organizations_gs1_global_location_number_index ON organizations (gs1_global_location_number);
+    """
+    execute """
+    CREATE INDEX organizations_isic_v4_code_index ON organizations (isic_v4_code);
     """
   end
 
@@ -123,31 +137,43 @@ defmodule Navatrack.Repo.Migrations.CreateTableOrganizations do
     DROP TRIGGER IF EXISTS trigger_organizations_updated_at;
     """
     execute """
-    DROP INDEX IF EXISTS index_organizations_created_at;
+    DROP INDEX IF EXISTS organizations_created_at_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_organizations_updated_at;
+    DROP INDEX IF EXISTS organizations_updated_at_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_organizations_deleted_at;
+    DROP INDEX IF EXISTS organizations_deleted_at_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_organizations_sign;
+    DROP INDEX IF EXISTS organizations_locale_code_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_organizations_tags;
+    DROP INDEX IF EXISTS organizations_sign_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_organizations_gs1_digital_link;
+    DROP INDEX IF EXISTS organizations_sign_index_tpo;
     """
     execute """
-    DROP INDEX IF EXISTS index_organizations_gs1_country_code;
+    DROP INDEX IF EXISTS organizations_kind_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_organizations_gs1_global_location_number;
+    DROP INDEX IF EXISTS organizations_kind_index_tpo;
     """
     execute """
-    DROP INDEX IF EXISTS index_organizations_international_standard_industrial_classification_v4_code;
+    DROP INDEX IF EXISTS organizations_tags_index;
+    """
+    execute """
+    DROP INDEX IF EXISTS organizations_gs1_digital_link_index;
+    """
+    execute """
+    DROP INDEX IF EXISTS organizations_gs1_country_code_index;
+    """
+    execute """
+    DROP INDEX IF EXISTS organizations_gs1_global_location_number_index;
+    """
+    execute """
+    DROP INDEX IF EXISTS organizations_isic_v4_code_index;
     """
     execute """
     DROP TABLE IF EXISTS organizations;

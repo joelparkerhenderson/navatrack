@@ -27,6 +27,10 @@ defmodule NavatrackWeb.Layouts do
   """
   attr :flash, :map, required: true, doc: "the map of flash messages"
 
+  # These lines are for Backpex
+  attr :fluid?, :boolean, default: true, doc: "if the content uses full width"
+  attr :current_url, :string, required: true, doc: "the current url"
+
   attr :current_scope, :map,
     default: nil,
     doc: "the current [scope](https://hexdocs.pm/phoenix/scopes.html)"
@@ -87,5 +91,7 @@ defmodule NavatrackWeb.Layouts do
     </div>
     """
   end
+
+  def admin(assigns)
 
 end

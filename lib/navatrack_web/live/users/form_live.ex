@@ -149,7 +149,7 @@ defmodule NavatrackWeb.Users.FormLive do
 
           <h3 class="h3">Summary</h3>
 
-          <.input field={form[:work_role_title]} label="Title" placeholder="My Work Role Title" />
+          <.input field={form[:work_role_name]} label="name" placeholder="My Work Role Title" />
           <.input field={form[:work_role_level]} label="Level/Grade/Class/etc." />
           <.input field={form[:work_role_description_as_markdown]} type="textarea" label="Description" />
           <.input field={form[:work_role_professional_development_plan_markdown]} type="textarea" label="Professional Development Plan" />

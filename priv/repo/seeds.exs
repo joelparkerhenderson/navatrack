@@ -18,4 +18,4 @@
 
 #Code.require_file("seeds/users.exs", __DIR__)
 #Code.require_file("seeds/organizations.exs", __DIR__)
-Code.require_file("seeds/united_kingdom_government_digital_and_data_profession_capability_framework_skills.exs", __DIR__)
+Code.require_file("seeds/uk_gdad_pcf_skills.exs", __DIR__)

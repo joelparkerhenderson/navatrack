@@ -34,7 +34,7 @@ sed 's#linkedin_url: "https://www.linkedin.com/#linkedin_url: "https://linkedin.
 
 ## United Kingdom (UK) Government Digital And Data (GDAD) Profession Capability Framework (PCF)
 
-Copy file `contactopensource/api/united_kingdom_government_digital_and_data_profession_capability_framework_skill/doc.md`
+Copy file `contactopensource/api/uk_gdad_pcf_skill/doc.md`
 
 Search:
 
@@ -47,7 +47,7 @@ Replace:
 ```regex-replace
 """
 }
-Navatrack.Repo.insert!(%Navatrack.Works.UKGDADPCFSkill{
+Navatrack.Repo.insert!(%Navatrack.Works.UkGdadPcfSkill{
   title: "$1",
   url: "https://ddat-capability-framework.service.gov.uk/skills#\L$1",
   description: """

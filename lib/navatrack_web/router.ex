@@ -168,4 +168,15 @@ defmodule NavatrackWeb.Router do
       ash_admin "/"
     end
   end
+
+  scope "/backpex", NavatrackWeb do
+    pipe_through :browser
+
+    backpex_routes()
+
+    live_session :default, on_mount: Backpex.InitAssigns do
+      live_resources "/backpex/initiatives", Backpex.InitiativesLive
+    end
+  end
+
 end

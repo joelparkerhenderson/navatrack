@@ -52,7 +52,7 @@ defmodule NavatrackWeb.ILOISCO2008s.FormLive do
         <h2 class="h2">Introduction</h2>
 
         <.input field={form[:code]} label="Code" autofocus />
-        <.input field={form[:title]} label="Title" />
+        <.input field={form[:title]} label="name" />
         <.input field={form[:definition]} label="Definition" />
 
         <.button type="primary">Save</.button>

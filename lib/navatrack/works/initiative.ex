@@ -20,7 +20,8 @@ defmodule Navatrack.Works.Initiative do
     attribute :updated_at, :utc_datetime_usec
     attribute :deleted_at, :utc_datetime_usec
     attribute :sign, :string
-    attribute :title, :string
+    attribute :kind, :string
+    attribute :name, :string
     attribute :status, :string
     attribute :tags, {:array, :string}
     attribute :url, :string
@@ -129,24 +130,24 @@ defmodule Navatrack.Works.Initiative do
     attribute :quality_warrantability_as_markdown, :string
     attribute :apache_echart_as_url, :string
     attribute :apache_echart_as_typescript, :string
-    attribute :customer_net_promoter_score_actual_value, :float
-    attribute :customer_net_promoter_score_target_value, :float
+    attribute :customer_net_promoter_score_actual_value, :decimal
+    attribute :customer_net_promoter_score_target_value, :decimal
     attribute :customer_net_promoter_score_unit, :string
     attribute :customer_net_promoter_score_description_as_markdown, :string
-    attribute :user_net_promoter_score_actual_value, :float
-    attribute :user_net_promoter_score_target_value, :float
+    attribute :user_net_promoter_score_actual_value, :decimal
+    attribute :user_net_promoter_score_target_value, :decimal
     attribute :user_net_promoter_score_unit, :string
     attribute :user_net_promoter_score_description_as_markdown, :string
-    attribute :worker_net_promoter_score_actual_value, :float
-    attribute :worker_net_promoter_score_target_value, :float
+    attribute :worker_net_promoter_score_actual_value, :decimal
+    attribute :worker_net_promoter_score_target_value, :decimal
     attribute :worker_net_promoter_score_unit, :string
     attribute :worker_net_promoter_score_description_as_markdown, :string
     attribute :active_users_actual_value, :integer
     attribute :active_users_target_value, :integer
     attribute :active_users_unit, :string
     attribute :active_users_description, :string
-    attribute :uptime_percentage_actual_value, :float
-    attribute :uptime_percentage_target_value, :float
+    attribute :uptime_percentage_actual_value, :decimal
+    attribute :uptime_percentage_target_value, :decimal
     attribute :uptime_percentage_unit, :string
     attribute :uptime_percentage_description, :string
     attribute :burn_rate_net_cash_per_week_actual_value, :integer
@@ -157,50 +158,65 @@ defmodule Navatrack.Works.Initiative do
     attribute :burn_rate_hours_per_week_target_value, :integer
     attribute :burn_rate_hours_per_week_unit, :string
     attribute :burn_rate_hours_per_week_description, :string
-    attribute :total_project_control_dipp, :float
-    attribute :total_project_control_dipp_progress_index_ratio, :float
-    attribute :total_project_control_dipp_progress_index_numerator, :float
-    attribute :total_project_control_dipp_progress_index_denominator, :float
-    attribute :total_project_control_expected_monetary_value, :float
-    attribute :total_project_control_cost_estimate_to_complete, :float
-    attribute :deployment_frequency_actual_value, :float
-    attribute :deployment_frequency_target_value, :float
+    attribute :earned_value_management_planned_value, :decimal
+    attribute :earned_value_management_earned_value, :decimal
+    attribute :earned_value_management_actual_cost, :decimal
+    attribute :earned_value_management_cost_variance, :decimal
+    attribute :earned_value_management_cost_variance_ratio, :decimal
+    attribute :earned_value_management_cost_performance_index, :decimal
+    attribute :earned_value_management_schedule_variance, :decimal
+    attribute :earned_value_management_schedule_variance_ratio, :decimal
+    attribute :earned_value_management_schedule_performance_index, :decimal
+    attribute :total_project_control_dipp, :decimal
+    attribute :total_project_control_dipp_progress_index_ratio, :decimal
+    attribute :total_project_control_dipp_progress_index_numerator, :decimal
+    attribute :total_project_control_dipp_progress_index_denominator, :decimal
+    attribute :total_project_control_expected_monetary_value, :decimal
+    attribute :total_project_control_cost_estimate_to_complete, :decimal
+    attribute :deployment_frequency_actual_value, :decimal
+    attribute :deployment_frequency_target_value, :decimal
     attribute :deployment_frequency_unit, :string
     attribute :deployment_frequency_description, :string
-    attribute :lead_time_for_changes_actual_value, :float
-    attribute :lead_time_for_changes_target_value, :float
+    attribute :lead_time_for_changes_actual_value, :decimal
+    attribute :lead_time_for_changes_target_value, :decimal
+    attribute :lead_time_for_changes_ratio, :decimal
     attribute :lead_time_for_changes_unit, :string
     attribute :lead_time_for_changes_description, :string
-    attribute :change_failure_rate_actual_value, :float
-    attribute :change_failure_rate_target_value, :float
+    attribute :change_failure_rate_actual_value, :decimal
+    attribute :change_failure_rate_target_value, :decimal
+    attribute :change_failure_rate_ratio, :decimal
     attribute :change_failure_rate_unit, :string
     attribute :change_failure_rate_description, :string
-    attribute :mean_time_to_recovery_actual_value, :float
-    attribute :mean_time_to_recovery_target_value, :float
+    attribute :mean_time_to_recovery_actual_value, :decimal
+    attribute :mean_time_to_recovery_target_value, :decimal
+    attribute :mean_time_to_recovery_ratio, :decimal
     attribute :mean_time_to_recovery_unit, :string
     attribute :mean_time_to_recovery_description, :string
-    attribute :maintainability_index_actual_value, :float
-    attribute :maintainability_index_target_value, :float
+    attribute :maintainability_index_actual_value, :decimal
+    attribute :maintainability_index_target_value, :decimal
     attribute :maintainability_index_unit, :string
     attribute :maintainability_index_description, :string
-    attribute :line_count_actual_value, :float
-    attribute :line_count_target_value, :float
+    attribute :line_count_actual_value, :decimal
+    attribute :line_count_target_value, :decimal
     attribute :line_count_unit, :string
     attribute :line_count_description, :string
-    attribute :test_automation_code_coverage_actual_value, :float
-    attribute :test_automation_code_coverage_target_value, :float
+    attribute :test_automation_code_coverage_actual_value, :decimal
+    attribute :test_automation_code_coverage_target_value, :decimal
     attribute :test_automation_code_coverage_unit, :string
     attribute :test_automation_code_coverage_description, :string
-    attribute :halstead_complexity_volume_actual_value, :float
-    attribute :halstead_complexity_volume_target_value, :float
+    attribute :halstead_complexity_volume_actual_value, :decimal
+    attribute :halstead_complexity_volume_target_value, :decimal
+    attribute :halstead_complexity_volume_ratio, :decimal
     attribute :halstead_complexity_volume_unit, :string
     attribute :halstead_complexity_volume_description, :string
-    attribute :halstead_complexity_difficulty_actual_value, :float
-    attribute :halstead_complexity_difficulty_target_value, :float
+    attribute :halstead_complexity_difficulty_actual_value, :decimal
+    attribute :halstead_complexity_difficulty_target_value, :decimal
+    attribute :halstead_complexity_difficulty_ratio, :decimal
     attribute :halstead_complexity_difficulty_unit, :string
     attribute :halstead_complexity_difficulty_description, :string
-    attribute :halstead_complexity_effort_actual_value, :float
-    attribute :halstead_complexity_effort_target_value, :float
+    attribute :halstead_complexity_effort_actual_value, :decimal
+    attribute :halstead_complexity_effort_target_value, :decimal
+    attribute :halstead_complexity_effort_ratio, :decimal
     attribute :halstead_complexity_effort_unit, :string
     attribute :halstead_complexity_effort_description, :string
   end
@@ -212,7 +228,8 @@ defmodule Navatrack.Works.Initiative do
       :updated_at,
       :deleted_at,
       :sign,
-      :title,
+      :kind,
+      :name,
       :status,
       :tags,
       :url,

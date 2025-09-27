@@ -69,7 +69,19 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "title",
+      "source": "kind",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "name",
       "type": "text"
     },
     {
@@ -225,7 +237,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "B9453B9F04C6607920A64E02A107E7B57E5EB01972DD0799D02BA4CF9B810F6B",
+  "hash": "A65C6A4DE55D43A8F5EDF0BA65BAB6CA7406DAABDC21F11DE3BABFDB943F2F1E",
   "identities": [],
   "multitenancy": {
     "attribute": null,

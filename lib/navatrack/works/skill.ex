@@ -20,7 +20,8 @@ defmodule Navatrack.Works.Skill do
     attribute :updated_at, :utc_datetime_usec
     attribute :deleted_at, :utc_datetime_usec
     attribute :sign, :string
-    attribute :title, :string
+    attribute :kind, :string
+    attribute :name, :string
     attribute :status, :string
     attribute :tags, {:array, :string}
     attribute :summary_as_markdown, :string
@@ -42,7 +43,8 @@ defmodule Navatrack.Works.Skill do
       :updated_at,
       :deleted_at,
       :sign,
-      :title,
+      :kind,
+      :name,
       :status,
       :tags,
       :summary_as_markdown,

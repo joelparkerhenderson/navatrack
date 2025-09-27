@@ -1,6 +1,5 @@
 [
   import_deps: [
-    :cinder,
     :ash_authentication,
     :ash_authentication_phoenix,
     :backpex,

@@ -43,17 +43,18 @@ defmodule NavatrackWeb.ILOISCO2008s.IndexLive do
           None.
         </div>
       <% else %>
-        <Cinder.Table.table
-          resource={X}
-          row_click={fn x -> JS.navigate(path_show(x)) end}
-        >
-          <:col :let={x} field="id" sort search>
-            <.link navigate={path_show(x)} data-role="x-id">➡️</.link>
-          </:col>
-          <:col :let={x} field="code" filter sort search>{x.code}</:col>
-          <:col :let={x} field="title" filter sort search>{x.title}</:col>
-          <:col :let={x} field="definition" filter sort search>{x.definition}</:col>
-        </Cinder.Table.table>
+        <.table id="xx" rows={@xx}>
+            <:col :let={x} label="id">
+                <.link
+                    navigate={Path.join(["/", X.plural_snake_case(), x.id])}
+                    data-role="x-id"
+                >
+                    {x.id}
+                </.link>
+            </:col>
+            <:col :let={x} label="name">{x.name}</:col>
+            <:col :let={x} label="status">{x.status}</:col>
+        </.table>
       <% end %>
     </Layouts.app>
     """

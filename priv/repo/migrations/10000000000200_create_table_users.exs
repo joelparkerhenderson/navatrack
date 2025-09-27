@@ -7,13 +7,15 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
 
   def up do
     execute """
-    CREATE TABLE IF NOT EXISTS users (
+    CREATE TABLE users (
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
-      sign char,
-      title text,
+      locale_code text,
+      sign text,
+      kind text,
+      name text,
       status text,
       tags text[],
       url text,
@@ -51,7 +53,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       work_profile_resume_as_markdown text,
       work_profile_curriculum_vitae_as_pdf_url text CONSTRAINT check_work_profile_curriculum_vitae_as_pdf_url CHECK (work_profile_curriculum_vitae_as_pdf_url ~* '^https://'),
       work_profile_curriculum_vitae_as_markdown text,
-      work_role_title text,
+      work_role_name text,
       work_role_start_date date,
       work_role_stop_date date,
       work_role_level text,
@@ -60,7 +62,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       work_role_onet_soc_2019_code text,
       work_role_united_kingdom_civil_service_grade_abbreviation text,
       work_role_united_kingdom_standard_occupational_classification_2020_code text,
-      work_role_united_kingdom_government_digital_and_data_profession_capability_framework_url text
+      work_role_uk_gdad_pcf_url text
     );
     """
     execute """
@@ -70,28 +72,40 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       EXECUTE FUNCTION trigger_updated_at();
     """
     execute """
-    CREATE INDEX index_users_created_at ON users (created_at);
+    CREATE INDEX users_created_at_index ON users (created_at);
     """
     execute """
-    CREATE INDEX index_users_updated_at ON users (updated_at);
+    CREATE INDEX users_updated_at_index ON users (updated_at);
     """
     execute """
-    CREATE INDEX index_users_deleted_at ON users (deleted_at);
+    CREATE INDEX users_deleted_at_index ON users (deleted_at);
     """
     execute """
-    CREATE INDEX index_users_sign ON users (sign);
+    CREATE INDEX users_locale_code_index ON users (locale_code);
     """
     execute """
-    CREATE INDEX index_users_tags ON users (tags);
+    CREATE INDEX users_sign_index ON users (sign);
+    """
+    execute """
+    CREATE INDEX users_sign_index_tpo ON users (sign text_pattern_ops);
+    """
+    execute """
+    CREATE INDEX users_kind_index ON users (kind);
+    """
+    execute """
+    CREATE INDEX users_kind_index_tpo ON users (kind text_pattern_ops);
+    """
+    execute """
+    CREATE INDEX users_tags_index ON users (tags);
     """
     execute """
     CREATE UNIQUE INDEX index_users_email ON users (email);
     """
     execute """
-    CREATE INDEX index_users_work_role_onet_soc_2019_code ON users (work_role_onet_soc_2019_code);
+    CREATE INDEX users_work_role_onet_soc_2019_code_index ON users (work_role_onet_soc_2019_code);
     """
     execute """
-    CREATE INDEX index_users_work_role_united_kingdom_civil_service_grade_abbreviation ON users (work_role_united_kingdom_civil_service_grade_abbreviation);
+    CREATE INDEX users_work_role_united_kingdom_civil_service_grade_abbreviation_index ON users (work_role_united_kingdom_civil_service_grade_abbreviation);
     """
   end
 
@@ -100,28 +114,40 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
     DROP TRIGGER IF EXISTS trigger_users_updated_at;
     """
     execute """
-    DROP INDEX IF EXISTS index_users_created_at;
+    DROP INDEX IF EXISTS users_created_at_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_users_updated_at;
+    DROP INDEX IF EXISTS users_updated_at_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_users_deleted_at;
+    DROP INDEX IF EXISTS users_deleted_at_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_users_sign;
+    DROP INDEX IF EXISTS users_locale_code_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_users_tags;
+    DROP INDEX IF EXISTS users_sign_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_users_email;
+    DROP INDEX IF EXISTS users_sign_index_tpo;
     """
     execute """
-    DROP INDEX IF EXISTS index_users_work_role_onet_soc_2019_code;
+    DROP INDEX IF EXISTS users_kind_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_users_work_role_united_kingdom_civil_service_grade_abbreviation;
+    DROP INDEX IF EXISTS users_kind_index_tpo;
+    """
+    execute """
+    DROP INDEX IF EXISTS users_tags_index;
+    """
+    execute """
+    DROP INDEX IF EXISTS users_email_index;
+    """
+    execute """
+    DROP INDEX IF EXISTS users_work_role_onet_soc_2019_code_index;
+    """
+    execute """
+    DROP INDEX IF EXISTS users_work_role_united_kingdom_civil_service_grade_abbreviation_index;
     """
     execute """
     DROP TABLE IF EXISTS users;

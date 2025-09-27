@@ -51,7 +51,15 @@ defmodule NavatrackWeb.Initiatives.FormLive do
 
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:title]} label="Title" autofocus />
+        <.input field={form[:sign]} label="Sign" type="select"
+          options={["🆘", "⚠️", "✅", "⚪️", "🔴", "🟠", "🟡", "🟢", "🔵", "🟣"]}
+          value="⚪️"
+        />
+        <.input field={form[:kind]} label="Kind" type="select"
+          options={["Plan", "Practice", "Process", "Proof", "Product", "Project", "Programme", "Portfolio"]}
+          value="Plan"
+        />
+        <.input field={form[:title]} label="name" autofocus />
         <.input field={form[:status]} label="Status" />
         <.input
           field={form[:tags]}
@@ -323,7 +331,15 @@ defmodule NavatrackWeb.Initiatives.FormLive do
 
         </.section>
 
-        <.section id="total_project_control" title="Total Project Control">
+        <.section id="total_project_control" title="Earned Value Management (EVM)">
+
+          <.input field={form[:earned_value_management_planned_value]} label="Planned Value (PV)" />
+          <.input field={form[:earned_value_management_earned_value]} label="Earned Value (EV)" />
+          <.input field={form[:earned_value_management_actual_cost]} label="Actual Cost (AC)" />
+
+        </.section>
+
+        <.section id="total_project_control" title="Total Project Control (TPC)">
 
           <.input field={form[:total_project_control_dipp]} label="DIPP" />
           <.input field={form[:total_project_control_dipp_progress_index_ratio]} label="Progress Index (ratio)" />

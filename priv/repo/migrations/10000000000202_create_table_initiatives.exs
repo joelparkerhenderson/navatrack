@@ -7,13 +7,15 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
 
   def up do
     execute """
-    CREATE TABLE IF NOT EXISTS initiatives (
+    CREATE TABLE initiatives (
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
-      sign char,
-      title text,
+      locale_code text,
+      sign text,
+      kind text,
+      name text,
       status text,
       tags text[],
       url text,
@@ -76,6 +78,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       code_of_conduct_as_markdown text,
       license_url text CONSTRAINT check_license_url CHECK (license_url ~* '^https://'),
       license_as_markdown text,
+      --- arc42
       arc42_as_url text CONSTRAINT check_arc42_as_url CHECK (arc42_as_url ~* '^https://'),
       arc42_as_markdown text,
       arc42_01_introduction_and_goals_as_markdown text,
@@ -90,6 +93,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       arc42_10_quality_requirements_as_markdown text,
       arc42_11_risks_and_technical_debt_as_markdown text,
       arc42_12_glossary_as_markdown text,
+      --- explain
       explain_stakeholders_as_markdown text,
       explain_history_as_markdown text,
       explain_authentication_as_markdown text,
@@ -104,6 +108,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       explain_financial_as_markdown text,
       explain_service_level_agreement_as_markdown text,
       explain_disaster_recovery_as_markdown text,
+      --- quality
       quality_availability_as_markdown text,
       quality_certifiability_as_markdown text,
       quality_compatibility_as_markdown text,
@@ -120,28 +125,35 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       quality_transferability_as_markdown text,
       quality_translatability_as_markdown text,
       quality_warrantability_as_markdown text,
+      -- apache_echart
       apache_echart_as_url text CONSTRAINT check_apache_echart_as_url CHECK (apache_echart_as_url ~* '^https://'),
       apache_echart_as_typescript text,
-      customer_net_promoter_score_actual_value float,
-      customer_net_promoter_score_target_value float,
+      --- customer_net_promoter
+      customer_net_promoter_score_actual_value DECIMAL,
+      customer_net_promoter_score_target_value DECIMAL,
       customer_net_promoter_score_unit text,
       customer_net_promoter_score_description_as_markdown text,
-      user_net_promoter_score_actual_value float,
-      user_net_promoter_score_target_value float,
+      --- user_net_promoter
+      user_net_promoter_score_actual_value DECIMAL,
+      user_net_promoter_score_target_value DECIMAL,
       user_net_promoter_score_unit text,
       user_net_promoter_score_description_as_markdown text,
-      worker_net_promoter_score_actual_value float,
-      worker_net_promoter_score_target_value float,
+      --- worker_net_promoter
+      worker_net_promoter_score_actual_value DECIMAL,
+      worker_net_promoter_score_target_value DECIMAL,
       worker_net_promoter_score_unit text,
       worker_net_promoter_score_description_as_markdown text,
+      --- active_users
       active_users_actual_value integer,
       active_users_target_value integer,
       active_users_unit text,
       active_users_description text,
+      --- uptime_percentage
       uptime_percentage_actual_value decimal(7,5),
       uptime_percentage_target_value decimal(7,5),
       uptime_percentage_unit text,
       uptime_percentage_description text,
+      --- burn_rate
       burn_rate_net_cash_per_week_actual_value integer,
       burn_rate_net_cash_per_week_target_value integer,
       burn_rate_net_cash_per_week_unit text,
@@ -150,50 +162,78 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       burn_rate_hours_per_week_target_value integer,
       burn_rate_hours_per_week_unit text,
       burn_rate_hours_per_week_description text,
-      total_project_control_dipp float,
-      total_project_control_dipp_progress_index_ratio float,
-      total_project_control_dipp_progress_index_numerator float,
-      total_project_control_dipp_progress_index_denominator float,
-      total_project_control_expected_monetary_value float,
-      total_project_control_cost_estimate_to_complete float,
-      deployment_frequency_actual_value float,
-      deployment_frequency_target_value float,
+      --- earned_value_management
+      earned_value_management_planned_value decimal,
+      earned_value_management_earned_value decimal,
+      earned_value_management_actual_cost decimal,
+      earned_value_management_cost_variance DECIMAL GENERATED ALWAYS AS (earned_value_management_earned_value - earned_value_management_actual_cost) STORED,
+      earned_value_management_cost_variance_ratio DECIMAL GENERATED ALWAYS AS ((earned_value_management_earned_value - earned_value_management_actual_cost) / earned_value_management_earned_value) STORED,
+      earned_value_management_cost_performance_index DECIMAL GENERATED ALWAYS AS (earned_value_management_earned_value / earned_value_management_actual_cost) STORED,
+      earned_value_management_schedule_variance DECIMAL GENERATED ALWAYS AS (earned_value_management_earned_value - earned_value_management_planned_value) STORED,
+      earned_value_management_schedule_variance_ratio DECIMAL GENERATED ALWAYS AS ((earned_value_management_earned_value - earned_value_management_planned_value) / earned_value_management_planned_value) STORED,
+      earned_value_management_schedule_performance_index DECIMAL GENERATED ALWAYS AS (earned_value_management_earned_value / earned_value_management_planned_value) STORED,
+      --- total_project_control
+      total_project_control_dipp decimal,
+      total_project_control_dipp_progress_index_ratio DECIMAL GENERATED ALWAYS AS (total_project_control_dipp_progress_index_numerator / total_project_control_dipp_progress_index_denominator) STORED,
+      total_project_control_dipp_progress_index_numerator decimal,
+      total_project_control_dipp_progress_index_denominator decimal,
+      total_project_control_expected_monetary_value decimal,
+      total_project_control_cost_estimate_to_complete decimal,
+      --- deployment_frequency
+      deployment_frequency_actual_value DECIMAL,
+      deployment_frequency_target_value DECIMAL,
+      deployment_frequency_ratio DECIMAL GENERATED ALWAYS AS (deployment_frequency_actual_value / deployment_frequency_target_value) STORED,
       deployment_frequency_unit text,
       deployment_frequency_description text,
-      lead_time_for_changes_actual_value float,
-      lead_time_for_changes_target_value float,
+      --- lead_time_for_changes
+      lead_time_for_changes_actual_value DECIMAL,
+      lead_time_for_changes_target_value DECIMAL,
+      lead_time_for_changes_ratio DECIMAL GENERATED ALWAYS AS (lead_time_for_changes_actual_value / lead_time_for_changes_target_value) STORED,
       lead_time_for_changes_unit text,
       lead_time_for_changes_description text,
-      change_failure_rate_actual_value float,
-      change_failure_rate_target_value float,
+      --- change_failure_rate
+      change_failure_rate_actual_value DECIMAL,
+      change_failure_rate_target_value DECIMAL,
+      change_failure_rate_ratio DECIMAL GENERATED ALWAYS AS (change_failure_rate_actual_value / change_failure_rate_target_value) STORED,
       change_failure_rate_unit text,
       change_failure_rate_description text,
-      mean_time_to_recovery_actual_value float,
-      mean_time_to_recovery_target_value float,
+      --- mean_time_to_recovery
+      mean_time_to_recovery_actual_value DECIMAL,
+      mean_time_to_recovery_target_value DECIMAL,
+      mean_time_to_recovery_ratio DECIMAL GENERATED ALWAYS AS (mean_time_to_recovery_actual_value / mean_time_to_recovery_target_value) STORED,
       mean_time_to_recovery_unit text,
       mean_time_to_recovery_description text,
-      maintainability_index_actual_value float,
-      maintainability_index_target_value float,
+      --- maintainability_index
+      maintainability_index_actual_value DECIMAL,
+      maintainability_index_target_value DECIMAL,
       maintainability_index_unit text,
       maintainability_index_description text,
+      --- line_count
       line_count_actual_value integer,
       line_count_target_value integer,
       line_count_unit text,
       line_count_description text,
-      test_automation_code_coverage_actual_value float,
-      test_automation_code_coverage_target_value float,
+      --- test_automation_code_coverage
+      test_automation_code_coverage_actual_value DECIMAL,
+      test_automation_code_coverage_target_value DECIMAL,
       test_automation_code_coverage_unit text,
       test_automation_code_coverage_description text,
-      halstead_complexity_volume_actual_value float,
-      halstead_complexity_volume_target_value float,
+      --- halstead_complexity_volume
+      halstead_complexity_volume_actual_value DECIMAL,
+      halstead_complexity_volume_target_value DECIMAL,
+      halstead_complexity_volume_ratio DECIMAL GENERATED ALWAYS AS (halstead_complexity_volume_actual_value / halstead_complexity_volume_target_value) STORED,
       halstead_complexity_volume_unit text,
       halstead_complexity_volume_description text,
-      halstead_complexity_difficulty_actual_value float,
-      halstead_complexity_difficulty_target_value float,
+      --- halstead_complexity_difficulty
+      halstead_complexity_difficulty_actual_value DECIMAL,
+      halstead_complexity_difficulty_target_value DECIMAL,
+      halstead_complexity_difficulty_ratio DECIMAL GENERATED ALWAYS AS (halstead_complexity_difficulty_actual_value / halstead_complexity_difficulty_target_value) STORED,
       halstead_complexity_difficulty_unit text,
       halstead_complexity_difficulty_description text,
-      halstead_complexity_effort_actual_value float,
-      halstead_complexity_effort_target_value float,
+      --- halstead_complexity_effort
+      halstead_complexity_effort_actual_value DECIMAL,
+      halstead_complexity_effort_target_value DECIMAL,
+      halstead_complexity_effort_ratio DECIMAL GENERATED ALWAYS AS (halstead_complexity_effort_actual_value / halstead_complexity_effort_target_value) STORED,
       halstead_complexity_effort_unit text,
       halstead_complexity_effort_description text
     );
@@ -205,19 +245,31 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       EXECUTE FUNCTION trigger_updated_at();
     """
     execute """
-    CREATE INDEX index_initiatives_created_at ON initiatives (created_at);
+    CREATE INDEX initiatives_created_at_index ON initiatives (created_at);
     """
     execute """
-    CREATE INDEX index_initiatives_updated_at ON initiatives (updated_at);
+    CREATE INDEX initiatives_updated_at_index ON initiatives (updated_at);
     """
     execute """
-    CREATE INDEX index_initiatives_deleted_at ON initiatives (deleted_at);
+    CREATE INDEX initiatives_deleted_at_index ON initiatives (deleted_at);
     """
     execute """
-    CREATE INDEX index_initiatives_sign ON initiatives (sign);
+    CREATE INDEX initiatives_locale_code_index ON initiatives (locale_code);
     """
     execute """
-    CREATE INDEX index_initiatives_tags ON initiatives (tags);
+    CREATE INDEX initiatives_sign_index ON initiatives (sign);
+    """
+    execute """
+    CREATE INDEX initiatives_sign_index_tpo ON initiatives (sign text_pattern_ops);
+    """
+    execute """
+    CREATE INDEX initiatives_kind_index ON initiatives (kind);
+    """
+    execute """
+    CREATE INDEX initiatives_kind_index_tpo ON initiatives (kind text_pattern_ops);
+    """
+    execute """
+    CREATE INDEX initiatives_tags_index ON initiatives (tags);
     """
   end
 
@@ -226,19 +278,31 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
     DROP TRIGGER IF EXISTS trigger_initiatives_updated_at;
     """
     execute """
-    DROP INDEX IF EXISTS index_initiatives_created_at;
+    DROP INDEX IF EXISTS initiatives_locale_code_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_initiatives_updated_at;
+    DROP INDEX IF EXISTS initiatives_created_at_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_initiatives_deleted_at;
+    DROP INDEX IF EXISTS initiatives_updated_at_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_initiatives_sign;
+    DROP INDEX IF EXISTS initiatives_deleted_at_index;
     """
     execute """
-    DROP INDEX IF EXISTS index_initiatives_tags;
+    DROP INDEX IF EXISTS initiatives_sign_index;
+    """
+    execute """
+    DROP INDEX IF EXISTS initiatives_sign_index_tpo;
+    """
+    execute """
+    DROP INDEX IF EXISTS initiatives_kind_index;
+    """
+    execute """
+    DROP INDEX IF EXISTS initiatives_kind_index_tpo;
+    """
+    execute """
+    DROP INDEX IF EXISTS initiatives_tags_index;
     """
     execute """
     DROP TABLE IF EXISTS initiatives;

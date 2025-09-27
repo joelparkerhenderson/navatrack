@@ -48,7 +48,8 @@ defmodule Navatrack.Accounts.User do
     attribute :updated_at, :utc_datetime_usec
     attribute :deleted_at, :utc_datetime_usec
     attribute :sign, :string
-    attribute :title, :string
+    attribute :kind, :string
+    attribute :name, :string
     attribute :status, :string
     attribute :tags, {:array, :string}
     attribute :url, :string
@@ -86,7 +87,7 @@ defmodule Navatrack.Accounts.User do
     attribute :work_profile_resume_as_markdown, :string
     attribute :work_profile_curriculum_vitae_as_pdf_url, :string
     attribute :work_profile_curriculum_vitae_as_markdown, :string
-    attribute :work_role_title, :string
+    attribute :work_role_name, :string
     attribute :work_role_start_date, :date
     attribute :work_role_stop_date, :date
     attribute :work_role_level, :string
@@ -95,7 +96,7 @@ defmodule Navatrack.Accounts.User do
     attribute :work_role_onet_soc_2019_code, :string
     attribute :work_role_united_kingdom_civil_service_grade_abbreviation, :string
     attribute :work_role_united_kingdom_standard_occupational_classification_2020_code, :string
-    attribute :work_role_united_kingdom_government_digital_and_data_profession_capability_framework_url, :string
+    attribute :work_role_uk_gdad_pcf_url, :string
   end
 
   identities do
@@ -155,7 +156,8 @@ defmodule Navatrack.Accounts.User do
       :updated_at,
       :deleted_at,
       :sign,
-      :title,
+      :kind,
+      :name,
       :status,
       :tags,
       :url,
@@ -193,7 +195,7 @@ defmodule Navatrack.Accounts.User do
       :work_profile_resume_as_markdown,
       :work_profile_curriculum_vitae_as_pdf_url,
       :work_profile_curriculum_vitae_as_markdown,
-      :work_role_title,
+      :work_role_name,
       :work_role_start_date,
       :work_role_stop_date,
       :work_role_level,
@@ -202,7 +204,7 @@ defmodule Navatrack.Accounts.User do
       :work_role_onet_soc_2019_code,
       :work_role_united_kingdom_civil_service_grade_abbreviation,
       :work_role_united_kingdom_standard_occupational_classification_2020_code,
-      :work_role_united_kingdom_government_digital_and_data_profession_capability_framework_url
+      :work_role_uk_gdad_pcf_url
     ]
   end
 
