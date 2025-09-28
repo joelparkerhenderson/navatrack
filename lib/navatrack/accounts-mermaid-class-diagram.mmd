@@ -1,0 +1,41 @@
+classDiagram
+    class Token {
+        String jti
+        String subject
+        UtcDatetime expires_at
+        String purpose
+        Map extra_data
+        store_confirmation_changes(String token, Map extra_data, String purpose)
+        get_confirmation_changes(String jti)
+        read_expired()
+        read()
+        expired()
+        get_token(String token, String jti, String purpose)
+        revoked?(String token, String jti)
+        revoke_token(String token, Map extra_data)
+        revoke_jti(String subject, String jti, Map extra_data)
+        store_token(String token, Map extra_data, String purpose)
+        expunge_expired()
+        revoke_all_stored_for_subject(String subject, Map extra_data)
+    }
+    class User {
+        UUID id
+        log_out_everywhere(Struct user)
+        destroy()
+        update(UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec deleted_at, String sign, ...)
+        read()
+        create(UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec deleted_at, String sign, ...)
+        get_by_subject(String subject)
+        get_by_email(String email)
+        sign_in_with_magic_link(String token, UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec deleted_at, ...)
+        request_magic_link(String email)
+    }
+    class Organization {
+        UUID id
+        destroy()
+        update(UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec deleted_at, String sign, ...)
+        read()
+        create(UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec deleted_at, String sign, ...)
+    }
+
+

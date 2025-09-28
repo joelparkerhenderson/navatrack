@@ -1,0 +1,52 @@
+classDiagram
+    class IloIsco2008 {
+        UUID id
+        String locale_code
+        String code
+        String name
+        String definition
+        read()
+    }
+    class LuminaFoundationSkillLevel {
+        UUID id
+        String locale_code
+        Integer number
+        String name
+        String description
+        read()
+    }
+    class UkGdadPcfRole {
+        UUID id
+        String locale_code
+        String family
+        String name
+        String url
+        String description_as_markdown
+        String description_as_html
+        String level_name
+        String level_description_as_markdown
+        String level_description_as_html
+        Boolean senior_civil_service_flag
+        read()
+    }
+    class UkGdadPcfSkill {
+        UUID id
+        String locale_code
+        String name
+        String url
+        String description_as_markdown
+        String description_as_html
+        String level_1_description_as_markdown
+        String level_1_description_as_html
+        String level_2_description_as_markdown
+        String level_2_description_as_html
+        String level_3_description_as_markdown
+        String level_3_description_as_html
+        String level_4_description_as_markdown
+        String level_4_description_as_html
+        String roles_that_require_this_skill_as_markdown
+        String roles_that_require_this_skill_as_html
+        read()
+    }
+
+
