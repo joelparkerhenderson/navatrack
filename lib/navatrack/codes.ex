@@ -3,7 +3,7 @@ defmodule Navatrack.Codes do
     otp_app: :navatrack
 
   resources do
-    resource Navatrack.Codes.ILOISCO2008
+    resource Navatrack.Codes.IloIsco2008
     resource Navatrack.Codes.LuminaFoundationSkillLevel
     resource Navatrack.Codes.UkGdadPcfRole
     resource Navatrack.Codes.UkGdadPcfSkill

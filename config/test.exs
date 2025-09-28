@@ -2,7 +2,28 @@ import Config
 config :navatrack, token_signing_secret: "gYndTlBy8FSka0T0jx+Bu88K2L2UKwaT"
 config :bcrypt_elixir, log_rounds: 1
 config :navatrack, Oban, testing: :manual
+
+###
+# Ash
+###
+
 config :ash, policies: [show_policy_breakdowns?: true], disable_async?: true
+
+# Ash doc: the first thing you will likely want to do, especially if you are
+# using AshPostgres, is to add the following config to your config/test.exs.
+# This ensures that Ash does not spawn tasks when executing your requests, which
+# is necessary for doing transactional tests with AshPostgres.
+config :ash, :disable_async?, true
+
+# Ash doc: If you are using Ecto's transactional features to ensure that your
+# tests all run in a transaction, Ash will detect that it had notifications to
+# send (if you have any notifiers set up) but couldn't because it was still in a
+# transaction. The default behavior when notifications are missed is to warn.
+# However, this can get pretty noisy in tests. So we suggest adding the
+# following config to your config/test.exs.
+config :ash, :missed_notifications, :ignore
+
+###
 
 # Configure your database
 #

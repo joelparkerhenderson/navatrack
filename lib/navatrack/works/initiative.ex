@@ -175,6 +175,7 @@ defmodule Navatrack.Works.Initiative do
     attribute :total_project_control_cost_estimate_to_complete, :decimal
     attribute :deployment_frequency_actual_value, :decimal
     attribute :deployment_frequency_target_value, :decimal
+    attribute :deployment_frequency_ratio, :decimal
     attribute :deployment_frequency_unit, :string
     attribute :deployment_frequency_description, :string
     attribute :lead_time_for_changes_actual_value, :decimal
@@ -194,14 +195,17 @@ defmodule Navatrack.Works.Initiative do
     attribute :mean_time_to_recovery_description, :string
     attribute :maintainability_index_actual_value, :decimal
     attribute :maintainability_index_target_value, :decimal
+    attribute :maintainability_index_ratio, :decimal
     attribute :maintainability_index_unit, :string
     attribute :maintainability_index_description, :string
     attribute :line_count_actual_value, :decimal
     attribute :line_count_target_value, :decimal
+    attribute :line_count_ratio, :decimal
     attribute :line_count_unit, :string
     attribute :line_count_description, :string
     attribute :test_automation_code_coverage_actual_value, :decimal
     attribute :test_automation_code_coverage_target_value, :decimal
+    attribute :test_automation_code_coverage_ratio, :decimal
     attribute :test_automation_code_coverage_unit, :string
     attribute :test_automation_code_coverage_description, :string
     attribute :halstead_complexity_volume_actual_value, :decimal
@@ -363,50 +367,69 @@ defmodule Navatrack.Works.Initiative do
       :burn_rate_hours_per_week_target_value,
       :burn_rate_hours_per_week_unit,
       :burn_rate_hours_per_week_description,
+      :earned_value_management_planned_value,
+      :earned_value_management_earned_value,
+      :earned_value_management_actual_cost,
+      #:earned_value_management_cost_variance,
+      #:earned_value_management_cost_variance_ratio,
+      #:earned_value_management_cost_performance_index,
+      #:earned_value_management_schedule_variance,
+      #:earned_value_management_schedule_variance_ratio,
+      #:earned_value_management_schedule_performance_index,
       :total_project_control_dipp,
-      :total_project_control_dipp_progress_index_ratio,
+      #:total_project_control_dipp_progress_index_ratio,
       :total_project_control_dipp_progress_index_numerator,
       :total_project_control_dipp_progress_index_denominator,
       :total_project_control_expected_monetary_value,
       :total_project_control_cost_estimate_to_complete,
       :deployment_frequency_actual_value,
       :deployment_frequency_target_value,
+      #:deployment_frequency_ratio,
       :deployment_frequency_unit,
       :deployment_frequency_description,
       :lead_time_for_changes_actual_value,
       :lead_time_for_changes_target_value,
+      #:lead_time_for_changes_ratio,
       :lead_time_for_changes_unit,
       :lead_time_for_changes_description,
       :change_failure_rate_actual_value,
       :change_failure_rate_target_value,
+      #:change_failure_rate_ratio,
       :change_failure_rate_unit,
       :change_failure_rate_description,
       :mean_time_to_recovery_actual_value,
       :mean_time_to_recovery_target_value,
+      #:mean_time_to_recovery_ratio,
       :mean_time_to_recovery_unit,
       :mean_time_to_recovery_description,
       :maintainability_index_actual_value,
       :maintainability_index_target_value,
+      #:maintainability_index_ratio,
       :maintainability_index_unit,
       :maintainability_index_description,
       :line_count_actual_value,
       :line_count_target_value,
+      #:line_count_ratio,
       :line_count_unit,
       :line_count_description,
       :test_automation_code_coverage_actual_value,
       :test_automation_code_coverage_target_value,
+      #:test_automation_code_coverage_ratio,
       :test_automation_code_coverage_unit,
       :test_automation_code_coverage_description,
       :halstead_complexity_volume_actual_value,
       :halstead_complexity_volume_target_value,
+      #:halstead_complexity_volume_ratio,
       :halstead_complexity_volume_unit,
       :halstead_complexity_volume_description,
       :halstead_complexity_difficulty_actual_value,
       :halstead_complexity_difficulty_target_value,
+      #:halstead_complexity_difficulty_ratio,
       :halstead_complexity_difficulty_unit,
       :halstead_complexity_difficulty_description,
       :halstead_complexity_effort_actual_value,
       :halstead_complexity_effort_target_value,
+      #:halstead_complexity_effort_ratio,
       :halstead_complexity_effort_unit,
       :halstead_complexity_effort_description
     ]

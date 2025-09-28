@@ -23,43 +23,12 @@ defmodule NavatrackWeb.LuminaFoundationSkillLevels.ShowLive do
     <Layouts.app {assigns}>
       <.header>
         {@page_title}
-        <:actions>
-          <.button
-            data-confirm={"Are you sure you want to delete #{@x.title}?"}
-            phx-click={"delete-#{@x.id}"}
-          >
-            Delete
-          </.button>
-          <.button
-            navigate={Path.join(["/", X.plural_snake_case(), @x.id, "edit"])}
-          >
-            Edit
-          </.button>
-        </:actions>
       </.header>
       <main>
         {@x.title}
       </main>
     </Layouts.app>
     """
-  end
-
-  def handle_event("delete-" <> id, _params, socket) do
-    case Ash.get!(X, id) |> Ash.destroy() do
-      :ok ->
-        {:noreply,
-         socket
-         |> put_flash(:info, "Deleted.")
-         |> push_navigate(to: path_index(X))
-        }
-      {:error, error} ->
-          Logger.warning("Delete failed for skill '#{id}':
-          #{inspect(error)}")
-          {:noreply,
-            socket
-            |> put_flash(:error, "Delete failed.")
-          }
-    end
   end
 
 end

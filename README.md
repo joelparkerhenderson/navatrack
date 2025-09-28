@@ -83,3 +83,11 @@ Wet run:
 ```sh
 mix update_deps_versions
 ```
+
+## Update resource diagrams
+
+Run:
+
+```sh
+mix ash.generate_resource_diagrams
+```

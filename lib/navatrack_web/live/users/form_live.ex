@@ -51,7 +51,15 @@ defmodule NavatrackWeb.Users.FormLive do
 
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:title]} label="Name" autofocus />
+        <.input field={form[:sign]} label="Sign" type="select"
+          options={["🆘", "⚠️", "✅", "⚪️", "🔴", "🟠", "🟡", "🟢", "🔵", "🟣"]}
+          value="⚪️"
+        />
+        <.input field={form[:kind]} label="Kind" type="select"
+          options={["Employee", "Consultant", "Advisor", "Volunteer"]}
+          value="Employee"
+        />
+        <.input field={form[:name]} label="Name" autofocus />
         <.input field={form[:status]} label="Status" />
         <.input
           field={form[:tags]}
@@ -125,9 +133,9 @@ defmodule NavatrackWeb.Users.FormLive do
           <.input field={form[:daisyui_timeline_html]} label="DaisyUI timeline HTML" />
           <.input field={form[:org_mode]} label="Org Mode" />
           <.input field={form[:task_list_as_markdown]} type="textarea" label="Task list as markdown" />
-          <.input field={form[:ways_of_working_as_markdown]} type="textarea" label="Ways Of Working " />
-          <.input field={form[:objectives_and_key_results_as_markdown]} type="textarea" label="Objectives and Key Results (OKRs) " />
-          <.input field={form[:key_performance_indicators_as_markdown]} type="textarea" label="Key Performance Indicators (KPIs) " />
+          <.input field={form[:ways_of_working_as_markdown]} type="textarea" label="Ways Of Working" />
+          <.input field={form[:objectives_and_key_results_as_markdown]} type="textarea" label="Objectives and Key Results (OKRs)" />
+          <.input field={form[:key_performance_indicators_as_markdown]} type="textarea" label="Key Performance Indicators (KPIs)" />
 
         </.section>
 
@@ -149,8 +157,8 @@ defmodule NavatrackWeb.Users.FormLive do
 
           <h3 class="h3">Summary</h3>
 
-          <.input field={form[:work_role_name]} label="name" placeholder="My Work Role Title" />
-          <.input field={form[:work_role_level]} label="Level/Grade/Class/etc." />
+          <.input field={form[:work_role_name]} label="Role Name/Title/etc." placeholder="My Work Role Name" />
+          <.input field={form[:work_role_level]} label="Role Level/Grade/etc." placeholder="My Work Role Level"/>
           <.input field={form[:work_role_description_as_markdown]} type="textarea" label="Description" />
           <.input field={form[:work_role_professional_development_plan_markdown]} type="textarea" label="Professional Development Plan" />
 
@@ -164,7 +172,7 @@ defmodule NavatrackWeb.Users.FormLive do
           <.input field={form[:work_role_onet_soc_2019_code]} label="O*NET SOC 2019" />
           <.input field={form[:work_role_united_kingdom_civil_service_grade_abbreviation]} label="United Kingdom Civil Service Grade Abbreviation" />
           <.input field={form[:work_role_united_kingdom_standard_occupational_classification_2020_code]} label="United Kingdom Standard Occupational Classification 2020 Code Service Grade Abbreviation" />
-          <.input field={form[:work_role_united_kingdom_standard_occupational_classification_2020_code]} label="United Kingdom Government Digital and Data Profession Capability Framework URL" placeholder="https://example.com"/>
+          <.input field={form[:work_role_uk_gdad_pcf_url]} label="United Kingdom Government Digital and Data Profession Capability Framework URL" placeholder="https://example.com"/>
 
         </.section>
 

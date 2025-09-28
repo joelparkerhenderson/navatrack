@@ -51,7 +51,15 @@ defmodule NavatrackWeb.Skills.FormLive do
 
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:title]} label="name" autofocus />
+        <.input field={form[:sign]} label="Sign" type="select"
+          options={["🆘", "⚠️", "✅", "⚪️", "🔴", "🟠", "🟡", "🟢", "🔵", "🟣"]}
+          value="⚪️"
+        />
+        <.input field={form[:kind]} label="Kind" type="select"
+          options={["Ability", "Capability", "Competence", "Certification", "License", "Skill", "Training"]}
+          value="Skill"
+        />
+        <.input field={form[:name]} label="Name" autofocus />
         <.input field={form[:status]} label="Status" />
         <.input
           field={form[:tags]}

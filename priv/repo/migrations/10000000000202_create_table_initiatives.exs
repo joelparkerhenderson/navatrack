@@ -206,16 +206,19 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       --- maintainability_index
       maintainability_index_actual_value DECIMAL,
       maintainability_index_target_value DECIMAL,
+      maintainability_index_ratio DECIMAL GENERATED ALWAYS AS (maintainability_index_actual_value / maintainability_index_target_value) STORED,
       maintainability_index_unit text,
       maintainability_index_description text,
       --- line_count
-      line_count_actual_value integer,
-      line_count_target_value integer,
+      line_count_actual_value DECIMAL,
+      line_count_target_value DECIMAL,
+      line_count_ratio DECIMAL GENERATED ALWAYS AS (line_count_actual_value / line_count_target_value) STORED,
       line_count_unit text,
       line_count_description text,
       --- test_automation_code_coverage
       test_automation_code_coverage_actual_value DECIMAL,
       test_automation_code_coverage_target_value DECIMAL,
+      test_automation_code_coverage_ratio DECIMAL GENERATED ALWAYS AS (test_automation_code_coverage_actual_value / test_automation_code_coverage_target_value) STORED,
       test_automation_code_coverage_unit text,
       test_automation_code_coverage_description text,
       --- halstead_complexity_volume

@@ -1,4 +1,4 @@
-defmodule Navatrack.Repo.Migrations.CreateTableILOISCO2008s do
+defmodule Navatrack.Repo.Migrations.CreateTableIloIsco2008s do
   @moduledoc """
   Create table ilo_isco_2008s.
   """

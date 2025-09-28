@@ -4,13 +4,14 @@ defmodule Navatrack.Codes.UkGdadPcfRole do
     domain: Navatrack.Codes,
     data_layer: AshPostgres.DataLayer
 
+  def singular_snake_case(), do: "uk_gdad_pcf_role"
+  def plural_snake_case(), do: "uk_gdad_pcf_roles"
+  def singular_title_case(), do: "UK GDAD PCF Role"
+  def plural_title_case(), do: "UK GDAD PCF Roles"
+
   postgres do
     table "uk_gdad_pcf_roles"
     repo Navatrack.Repo
-  end
-
-  actions do
-    defaults [:read]
   end
 
   attributes do
@@ -66,4 +67,9 @@ defmodule Navatrack.Codes.UkGdadPcfRole do
       public? true
     end
   end
+
+  actions do
+    defaults [:read]
+  end
+
 end

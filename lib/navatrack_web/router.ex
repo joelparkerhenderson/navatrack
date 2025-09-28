@@ -106,6 +106,8 @@ defmodule NavatrackWeb.Router do
 
     get "/", PageController, :home
 
+    ### Core Resources
+
     live "/organizations", Organizations.IndexLive
     live "/organizations/new", Organizations.FormLive, :new
     live "/organizations/:id", Organizations.ShowLive
@@ -121,20 +123,25 @@ defmodule NavatrackWeb.Router do
     live "/skills/:id", Skills.ShowLive
     live "/skills/:id/edit", Skills.FormLive, :edit
 
-    live "/iloisco2008s", ILOISCO2008s.IndexLive
-    live "/iloisco2008s/new", ILOISCO2008s.FormLive, :new
-    live "/iloisco2008s/:id", ILOISCO2008s.ShowLive
-    live "/iloisco2008s/:id/edit", ILOISCO2008s.FormLive, :edit
-
-    live "/lumina_foundation_skill_levels", LuminaFoundationSkillLevels.IndexLive
-    live "/lumina_foundation_skill_levels/new", LuminaFoundationSkillLevels.FormLive, :new
-    live "/lumina_foundation_skill_levels/:id", LuminaFoundationSkillLevels.ShowLive
-    live "/lumina_foundation_skill_levels/:id/edit", LuminaFoundationSkillLevels.FormLive, :edit
-
     live "/users", Users.IndexLive
     live "/users/new", Users.FormLive, :new
     live "/users/:id", Users.ShowLive
     live "/users/:id/edit", Users.FormLive, :edit
+
+    ### Read-Only Codes
+
+    live "/ilo_isco_2008s", IloIsco2008s.IndexLive
+    live "/ilo_isco_2008s/:id", IloIsco2008s.ShowLive
+
+    live "/lumina_foundation_skill_levels", LuminaFoundationSkillLevels.IndexLive
+    live "/lumina_foundation_skill_levels/:id", LuminaFoundationSkillLevels.ShowLive
+
+    live "/uk_gdad_pcf_roles", UkGdadPcfRoles.IndexLive
+    live "/uk_gdad_pcf_roles/:id", UkGdadPcfRoles.ShowLive
+
+    live "/uk_gdad_pcf_skills", UkGdadPcfSkills.IndexLive
+    live "/uk_gdad_pcf_skills/:id", UkGdadPcfSkills.ShowLive
+
   end
 
   # Other scopes may use custom stacks.

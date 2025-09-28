@@ -1,7 +1,18 @@
 defmodule Navatrack.Codes.UkGdadPcfSkill do
   use Ash.Resource,
     otp_app: :navatrack,
-    domain: Navatrack.Codes
+    domain: Navatrack.Codes,
+    data_layer: AshPostgres.DataLayer
+
+  def singular_snake_case(), do: "uk_gdad_pcf_skill"
+  def plural_snake_case(), do: "uk_gdad_pcf_skills"
+  def singular_title_case(), do: "UK GDAD PCF Skill"
+  def plural_title_case(), do: "UK GDAD PCF Skills"
+
+  postgres do
+    table "uk_gdad_pcf_skills"
+    repo Navatrack.Repo
+  end
 
   attributes do
     uuid_primary_key :id
@@ -21,12 +32,7 @@ defmodule Navatrack.Codes.UkGdadPcfSkill do
       public? true
     end
 
-    attribute :description_as_markdown, :string do
-      allow_nil? false
-      public? true
-    end
-
-    attribute :description_as_html, :string do
+    attribute :description, :string do
       allow_nil? false
       public? true
     end

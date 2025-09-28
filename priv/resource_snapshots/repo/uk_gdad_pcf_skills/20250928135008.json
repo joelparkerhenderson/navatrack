@@ -13,7 +13,7 @@
       "type": "uuid"
     },
     {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -21,59 +21,11 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "created_at",
-      "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "updated_at",
-      "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "deleted_at",
-      "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "sign",
+      "source": "locale_code",
       "type": "text"
     },
     {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "kind",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -85,7 +37,7 @@
       "type": "text"
     },
     {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -93,38 +45,11 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "status",
+      "source": "url",
       "type": "text"
     },
     {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "tags",
-      "type": [
-        "array",
-        "text"
-      ]
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "summary_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -136,7 +61,7 @@
       "type": "text"
     },
     {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -144,11 +69,11 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "avatar_image_400x400_url",
+      "source": "description_as_html",
       "type": "text"
     },
     {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -156,11 +81,11 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "avatar_image_400x400_alt",
+      "source": "level_1_description_as_markdown",
       "type": "text"
     },
     {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -168,11 +93,11 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "main_image_1080x1080_url",
+      "source": "level_1_description_as_html",
       "type": "text"
     },
     {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -180,11 +105,11 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "main_image_1080x1080_alt",
+      "source": "level_2_description_as_markdown",
       "type": "text"
     },
     {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -192,11 +117,11 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "main_image_1920x1080_url",
+      "source": "level_2_description_as_html",
       "type": "text"
     },
     {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -204,11 +129,11 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "main_image_1920x1080_alt",
+      "source": "level_3_description_as_markdown",
       "type": "text"
     },
     {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -216,11 +141,11 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "main_image_1080x1920_url",
+      "source": "level_3_description_as_html",
       "type": "text"
     },
     {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -228,7 +153,43 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "main_image_1080x1920_alt",
+      "source": "level_4_description_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "level_4_description_as_html",
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "roles_that_require_this_skill_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "roles_that_require_this_skill_as_html",
       "type": "text"
     }
   ],
@@ -236,8 +197,8 @@
   "check_constraints": [],
   "custom_indexes": [],
   "custom_statements": [],
-  "has_create_action": true,
-  "hash": "A65C6A4DE55D43A8F5EDF0BA65BAB6CA7406DAABDC21F11DE3BABFDB943F2F1E",
+  "has_create_action": false,
+  "hash": "962344C9E3B807E8863F5E1D27BD6F09CF17A911D38C9DF82899CC61D6702485",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -246,5 +207,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "skills"
+  "table": "uk_gdad_pcf_skills"
 }

@@ -38,24 +38,21 @@ defmodule NavatrackWeb.Skills.IndexLive do
         </:actions>
       </.header>
 
-      <%= if @xx == [] do %>
-        <div>
-          None.
-        </div>
-      <% else %>
-        <.table id="xx" rows={@xx}>
-            <:col :let={x} label="id">
-                <.link
-                    navigate={Path.join(["/", X.plural_snake_case(), x.id])}
-                    data-role="x-id"
-                >
-                    {x.id}
-                </.link>
-            </:col>
-            <:col :let={x} label="name">{x.name}</:col>
-            <:col :let={x} label="status">{x.status}</:col>
-        </.table>
-      <% end %>
+      <.table id="xx" rows={@xx}>
+          <:col :let={x} label="Id">
+              <.link
+                  navigate={Path.join(["/", X.plural_snake_case(), x.id])}
+                  data-role="x-id"
+              >
+                  {x.id}
+              </.link>
+          </:col>
+          <:col :let={x} label="Sign">{x.sign}</:col>
+          <:col :let={x} label="Kind">{x.kind}</:col>
+          <:col :let={x} label="Name">{x.name}</:col>
+          <:col :let={x} label="Status">{x.status}</:col>
+          <:col :let={x} label="Tags">{x.tags}</:col>
+      </.table>
     </Layouts.app>
     """
   end

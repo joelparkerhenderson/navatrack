@@ -1,4 +1,4 @@
-defmodule Navatrack.Codes.ILOISCO2008 do
+defmodule Navatrack.Codes.IloIsco2008 do
   use Ash.Resource,
     otp_app: :navatrack,
     domain: Navatrack.Codes,

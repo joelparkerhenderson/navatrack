@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.IloIsco2008s.IndexLive do
+defmodule NavatrackWeb.UkGdadPcfSkills.IndexLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Codes.IloIsco2008, as: X
+  alias Navatrack.Codes.UkGdadPcfSkill, as: X
 
   require Logger
 
@@ -32,7 +32,7 @@ defmodule NavatrackWeb.IloIsco2008s.IndexLive do
       </.header>
 
       <.table id="xx" rows={@xx}>
-          <:col :let={x} label="id">
+          <:col :let={x} label="Id">
               <.link
                   navigate={Path.join(["/", X.plural_snake_case(), x.id])}
                   data-role="x-id"
@@ -40,7 +40,6 @@ defmodule NavatrackWeb.IloIsco2008s.IndexLive do
                   {x.id}
               </.link>
           </:col>
-          <:col :let={x} label="Code">{x.code}</:col>
           <:col :let={x} label="Name">{x.name}</:col>
       </.table>
     </Layouts.app>

@@ -51,7 +51,15 @@ defmodule NavatrackWeb.Organizations.FormLive do
 
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:title]} label="name" autofocus />
+        <.input field={form[:sign]} label="Sign" type="select"
+          options={["🆘", "⚠️", "✅", "⚪️", "🔴", "🟠", "🟡", "🟢", "🔵", "🟣"]}
+          value="⚪️"
+        />
+        <.input field={form[:kind]} label="Kind" type="select"
+          options={["Association", "Community", "Company", "Department", "Directorate", "Organization", "Partnership", "Team", "Venture"]}
+          value="Organization"
+        />
+        <.input field={form[:name]} label="Name" autofocus />
         <.input field={form[:status]} label="Status" />
         <.input
           field={form[:tags]}
@@ -125,9 +133,9 @@ defmodule NavatrackWeb.Organizations.FormLive do
           <.input field={form[:daisyui_timeline_html]} label="DaisyUI timeline HTML" />
           <.input field={form[:org_mode]} label="Org Mode" />
           <.input field={form[:task_list_as_markdown]} type="textarea" label="Task list as markdown" />
-          <.input field={form[:ways_of_working_as_markdown]} type="textarea" label="Ways Of Working " />
-          <.input field={form[:objectives_and_key_results_as_markdown]} type="textarea" label="Objectives and Key Results (OKRs) " />
-          <.input field={form[:key_performance_indicators_as_markdown]} type="textarea" label="Key Performance Indicators (KPIs) " />
+          <.input field={form[:ways_of_working_as_markdown]} type="textarea" label="Ways Of Working" />
+          <.input field={form[:objectives_and_key_results_as_markdown]} type="textarea" label="Objectives and Key Results (OKRs)" />
+          <.input field={form[:key_performance_indicators_as_markdown]} type="textarea" label="Key Performance Indicators (KPIs)" />
 
         </.section>
 
@@ -153,21 +161,21 @@ defmodule NavatrackWeb.Organizations.FormLive do
           <.input field={form[:customer_net_promoter_score_actual_value]} label="Actual Value" />
           <.input field={form[:customer_net_promoter_score_target_value]} label="Target Value" />
           <.input field={form[:customer_net_promoter_score_unit]} label="Unit" />
-          <.input field={form[:customer_net_promoter_score_description_as_markdown]} type="textarea" label="Description " />
+          <.input field={form[:customer_net_promoter_score_description_as_markdown]} type="textarea" label="Description" />
 
           <h3 class="h3">User Net Promoter Score (UNPS)</h3>
 
           <.input field={form[:user_net_promoter_score_actual_value]} label="Actual Value" />
           <.input field={form[:user_net_promoter_score_target_value]} label="Target Value" />
           <.input field={form[:user_net_promoter_score_unit]} label="Unit" />
-          <.input field={form[:user_net_promoter_score_description_as_markdown]} type="textarea" label="Description " />
+          <.input field={form[:user_net_promoter_score_description_as_markdown]} type="textarea" label="Description" />
 
           <h3 class="h3">Worker Net Promoter Score (WNPS)</h3>
 
           <.input field={form[:worker_net_promoter_score_actual_value]} label="Actual Value" />
           <.input field={form[:worker_net_promoter_score_target_value]} label="Target Value" />
           <.input field={form[:worker_net_promoter_score_unit]} label="Unit" />
-          <.input field={form[:worker_net_promoter_score_description_as_markdown]} type="textarea" label="Description " />
+          <.input field={form[:worker_net_promoter_score_description_as_markdown]} type="textarea" label="Description" />
 
         </.section>
 
@@ -203,17 +211,12 @@ defmodule NavatrackWeb.Organizations.FormLive do
           <.input field={form[:security_policy_as_url]} type="url" label="URL" />
           <.input field={form[:security_policy_as_markdown]} label="Text" />
 
-          <h3 class="h3">Security Policy</h3>
-
-          <.input field={form[:coordinated_disclosure_policy_as_url]} type="url" label="URL" />
-          <.input field={form[:coordinated_disclosure_policy_as_markdown]} label="Text" />
-
           <h3 class="h3">Coordinated Disclosure Policy</h3>
 
           <.input field={form[:coordinated_disclosure_policy_as_url]} type="url" label="URL" />
           <.input field={form[:coordinated_disclosure_policy_as_markdown]} label="Text" />
 
-          <h3 class="h3">Coordinated Disclosure Policy</h3>
+          <h3 class="h3">Open Source Policy</h3>
 
           <.input field={form[:open_source_policy_as_url]} type="url" label="URL" />
           <.input field={form[:open_source_policy_as_markdown]} label="Text" />
@@ -231,7 +234,7 @@ defmodule NavatrackWeb.Organizations.FormLive do
           <h3 class="h3">Social Network Policy</h3>
 
           <.input field={form[:social_network_policy_as_url]} type="url" label="URL" />
-          <.input field={form[:social_network_policy_as_url]} type="url" label="Text" />
+          <.input field={form[:social_network_policy_as_markdown]} type="url" label="Text" />
 
           <h3 class="h3">Health &amp; Safety Policy</h3>
 

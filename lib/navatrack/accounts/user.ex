@@ -213,10 +213,26 @@ defmodule Navatrack.Accounts.User do
       authorize_if always()
     end
 
-    # Allow anyone to read users (if that's what you want)
+    #TODO tighten
+    policy action(:create) do
+      authorize_if always() # Allows anyone to create users
+    end
+
+    #TODO tighten
     policy action(:read) do
       authorize_if always()
     end
+
+    #TODO tighten
+    policy action(:update) do
+      authorize_if always()
+    end
+
+    #TODO tighten
+    policy action(:destroy) do
+      authorize_if always()
+    end
+
   end
 
 end

@@ -29,33 +29,19 @@ defmodule NavatrackWeb.LuminaFoundationSkillLevels.IndexLive do
     <Layouts.app {assigns}>
       <.header>
         {@page_title}
-        <:actions>
-          <.button
-            navigate={Path.join(["/", X.plural_snake_case(), "new"])}
-          >
-            New
-          </.button>
-        </:actions>
       </.header>
 
-      <%= if @xx == [] do %>
-        <div>
-          None.
-        </div>
-      <% else %>
-        <.table id="xx" rows={@xx}>
-            <:col :let={x} label="id">
-                <.link
-                    navigate={Path.join(["/", X.plural_snake_case(), x.id])}
-                    data-role="x-id"
-                >
-                    {x.id}
-                </.link>
-            </:col>
-            <:col :let={x} label="name">{x.name}</:col>
-            <:col :let={x} label="status">{x.status}</:col>
-        </.table>
-      <% end %>
+      <.table id="xx" rows={@xx}>
+          <:col :let={x} label="id">
+              <.link
+                  navigate={Path.join(["/", X.plural_snake_case(), x.id])}
+                  data-role="x-id"
+              >
+                  {x.id}
+              </.link>
+          </:col>
+          <:col :let={x} label="Name">{x.name}</:col>
+      </.table>
     </Layouts.app>
     """
   end

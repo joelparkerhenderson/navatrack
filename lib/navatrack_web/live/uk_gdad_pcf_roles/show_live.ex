@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.IloIsco2008s.ShowLive do
+defmodule NavatrackWeb.UkGdadPcfRoles.ShowLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Codes.IloIsco2008, as: X
+  alias Navatrack.Codes.UkGdadPcfRole, as: X
 
   require Logger
 
@@ -28,9 +28,15 @@ defmodule NavatrackWeb.IloIsco2008s.ShowLive do
         <ul>
           <li>Id: {@x.id}</li>
           <li>Locale: {@x.locale_code}</li>
-          <li>Code: {@x.name}</li>
+          <li>Family: {@x.family}</li>
           <li>Name: {@x.name}</li>
-          <li>Definition: {@x.definition}</li>
+          <li>URL: {@x.url}</li>
+          <li>Description as Markdown: {@x.description_as_markdown}</li>
+          <li>Description as HTML: {@x.description_as_html}</li>
+          <li>Level Name:: {@x.level_name}</li>
+          <li>Level Description as Markdown: {@x.level_description_as_markdown}</li>
+          <li>Level Description as HTML: {@x.level_description_as_html}</li>
+          <li>Senior Civil Service Flag: {@x.senior_civil_service_flag}</li>
         </ul>
       </main>
     </Layouts.app>
