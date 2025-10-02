@@ -19,39 +19,39 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       status text,
       tags text[],
       url text,
-      email text CONSTRAINT check_email CHECK (email ~*  '.@.'),
+      email text CONSTRAINT email_check CHECK (email ~*  '.@.'),
       phone text,
       messaging text,
       postal text,
       orcid_pid text,
       rdf_type text,
-      linkedin_url text CONSTRAINT check_linkedin_url CHECK (linkedin_url ~* '^https://linkedin\.com/'),
-      github_url text CONSTRAINT check_github_url CHECK (github_url ~* '^https://github\.com/'),
-      codeberg_url text CONSTRAINT check_codeberg_url CHECK (codeberg_url ~* '^https://codeberg\.org/'),
-      agents_as_url text CONSTRAINT check_agents_as_url CHECK (agents_as_url ~* '^https://'),
+      linkedin_url text CONSTRAINT linkedin_url_check CHECK (linkedin_url ~* '^https://linkedin\.com/'),
+      github_url text CONSTRAINT github_url_check CHECK (github_url ~* '^https://github\.com/'),
+      codeberg_url text CONSTRAINT codeberg_url_check CHECK (codeberg_url ~* '^https://codeberg\.org/'),
+      agents_as_url text CONSTRAINT agents_as_url_check CHECK (agents_as_url ~* '^https://'),
       agents_as_markdown text,
-      avatar_image_400x400_url text CONSTRAINT check_avatar_image_400x400_url CHECK (avatar_image_400x400_url ~* '^https://'),
+      avatar_image_400x400_url text CONSTRAINT avatar_image_400x400_url_check CHECK (avatar_image_400x400_url ~* '^https://'),
       avatar_image_400x400_alt text,
-      main_image_1080x1080_url text CONSTRAINT check_main_image_1080x1080_url CHECK (main_image_1080x1080_url ~* '^https://'),
+      main_image_1080x1080_url text CONSTRAINT main_image_1080x1080_url_check CHECK (main_image_1080x1080_url ~* '^https://'),
       main_image_1080x1080_alt text,
-      main_image_1920x1080_url text CONSTRAINT check_main_image_1920x1080_url CHECK (main_image_1920x1080_url ~* '^https://'),
+      main_image_1920x1080_url text CONSTRAINT main_image_1920x1080_url_check CHECK (main_image_1920x1080_url ~* '^https://'),
       main_image_1920x1080_alt text,
-      main_image_1080x1920_url text CONSTRAINT check_main_image_1080x1920_url CHECK (main_image_1080x1920_url ~* '^https://'),
+      main_image_1080x1920_url text CONSTRAINT main_image_1080x1920_url_check CHECK (main_image_1080x1920_url ~* '^https://'),
       main_image_1080x1920_alt text,
-      home_emoji_url text CONSTRAINT check_home_emoji_url CHECK (home_emoji_url ~* '^https://'),
-      bellhop_bell_emoji_url text CONSTRAINT check_bellhop_bell_emoji_url CHECK (bellhop_bell_emoji_url ~* '^https://'),
-      target_emoji_url text CONSTRAINT check_target_emoji_url CHECK (target_emoji_url ~* '^https://'),
-      gear_emoji_url text CONSTRAINT check_gear_emoji_url CHECK (gear_emoji_url ~* '^https://'),
-      spiral_calendar_emoji_url text CONSTRAINT check_spiral_calendar_emoji_url CHECK (spiral_calendar_emoji_url ~* '^https://'),
-      sparkles_emoji_url text CONSTRAINT check_sparkles_emoji_url CHECK (sparkles_emoji_url ~* '^https://'),
-      speech_bubble_emoji_url text CONSTRAINT check_speech_bubble_emoji_url CHECK (speech_bubble_emoji_url ~* '^https://'),
-      newspaper_emoji_url text CONSTRAINT check_newspaper_emoji_url CHECK (newspaper_emoji_url ~* '^https://'),
-      bar_chart_emoji_url text CONSTRAINT check_bar_chart_emoji_url CHECK (bar_chart_emoji_url ~* '^https://'),
-      movie_camera_emoji_url text CONSTRAINT check_movie_camera_emoji_url CHECK (movie_camera_emoji_url ~* '^https://'),
-      construction_worker_emoji_url text CONSTRAINT check_construction_worker_emoji_url CHECK (construction_worker_emoji_url ~* '^https://'),
-      crystal_ball_emoji_url text CONSTRAINT check_crystal_ball_emoji_url CHECK (crystal_ball_emoji_url ~* '^https://'),
-      butterfly_emoji_url text CONSTRAINT check_butterfly_emoji_url CHECK (butterfly_emoji_url ~* '^https://'),
-      lady_beetle_emoji_url text CONSTRAINT check_lady_beetle_emoji_url CHECK (lady_beetle_emoji_url ~* '^https://'),
+      home_emoji_url text CONSTRAINT home_emoji_url_check CHECK (home_emoji_url ~* '^https://'),
+      bellhop_bell_emoji_url text CONSTRAINT bellhop_bell_emoji_url_check CHECK (bellhop_bell_emoji_url ~* '^https://'),
+      target_emoji_url text CONSTRAINT target_emoji_url_check CHECK (target_emoji_url ~* '^https://'),
+      gear_emoji_url text CONSTRAINT gear_emoji_url_check CHECK (gear_emoji_url ~* '^https://'),
+      spiral_calendar_emoji_url text CONSTRAINT spiral_calendar_emoji_url_check CHECK (spiral_calendar_emoji_url ~* '^https://'),
+      sparkles_emoji_url text CONSTRAINT sparkles_emoji_url_check CHECK (sparkles_emoji_url ~* '^https://'),
+      speech_bubble_emoji_url text CONSTRAINT speech_bubble_emoji_url_check CHECK (speech_bubble_emoji_url ~* '^https://'),
+      newspaper_emoji_url text CONSTRAINT newspaper_emoji_url_check CHECK (newspaper_emoji_url ~* '^https://'),
+      bar_chart_emoji_url text CONSTRAINT bar_chart_emoji_url_check CHECK (bar_chart_emoji_url ~* '^https://'),
+      movie_camera_emoji_url text CONSTRAINT movie_camera_emoji_url_check CHECK (movie_camera_emoji_url ~* '^https://'),
+      construction_worker_emoji_url text CONSTRAINT construction_worker_emoji_url_check CHECK (construction_worker_emoji_url ~* '^https://'),
+      crystal_ball_emoji_url text CONSTRAINT crystal_ball_emoji_url_check CHECK (crystal_ball_emoji_url ~* '^https://'),
+      butterfly_emoji_url text CONSTRAINT butterfly_emoji_url_check CHECK (butterfly_emoji_url ~* '^https://'),
+      lady_beetle_emoji_url text CONSTRAINT lady_beetle_emoji_url_check CHECK (lady_beetle_emoji_url ~* '^https://'),
       note text,
       email_distribution_list text,
       daisyui_timeline_html text,
@@ -60,26 +60,38 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       ways_of_working_as_markdown text,
       objectives_and_key_results_as_markdown text,
       key_performance_indicators_as_markdown text,
-      glossary_as_url text CONSTRAINT check_glossary_as_url CHECK (glossary_as_url ~* '^https://'),
+      glossary_as_url text CONSTRAINT glossary_as_url_check CHECK (glossary_as_url ~* '^https://'),
       glossary_as_markdown text,
-      six_pager_double_sider_as_url text CONSTRAINT check_six_pager_double_sider_as_url CHECK (six_pager_double_sider_as_url ~* '^https://'),
+      --- business analysis
+      six_pager_double_sider_as_url text CONSTRAINT six_pager_double_sider_as_url_check CHECK (six_pager_double_sider_as_url ~* '^https://'),
       six_pager_double_sider_as_markdown text,
-      swot_as_url text CONSTRAINT check_swot_as_url CHECK (swot_as_url ~* '^https://'),
+      swot_as_url text CONSTRAINT swot_as_url_check CHECK (swot_as_url ~* '^https://'),
       swot_as_markdown text,
-      porters_five_forces_as_url text CONSTRAINT check_porters_five_forces_as_url CHECK (porters_five_forces_as_url ~* '^https://'),
+      porters_five_forces_as_url text CONSTRAINT porters_five_forces_as_url_check CHECK (porters_five_forces_as_url ~* '^https://'),
       porters_five_forces_as_markdown text,
-      pestle_as_url text CONSTRAINT check_pestle_as_url CHECK (pestle_as_url ~* '^https://'),
+      pestle_as_url text CONSTRAINT pestle_as_url_check CHECK (pestle_as_url ~* '^https://'),
       pestle_as_markdown text,
-      roles_and_responsibilities_as_url text CONSTRAINT check_roles_and_responsibilities_as_url CHECK (roles_and_responsibilities_as_url ~* '^https://'),
+      roles_and_responsibilities_as_url text CONSTRAINT roles_and_responsibilities_as_url_check CHECK (roles_and_responsibilities_as_url ~* '^https://'),
       roles_and_responsibilities_as_markdown text,
-      responsibility_assignment_matrix_as_url text CONSTRAINT check_responsibility_assignment_matrix_as_url CHECK (responsibility_assignment_matrix_as_url ~* '^https://'),
+      responsibility_assignment_matrix_as_url text CONSTRAINT responsibility_assignment_matrix_as_url_check CHECK (responsibility_assignment_matrix_as_url ~* '^https://'),
       responsibility_assignment_matrix_as_markdown text,
-      code_of_conduct_url text CONSTRAINT check_code_of_conduct_url CHECK (code_of_conduct_url ~* '^https://'),
+      code_of_conduct_url text CONSTRAINT code_of_conduct_url_check CHECK (code_of_conduct_url ~* '^https://'),
       code_of_conduct_as_markdown text,
-      license_url text CONSTRAINT check_license_url CHECK (license_url ~* '^https://'),
+      license_url text CONSTRAINT license_url_check CHECK (license_url ~* '^https://'),
       license_as_markdown text,
+      --- sipoc
+      sipoc_suppliers_as_url text CONSTRAINT sipoc_suppliers_as_url_check CHECK (sipoc_suppliers_as_url ~* '^https://'),
+      sipoc_suppliers_as_markdown text,
+      sipoc_inputs_as_url text CONSTRAINT sipoc_inputs_as_url_check CHECK (sipoc_inputs_as_url ~* '^https://'),
+      sipoc_inputs_as_markdown text,
+      sipoc_processes_as_url text CONSTRAINT sipoc_processes_as_url_check CHECK (sipoc_processes_as_url ~* '^https://'),
+      sipoc_processes_as_markdown text,
+      sipoc_outputs_as_url text CONSTRAINT sipoc_outputs_as_url_check CHECK (sipoc_outputs_as_url ~* '^https://'),
+      sipoc_outputs_as_markdown text,
+      sipoc_customers_as_url text CONSTRAINT sipoc_customers_as_url_check CHECK (sipoc_customers_as_url ~* '^https://'),
+      sipoc_customers_as_markdown text,
       --- arc42
-      arc42_as_url text CONSTRAINT check_arc42_as_url CHECK (arc42_as_url ~* '^https://'),
+      arc42_as_url text CONSTRAINT arc42_as_url_check CHECK (arc42_as_url ~* '^https://'),
       arc42_as_markdown text,
       arc42_01_introduction_and_goals_as_markdown text,
       arc42_02_constraints_as_markdown text,
@@ -126,7 +138,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       quality_translatability_as_markdown text,
       quality_warrantability_as_markdown text,
       -- apache_echart
-      apache_echart_as_url text CONSTRAINT check_apache_echart_as_url CHECK (apache_echart_as_url ~* '^https://'),
+      apache_echart_as_url text CONSTRAINT apache_echart_as_url_check CHECK (apache_echart_as_url ~* '^https://'),
       apache_echart_as_typescript text,
       --- customer_net_promoter
       customer_net_promoter_score_actual_value DECIMAL,
@@ -241,75 +253,69 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       halstead_complexity_effort_description text
     );
     """
-    execute """
-    CREATE TRIGGER trigger_initiatives_updated_at
-      BEFORE UPDATE ON initiatives
-      FOR EACH ROW
-      EXECUTE FUNCTION trigger_updated_at();
-    """
-    execute """
-    CREATE INDEX initiatives_created_at_index ON initiatives (created_at);
-    """
-    execute """
-    CREATE INDEX initiatives_updated_at_index ON initiatives (updated_at);
-    """
-    execute """
-    CREATE INDEX initiatives_deleted_at_index ON initiatives (deleted_at);
-    """
-    execute """
-    CREATE INDEX initiatives_locale_code_index ON initiatives (locale_code);
-    """
-    execute """
-    CREATE INDEX initiatives_sign_index ON initiatives (sign);
-    """
-    execute """
-    CREATE INDEX initiatives_sign_index_tpo ON initiatives (sign text_pattern_ops);
-    """
-    execute """
-    CREATE INDEX initiatives_kind_index ON initiatives (kind);
-    """
-    execute """
-    CREATE INDEX initiatives_kind_index_tpo ON initiatives (kind text_pattern_ops);
-    """
-    execute """
-    CREATE INDEX initiatives_tags_index ON initiatives (tags);
-    """
+    execute "CREATE TRIGGER trigger_initiatives_updated_at BEFORE UPDATE ON initiatives FOR EACH ROW EXECUTE FUNCTION trigger_updated_at();"
+    execute "CREATE INDEX initiatives_created_at_index ON initiatives (created_at);"
+    execute "CREATE INDEX initiatives_updated_at_index ON initiatives (updated_at);"
+    execute "CREATE INDEX initiatives_deleted_at_index ON initiatives (deleted_at);"
+    execute "CREATE INDEX initiatives_locale_code_index ON initiatives (locale_code);"
+    execute "CREATE INDEX initiatives_sign_index ON initiatives (sign);"
+    execute "CREATE INDEX initiatives_sign_index_tpo ON initiatives (sign text_pattern_ops);"
+    execute "CREATE INDEX initiatives_kind_index ON initiatives (kind);"
+    execute "CREATE INDEX initiatives_kind_index_tpo ON initiatives (kind text_pattern_ops);"
+    execute "CREATE INDEX initiatives_tags_index ON initiatives (tags);"
   end
 
   def down do
-    execute """
-    DROP TRIGGER IF EXISTS trigger_initiatives_updated_at;
-    """
-    execute """
-    DROP INDEX IF EXISTS initiatives_locale_code_index;
-    """
-    execute """
-    DROP INDEX IF EXISTS initiatives_created_at_index;
-    """
-    execute """
-    DROP INDEX IF EXISTS initiatives_updated_at_index;
-    """
-    execute """
-    DROP INDEX IF EXISTS initiatives_deleted_at_index;
-    """
-    execute """
-    DROP INDEX IF EXISTS initiatives_sign_index;
-    """
-    execute """
-    DROP INDEX IF EXISTS initiatives_sign_index_tpo;
-    """
-    execute """
-    DROP INDEX IF EXISTS initiatives_kind_index;
-    """
-    execute """
-    DROP INDEX IF EXISTS initiatives_kind_index_tpo;
-    """
-    execute """
-    DROP INDEX IF EXISTS initiatives_tags_index;
-    """
-    execute """
-    DROP TABLE IF EXISTS initiatives;
-    """
+    execute "DROP CONSTRAINT IF EXISTS email_check;"
+    execute "DROP CONSTRAINT IF EXISTS linkedin_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS github_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS codeberg_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS agents_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS avatar_image_400x400_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS main_image_1080x1080_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS main_image_1920x1080_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS main_image_1080x1920_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS home_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS bellhop_bell_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS target_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS gear_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS spiral_calendar_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS sparkles_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS speech_bubble_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS newspaper_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS bar_chart_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS movie_camera_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS construction_worker_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS crystal_ball_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS butterfly_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS lady_beetle_emoji_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS glossary_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS six_pager_double_sider_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS swot_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS porters_five_forces_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS pestle_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS roles_and_responsibilities_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS responsibility_assignment_matrix_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS code_of_conduct_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS license_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS sipoc_suppliers_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS sipoc_inputs_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS sipoc_processes_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS sipoc_outputs_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS sipoc_customers_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS arc42_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS apache_echart_as_url_check;"
+    execute "DROP INDEX IF EXISTS initiatives_locale_code_index;"
+    execute "DROP INDEX IF EXISTS initiatives_created_at_index;"
+    execute "DROP INDEX IF EXISTS initiatives_updated_at_index;"
+    execute "DROP INDEX IF EXISTS initiatives_deleted_at_index;"
+    execute "DROP INDEX IF EXISTS initiatives_sign_index;"
+    execute "DROP INDEX IF EXISTS initiatives_sign_index_tpo;"
+    execute "DROP INDEX IF EXISTS initiatives_kind_index;"
+    execute "DROP INDEX IF EXISTS initiatives_kind_index_tpo;"
+    execute "DROP INDEX IF EXISTS initiatives_tags_index;"
+    execute "DROP TRIGGER IF EXISTS trigger_initiatives_updated_at;"
+    execute "DROP TABLE IF EXISTS initiatives;"
   end
 
 end

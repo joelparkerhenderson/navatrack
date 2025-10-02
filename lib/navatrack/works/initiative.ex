@@ -84,6 +84,16 @@ defmodule Navatrack.Works.Initiative do
     attribute :code_of_conduct_as_markdown, :string
     attribute :license_url, :string
     attribute :license_as_markdown, :string
+    attribute :sipoc_suppliers_as_url, :string
+    attribute :sipoc_suppliers_as_markdown, :string
+    attribute :sipoc_inputs_as_url, :string
+    attribute :sipoc_inputs_as_markdown, :string
+    attribute :sipoc_processes_as_url, :string
+    attribute :sipoc_processes_as_markdown, :string
+    attribute :sipoc_outputs_as_url, :string
+    attribute :sipoc_outputs_as_markdown, :string
+    attribute :sipoc_customers_as_url, :string
+    attribute :sipoc_customers_as_markdown, :string
     attribute :arc42_as_url, :string
     attribute :arc42_as_markdown, :string
     attribute :arc42_01_introduction_and_goals_as_markdown, :string
@@ -293,6 +303,16 @@ defmodule Navatrack.Works.Initiative do
       :code_of_conduct_as_markdown,
       :license_url,
       :license_as_markdown,
+      :sipoc_suppliers_as_url,
+      :sipoc_suppliers_as_markdown,
+      :sipoc_inputs_as_url,
+      :sipoc_inputs_as_markdown,
+      :sipoc_processes_as_url,
+      :sipoc_processes_as_markdown,
+      :sipoc_outputs_as_url,
+      :sipoc_outputs_as_markdown,
+      :sipoc_customers_as_url,
+      :sipoc_customers_as_markdown,
       :arc42_as_url,
       :arc42_as_markdown,
       :arc42_01_introduction_and_goals_as_markdown,

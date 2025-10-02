@@ -202,6 +202,35 @@ defmodule NavatrackWeb.Initiatives.FormLive do
 
         </.section>
 
+        <.section id="sipoc" title="Suppliers Inputs Processes Outputs Customers (SIPOC)">
+
+          <h3 class="h3">Suppliers</h3>
+
+          <.input field={form[:sipoc_suppliers_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:sipoc_suppliers_as_markdown]} type="textarea" label="Text" />
+
+          <h3 class="h3">Inputs</h3>
+
+          <.input field={form[:sipoc_inputs_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:sipoc_inputs_as_markdown]} type="textarea" label="Text" />
+
+          <h3 class="h3">Processes</h3>
+
+          <.input field={form[:sipoc_processes_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:sipoc_processes_as_markdown]} type="textarea" label="Text" />
+
+          <h3 class="h3">Outputs</h3>
+
+          <.input field={form[:sipoc_outputs_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:sipoc_outputs_as_markdown]} type="textarea" label="Text" />
+
+          <h3 class="h3">Customers</h3>
+
+          <.input field={form[:sipoc_customers_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:sipoc_customers_as_markdown]} type="textarea" label="Text" />
+
+        </.section>
+
         <.section id="arc42" title="Arc42">
 
           <h3 class="h3">Arc42 full documentation</h3>

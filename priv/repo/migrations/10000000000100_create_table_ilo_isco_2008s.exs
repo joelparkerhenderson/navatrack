@@ -10,47 +10,25 @@ defmodule Navatrack.Repo.Migrations.CreateTableIloIsco2008s do
     CREATE TABLE ilo_isco_2008s (
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       locale_code text not null,
-      code text not null CONSTRAINT check_code CHECK (code ~* '^[0-9]*$' AND char_length(code) < 4),
+      code text not null CONSTRAINT code_check CHECK (code ~* '^[0-9]*$' AND char_length(code) < 4),
       name text not null,
       definition text not null
     );
     """
-    execute """
-    CREATE INDEX ilo_isco_2008s_locale_code_index ON ilo_isco_2008s (locale_code);
-    """
-    execute """
-    CREATE INDEX ilo_isco_2008s_code_index ON ilo_isco_2008s (code);
-    """
-    execute """
-    CREATE INDEX ilo_isco_2008s_code_index_tpo ON ilo_isco_2008s (code text_pattern_ops);
-    """
-    execute """
-    CREATE INDEX ilo_isco_2008s_name_index ON ilo_isco_2008s (name);
-    """
-    execute """
-    CREATE INDEX ilo_isco_2008s_name_index_tpo ON ilo_isco_2008s (name text_pattern_ops);
-    """
+    execute "CREATE INDEX ilo_isco_2008s_locale_code_index ON ilo_isco_2008s (locale_code);"
+    execute "CREATE INDEX ilo_isco_2008s_code_index ON ilo_isco_2008s (code);"
+    execute "CREATE INDEX ilo_isco_2008s_code_index_tpo ON ilo_isco_2008s (code text_pattern_ops);"
+    execute "CREATE INDEX ilo_isco_2008s_name_index ON ilo_isco_2008s (name);"
+    execute "CREATE INDEX ilo_isco_2008s_name_index_tpo ON ilo_isco_2008s (name text_pattern_ops);"
   end
 
   def down do
-    execute """
-    DROP INDEX IF EXISTS ilo_isco_2008s_locale_code_index;
-    """
-    execute """
-    DROP INDEX IF EXISTS ilo_isco_2008s_code_index;
-    """
-    execute """
-    DROP INDEX IF EXISTS ilo_isco_2008s_code_index_tpo;
-    """
-    execute """
-    DROP INDEX IF EXISTS ilo_isco_2008s_name_index;
-    """
-    execute """
-    DROP INDEX IF EXISTS ilo_isco_2008s_name_index_tpo;
-    """
-    execute """
-    DROP TABLE IF EXISTS ilo_isco_2008s;
-    """
+    execute "DROP INDEX IF EXISTS ilo_isco_2008s_locale_code_index;"
+    execute "DROP INDEX IF EXISTS ilo_isco_2008s_code_index;"
+    execute "DROP INDEX IF EXISTS ilo_isco_2008s_code_index_tpo;"
+    execute "DROP INDEX IF EXISTS ilo_isco_2008s_name_index;"
+    execute "DROP INDEX IF EXISTS ilo_isco_2008s_name_index_tpo;"
+    execute "DROP TABLE IF EXISTS ilo_isco_2008s;"
   end
 
 end

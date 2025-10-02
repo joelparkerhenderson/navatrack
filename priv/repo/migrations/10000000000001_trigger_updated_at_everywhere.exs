@@ -15,7 +15,7 @@ defmodule Navatrack.Repo.Migrations.TriggerUpdatedAtEverywhere do
         LOOP
             EXECUTE format('
                 CREATE TRIGGER trigger_%I_updated_at
-                    BEFORE UPDATE ON %I
+                  BEFORE UPDATE ON %I
                     FOR EACH ROW
                     EXECUTE FUNCTION trigger_updated_at();
             ', table_record.table_name, table_record.table_name);

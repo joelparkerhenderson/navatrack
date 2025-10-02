@@ -167,12 +167,14 @@ defmodule NavatrackWeb.Users.FormLive do
           <.input field={form[:work_role_start_date]} type="date" label="Start Date" />
           <.input field={form[:work_role_stop_date]} type="date" label="Stop Date" />
 
-          <h3 class="h3">Codes</h3>
+        </.section>
+
+        <.section id="work_role" title="Work Codes">
 
           <.input field={form[:work_role_onet_soc_2019_code]} label="O*NET SOC 2019" />
-          <.input field={form[:work_role_united_kingdom_civil_service_grade_abbreviation]} label="United Kingdom Civil Service Grade Abbreviation" />
-          <.input field={form[:work_role_united_kingdom_standard_occupational_classification_2020_code]} label="United Kingdom Standard Occupational Classification 2020 Code Service Grade Abbreviation" />
-          <.input field={form[:work_role_uk_gdad_pcf_url]} label="United Kingdom Government Digital and Data Profession Capability Framework URL" placeholder="https://example.com"/>
+          <.input field={form[:work_role_uk_civil_service_grade_abbreviation]} label="United Kingdom Civil Service Grade Abbreviation" />
+          <.input field={form[:work_role_uk_soc_2020_code]} label="United Kingdom (UK) Standard Occupational Classification (SOC) 2020 Code Service Grade Abbreviation" />
+          <.input field={form[:work_role_uk_gdad_pcf_url]} label="United Kingdom (UK) Government Digital and Data (GDAD) Profession Capability Framework URL" placeholder="https://example.com"/>
 
         </.section>
 

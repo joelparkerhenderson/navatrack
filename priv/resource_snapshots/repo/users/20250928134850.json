@@ -624,7 +624,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "work_role_united_kingdom_civil_service_grade_abbreviation",
+      "source": "work_role_uk_civil_service_grade_abbreviation",
       "type": "text"
     },
     {
@@ -636,7 +636,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "work_role_united_kingdom_standard_occupational_classification_2020_code",
+      "source": "work_role_uk_soc_2020_code",
       "type": "text"
     },
     {

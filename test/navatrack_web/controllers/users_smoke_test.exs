@@ -69,7 +69,7 @@ defmodule NavatrackWeb.UsersSmokeTest do
     assert response =~ "Dates"
     assert response =~ "Start Date"
     assert response =~ "Stop Date"
-    assert response =~ "Codes"
+    assert response =~ "Work Codes"
     assert response =~ "O*NET SOC 2019"
     assert response =~ "United Kingdom Civil Service Grade Abbreviation"
     assert response =~ "United Kingdom Standard Occupational Classification 2020 Code Service Grade Abbreviation"
