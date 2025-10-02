@@ -14,8 +14,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableOrganizations do
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       sign text,
-      kind text,
       name text,
+      kind text,
       status text,
       tags text[],
       url text,
@@ -85,13 +85,32 @@ defmodule Navatrack.Repo.Migrations.CreateTableOrganizations do
       human_resources_policy_as_markdown text
     );
     """
-    execute "CREATE TRIGGER trigger_organizations_updated_at BEFORE UPDATE ON organizations FOR EACH ROW EXECUTE FUNCTION trigger_updated_at();"
+    execute """
+    CREATE TRIGGER trigger_organizations_updated_at
+      BEFORE UPDATE ON organizations
+      FOR EACH ROW EXECUTE FUNCTION
+      trigger_updated_at();
+    """
+    execute """
+    CREATE INDEX organizations_index_gto
+      ON organizations USING GIN ((
+        name
+          || ' ' ||
+        kind
+          || ' ' ||
+        status
+          || ' ' ||
+        note
+      ) gin_trgm_ops);
+    """
     execute "CREATE INDEX organizations_created_at_index ON organizations (created_at);"
     execute "CREATE INDEX organizations_updated_at_index ON organizations (updated_at);"
     execute "CREATE INDEX organizations_deleted_at_index ON organizations (deleted_at);"
     execute "CREATE INDEX organizations_locale_code_index ON organizations (locale_code);"
     execute "CREATE INDEX organizations_sign_index ON organizations (sign);"
     execute "CREATE INDEX organizations_sign_index_tpo ON organizations (sign text_pattern_ops);"
+    execute "CREATE INDEX organizations_name_index ON organizations (name);"
+    execute "CREATE INDEX organizations_name_index_tpo ON organizations (name text_pattern_ops);"
     execute "CREATE INDEX organizations_kind_index ON organizations (kind);"
     execute "CREATE INDEX organizations_kind_index_tpo ON organizations (kind text_pattern_ops);"
     execute "CREATE INDEX organizations_tags_index ON organizations (tags);"
@@ -102,13 +121,40 @@ defmodule Navatrack.Repo.Migrations.CreateTableOrganizations do
   end
 
   def down do
+    execute "DROP CONSTRAINT IF EXISTS email_check;"
+    execute "DROP CONSTRAINT IF EXISTS linkedin_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS github_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS codeberg_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS location_iso_3166_1_alpha_2_check;"
+    execute "DROP CONSTRAINT IF EXISTS agents_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS avatar_image_400x400_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS main_image_1080x1080_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS main_image_1920x1080_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS main_image_1080x1920_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS copyright_policy_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS corrections_policy_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS legal_policy_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS ethics_policy_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS privacy_policy_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS security_policy_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS coordinated_disclosure_policy_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS open_source_policy_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS code_of_conduct_policy_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS equal_opportunity_policy_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS social_network_policy_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS health_and_safety_policy_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS employee_handbook_policy_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS human_resources_policy_as_url_check;"
     execute "DROP TRIGGER IF EXISTS trigger_organizations_updated_at;"
+    execute "DROP INDEX IF EXISTS organizations_index_gto;"
     execute "DROP INDEX IF EXISTS organizations_created_at_index;"
     execute "DROP INDEX IF EXISTS organizations_updated_at_index;"
     execute "DROP INDEX IF EXISTS organizations_deleted_at_index;"
     execute "DROP INDEX IF EXISTS organizations_locale_code_index;"
     execute "DROP INDEX IF EXISTS organizations_sign_index;"
     execute "DROP INDEX IF EXISTS organizations_sign_index_tpo;"
+    execute "DROP INDEX IF EXISTS organizations_name_index;"
+    execute "DROP INDEX IF EXISTS organizations_name_index_tpo;"
     execute "DROP INDEX IF EXISTS organizations_kind_index;"
     execute "DROP INDEX IF EXISTS organizations_kind_index_tpo;"
     execute "DROP INDEX IF EXISTS organizations_tags_index;"

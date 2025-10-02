@@ -14,8 +14,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       sign text,
-      kind text,
       name text,
+      kind text,
       status text,
       tags text[],
       url text,
@@ -65,45 +65,71 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       work_role_uk_gdad_pcf_url text
     );
     """
+    execute """
+    CREATE TRIGGER trigger_users_updated_at
+      BEFORE UPDATE ON users
+      FOR EACH ROW EXECUTE FUNCTION
+      trigger_updated_at();
+    """
+    execute """
+    CREATE INDEX users_index_gto
+      ON users
+      USING GIN ((
+        name
+          || ' ' ||
+        kind
+          || ' ' ||
+        status
+          || ' ' ||
+        note
+      ) gin_trgm_ops);
+    """
     execute "CREATE INDEX users_created_at_index ON users (created_at);"
     execute "CREATE INDEX users_updated_at_index ON users (updated_at);"
     execute "CREATE INDEX users_deleted_at_index ON users (deleted_at);"
     execute "CREATE INDEX users_locale_code_index ON users (locale_code);"
     execute "CREATE INDEX users_sign_index ON users (sign);"
     execute "CREATE INDEX users_sign_index_tpo ON users (sign text_pattern_ops);"
-    execute "CREATE INDEX users_sign_index_gto ON users USING GIN (sign gin_trgm_ops);"
-    execute "CREATE INDEX users_kind_index ON users (kind);"
-    execute "CREATE INDEX users_kind_index_tpo ON users (kind text_pattern_ops);"
-    execute "CREATE INDEX users_kind_index_gto ON users USING GIN (kind gin_trgm_ops);"
-    execute "CREATE INDEX users_tags_index ON users (tags);"
     execute "CREATE INDEX users_name_index ON users (name);"
     execute "CREATE INDEX users_name_index_tpo ON users (name text_pattern_ops);"
-    execute "CREATE INDEX users_name_index_gto ON users USING GIN (name gin_trgm_ops);"
+    execute "CREATE INDEX users_kind_index ON users (kind);"
+    execute "CREATE INDEX users_kind_index_tpo ON users (kind text_pattern_ops);"
+    execute "CREATE INDEX users_tags_index ON users (tags);"
     execute "CREATE UNIQUE INDEX index_users_email ON users (email);"
     execute "CREATE INDEX users_work_role_onet_soc_2019_code_index ON users (work_role_onet_soc_2019_code);"
     execute "CREATE INDEX users_work_role_uk_civil_service_grade_abbreviation_index ON users (work_role_uk_civil_service_grade_abbreviation);"
-    execute "CREATE TRIGGER trigger_users_updated_at BEFORE UPDATE ON users FOR EACH ROW EXECUTE FUNCTION trigger_updated_at();"
   end
 
   def down do
+    execute "DROP CONSTRAINT email_check;"
+    execute "DROP CONSTRAINT linkedin_url_check;"
+    execute "DROP CONSTRAINT github_url_check;"
+    execute "DROP CONSTRAINT codeberg_url_check;"
+    execute "DROP CONSTRAINT location_iso_3166_1_alpha_2_check;"
+    execute "DROP CONSTRAINT location_latitude_as_decimal_degrees_check;"
+    execute "DROP CONSTRAINT location_longitude_as_decimal_degrees_check;"
+    execute "DROP CONSTRAINT avatar_image_400x400_url_check;"
+    execute "DROP CONSTRAINT main_image_1080x1080_url_check;"
+    execute "DROP CONSTRAINT main_image_1920x1080_url_check;"
+    execute "DROP CONSTRAINT main_image_1080x1920_url_check;"
+    execute "DROP CONSTRAINT work_profile_resume_as_pdf_url_check;"
+    execute "DROP CONSTRAINT work_profile_curriculum_vitae_as_pdf_url_check;"
+    execute "DROP TRIGGER IF EXISTS trigger_users_updated_at;"
+    execute "DROP INDEX IF EXISTS users_index_gto;"
     execute "DROP INDEX IF EXISTS users_created_at_index;"
     execute "DROP INDEX IF EXISTS users_updated_at_index;"
     execute "DROP INDEX IF EXISTS users_deleted_at_index;"
     execute "DROP INDEX IF EXISTS users_locale_code_index;"
     execute "DROP INDEX IF EXISTS users_sign_index;"
     execute "DROP INDEX IF EXISTS users_sign_index_tpo;"
-    execute "DROP INDEX IF EXISTS users_sign_index_gto;"
-    execute "DROP INDEX IF EXISTS users_kind_index;"
-    execute "DROP INDEX IF EXISTS users_kind_index_tpo;"
-    execute "DROP INDEX IF EXISTS users_kind_index_gto;"
-    execute "DROP INDEX IF EXISTS users_tags_index;"
     execute "DROP INDEX IF EXISTS users_name_index;"
     execute "DROP INDEX IF EXISTS users_name_index_tpo;"
-    execute "DROP INDEX IF EXISTS users_name_index_gto;"
+    execute "DROP INDEX IF EXISTS users_kind_index;"
+    execute "DROP INDEX IF EXISTS users_kind_index_tpo;"
+    execute "DROP INDEX IF EXISTS users_tags_index;"
     execute "DROP INDEX IF EXISTS users_email_index;"
     execute "DROP INDEX IF EXISTS users_work_role_onet_soc_2019_code_index;"
     execute "DROP INDEX IF EXISTS users_work_role_uk_civil_service_grade_abbreviation_index;"
-    execute "DROP TRIGGER IF EXISTS trigger_users_updated_at;"
     execute "DROP TABLE IF EXISTS users;"
   end
 

@@ -21,6 +21,23 @@ defmodule Navatrack.Repo.Migrations.CreateUkGdadPcfRole do
       senior_civil_service_flag boolean not null
     )
     """
+    execute """
+    CREATE INDEX uk_gdad_pcf_roles_index_gto
+      ON uk_gdad_pcf_roles
+      USING GIN ((
+        locale_code
+          || ' ' ||
+        family
+          || ' ' ||
+        name
+          || ' ' ||
+        description_as_markdown
+          || ' ' ||
+        level_name
+          || ' ' ||
+        level_description_as_markdown
+      ) gin_trgm_ops);
+    """
     execute "CREATE INDEX uk_gdad_pcf_roles_locale_code_index ON uk_gdad_pcf_roles (locale_code);"
     execute "CREATE INDEX uk_gdad_pcf_roles_family_index ON uk_gdad_pcf_roles (family);"
     execute "CREATE INDEX uk_gdad_pcf_roles_family_index_tpo ON uk_gdad_pcf_roles (family text_pattern_ops);"
@@ -28,7 +45,10 @@ defmodule Navatrack.Repo.Migrations.CreateUkGdadPcfRole do
     execute "CREATE INDEX uk_gdad_pcf_roles_name_index_tpo ON uk_gdad_pcf_roles (name text_pattern_ops);"
   end
 
+
+
   def down do
+    execute "DROP INDEX IF EXISTS uk_gdad_pcf_roles_index_gto;"
     execute "DROP INDEX IF EXISTS uk_gdad_pcf_roles_locale_code_index;"
     execute "DROP INDEX IF EXISTS uk_gdad_pcf_roles_family_index;"
     execute "DROP INDEX IF EXISTS uk_gdad_pcf_roles_family_index_tpo;"

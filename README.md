@@ -121,7 +121,7 @@ Find section `postgres` then append `custom_indexes` like this:
 postgres ​do​
    …
    custom_indexes ​do​
-      index ​"​​name gin_trgm_ops"​, ​name:​ ​"​users_name_index_trgm"​, ​using:​ ​"​​gin"​
+      index ​"​(​name || ' ' || kind) gin_trgm_ops"​, ​name:​ ​"​users_index_trgm"​, ​using:​ ​"​​gin"​
    end
 ```
 

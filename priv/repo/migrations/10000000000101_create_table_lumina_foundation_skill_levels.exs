@@ -15,13 +15,25 @@ defmodule Navatrack.Repo.Migrations.CreateTableLuminaFoundationSkillLevels do
       description text not null
     );
     """
+    execute """
+    CREATE INDEX lumina_foundation_skill_levels_name_index_gto
+      ON lumina_foundation_skill_levels
+      USING GIN ((
+        number
+          || ' ' ||
+        name
+          || ' ' ||
+        description
+      ) gin_trgm_ops);
+    """
     execute "CREATE INDEX lumina_foundation_skill_levels_locale_code_index ON lumina_foundation_skill_levels (locale_code);"
     execute "CREATE INDEX lumina_foundation_skill_levels_number_index ON lumina_foundation_skill_levels (number);"
     execute "CREATE INDEX lumina_foundation_skill_levels_name_index ON lumina_foundation_skill_levels (name);"
-    execute "CREATE INDEX lumina_foundation_skill_levels_name_index_ops ON lumina_foundation_skill_levels (name text_pattern_ops);"
+    execute "CREATE INDEX lumina_foundation_skill_levels_name_index_tpo ON lumina_foundation_skill_levels (name text_pattern_ops);"
   end
 
   def down do
+    execute "DROP INDEX IF EXISTS lumina_foundation_skill_levels_index_gto;"
     execute "DROP INDEX IF EXISTS lumina_foundation_skill_levels_locale_code_index;"
     execute "DROP INDEX IF EXISTS lumina_foundation_skill_levels_number_index;"
     execute "DROP INDEX IF EXISTS lumina_foundation_skill_levels_name_index;"

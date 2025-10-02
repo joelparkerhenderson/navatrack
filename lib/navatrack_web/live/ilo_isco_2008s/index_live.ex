@@ -37,7 +37,7 @@ defmodule NavatrackWeb.IloIsco2008s.IndexLive do
                   navigate={Path.join(["/", X.plural_snake_case(), x.id])}
                   data-role="x-id"
               >
-                  {x.id}
+                  🔗
               </.link>
           </:col>
           <:col :let={x} label="Code">{x.code}</:col>

@@ -63,7 +63,7 @@ defmodule App.Accounts.User do
 
   relationships do
     # Other relationships...
-    
+
     many_to_many :organizations, App.Accounts.Organization do
       through App.Accounts.UserOrganization
       source_attribute_on_join_resource :user_id
@@ -83,7 +83,7 @@ defmodule App.Accounts.Organization do
 
   relationships do
     # Other relationships...
-    
+
     many_to_many :users, App.Accounts.User do
       through App.Accounts.UserOrganization
       source_attribute_on_join_resource :organization_id

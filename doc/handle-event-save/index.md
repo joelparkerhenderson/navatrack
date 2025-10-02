@@ -1,4 +1,4 @@
-# Handle event "save"  
+# Handle event "save"
 
 Edit each file `form_live.ex`.
 

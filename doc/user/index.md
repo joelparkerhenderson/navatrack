@@ -1,6 +1,6 @@
 # User
 
-We create a typical user resource. 
+We create a typical user resource.
 
 This is uses many flat fields i.e. not relations, because for this project we
 prefer the simplest maintainability and leanest lookups.
