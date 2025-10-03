@@ -10,8 +10,7 @@ defmodule Navatrack.Repo.Migrations.CreateExtensionPgTrgm do
   end
 
   def down do
-    # Uncomment this if you actually want to uninstall the extensions
-    # when this migration is rolled back:
+    # Uncomment this if you actually want to uninstall the extensions:
     # execute("DROP EXTENSION IF EXISTS \"pg_trgm\"")
   end
 end

@@ -141,8 +141,7 @@ defmodule Navatrack.Repo.Migrations.CreateAshFunctions do
   end
 
   def down do
-    # Uncomment this if you actually want to uninstall the extensions
-    # when this migration is rolled back:
+    # Uncomment this if you actually want to uninstall the extensions:
     execute(
       "DROP FUNCTION IF EXISTS uuid_generate_v7(), timestamp_from_uuid_v7(uuid), ash_raise_error(jsonb), ash_raise_error(jsonb, ANYCOMPATIBLE), ash_elixir_and(BOOLEAN, ANYCOMPATIBLE), ash_elixir_and(ANYCOMPATIBLE, ANYCOMPATIBLE), ash_elixir_or(ANYCOMPATIBLE, ANYCOMPATIBLE), ash_elixir_or(BOOLEAN, ANYCOMPATIBLE), ash_trim_whitespace(text[])"
     )
