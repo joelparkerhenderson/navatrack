@@ -51,7 +51,7 @@ defmodule Navatrack.Accounts.User do
     attribute :kind, :string
     attribute :name, :string
     attribute :status, :string
-    attribute :tags, {:array, :string}
+    attribute :tagging, :string
     attribute :url, :string
     attribute :email, :string
     attribute :phone, :string
@@ -159,7 +159,7 @@ defmodule Navatrack.Accounts.User do
       :kind,
       :name,
       :status,
-      :tags,
+      :tagging,
       :url,
       :email,
       :phone,

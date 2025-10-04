@@ -11,7 +11,7 @@ defmodule NavatrackWeb.InitiativesSmokeTest do
     assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
-    assert response =~ "Tags"
+    assert response =~ "Tagging"
   end
 
   test "new", %{conn: conn} do
@@ -23,12 +23,12 @@ defmodule NavatrackWeb.InitiativesSmokeTest do
     assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
-    assert response =~ "Tags"
+    assert response =~ "Tagging"
     assert response =~ "Introduction"
     assert response =~ "Sign"
     assert response =~ "Name"
     assert response =~ "Status"
-    assert response =~ "Tags"
+    assert response =~ "Tagging"
     assert response =~ "Contacts"
     assert response =~ "URL"
     assert response =~ "Email"

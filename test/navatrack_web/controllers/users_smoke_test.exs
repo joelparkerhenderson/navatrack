@@ -10,7 +10,7 @@ defmodule NavatrackWeb.UsersSmokeTest do
     assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
-    assert response =~ "Tags"
+    assert response =~ "Tagging"
   end
 
   test "GET /users/new", %{conn: conn} do
@@ -21,7 +21,7 @@ defmodule NavatrackWeb.UsersSmokeTest do
     assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
-    assert response =~ "Tags"
+    assert response =~ "Tagging"
     assert response =~ "Contacts"
     assert response =~ "URL"
     assert response =~ "Email"
@@ -71,9 +71,9 @@ defmodule NavatrackWeb.UsersSmokeTest do
     assert response =~ "Stop Date"
     assert response =~ "Work Codes"
     assert response =~ "O*NET SOC 2019"
-    assert response =~ "United Kingdom Civil Service Grade Abbreviation"
-    assert response =~ "United Kingdom Standard Occupational Classification 2020 Code Service Grade Abbreviation"
-    assert response =~ "United Kingdom Government Digital and Data Profession Capability Framework URL"
+    assert response =~ "United Kingdom (UK) Civil Service Grade Abbreviation"
+    assert response =~ "United Kingdom (UK) Standard Occupational Classification (SOC) 2020 Code Service Grade Abbreviation"
+    assert response =~ "United Kingdom (UK) Government Digital and Data (GDAD) Profession Capability Framework (PCF) URL"
   end
 
   test "create", %{conn: conn} do

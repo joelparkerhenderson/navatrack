@@ -61,17 +61,7 @@ defmodule NavatrackWeb.Users.FormLive do
         />
         <.input field={form[:name]} label="Name" autofocus />
         <.input field={form[:status]} label="Status" />
-        <.input
-          field={form[:tags]}
-          label="Tags"
-          value={
-            case @form[:tags].value do
-              tags when is_list(tags) -> tags
-              tags when is_binary(tags) -> [tags]
-              _ -> ""
-            end
-          }
-        />
+        <.input field={form[:tagging]} label="Tagging" />
 
         <.section id="contact" title="Contacts">
           <.input field={form[:url]} type="url" label="URL" placeholder="https://example.com" />
@@ -169,12 +159,12 @@ defmodule NavatrackWeb.Users.FormLive do
 
         </.section>
 
-        <.section id="work_role" title="Work Codes">
+        <.section id="work_codes" title="Work Codes">
 
           <.input field={form[:work_role_onet_soc_2019_code]} label="O*NET SOC 2019" />
-          <.input field={form[:work_role_uk_civil_service_grade_abbreviation]} label="United Kingdom Civil Service Grade Abbreviation" />
+          <.input field={form[:work_role_uk_civil_service_grade_abbreviation]} label="United Kingdom (UK) Civil Service Grade Abbreviation" />
           <.input field={form[:work_role_uk_soc_2020_code]} label="United Kingdom (UK) Standard Occupational Classification (SOC) 2020 Code Service Grade Abbreviation" />
-          <.input field={form[:work_role_uk_gdad_pcf_url]} label="United Kingdom (UK) Government Digital and Data (GDAD) Profession Capability Framework URL" placeholder="https://example.com"/>
+          <.input field={form[:work_role_uk_gdad_pcf_url]} label="United Kingdom (UK) Government Digital and Data (GDAD) Profession Capability Framework (PCF) URL" placeholder="https://example.com"/>
 
         </.section>
 
@@ -218,8 +208,7 @@ defmodule NavatrackWeb.Users.FormLive do
   end
 
   def handle_event("validate", %{"form" => form_data}, socket) do
-    form_data = convert_tags_param(form_data)
-
+    # form_data = convert_tags_param(form_data)
     {:noreply,
       update(
           socket,
@@ -230,7 +219,7 @@ defmodule NavatrackWeb.Users.FormLive do
   end
 
   def handle_event("save", %{"form" => form_data}, socket) do
-    form_data = convert_tags_param(form_data)
+    # form_data = convert_tags_param(form_data)
     case AshPhoenix.Form.submit(socket.assigns.form, params: form_data) do
       {:ok, _x} ->
         {:noreply,

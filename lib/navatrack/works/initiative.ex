@@ -23,7 +23,7 @@ defmodule Navatrack.Works.Initiative do
     attribute :kind, :string
     attribute :name, :string
     attribute :status, :string
-    attribute :tags, {:array, :string}
+    attribute :tagging, :string
     attribute :url, :string
     attribute :email, :string
     attribute :phone, :string
@@ -245,7 +245,7 @@ defmodule Navatrack.Works.Initiative do
       :kind,
       :name,
       :status,
-      :tags,
+      :tagging,
       :url,
       :email,
       :phone,

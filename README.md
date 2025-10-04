@@ -99,6 +99,15 @@ Run:
 mix ash.generate_resource_diagrams
 ```
 
+## Reset databases
+
+Reset databases:
+
+```sh
+MIX_ENV=dev mix ecto.drop; mix ecto.create; mix ecto.migrate;
+MIX_ENV=test mix ecto.drop; mix ecto.create; mix ecto.migrate;
+```
+
 ## Search
 
 We implement simple search by using the Postgres trigram extension, named "pg_trgm".

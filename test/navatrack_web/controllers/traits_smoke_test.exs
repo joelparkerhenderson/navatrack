@@ -11,7 +11,7 @@ defmodule NavatrackWeb.TraitsSmokeTest do
     assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
-    assert response =~ "Tags"
+    assert response =~ "Tagging"
   end
 
   test "GET /traits/new", %{conn: conn} do
@@ -22,7 +22,7 @@ defmodule NavatrackWeb.TraitsSmokeTest do
     assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
-    assert response =~ "Tags"
+    assert response =~ "Tagging"
     assert response =~ "Details"
     assert response =~ "Summary"
     assert response =~ "Description"

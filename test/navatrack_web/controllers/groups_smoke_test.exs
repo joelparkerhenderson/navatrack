@@ -11,7 +11,7 @@ defmodule NavatrackWeb.GroupsSmokeTest do
     assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
-    assert response =~ "Tags"
+    assert response =~ "Tagging"
   end
 
   test "new", %{conn: conn} do
@@ -22,7 +22,7 @@ defmodule NavatrackWeb.GroupsSmokeTest do
     assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
-    assert response =~ "Tags"
+    assert response =~ "Tagging"
 
     assert response =~ "Contacts"
     assert response =~ "URL"

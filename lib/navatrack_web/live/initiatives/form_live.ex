@@ -61,17 +61,7 @@ defmodule NavatrackWeb.Initiatives.FormLive do
         />
         <.input field={form[:name]} label="Name" autofocus />
         <.input field={form[:status]} label="Status" />
-        <.input
-          field={form[:tags]}
-          label="Tags"
-          value={
-            case @form[:tags].value do
-              tags when is_list(tags) -> tags
-              tags when is_binary(tags) -> [tags]
-              _ -> ""
-            end
-          }
-        />
+        <.input field={form[:tagging]} label="Tagging" />
 
         <.section id="contact" title="Contacts">
           <.input field={form[:url]} type="url" label="URL" placeholder="https://example.com" />
@@ -493,8 +483,7 @@ defmodule NavatrackWeb.Initiatives.FormLive do
   end
 
   def handle_event("validate", %{"form" => form_data}, socket) do
-    form_data = convert_tags_param(form_data)
-
+    # form_data = convert_tags_param(form_data)
     {:noreply,
       update(
           socket,
@@ -506,7 +495,7 @@ defmodule NavatrackWeb.Initiatives.FormLive do
 
   def handle_event("save", %{"form" => form_data}, socket) do
     IO.inspect(form_data, label: "form_data")
-    form_data = convert_tags_param(form_data)
+    # form_data = convert_tags_param(form_data)
     case AshPhoenix.Form.submit(socket.assigns.form, params: form_data) do
       {:ok, _x} ->
         {:noreply,

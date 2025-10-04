@@ -23,7 +23,7 @@ defmodule Navatrack.Accounts.Group do
     attribute :kind, :string
     attribute :name, :string
     attribute :status, :string
-    attribute :tags, {:array, :string}
+    attribute :tagging, :string
     attribute :url, :string
     attribute :email, :string
     attribute :phone, :string
@@ -99,7 +99,7 @@ defmodule Navatrack.Accounts.Group do
       :sign,
       :name,
       :status,
-      :tags,
+      :tagging,
       :url,
       :email,
       :phone,

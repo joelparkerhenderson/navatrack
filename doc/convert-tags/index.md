@@ -19,10 +19,10 @@ Convert tags param:
 """
 
 def convert_tags_param(%{"tags" => tags} = params) when is_binary(tags) do
-  # Convert comma-separated string to list if your schema expects an array
+  # Convert string to list if your schema expects an array
   tags =
     tags
-    |> String.split(",")
+    |> String.split(~r/[^-_\w]+/)
     |> Enum.map(&String.trim/1)
     |> Enum.reject(&(&1 == ""))
 
@@ -30,4 +30,20 @@ def convert_tags_param(%{"tags" => tags} = params) when is_binary(tags) do
 end
 
 def convert_tags_param(params), do: params
+```
+
+## Form example
+
+```heex
+<.input
+  field={form[:tags]}
+  label="Tags"
+  value={
+    case @form[:tags].value do
+      tags when is_list(tags) -> tags
+      tags when is_binary(tags) -> [tags]
+      _ -> ""
+    end
+  }
+/>
 ```

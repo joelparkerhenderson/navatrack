@@ -51,7 +51,7 @@ defmodule NavatrackWeb.Initiatives.IndexLive do
           <:col :let={x} label="Name">{x.name}</:col>
           <:col :let={x} label="Kind">{x.kind}</:col>
           <:col :let={x} label="Status">{x.status}</:col>
-          <:col :let={x} label="Tags">{x.tags}</:col>
+          <:col :let={x} label="Tagging">{x.tagging}</:col>
       </.table>
     </Layouts.app>
     """

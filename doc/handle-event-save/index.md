@@ -4,11 +4,9 @@ Edit each file `form_live.ex`.
 
 Create a function to save the resource.
 
-Note the use of our custom `convert_tags_param` and `path_x`.
-
 ```elixir
 def handle_event("save", %{"form" => form_data}, socket) do
-  form_data = convert_tags_param(form_data)
+  # form_data = convert_tags_param(form_data)
   case AshPhoenix.Form.submit(socket.assigns.form, params: form_data) do
     {:ok, x} ->
       {:noreply,

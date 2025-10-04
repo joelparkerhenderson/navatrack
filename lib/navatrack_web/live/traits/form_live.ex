@@ -61,17 +61,7 @@ defmodule NavatrackWeb.Traits.FormLive do
         />
         <.input field={form[:name]} label="Name" autofocus />
         <.input field={form[:status]} label="Status" />
-        <.input
-          field={form[:tags]}
-          label="Tags"
-          value={
-            case @form[:tags].value do
-              tags when is_list(tags) -> tags
-              tags when is_binary(tags) -> [tags]
-              _ -> ""
-            end
-          }
-        />
+        <.input field={form[:tagging]} label="Tagging" />
 
         <.section id="details" title="Details">
           <.input field={form[:summary_as_markdown]} label="Summary" />
@@ -142,8 +132,7 @@ defmodule NavatrackWeb.Traits.FormLive do
   end
 
   def handle_event("validate", %{"form" => form_data}, socket) do
-    form_data = convert_tags_param(form_data)
-
+    # form_data = convert_tags_param(form_data)
     {:noreply,
       update(
           socket,
@@ -154,7 +143,7 @@ defmodule NavatrackWeb.Traits.FormLive do
   end
 
   def handle_event("save", %{"form" => form_data}, socket) do
-    form_data = convert_tags_param(form_data)
+    # form_data = convert_tags_param(form_data)
     IO.inspect(form_data, label: "form_data")
 
     changeset = Navatrack.Works.Trait

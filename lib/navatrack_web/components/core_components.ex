@@ -527,10 +527,10 @@ defmodule NavatrackWeb.CoreComponents do
   """
 
   def convert_tags_param(%{"tags" => tags} = params) when is_binary(tags) do
-    # Convert comma-separated string to list if your schema expects an array
+    # Convert string to list if your schema expects an array
     tags =
       tags
-      |> String.split(",")
+      |> String.split(~r/[^-_\w]+/)
       |> Enum.map(&String.trim/1)
       |> Enum.reject(&(&1 == ""))
 
