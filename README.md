@@ -41,7 +41,8 @@ config ​:ash_authentication​, ​debug_authentication_failures?:​ true
 Resources that we prefer to create:
 
 - [User](doc/user/)
-- [Organization](doc/organization/)
+- [Group](doc/group/)
+- [Trait](doc/trait/)
 - [Initiative](doc/initiative/)
 
 ## Update

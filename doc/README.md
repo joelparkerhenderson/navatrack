@@ -2,11 +2,11 @@
 
 Resources:
 
-- [organization](https://github.com/contactopensource/contactopensource/tree/master/api/organization)
+- [group](https://github.com/contactopensource/contactopensource/tree/master/api/group)
 
 - [person](https://github.com/contactopensource/contactopensource/tree/master/api/person)
 
-- [skill](https://github.com/contactopensource/contactopensource/tree/master/api/skill)
+- [trait](https://github.com/contactopensource/contactopensource/tree/master/api/trait)
 
 - [lumina_foundation_skill_level](https://github.com/contactopensource/contactopensource/tree/master/api/lumina_foundation_skill_level)
 

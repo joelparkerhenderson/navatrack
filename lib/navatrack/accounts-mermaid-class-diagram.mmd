@@ -30,7 +30,7 @@ classDiagram
         sign_in_with_magic_link(String token, UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec deleted_at, ...)
         request_magic_link(String email)
     }
-    class Organization {
+    class Group {
         UUID id
         destroy()
         update(UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec deleted_at, String sign, ...)

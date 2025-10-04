@@ -23,11 +23,11 @@ awk -F\t '{ print "Navatrack.Repo.insert!(%Navatrack.Accounts.User{id: \"" $1 "\
 sed 's/{id: "\(........\)\(....\)\(....\)\(....\)\(............\)"/{id: "\1-\2-\3-\4-\5"/'
 ```
 
-## Organizations
+## Groups
 
 ```sh
-cat api/organizations/index.tsv |
-awk -F\t '{ print "Navatrack.Repo.insert!(%Navatrack.Accounts.Organization{id: \"" $1 "\", title: \"" $3 "\", email: \"" $5 "\", phone: \"" $6 "\", postal: \"" $7 "\", url: \"https://example.com/" $2 "\", avatar_image_400x400_url: \"https://example.com/" $4 "\", linkedin_url: \"" $11 "\" })" }' |
+cat api/groups/index.tsv |
+awk -F\t '{ print "Navatrack.Repo.insert!(%Navatrack.Accounts.Group{id: \"" $1 "\", title: \"" $3 "\", email: \"" $5 "\", phone: \"" $6 "\", postal: \"" $7 "\", url: \"https://example.com/" $2 "\", avatar_image_400x400_url: \"https://example.com/" $4 "\", linkedin_url: \"" $11 "\" })" }' |
 sed 's/{id: "\(........\)\(....\)\(....\)\(....\)\(............\)"/{id: "\1-\2-\3-\4-\5"/' |
 sed 's#linkedin_url: "https://www.linkedin.com/#linkedin_url: "https://linkedin.com/#'
 ```
@@ -49,7 +49,7 @@ Replace:
 }
 Navatrack.Repo.insert!(%Navatrack.Works.UkGdadPcfSkill{
   title: "$1",
-  url: "https://ddat-capability-framework.service.gov.uk/skills#\L$1",
+  url: "https://ddat-capability-framework.service.gov.uk/traits#\L$1",
   description: """
 ```
 
@@ -67,7 +67,7 @@ url: "(.*)-(.*)",
 
 Repeat 6 times to change all spaces to dashes.
 
-Search for skill level sections:
+Search for trait level sections:
 
 ```regex-search
 \n(\d)\. \w+\n\n
@@ -80,7 +80,7 @@ Replace:
 level_$1: """
 ```
 
-Search for roles that require this skill; each one is a markdown list item link:
+Search for roles that require this trait; each one is a markdown list item link:
 
 ```regex-search
 ^- \[(.*?)\]\((.*?)\)

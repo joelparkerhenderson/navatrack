@@ -108,25 +108,25 @@ defmodule NavatrackWeb.Router do
 
     ### Core Resources
 
-    live "/organizations", Organizations.IndexLive
-    live "/organizations/new", Organizations.FormLive, :new
-    live "/organizations/:id", Organizations.ShowLive
-    live "/organizations/:id/edit", Organizations.FormLive, :edit
+    live "/users", Users.IndexLive
+    live "/users/new", Users.FormLive, :new
+    live "/users/:id", Users.ShowLive
+    live "/users/:id/edit", Users.FormLive, :edit
+
+    live "/groups", Groups.IndexLive
+    live "/groups/new", Groups.FormLive, :new
+    live "/groups/:id", Groups.ShowLive
+    live "/groups/:id/edit", Groups.FormLive, :edit
+
+    live "/traits", Traits.IndexLive
+    live "/traits/new", Traits.FormLive, :new
+    live "/traits/:id", Traits.ShowLive
+    live "/traits/:id/edit", Traits.FormLive, :edit
 
     live "/initiatives", Initiatives.IndexLive
     live "/initiatives/new", Initiatives.FormLive, :new
     live "/initiatives/:id", Initiatives.ShowLive
     live "/initiatives/:id/edit", Initiatives.FormLive, :edit
-
-    live "/skills", Skills.IndexLive
-    live "/skills/new", Skills.FormLive, :new
-    live "/skills/:id", Skills.ShowLive
-    live "/skills/:id/edit", Skills.FormLive, :edit
-
-    live "/users", Users.IndexLive
-    live "/users/new", Users.FormLive, :new
-    live "/users/:id", Users.ShowLive
-    live "/users/:id/edit", Users.FormLive, :edit
 
     ### Read-Only Codes
 

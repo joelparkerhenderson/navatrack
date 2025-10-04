@@ -4,6 +4,6 @@ defmodule Navatrack.Works do
 
   resources do
     resource Navatrack.Works.Initiative
-    resource Navatrack.Works.Skill
+    resource Navatrack.Works.Trait
   end
 end

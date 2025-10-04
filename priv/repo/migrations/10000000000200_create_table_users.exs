@@ -17,7 +17,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       name text,
       kind text,
       status text,
-      tags text[],
+      tagging text,
       url text,
       email text CONSTRAINT email_check CHECK (email ~*  '.@.'),
       phone text,
@@ -81,6 +81,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
           || ' ' ||
         status
           || ' ' ||
+        tagging
+          || ' ' ||
         note
       ) gin_trgm_ops);
     """
@@ -94,7 +96,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
     execute "CREATE INDEX users_name_index_tpo ON users (name text_pattern_ops);"
     execute "CREATE INDEX users_kind_index ON users (kind);"
     execute "CREATE INDEX users_kind_index_tpo ON users (kind text_pattern_ops);"
-    execute "CREATE INDEX users_tags_index ON users (tags);"
+    execute "CREATE INDEX users_tagging_index ON users (tagging);"
+    execute "CREATE INDEX users_tagging_index_tpo ON users (tagging text_pattern_ops);"
     execute "CREATE UNIQUE INDEX index_users_email ON users (email);"
     execute "CREATE INDEX users_work_role_onet_soc_2019_code_index ON users (work_role_onet_soc_2019_code);"
     execute "CREATE INDEX users_work_role_uk_civil_service_grade_abbreviation_index ON users (work_role_uk_civil_service_grade_abbreviation);"
@@ -126,7 +129,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
     execute "DROP INDEX IF EXISTS users_name_index_tpo;"
     execute "DROP INDEX IF EXISTS users_kind_index;"
     execute "DROP INDEX IF EXISTS users_kind_index_tpo;"
-    execute "DROP INDEX IF EXISTS users_tags_index;"
+    execute "DROP INDEX IF EXISTS users_tagging_index;"
+    execute "DROP INDEX IF EXISTS users_tagging_index_tpo;"
     execute "DROP INDEX IF EXISTS users_email_index;"
     execute "DROP INDEX IF EXISTS users_work_role_onet_soc_2019_code_index;"
     execute "DROP INDEX IF EXISTS users_work_role_uk_civil_service_grade_abbreviation_index;"
