@@ -51,14 +51,6 @@ defmodule NavatrackWeb.Users.FormLive do
 
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:sign]} label="Sign" type="select"
-          options={["🆘", "⚠️", "✅", "⚪️", "🔴", "🟠", "🟡", "🟢", "🔵", "🟣"]}
-          value="⚪️"
-        />
-        <.input field={form[:kind]} label="Kind" type="select"
-          options={["Employee", "Consultant", "Advisor", "Volunteer"]}
-          value="Employee"
-        />
         <.input field={form[:name]} label="Name" autofocus />
         <.input field={form[:status]} label="Status" />
         <.input field={form[:tagging]} label="Tagging" />

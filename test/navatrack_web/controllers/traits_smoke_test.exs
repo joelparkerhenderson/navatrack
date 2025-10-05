@@ -7,8 +7,6 @@ defmodule NavatrackWeb.TraitsSmokeTest do
     response = html_response(conn, 200)
     assert response =~ "Traits"
     assert response =~ "Id"
-    assert response =~ "Sign"
-    assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
     assert response =~ "Tagging"
@@ -18,8 +16,6 @@ defmodule NavatrackWeb.TraitsSmokeTest do
     conn = get(conn, ~p"/traits/new")
     response = html_response(conn, 200)
     assert response =~ "Traits"
-    assert response =~ "Sign"
-    assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
     assert response =~ "Tagging"

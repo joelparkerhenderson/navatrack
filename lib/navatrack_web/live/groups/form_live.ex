@@ -51,14 +51,6 @@ defmodule NavatrackWeb.Groups.FormLive do
 
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:sign]} label="Sign" type="select"
-          options={["🆘", "⚠️", "✅", "⚪️", "🔴", "🟠", "🟡", "🟢", "🔵", "🟣"]}
-          value="⚪️"
-        />
-        <.input field={form[:kind]} label="Kind" type="select"
-          options={["Association", "Community", "Company", "Department", "Directorate", "Group", "Partnership", "Team", "Venture"]}
-          value="Group"
-        />
         <.input field={form[:name]} label="Name" autofocus />
         <.input field={form[:status]} label="Status" />
         <.input field={form[:tagging]} label="Tagging" />

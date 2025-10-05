@@ -7,8 +7,6 @@ defmodule NavatrackWeb.InitiativesSmokeTest do
     response = html_response(conn, 200)
     assert response =~ "Initiatives"
     assert response =~ "Id"
-    assert response =~ "Sign"
-    assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
     assert response =~ "Tagging"
@@ -19,13 +17,10 @@ defmodule NavatrackWeb.InitiativesSmokeTest do
     response = html_response(conn, 200)
     assert response =~ "Initiatives"
     assert response =~ "Id"
-    assert response =~ "Sign"
-    assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
     assert response =~ "Tagging"
     assert response =~ "Introduction"
-    assert response =~ "Sign"
     assert response =~ "Name"
     assert response =~ "Status"
     assert response =~ "Tagging"

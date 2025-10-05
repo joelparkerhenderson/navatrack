@@ -13,9 +13,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
-      sign text,
       name text,
-      kind text,
       status text,
       tagging text,
       url text,
@@ -96,8 +94,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
       ON groups USING GIN ((
         name
           || ' ' ||
-        kind
-          || ' ' ||
         status
           || ' ' ||
         tagging
@@ -109,12 +105,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
     execute "CREATE INDEX groups_updated_at_index ON groups (updated_at);"
     execute "CREATE INDEX groups_deleted_at_index ON groups (deleted_at);"
     execute "CREATE INDEX groups_locale_code_index ON groups (locale_code);"
-    execute "CREATE INDEX groups_sign_index ON groups (sign);"
-    execute "CREATE INDEX groups_sign_index_tpo ON groups (sign text_pattern_ops);"
     execute "CREATE INDEX groups_name_index ON groups (name);"
     execute "CREATE INDEX groups_name_index_tpo ON groups (name text_pattern_ops);"
-    execute "CREATE INDEX groups_kind_index ON groups (kind);"
-    execute "CREATE INDEX groups_kind_index_tpo ON groups (kind text_pattern_ops);"
     execute "CREATE INDEX groups_tagging_index ON groups (tagging);"
     execute "CREATE INDEX groups_tagging_index_tpo ON groups (tagging text_pattern_ops);"
     execute "CREATE INDEX groups_gs1_digital_link_index ON groups (gs1_digital_link);"
@@ -154,12 +146,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
     execute "DROP INDEX IF EXISTS groups_updated_at_index;"
     execute "DROP INDEX IF EXISTS groups_deleted_at_index;"
     execute "DROP INDEX IF EXISTS groups_locale_code_index;"
-    execute "DROP INDEX IF EXISTS groups_sign_index;"
-    execute "DROP INDEX IF EXISTS groups_sign_index_tpo;"
     execute "DROP INDEX IF EXISTS groups_name_index;"
     execute "DROP INDEX IF EXISTS groups_name_index_tpo;"
-    execute "DROP INDEX IF EXISTS groups_kind_index;"
-    execute "DROP INDEX IF EXISTS groups_kind_index_tpo;"
     execute "DROP INDEX IF EXISTS groups_tagging_index;"
     execute "DROP INDEX IF EXISTS groups_tagging_index_tpo;"
     execute "DROP INDEX IF EXISTS groups_gs1_digital_link_index;"

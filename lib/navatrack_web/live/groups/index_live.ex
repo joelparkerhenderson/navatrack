@@ -39,7 +39,7 @@ defmodule NavatrackWeb.Groups.IndexLive do
       </.header>
 
       <Cinder.Table.table  theme={Cinder.Themes.Smart} resource={X}>
-          <:col :let={x} field="id" sort search>
+          <:col :let={x} field="id" filter sort search>
               <.link
                   navigate={Path.join(["/", X.plural_snake_case(), x.id])}
                   data-role="x-id"
@@ -47,9 +47,7 @@ defmodule NavatrackWeb.Groups.IndexLive do
                   🔗
               </.link>
           </:col>
-          <:col :let={x} field="sign" sort search>{x.sign}</:col>
           <:col :let={x} field="name" sort search>{x.name}</:col>
-          <:col :let={x} field="kind" sort search>{x.kind}</:col>
           <:col :let={x} field="status" sort search>{x.status}</:col>
           <:col :let={x} field="tagging" sort search>{x.tagging}</:col>
       </Cinder.Table.table>

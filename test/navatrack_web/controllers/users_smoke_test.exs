@@ -6,8 +6,6 @@ defmodule NavatrackWeb.UsersSmokeTest do
     conn = get(conn, ~p"/users")
     response = html_response(conn, 200)
     assert response =~ "Users"
-    assert response =~ "Sign"
-    assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
     assert response =~ "Tagging"
@@ -17,8 +15,6 @@ defmodule NavatrackWeb.UsersSmokeTest do
     conn = get(conn, ~p"/users/new")
     response = html_response(conn, 200)
     assert response =~ "Users"
-    assert response =~ "Sign"
-    assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
     assert response =~ "Tagging"

@@ -13,9 +13,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
-      sign text,
       name text,
-      kind text,
       status text,
       tagging text,
       url text,
@@ -77,8 +75,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       USING GIN ((
         name
           || ' ' ||
-        kind
-          || ' ' ||
         status
           || ' ' ||
         tagging
@@ -90,12 +86,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
     execute "CREATE INDEX users_updated_at_index ON users (updated_at);"
     execute "CREATE INDEX users_deleted_at_index ON users (deleted_at);"
     execute "CREATE INDEX users_locale_code_index ON users (locale_code);"
-    execute "CREATE INDEX users_sign_index ON users (sign);"
-    execute "CREATE INDEX users_sign_index_tpo ON users (sign text_pattern_ops);"
     execute "CREATE INDEX users_name_index ON users (name);"
     execute "CREATE INDEX users_name_index_tpo ON users (name text_pattern_ops);"
-    execute "CREATE INDEX users_kind_index ON users (kind);"
-    execute "CREATE INDEX users_kind_index_tpo ON users (kind text_pattern_ops);"
     execute "CREATE INDEX users_tagging_index ON users (tagging);"
     execute "CREATE INDEX users_tagging_index_tpo ON users (tagging text_pattern_ops);"
     execute "CREATE UNIQUE INDEX index_users_email ON users (email);"
@@ -123,12 +115,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
     execute "DROP INDEX IF EXISTS users_updated_at_index;"
     execute "DROP INDEX IF EXISTS users_deleted_at_index;"
     execute "DROP INDEX IF EXISTS users_locale_code_index;"
-    execute "DROP INDEX IF EXISTS users_sign_index;"
-    execute "DROP INDEX IF EXISTS users_sign_index_tpo;"
     execute "DROP INDEX IF EXISTS users_name_index;"
     execute "DROP INDEX IF EXISTS users_name_index_tpo;"
-    execute "DROP INDEX IF EXISTS users_kind_index;"
-    execute "DROP INDEX IF EXISTS users_kind_index_tpo;"
     execute "DROP INDEX IF EXISTS users_tagging_index;"
     execute "DROP INDEX IF EXISTS users_tagging_index_tpo;"
     execute "DROP INDEX IF EXISTS users_email_index;"

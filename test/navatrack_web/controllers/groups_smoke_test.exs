@@ -7,8 +7,6 @@ defmodule NavatrackWeb.GroupsSmokeTest do
     response = html_response(conn, 200)
     assert response =~ "Groups"
     assert response =~ "Id"
-    assert response =~ "Sign"
-    assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
     assert response =~ "Tagging"
@@ -18,8 +16,6 @@ defmodule NavatrackWeb.GroupsSmokeTest do
     conn = get(conn, ~p"/groups/new")
     response = html_response(conn, 200)
     assert response =~ "Groups"
-    assert response =~ "Sign"
-    assert response =~ "Kind"
     assert response =~ "Name"
     assert response =~ "Status"
     assert response =~ "Tagging"

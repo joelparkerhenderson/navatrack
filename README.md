@@ -104,8 +104,9 @@ mix ash.generate_resource_diagrams
 Reset databases:
 
 ```sh
-MIX_ENV=dev mix ecto.drop; mix ecto.create; mix ecto.migrate;
-MIX_ENV=test mix ecto.drop; mix ecto.create; mix ecto.migrate;
+MIX_ENV=dev  mix ecto.drop; MIX_ENV=dev  mix ecto.create; MIX_ENV=dev  mix ecto.migrate;
+MIX_ENV=test mix ecto.drop; MIX_ENV=test mix ecto.create; MIX_ENV=test mix ecto.migrate;
+mix test
 ```
 
 ## Search
@@ -131,7 +132,7 @@ Find section `postgres` then append `custom_indexes` like this:
 postgres ​do​
    …
    custom_indexes ​do​
-      index ​"​(​name || ' ' || kind) gin_trgm_ops"​, ​name:​ ​"​users_index_trgm"​, ​using:​ ​"​​gin"​
+      index ​"​(​name || ' ' || status || ' ' || tagging) gin_trgm_ops"​, ​name:​ ​"​users_index_trgm"​, ​using:​ ​"​​gin"​
    end
 ```
 
@@ -193,3 +194,65 @@ defp​ sort_options ​do​
    ]
 ​​end
 ```
+
+## Tagging
+
+Tagging ideas for users:
+
+- advisor
+- broker
+- coach
+- consultant
+- customer
+- employee
+- investor
+- partner
+- supplier
+- volunteer
+
+Tagging ideas for groups:
+
+- association
+- committee
+- community
+- company
+- department
+- directorate
+- group
+- organization
+- partnership
+- team
+- union
+- venture
+
+Tagging ideas for initiatives:
+
+- package
+- plan
+- practice
+- process
+- proof
+- product
+- project
+- program/programme
+- portfolio
+- service
+- solution
+- offering
+
+Tagging ideas for traits:
+
+- ability
+- capability
+- competence
+- certificate
+- credential
+- diploma
+- license
+- passport
+- training
+
+Tagging ideas for status emoji:
+
+- 🆘 ⚠️ ✅
+- 🔴 🟠 🟡 🟢 🔵 🟣

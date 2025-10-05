@@ -32,7 +32,7 @@ defmodule NavatrackWeb.UkGdadPcfSkills.IndexLive do
       </.header>
 
       <Cinder.Table.table  theme={Cinder.Themes.Smart} resource={X}>
-          <:col :let={x} field="id" sort search>
+          <:col :let={x} field="id" filter sort search>
               <.link
                   navigate={Path.join(["/", X.plural_snake_case(), x.id])}
                   data-role="x-id"

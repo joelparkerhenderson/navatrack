@@ -47,9 +47,7 @@ defmodule NavatrackWeb.Traits.IndexLive do
                   🔗
               </.link>
           </:col>
-          <:col :let={x} field="sign" sort search>{x.sign}</:col>
           <:col :let={x} field="name" sort search>{x.name}</:col>
-          <:col :let={x} field="kind" sort search>{x.kind}</:col>
           <:col :let={x} field="status" sort search>{x.status}</:col>
           <:col :let={x} field="tagging" sort search>{x.tagging}</:col>
       </Cinder.Table.table>

@@ -13,9 +13,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
-      sign text,
       name text,
-      kind text,
       status text,
       tagging text,
       summary_as_markdown text,
@@ -41,8 +39,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
       ON traits USING GIN ((
         name
           || ' ' ||
-        kind
-          || ' ' ||
         status
           || ' ' ||
         tagging
@@ -56,12 +52,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
     execute "CREATE INDEX traits_updated_at_index ON traits (updated_at);"
     execute "CREATE INDEX traits_deleted_at_index ON traits (deleted_at);"
     execute "CREATE INDEX traits_locale_code_index ON traits (locale_code);"
-    execute "CREATE INDEX traits_sign_index ON traits (sign);"
-    execute "CREATE INDEX traits_sign_index_tpo ON traits (sign text_pattern_ops);"
     execute "CREATE INDEX traits_name_index ON traits (name);"
     execute "CREATE INDEX traits_name_index_tpo ON traits (name text_pattern_ops);"
-    execute "CREATE INDEX traits_kind_index ON traits (kind);"
-    execute "CREATE INDEX traits_kind_index_tpo ON traits (kind text_pattern_ops);"
     execute "CREATE INDEX traits_tagging_index ON traits (tagging);"
     execute "CREATE INDEX traits_tagging_index_tpo ON traits (tagging text_pattern_ops);"
   end
@@ -77,12 +69,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
     execute "DROP INDEX IF EXISTS traits_updated_at_index;"
     execute "DROP INDEX IF EXISTS traits_deleted_at_index;"
     execute "DROP INDEX IF EXISTS traits_locale_code_index;"
-    execute "DROP INDEX IF EXISTS traits_sign_index;"
-    execute "DROP INDEX IF EXISTS traits_sign_index_tpo;"
     execute "DROP INDEX IF EXISTS traits_name_index;"
     execute "DROP INDEX IF EXISTS traits_name_index_tpo;"
-    execute "DROP INDEX IF EXISTS traits_kind_index;"
-    execute "DROP INDEX IF EXISTS traits_kind_index_tpo;"
     execute "DROP INDEX IF EXISTS traits_tagging_index;"
     execute "DROP INDEX IF EXISTS traits_tagging_index_tpo;"
     execute "DROP TABLE IF EXISTS traits;"

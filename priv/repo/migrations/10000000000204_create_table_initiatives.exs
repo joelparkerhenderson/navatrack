@@ -13,9 +13,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
-      sign text,
       name text,
-      kind text,
       status text,
       tagging text,
       url text,
@@ -264,8 +262,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       ON initiatives USING GIN ((
         name
           || ' ' ||
-        kind
-          || ' ' ||
         status
           || ' ' ||
         tagging
@@ -277,12 +273,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
     execute "CREATE INDEX initiatives_updated_at_index ON initiatives (updated_at);"
     execute "CREATE INDEX initiatives_deleted_at_index ON initiatives (deleted_at);"
     execute "CREATE INDEX initiatives_locale_code_index ON initiatives (locale_code);"
-    execute "CREATE INDEX initiatives_sign_index ON initiatives (sign);"
-    execute "CREATE INDEX initiatives_sign_index_tpo ON initiatives (sign text_pattern_ops);"
     execute "CREATE INDEX initiatives_name_index ON initiatives (name);"
     execute "CREATE INDEX initiatives_name_index_tpo ON initiatives (name text_pattern_ops);"
-    execute "CREATE INDEX initiatives_kind_index ON initiatives (kind);"
-    execute "CREATE INDEX initiatives_kind_index_tpo ON initiatives (kind text_pattern_ops);"
     execute "CREATE INDEX initiatives_tagging_index ON initiatives (tagging);"
     execute "CREATE INDEX initiatives_tagging_index_tpo ON initiatives (tagging text_pattern_ops);"
   end
@@ -328,17 +320,12 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
     execute "DROP CONSTRAINT IF EXISTS arc42_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS apache_echart_as_url_check;"
     execute "DROP TRIGGER IF EXISTS trigger_initiatives_updated_at;"
-    execute "DROP INDEX IF EXISTS initiatives_kind_index_gto;"
     execute "DROP INDEX IF EXISTS initiatives_locale_code_index;"
     execute "DROP INDEX IF EXISTS initiatives_created_at_index;"
     execute "DROP INDEX IF EXISTS initiatives_updated_at_index;"
     execute "DROP INDEX IF EXISTS initiatives_deleted_at_index;"
-    execute "DROP INDEX IF EXISTS initiatives_sign_index;"
-    execute "DROP INDEX IF EXISTS initiatives_sign_index_tpo;"
     execute "DROP INDEX IF EXISTS initiatives_name_index;"
     execute "DROP INDEX IF EXISTS initiatives_name_index_tpo;"
-    execute "DROP INDEX IF EXISTS initiatives_kind_index;"
-    execute "DROP INDEX IF EXISTS initiatives_kind_index_tpo;"
     execute "DROP INDEX IF EXISTS initiatives_tagging_index;"
     execute "DROP INDEX IF EXISTS initiatives_tagging_index_tpo;"
     execute "DROP TABLE IF EXISTS initiatives;"

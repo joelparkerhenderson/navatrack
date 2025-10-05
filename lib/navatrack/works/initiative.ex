@@ -19,8 +19,6 @@ defmodule Navatrack.Works.Initiative do
     attribute :created_at, :utc_datetime_usec
     attribute :updated_at, :utc_datetime_usec
     attribute :deleted_at, :utc_datetime_usec
-    attribute :sign, :string
-    attribute :kind, :string
     attribute :name, :string, public?: true
     attribute :status, :string
     attribute :tagging, :string
@@ -241,8 +239,6 @@ defmodule Navatrack.Works.Initiative do
       :created_at,
       :updated_at,
       :deleted_at,
-      :sign,
-      :kind,
       :name,
       :status,
       :tagging,
