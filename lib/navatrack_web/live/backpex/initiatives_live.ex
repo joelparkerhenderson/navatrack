@@ -2,12 +2,11 @@ defmodule NavatrackWeb.Backpex.InitiativesLive do
     use AshBackpex.LiveResource
 
     backpex do
-      resource(Navatrack.Works.Initiative)
-      layout({NavatrackWeb.Layouts, :backpex})
+      resource Navatrack.Accounts.User
+      layout &NavatrackWeb.Layouts.backpex/1
 
       fields do
         field :name
-        field :note
       end
     end
 end

@@ -146,21 +146,21 @@ defmodule NavatrackWeb.Groups.FormLive do
 
         <.section id="net_promoter_score" title="Net Promoter Score">
 
-          <h3 class="h3">Customer Net Promoter Score (CNPS)</h3>
+          <h3 class="h3">Net Promoter Score (NPS) Customer Perspective</h3>
 
           <.input field={form[:customer_net_promoter_score_actual_value]} label="Actual Value" />
           <.input field={form[:customer_net_promoter_score_target_value]} label="Target Value" />
           <.input field={form[:customer_net_promoter_score_unit]} label="Unit" />
           <.input field={form[:customer_net_promoter_score_description_as_markdown]} type="textarea" label="Description" />
 
-          <h3 class="h3">User Net Promoter Score (UNPS)</h3>
+          <h3 class="h3">Net Promoter Score (NPS) User Perspective</h3>
 
           <.input field={form[:user_net_promoter_score_actual_value]} label="Actual Value" />
           <.input field={form[:user_net_promoter_score_target_value]} label="Target Value" />
           <.input field={form[:user_net_promoter_score_unit]} label="Unit" />
           <.input field={form[:user_net_promoter_score_description_as_markdown]} type="textarea" label="Description" />
 
-          <h3 class="h3">Worker Net Promoter Score (WNPS)</h3>
+          <h3 class="h3">Net Promoter Score (NPS) Worker Perspective</h3>
 
           <.input field={form[:worker_net_promoter_score_actual_value]} label="Actual Value" />
           <.input field={form[:worker_net_promoter_score_target_value]} label="Target Value" />

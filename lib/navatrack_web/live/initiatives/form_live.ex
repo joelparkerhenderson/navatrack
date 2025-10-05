@@ -264,7 +264,7 @@ defmodule NavatrackWeb.Initiatives.FormLive do
 
         </.section>
 
-        <.section id="system_quality_attributes" title="System Quality Attributes">
+        <.section id="system_quality_attributes" title="System Quality Attributes (SQA)">
 
           <.input field={form[:quality_availability_as_markdown]} type="textarea" label="Availability" />
           <.input field={form[:quality_certifiability_as_markdown]} type="textarea" label="Certifiability" />
@@ -285,23 +285,23 @@ defmodule NavatrackWeb.Initiatives.FormLive do
 
         </.section>
 
-        <.section id="net_promoter_score" title="Net Promoter Score">
+        <.section id="net_promoter_score" title="Net Promoter Score (NPS)">
 
-          <h3 class="h3">Customer Net Promoter Score (CNPS)</h3>
+          <h3 class="h3">Customer Perspective</h3>
 
           <.input field={form[:customer_net_promoter_score_actual_value]} label="Actual Value" />
           <.input field={form[:customer_net_promoter_score_target_value]} label="Target Value" />
           <.input field={form[:customer_net_promoter_score_unit]} label="Unit" />
           <.input field={form[:customer_net_promoter_score_description_as_markdown]} type="textarea" label="Description" />
 
-          <h3 class="h3">User Net Promoter Score (UNPS)</h3>
+          <h3 class="h3">User Perspective</h3>
 
           <.input field={form[:user_net_promoter_score_actual_value]} label="Actual Value" />
           <.input field={form[:user_net_promoter_score_target_value]} label="Target Value" />
           <.input field={form[:user_net_promoter_score_unit]} label="Unit" />
           <.input field={form[:user_net_promoter_score_description_as_markdown]} type="textarea" label="Description" />
 
-          <h3 class="h3">Worker Net Promoter Score (WNPS)</h3>
+          <h3 class="h3">Worker Perspective</h3>
 
           <.input field={form[:worker_net_promoter_score_actual_value]} label="Actual Value" />
           <.input field={form[:worker_net_promoter_score_target_value]} label="Target Value" />

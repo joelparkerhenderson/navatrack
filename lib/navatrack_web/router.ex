@@ -103,6 +103,7 @@ defmodule NavatrackWeb.Router do
 
   scope "/", NavatrackWeb do
     pipe_through :browser
+    backpex_routes()
 
     get "/", PageController, :home
 
@@ -142,6 +143,10 @@ defmodule NavatrackWeb.Router do
     live "/uk_gdad_pcf_skills", UkGdadPcfSkills.IndexLive
     live "/uk_gdad_pcf_skills/:id", UkGdadPcfSkills.ShowLive
 
+    ash_authentication_live_session :ash_authentication_live_session_routes do
+      live_resources "/manage/initiatives", Backpex.InitiativesLive
+    end
+
   end
 
   # Other scopes may use custom stacks.
@@ -173,16 +178,6 @@ defmodule NavatrackWeb.Router do
       pipe_through :browser
 
       ash_admin "/"
-    end
-  end
-
-  scope "/backpex", NavatrackWeb do
-    pipe_through :browser
-
-    backpex_routes()
-
-    live_session :default, on_mount: Backpex.InitAssigns do
-      live_resources "/backpex/initiatives", Backpex.InitiativesLive
     end
   end
 

@@ -27,7 +27,7 @@ defmodule NavatrackWeb.Layouts do
   """
   attr :flash, :map, required: true, doc: "the map of flash messages"
 
-  # These lines are for Backpex
+  # Backpex requirements
   attr :fluid?, :boolean, default: true, doc: "if the content uses full width"
   attr :current_url, :string, required: true, doc: "the current url"
 
@@ -92,6 +92,6 @@ defmodule NavatrackWeb.Layouts do
     """
   end
 
-  def admin(assigns)
+  def backpex(assigns)
 
 end

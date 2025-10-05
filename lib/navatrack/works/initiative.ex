@@ -21,7 +21,7 @@ defmodule Navatrack.Works.Initiative do
     attribute :deleted_at, :utc_datetime_usec
     attribute :sign, :string
     attribute :kind, :string
-    attribute :name, :string
+    attribute :name, :string, public?: true
     attribute :status, :string
     attribute :tagging, :string
     attribute :url, :string
