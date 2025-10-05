@@ -39,17 +39,10 @@ defmodule NavatrackWeb.Traits.IndexLive do
       </.header>
 
       <Cinder.Table.table  theme={Cinder.Themes.Smart} resource={X}>
-          <:col :let={x} field="id" filter sort search>
-              <.link
-                  navigate={Path.join(["/", X.plural_snake_case(), x.id])}
-                  data-role="x-id"
-              >
-                  🔗
-              </.link>
-          </:col>
-          <:col :let={x} field="name" sort search>{x.name}</:col>
-          <:col :let={x} field="status" sort search>{x.status}</:col>
-          <:col :let={x} field="tagging" sort search>{x.tagging}</:col>
+        <:col :let={x} field="id" label="➡️ Id" filter sort search><.link_show x={x} /></:col>
+        <:col :let={x} field="name" label="📛 Name" sort search>{x.name}</:col>
+        <:col :let={x} field="status" label="🚦 Status" sort search>{x.status}</:col>
+        <:col :let={x} field="tagging" label="🏷️ Tags" sort search>{x.tagging}</:col>
       </Cinder.Table.table>
     </Layouts.app>
     """

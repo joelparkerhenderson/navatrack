@@ -138,18 +138,18 @@ defmodule Navatrack.Works.Initiative do
     attribute :quality_warrantability_as_markdown, :string
     attribute :apache_echart_as_url, :string
     attribute :apache_echart_as_typescript, :string
-    attribute :customer_net_promoter_score_actual_value, :decimal
-    attribute :customer_net_promoter_score_target_value, :decimal
-    attribute :customer_net_promoter_score_unit, :string
-    attribute :customer_net_promoter_score_description_as_markdown, :string
-    attribute :user_net_promoter_score_actual_value, :decimal
-    attribute :user_net_promoter_score_target_value, :decimal
-    attribute :user_net_promoter_score_unit, :string
-    attribute :user_net_promoter_score_description_as_markdown, :string
-    attribute :worker_net_promoter_score_actual_value, :decimal
-    attribute :worker_net_promoter_score_target_value, :decimal
-    attribute :worker_net_promoter_score_unit, :string
-    attribute :worker_net_promoter_score_description_as_markdown, :string
+    attribute :net_promoter_score_customer_perspective_actual_value, :decimal
+    attribute :net_promoter_score_customer_perspective_target_value, :decimal
+    attribute :net_promoter_score_customer_perspective_unit, :string
+    attribute :net_promoter_score_customer_perspective_description_as_markdown, :string
+    attribute :net_promoter_score_user_perspective_actual_value, :decimal
+    attribute :net_promoter_score_user_perspective_target_value, :decimal
+    attribute :net_promoter_score_user_perspective_unit, :string
+    attribute :net_promoter_score_user_perspective_description_as_markdown, :string
+    attribute :net_promoter_score_worker_perspective_actual_value, :decimal
+    attribute :net_promoter_score_worker_perspective_target_value, :decimal
+    attribute :net_promoter_score_worker_perspective_unit, :string
+    attribute :net_promoter_score_worker_perspective_description_as_markdown, :string
     attribute :active_users_actual_value, :integer
     attribute :active_users_target_value, :integer
     attribute :active_users_unit, :string
@@ -355,18 +355,18 @@ defmodule Navatrack.Works.Initiative do
       :quality_warrantability_as_markdown,
       :apache_echart_as_url,
       :apache_echart_as_typescript,
-      :customer_net_promoter_score_actual_value,
-      :customer_net_promoter_score_target_value,
-      :customer_net_promoter_score_unit,
-      :customer_net_promoter_score_description_as_markdown,
-      :user_net_promoter_score_actual_value,
-      :user_net_promoter_score_target_value,
-      :user_net_promoter_score_unit,
-      :user_net_promoter_score_description_as_markdown,
-      :worker_net_promoter_score_actual_value,
-      :worker_net_promoter_score_target_value,
-      :worker_net_promoter_score_unit,
-      :worker_net_promoter_score_description_as_markdown,
+      :net_promoter_score_customer_perspective_actual_value,
+      :net_promoter_score_customer_perspective_target_value,
+      :net_promoter_score_customer_perspective_unit,
+      :net_promoter_score_customer_perspective_description_as_markdown,
+      :net_promoter_score_user_perspective_actual_value,
+      :net_promoter_score_user_perspective_target_value,
+      :net_promoter_score_user_perspective_unit,
+      :net_promoter_score_user_perspective_description_as_markdown,
+      :net_promoter_score_worker_perspective_actual_value,
+      :net_promoter_score_worker_perspective_target_value,
+      :net_promoter_score_worker_perspective_unit,
+      :net_promoter_score_worker_perspective_description_as_markdown,
       :active_users_actual_value,
       :active_users_target_value,
       :active_users_unit,

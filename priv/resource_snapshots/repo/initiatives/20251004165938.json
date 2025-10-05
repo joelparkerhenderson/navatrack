@@ -1512,7 +1512,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "customer_net_promoter_score_actual_value",
+      "source": "net_promoter_score_customer_perspective_actual_value",
       "type": "decimal"
     },
     {
@@ -1524,7 +1524,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "customer_net_promoter_score_target_value",
+      "source": "net_promoter_score_customer_perspective_target_value",
       "type": "decimal"
     },
     {
@@ -1536,7 +1536,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "customer_net_promoter_score_unit",
+      "source": "net_promoter_score_customer_perspective_unit",
       "type": "text"
     },
     {
@@ -1548,7 +1548,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "customer_net_promoter_score_description_as_markdown",
+      "source": "net_promoter_score_customer_perspective_description_as_markdown",
       "type": "text"
     },
     {
@@ -1560,7 +1560,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "user_net_promoter_score_actual_value",
+      "source": "net_promoter_score_user_perspective_actual_value",
       "type": "decimal"
     },
     {
@@ -1572,7 +1572,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "user_net_promoter_score_target_value",
+      "source": "net_promoter_score_user_perspective_target_value",
       "type": "decimal"
     },
     {
@@ -1584,7 +1584,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "user_net_promoter_score_unit",
+      "source": "net_promoter_score_user_perspective_unit",
       "type": "text"
     },
     {
@@ -1596,7 +1596,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "user_net_promoter_score_description_as_markdown",
+      "source": "net_promoter_score_user_perspective_description_as_markdown",
       "type": "text"
     },
     {
@@ -1608,7 +1608,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "worker_net_promoter_score_actual_value",
+      "source": "net_promoter_score_worker_perspective_actual_value",
       "type": "decimal"
     },
     {
@@ -1620,7 +1620,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "worker_net_promoter_score_target_value",
+      "source": "net_promoter_score_worker_perspective_target_value",
       "type": "decimal"
     },
     {
@@ -1632,7 +1632,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "worker_net_promoter_score_unit",
+      "source": "net_promoter_score_worker_perspective_unit",
       "type": "text"
     },
     {
@@ -1644,7 +1644,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "worker_net_promoter_score_description_as_markdown",
+      "source": "net_promoter_score_worker_perspective_description_as_markdown",
       "type": "text"
     },
     {

@@ -140,24 +140,24 @@ defmodule NavatrackWeb.Groups.FormLive do
 
           <h3 class="h3">Net Promoter Score (NPS) Customer Perspective</h3>
 
-          <.input field={form[:customer_net_promoter_score_actual_value]} label="Actual Value" />
-          <.input field={form[:customer_net_promoter_score_target_value]} label="Target Value" />
-          <.input field={form[:customer_net_promoter_score_unit]} label="Unit" />
-          <.input field={form[:customer_net_promoter_score_description_as_markdown]} type="textarea" label="Description" />
+          <.input field={form[:net_promoter_score_customer_perspective_actual_value]} label="Actual Value" />
+          <.input field={form[:net_promoter_score_customer_perspective_target_value]} label="Target Value" />
+          <.input field={form[:net_promoter_score_customer_perspective_unit]} label="Unit" />
+          <.input field={form[:net_promoter_score_customer_perspective_description_as_markdown]} type="textarea" label="Description" />
 
           <h3 class="h3">Net Promoter Score (NPS) User Perspective</h3>
 
-          <.input field={form[:user_net_promoter_score_actual_value]} label="Actual Value" />
-          <.input field={form[:user_net_promoter_score_target_value]} label="Target Value" />
-          <.input field={form[:user_net_promoter_score_unit]} label="Unit" />
-          <.input field={form[:user_net_promoter_score_description_as_markdown]} type="textarea" label="Description" />
+          <.input field={form[:net_promoter_score_user_perspective_actual_value]} label="Actual Value" />
+          <.input field={form[:net_promoter_score_user_perspective_target_value]} label="Target Value" />
+          <.input field={form[:net_promoter_score_user_perspective_unit]} label="Unit" />
+          <.input field={form[:net_promoter_score_user_perspective_description_as_markdown]} type="textarea" label="Description" />
 
           <h3 class="h3">Net Promoter Score (NPS) Worker Perspective</h3>
 
-          <.input field={form[:worker_net_promoter_score_actual_value]} label="Actual Value" />
-          <.input field={form[:worker_net_promoter_score_target_value]} label="Target Value" />
-          <.input field={form[:worker_net_promoter_score_unit]} label="Unit" />
-          <.input field={form[:worker_net_promoter_score_description_as_markdown]} type="textarea" label="Description" />
+          <.input field={form[:net_promoter_score_worker_perspective_actual_value]} label="Actual Value" />
+          <.input field={form[:net_promoter_score_worker_perspective_target_value]} label="Target Value" />
+          <.input field={form[:net_promoter_score_worker_perspective_unit]} label="Unit" />
+          <.input field={form[:net_promoter_score_worker_perspective_description_as_markdown]} type="textarea" label="Description" />
 
         </.section>
 

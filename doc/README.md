@@ -19,14 +19,7 @@ From Phoenix table markup such as:
 
 ```heex
 <.table id="xx" rows={@xx}>
-    <:col :let={x} field="id" sort search>
-        <.link
-            navigate={Path.join(["/", X.plural_snake_case(), x.id])}
-            data-role="x-id"
-        >
-            {x.id}
-        </.link>
-    </:col>
+    <:col :let={x} label="Id"><.link_show x={x} /></:col>
     <:col :let={x} label="Name">{x.name}</:col>
     <:col :let={x} label="Status">{x.status}</:col>
 </.table>
@@ -36,15 +29,8 @@ Into Cinder table markup such as:
 
 ```heex
 <Cinder.Table.table theme={Cinder.Themes.Smart} resource={X}>
-    <:col :let={x} field="title" filter sort>
-        <.link
-            navigate={Path.join(["/", X.plural_snake_case(), x.id])}
-            data-role="x-id"
-        >
-            {x.id}
-        </.link>
-    </:col>
-    <:col :let={x} field="name" sort search>{x.name}</:col>
-    <:col :let={x} field="status" sort search>{x.status}</:col>
+    <:col :let={x} field="id" label="➡️ Id" filter sort search><.link_show x={x} /></:col>
+    <:col :let={x} field="name" label="Name" sort search>{x.name}</:col>
+    <:col :let={x} field="status" label="Status" sort search>{x.status}</:col>
 </Cinder.Table.table>
 ```
