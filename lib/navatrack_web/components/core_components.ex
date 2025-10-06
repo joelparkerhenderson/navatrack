@@ -469,6 +469,27 @@ defmodule NavatrackWeb.CoreComponents do
     """
   end
 
+  @doc """
+  Render a form section using a DaisyUI collapse UI/UX to save screen spaces.
+  The function uses a section id, section title, and section inner block.
+  """
+
+  attr :id, :string, required: true
+  attr :title, :string, required: true
+  slot :inner_block, required: true
+
+  def section(assigns) do
+    ~H"""
+    <section id={"section_#{@id}"} class="collapse collapse-arrow bg-base-100 border border-base-300 my-4" phx-update="ignore">
+      <input id={"section_#{@id}_input"} type="checkbox" class="collapse-toggle" />
+      <div class="collapse-title">{@title}</div>
+      <div class="collapse-content">
+        <%= render_slot(@inner_block) %>
+      </div>
+    </section>
+    """
+  end
+
   ## JS Commands
 
   def show(js \\ %JS{}, selector) do

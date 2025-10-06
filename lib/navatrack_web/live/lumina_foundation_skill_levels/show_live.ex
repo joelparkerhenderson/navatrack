@@ -13,7 +13,7 @@ defmodule NavatrackWeb.LuminaFoundationSkillLevels.ShowLive do
 
     {:noreply,
       socket
-      |> assign(:page_title, x.title)
+      |> assign(:page_title, x.name)
       |> assign(:x, x)
     }
   end
@@ -25,7 +25,7 @@ defmodule NavatrackWeb.LuminaFoundationSkillLevels.ShowLive do
         {@page_title}
       </.header>
       <main>
-        {@x.title}
+        {@x.name}
       </main>
     </Layouts.app>
     """

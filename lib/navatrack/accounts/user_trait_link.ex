@@ -18,7 +18,7 @@ defmodule Navatrack.Accounts.UserTraitLink do
 
   relationships do
     belongs_to :user, Navatrack.Accounts.User, primary_key?: true, allow_nil?: false
-    belongs_to :trait, Navatrack.Accounts.Trait, primary_key?: true, allow_nil?: false
+    belongs_to :trait, Navatrack.Works.Trait, primary_key?: true, allow_nil?: false
   end
 
   actions do

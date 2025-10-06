@@ -51,27 +51,27 @@ defmodule NavatrackWeb.Initiatives.FormLive do
 
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:name]} label="Name" autofocus />
-        <.input field={form[:status]} label="Status" />
-        <.input field={form[:tagging]} label="Tagging" />
+        <.input field={form[:name]} label="📛 Name" autofocus />
+        <.input field={form[:status]} label="🚦 Status" />
+        <.input field={form[:tagging]} label="🏷️ Tags" />
 
         <.section id="contact" title="Contacts">
-          <.input field={form[:url]} type="url" label="URL" placeholder="https://example.com" />
-          <.input field={form[:email]} type="email" label="Email" placeholder="example@example.com" />
-          <.input field={form[:phone]} type="tel" label="Phone" placeholder="+1-415-555-5555"/>
-          <.input field={form[:messaging]} label="Messaging" placeholder="https://bsky.app/profile/example"/>
-          <.input field={form[:postal]} label="Postal" placeholder="123 Main St, San Francisco, CA, US, 94100, US"/>
-          <.input field={form[:orcid_pid]} label="ORCID PID" placeholder="0009-0000-4681-282X" />
-          <.input field={form[:rdf_type]} label="RDF Type" />
-        </.section>
+          <.input field={form[:url]} type="url" label="🔗 URL" placeholder="https://example.com" />
+          <.input field={form[:email]} type="email" label="📧 Email" placeholder="example@example.com" />
+          <.input field={form[:phone]} type="tel" label="📱 Phone" placeholder="+1-415-555-5555"/>
+          <.input field={form[:messaging]} label="💬 Messaging" placeholder="https://bsky.app/profile/example"/>
+          <.input field={form[:postal]} label="📫 Postal" placeholder="123 Main St, San Francisco, CA, US, 94100, US"/>
+          <.input field={form[:orcid_pid]} label="🀣🌺 ORCID PID" placeholder="0009-0000-4681-282X" />
+          <.input field={form[:rdf_type]} label="🖇️ RDF Type" />
+        </.section>🀣
 
         <.section id="agents" title="AGENTS.md">
-          <.input field={form[:agents_as_url]} type="url" label="URL" placeholder="https://example.com"/>
+          <.input field={form[:agents_as_url]} type="url" label="🔗 URL" placeholder="https://example.com"/>
           <.input field={form[:agents_as_markdown]} type="textarea" label="Text" />
         </.section>
 
         <.section id="charts" title="Chart">
-          <.input field={form[:apache_echart_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:apache_echart_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:apache_echart_as_typescript]} label="TypeScript" />
         </.section>
 
@@ -79,22 +79,22 @@ defmodule NavatrackWeb.Initiatives.FormLive do
 
           <h3 class="h3">Avatar 400x400</h3>
 
-          <.input field={form[:avatar_image_400x400_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:avatar_image_400x400_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:avatar_image_400x400_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1080x1080 square</h3>
 
-          <.input field={form[:main_image_1080x1080_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1080x1080_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:main_image_1080x1080_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1920x1080 landscape</h3>
 
-          <.input field={form[:main_image_1920x1080_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1920x1080_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:main_image_1920x1080_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1920x1080 portrait</h3>
 
-          <.input field={form[:main_image_1080x1920_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1080x1920_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:main_image_1080x1920_alt]} label="Alt" />
 
         </.section>
@@ -135,22 +135,22 @@ defmodule NavatrackWeb.Initiatives.FormLive do
 
           <h3 class="h3">Six-Pager Double-Sider</h3>
 
-          <.input field={form[:six_pager_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:six_pager_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:six_pager_as_markdown]} type="textarea" label="Text" />
 
           <h3 class="h3">Strengths Weaknesses Opportunities Threats (SWOT)</h3>
 
-          <.input field={form[:swot_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:swot_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:swot_as_markdown]} type="textarea" label="Text" />
 
           <h3 class="h3">Porter's Five Forces</h3>
 
-          <.input field={form[:porters_five_forces_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:porters_five_forces_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:porters_five_forces_as_markdown]} type="textarea" label="Text" />
 
           <h3 class="h3">Political, Economic, Social, Technological, Legal, Environmental (PESTLE)</h3>
 
-          <.input field={form[:pestle_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:pestle_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:pestle_as_markdown]} type="textarea" label="Text" />
 
         </.section>
@@ -159,27 +159,27 @@ defmodule NavatrackWeb.Initiatives.FormLive do
 
           <h3 class="h3">Glossary</h3>
 
-          <.input field={form[:glossary_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:glossary_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:glossary_as_markdown]} type="textarea" label="Text" />
 
           <h3 class="h3">Roles and Responsibilities</h3>
 
-          <.input field={form[:roles_and_responsibilities_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:roles_and_responsibilities_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:roles_and_responsibilities_as_markdown]} type="textarea" label="Text" />
 
           <h3 class="h3">Responsibility Assignment Matrix (RAM)</h3>
 
-          <.input field={form[:responsibility_assignment_matrix_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:responsibility_assignment_matrix_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:responsibility_assignment_matrix_as_markdown]} type="textarea" label="Text" />
 
           <h3 class="h3">Code of Conduct</h3>
 
-          <.input field={form[:code_of_conduct_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:code_of_conduct_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:code_of_conduct_as_markdown]} type="textarea" label="Text" />
 
           <h3 class="h3">License</h3>
 
-          <.input field={form[:license_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:license_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:license_as_markdown]} type="textarea" label="Text" />
 
         </.section>
@@ -188,27 +188,27 @@ defmodule NavatrackWeb.Initiatives.FormLive do
 
           <h3 class="h3">Suppliers</h3>
 
-          <.input field={form[:sipoc_suppliers_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:sipoc_suppliers_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:sipoc_suppliers_as_markdown]} type="textarea" label="Text" />
 
           <h3 class="h3">Inputs</h3>
 
-          <.input field={form[:sipoc_inputs_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:sipoc_inputs_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:sipoc_inputs_as_markdown]} type="textarea" label="Text" />
 
           <h3 class="h3">Processes</h3>
 
-          <.input field={form[:sipoc_processes_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:sipoc_processes_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:sipoc_processes_as_markdown]} type="textarea" label="Text" />
 
           <h3 class="h3">Outputs</h3>
 
-          <.input field={form[:sipoc_outputs_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:sipoc_outputs_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:sipoc_outputs_as_markdown]} type="textarea" label="Text" />
 
           <h3 class="h3">Customers</h3>
 
-          <.input field={form[:sipoc_customers_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:sipoc_customers_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:sipoc_customers_as_markdown]} type="textarea" label="Text" />
 
         </.section>
@@ -217,7 +217,7 @@ defmodule NavatrackWeb.Initiatives.FormLive do
 
           <h3 class="h3">Arc42 full documentation</h3>
 
-          <.input field={form[:arc42_as_url]} type="url" label="URL" placeholder="https://example.com" />
+          <.input field={form[:arc42_as_url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:arc42_as_markdown]} type="textarea" label="Text" />
 
           <h3 class="h3">Arc42 sections</h3>
@@ -438,27 +438,6 @@ defmodule NavatrackWeb.Initiatives.FormLive do
         <.button type="primary">Save</.button>
       </.form>
     </Layouts.app>
-    """
-  end
-
-  @doc """
-  Render a form section using a DaisyUI collapse UI/UX to save screen spaces.
-  The function uses a section id, section title, and section inner block.
-  """
-
-  attr :id, :string, required: true
-  attr :title, :string, required: true
-  slot :inner_block, required: true
-
-  def section(assigns) do
-    ~H"""
-    <section id={"section_#{@id}"} class="collapse collapse-arrow bg-base-100 border border-base-300 my-4" phx-update="ignore">
-      <input id={"section_#{@id}_input"} type="checkbox" class="collapse-toggle" />
-      <div class="collapse-title">{@title}</div>
-      <div class="collapse-content">
-        <%= render_slot(@inner_block) %>
-      </div>
-    </section>
     """
   end
 

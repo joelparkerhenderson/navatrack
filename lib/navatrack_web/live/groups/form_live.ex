@@ -1,6 +1,6 @@
 defmodule NavatrackWeb.Groups.FormLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Accounts.Group, as: X
+  alias Navatrack.Works.Group, as: X
 
   require Logger
 
@@ -51,18 +51,18 @@ defmodule NavatrackWeb.Groups.FormLive do
 
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:name]} label="Name" autofocus />
-        <.input field={form[:status]} label="Status" />
-        <.input field={form[:tagging]} label="Tagging" />
+        <.input field={form[:name]} label="📛 Name" autofocus />
+        <.input field={form[:status]} label="🚦 Status" />
+        <.input field={form[:tagging]} label="🏷️ Tags" />
 
         <.section id="contact" title="Contacts">
-          <.input field={form[:url]} type="url" label="URL" placeholder="https://example.com" />
-          <.input field={form[:email]} type="email" label="Email" placeholder="example@example.com" />
-          <.input field={form[:phone]} type="tel" label="Phone" placeholder="+1-415-555-5555"/>
-          <.input field={form[:messaging]} label="Messaging" placeholder="https://bsky.app/profile/example"/>
-          <.input field={form[:postal]} label="Postal" placeholder="123 Main St, San Francisco, CA, US, 94100, US"/>
-          <.input field={form[:orcid_pid]} label="ORCID PID" placeholder="0009-0000-4681-282X" />
-          <.input field={form[:rdf_type]} label="RDF Type" />
+          <.input field={form[:url]} type="url" label="🔗 URL" placeholder="https://example.com" />
+          <.input field={form[:email]} type="email" label="📧 Email" placeholder="example@example.com" />
+          <.input field={form[:phone]} type="tel" label=" 📱 Phone" placeholder="+1-415-555-5555"/>
+          <.input field={form[:messaging]} label="💬 Messaging" placeholder="https://bsky.app/profile/example"/>
+          <.input field={form[:postal]} label="📫 Postal" placeholder="123 Main St, San Francisco, CA, US, 94100, US"/>
+          <.input field={form[:orcid_pid]} label="🌺 ORCID PID" placeholder="0009-0000-4681-282X" />
+          <.input field={form[:rdf_type]} label="🖇️ RDF Type" />
         </.section>
 
         <.section id="socials" title="Socials">
@@ -80,7 +80,7 @@ defmodule NavatrackWeb.Groups.FormLive do
         </.section>
 
         <.section id="agents" title="AGENTS.md">
-          <.input field={form[:agents_as_url]} type="url" label="URL" placeholder="https://example.com"/>
+          <.input field={form[:agents_as_url]} type="url" label="🔗 URL" placeholder="https://example.com"/>
           <.input field={form[:agents_as_markdown]} type="textarea" label="Text" />
         </.section>
 
@@ -88,22 +88,22 @@ defmodule NavatrackWeb.Groups.FormLive do
 
           <h3 class="h3">Avatar 400x400</h3>
 
-          <.input field={form[:avatar_image_400x400_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:avatar_image_400x400_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:avatar_image_400x400_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1080x1080 square</h3>
 
-          <.input field={form[:main_image_1080x1080_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1080x1080_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:main_image_1080x1080_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1920x1080 landscape</h3>
 
-          <.input field={form[:main_image_1920x1080_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1920x1080_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:main_image_1920x1080_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1920x1080 portrait</h3>
 
-          <.input field={form[:main_image_1080x1920_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1080x1920_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:main_image_1080x1920_alt]} label="Alt" />
 
         </.section>
@@ -170,67 +170,67 @@ defmodule NavatrackWeb.Groups.FormLive do
 
           <h3 class="h3">Copyright Policy</h3>
 
-          <.input field={form[:copyright_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:copyright_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:copyright_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Corrections Policy</h3>
 
-          <.input field={form[:corrections_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:corrections_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:corrections_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Legal Policy</h3>
 
-          <.input field={form[:legal_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:legal_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:legal_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Privacy Policy</h3>
 
-          <.input field={form[:privacy_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:privacy_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:privacy_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Security Policy</h3>
 
-          <.input field={form[:security_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:security_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:security_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Coordinated Disclosure Policy</h3>
 
-          <.input field={form[:coordinated_disclosure_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:coordinated_disclosure_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:coordinated_disclosure_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Open Source Policy</h3>
 
-          <.input field={form[:open_source_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:open_source_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:open_source_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Code of Conduct Policy</h3>
 
-          <.input field={form[:code_of_conduct_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:code_of_conduct_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:code_of_conduct_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Equal Opportunity Policy</h3>
 
-          <.input field={form[:equal_opportunity_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:equal_opportunity_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:equal_opportunity_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Social Network Policy</h3>
 
-          <.input field={form[:social_network_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:social_network_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:social_network_policy_as_markdown]} type="url" label="Text" />
 
           <h3 class="h3">Health &amp; Safety Policy</h3>
 
-          <.input field={form[:health_and_safety_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:health_and_safety_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:health_and_safety_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Employee Handbook Policy</h3>
 
-          <.input field={form[:employee_handbook_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:employee_handbook_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:employee_handbook_policy_as_markdown]} label="Text" />
 
           <h3 class="h3">Human Resources Policy</h3>
 
-          <.input field={form[:human_resources_policy_as_url]} type="url" label="URL" />
+          <.input field={form[:human_resources_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:human_resources_policy_as_markdown]} label="Text" />
 
         </.section>
@@ -238,27 +238,6 @@ defmodule NavatrackWeb.Groups.FormLive do
         <.button type="primary">Save</.button>
       </.form>
     </Layouts.app>
-    """
-  end
-
-  @doc """
-  Render a form section using a DaisyUI collapse UI/UX to save screen spaces.
-  The function uses a section id, section title, and section inner block.
-  """
-
-  attr :id, :string, required: true
-  attr :title, :string, required: true
-  slot :inner_block, required: true
-
-  def section(assigns) do
-    ~H"""
-    <section id={"section_#{@id}"} class="collapse collapse-arrow bg-base-100 border border-base-300 my-4" phx-update="ignore">
-      <input id={"section_#{@id}_input"} type="checkbox" class="collapse-toggle" />
-      <div class="collapse-title">{@title}</div>
-      <div class="collapse-content">
-        <%= render_slot(@inner_block) %>
-      </div>
-    </section>
     """
   end
 

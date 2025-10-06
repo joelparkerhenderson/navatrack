@@ -1,6 +1,6 @@
 defmodule NavatrackWeb.Groups.IndexLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Accounts.Group, as: X
+  alias Navatrack.Works.Group, as: X
 
   require Logger
 

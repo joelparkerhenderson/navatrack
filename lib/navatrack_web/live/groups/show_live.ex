@@ -1,6 +1,6 @@
 defmodule NavatrackWeb.Groups.ShowLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Accounts.Group, as: X
+  alias Navatrack.Works.Group, as: X
 
   require Logger
 
@@ -13,7 +13,7 @@ defmodule NavatrackWeb.Groups.ShowLive do
 
     {:noreply,
       socket
-      |> assign(:page_title, x.title)
+      |> assign(:page_title, x.name)
       |> assign(:x, x)
     }
   end
@@ -25,7 +25,7 @@ defmodule NavatrackWeb.Groups.ShowLive do
         {@page_title}
         <:actions>
           <.button
-            data-confirm={"Are you sure you want to delete #{@x.title}?"}
+            data-confirm={"Are you sure you want to delete #{@x.name}?"}
             phx-click={"delete-#{@x.id}"}
           >
             Delete
@@ -38,7 +38,7 @@ defmodule NavatrackWeb.Groups.ShowLive do
         </:actions>
       </.header>
       <main>
-        {@x.title}
+        {@x.name}
       </main>
     </Layouts.app>
     """

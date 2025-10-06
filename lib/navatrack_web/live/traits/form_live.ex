@@ -51,9 +51,9 @@ defmodule NavatrackWeb.Traits.FormLive do
 
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:name]} label="Name" autofocus />
-        <.input field={form[:status]} label="Status" />
-        <.input field={form[:tagging]} label="Tagging" />
+        <.input field={form[:name]} label="📛 Name" autofocus />
+        <.input field={form[:status]} label="🚦 Status" />
+        <.input field={form[:tagging]} label="🏷️ Tags" />
 
         <.section id="details" title="Details">
           <.input field={form[:summary_as_markdown]} label="Summary" />
@@ -64,22 +64,22 @@ defmodule NavatrackWeb.Traits.FormLive do
 
           <h3 class="h3">Avatar 400x400</h3>
 
-          <.input field={form[:avatar_image_400x400_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:avatar_image_400x400_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:avatar_image_400x400_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1080x1080 square</h3>
 
-          <.input field={form[:main_image_1080x1080_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1080x1080_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:main_image_1080x1080_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1920x1080 landscape</h3>
 
-          <.input field={form[:main_image_1920x1080_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1920x1080_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:main_image_1920x1080_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1920x1080 portrait</h3>
 
-          <.input field={form[:main_image_1080x1920_url]} label="URL" placeholder="https://example.com" />
+          <.input field={form[:main_image_1080x1920_url]} label="🔗 URL" placeholder="https://example.com" />
           <.input field={form[:main_image_1080x1920_alt]} label="Alt" />
 
         </.section>
@@ -87,27 +87,6 @@ defmodule NavatrackWeb.Traits.FormLive do
         <.button type="primary">Save</.button>
       </.form>
     </Layouts.app>
-    """
-  end
-
-  @doc """
-  Render a form section using a DaisyUI collapse UI/UX to save screen spaces.
-  The function uses a section id, section title, and section inner block.
-  """
-
-  attr :id, :string, required: true
-  attr :title, :string, required: true
-  slot :inner_block, required: true
-
-  def section(assigns) do
-    ~H"""
-    <section id={"section_#{@id}"} class="collapse collapse-arrow bg-base-100 border border-base-300 my-4" phx-update="ignore">
-      <input id={"section_#{@id}_input"} type="checkbox" class="collapse-toggle" />
-      <div class="collapse-title">{@title}</div>
-      <div class="collapse-content">
-        <%= render_slot(@inner_block) %>
-      </div>
-    </section>
     """
   end
 

@@ -11,7 +11,7 @@ Run:
 
 ```sh
 mix ash.gen.domain Navatrack.Accounts
-mix ash.gen.resource Navatrack.Accounts.Group \
+mix ash.gen.resource Navatrack.Works.Group \
   --conflicts replace \
   --default-actions create,read,update,destroy \
   --extend postgres \

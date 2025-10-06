@@ -27,7 +27,7 @@ sed 's/{id: "\(........\)\(....\)\(....\)\(....\)\(............\)"/{id: "\1-\2-\
 
 ```sh
 cat api/groups/index.tsv |
-awk -F\t '{ print "Navatrack.Repo.insert!(%Navatrack.Accounts.Group{id: \"" $1 "\", name: \"" $3 "\", email: \"" $5 "\", phone: \"" $6 "\", postal: \"" $7 "\", url: \"https://example.com/" $2 "\", avatar_image_400x400_url: \"https://example.com/" $4 "\", linkedin_url: \"" $11 "\" })" }' |
+awk -F\t '{ print "Navatrack.Repo.insert!(%Navatrack.Works.Group{id: \"" $1 "\", name: \"" $3 "\", email: \"" $5 "\", phone: \"" $6 "\", postal: \"" $7 "\", url: \"https://example.com/" $2 "\", avatar_image_400x400_url: \"https://example.com/" $4 "\", linkedin_url: \"" $11 "\" })" }' |
 sed 's/{id: "\(........\)\(....\)\(....\)\(....\)\(............\)"/{id: "\1-\2-\3-\4-\5"/' |
 sed 's#linkedin_url: "https://www.linkedin.com/#linkedin_url: "https://linkedin.com/#'
 ```

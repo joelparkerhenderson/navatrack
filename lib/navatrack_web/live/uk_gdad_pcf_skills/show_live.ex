@@ -13,7 +13,7 @@ defmodule NavatrackWeb.UkGdadPcfSkills.ShowLive do
 
     {:noreply,
       socket
-      |> assign(:page_title, x.title)
+      |> assign(:page_title, x.name)
       |> assign(:x, x)
     }
   end

@@ -101,6 +101,44 @@ defmodule Navatrack.Accounts.User do
     identity :unique_email, [:email]
   end
 
+  relationships do
+    many_to_many :groups, Navatrack.Works.Group do
+      through Navatrack.Accounts.UserGroupLink
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :group_id
+    end
+    many_to_many :traits, Navatrack.Accounts.Trait do
+      through Navatrack.Accounts.UserTraitLink
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :trait_id
+    end
+    many_to_many :initiatives, Navatrack.Accounts.Initiative do
+      through Navatrack.Accounts.UserInitiativeLink
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :initiative_id
+    end
+    many_to_many :ilo_isco_2008s, Navatrack.Codes.IloIsco2008 do
+      through Navatrack.Accounts.UserIloIsco2008Link
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :ilo_isco_2008_id
+    end
+    many_to_many :lumina_foundation_skill_levels, Navatrack.Codes.LuminaFoundationSkillLevel do
+      through Navatrack.Accounts.UserLuminaFoundationSkillLevelLink
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :lumina_foundation_skill_level_id
+    end
+    many_to_many :uk_gdad_pcf_roles, Navatrack.Codes.UkGdadPcfRole do
+      through Navatrack.Accounts.UserUkGdadPcfRoleLink
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :uk_gdad_pcf_role_id
+    end
+    many_to_many :uk_gdad_pcf_skills, Navatrack.Codes.UkGdadPcfSkill do
+      through Navatrack.Accounts.UserUkGdadPcfSkillLink
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :uk_gdad_pcf_skill_id
+    end
+  end
+
   actions do
     read :get_by_subject do
       description "Get a user by the subject claim in a JWT"

@@ -13,7 +13,7 @@ defmodule NavatrackWeb.IloIsco2008s.ShowLive do
 
     {:noreply,
       socket
-      |> assign(:page_title, x.title)
+      |> assign(:page_title, x.name)
       |> assign(:x, x)
     }
   end
