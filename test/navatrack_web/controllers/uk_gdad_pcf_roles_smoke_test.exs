@@ -6,8 +6,8 @@ defmodule NavatrackWeb.UkGdadPcfRolesSmokeTest do
     conn = get(conn, ~p"/uk_gdad_pcf_roles")
     response = html_response(conn, 200)
     assert response =~ "UK GDAD PCF Roles"
-    assert response =~ "Id"
-    assert response =~ "Name"
+    assert response =~ "➡️ Id"
+    assert response =~ "📛 Name"
   end
 
 end

@@ -7,9 +7,9 @@ defmodule NavatrackWeb.IloIsco2008s do
     conn = get(conn, ~p"/ilo_isco_2008s")
     response = html_response(conn, 200)
     assert response =~ "ILO ISCO 2008s"
-    assert response =~ "Id"
-    assert response =~ "Code"
-    assert response =~ "Name"
+    assert response =~ "➡️ Id"
+    assert response =~ "🪧 Code"
+    assert response =~ "📛 Name"
   end
 
 end

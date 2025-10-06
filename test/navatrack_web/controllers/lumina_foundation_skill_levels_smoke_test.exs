@@ -7,8 +7,8 @@ defmodule NavatrackWeb.LuminaFoundationSkillLevels do
     conn = get(conn, ~p"/lumina_foundation_skill_levels")
     response = html_response(conn, 200)
     assert response =~ "Lumina Foundation Skill Levels"
-    assert response =~ "Id"
-    assert response =~ "Name"
+    assert response =~ "➡️ Id"
+    assert response =~ "📛 Name"
   end
 
 end
