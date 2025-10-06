@@ -41,6 +41,8 @@ defmodule Navatrack.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:recase, "~> 0.9"},
+      {:mdex, "~> 0.9"},
       {:cinder, "~> 0.7.2"},
       {:picosat_elixir, "~> 0.2"},
       {:ash_authentication_phoenix, "~> 2.0"},
@@ -89,7 +91,8 @@ defmodule Navatrack.MixProject do
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.2.0"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:smokestack, "~> 0.9.2"}
     ]
   end
 
