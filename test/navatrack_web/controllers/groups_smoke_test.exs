@@ -94,11 +94,12 @@ defmodule NavatrackWeb.GroupsSmokeTest do
     case result do
       {:error, {:live_redirect, %{to: path}}} ->
         assert path == "/groups"
+
       html when is_binary(html) ->
         assert html =~ "Groups"
+
       other ->
         flunk("Unexpected result: #{inspect(other)}")
     end
   end
-
 end

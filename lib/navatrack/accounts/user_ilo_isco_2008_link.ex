@@ -16,12 +16,12 @@ defmodule Navatrack.Accounts.UserIloIsco2008Link do
     repo Navatrack.Repo
   end
 
+  actions do
+    defaults [:read, :destroy, create: :*, update: :*]
+  end
+
   relationships do
     belongs_to :user, Navatrack.Accounts.User, primary_key?: true, allow_nil?: false
     belongs_to :ilo_isco_2008, Navatrack.Codes.IloIsco2008, primary_key?: true, allow_nil?: false
-  end
-
-  actions do
-    defaults [:read, :destroy, create: :*, update: :*]
   end
 end

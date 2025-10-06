@@ -16,12 +16,15 @@ defmodule Navatrack.Accounts.UserLuminaFoundationSkillLevelLink do
     repo Navatrack.Repo
   end
 
-  relationships do
-    belongs_to :user, Navatrack.Accounts.User, primary_key?: true, allow_nil?: false
-    belongs_to :lumina_foundation_skill_level, Navatrack.Codes.LuminaFoundationSkillLevel, primary_key?: true, allow_nil?: false
-  end
-
   actions do
     defaults [:read, :destroy, create: :*, update: :*]
+  end
+
+  relationships do
+    belongs_to :user, Navatrack.Accounts.User, primary_key?: true, allow_nil?: false
+
+    belongs_to :lumina_foundation_skill_level, Navatrack.Codes.LuminaFoundationSkillLevel,
+      primary_key?: true,
+      allow_nil?: false
   end
 end

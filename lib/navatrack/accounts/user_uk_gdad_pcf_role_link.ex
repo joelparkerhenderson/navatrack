@@ -16,12 +16,15 @@ defmodule Navatrack.Accounts.UserUkGdadPcfRoleLink do
     repo Navatrack.Repo
   end
 
-  relationships do
-    belongs_to :user, Navatrack.Accounts.User, primary_key?: true, allow_nil?: false
-    belongs_to :uk_gdad_pcf_role, Navatrack.Codes.UkGdadPcfRole, primary_key?: true, allow_nil?: false
-  end
-
   actions do
     defaults [:read, :destroy, create: :*, update: :*]
+  end
+
+  relationships do
+    belongs_to :user, Navatrack.Accounts.User, primary_key?: true, allow_nil?: false
+
+    belongs_to :uk_gdad_pcf_role, Navatrack.Codes.UkGdadPcfRole,
+      primary_key?: true,
+      allow_nil?: false
   end
 end

@@ -63,12 +63,14 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       work_role_uk_gdad_pcf_url text
     );
     """
+
     execute """
     CREATE TRIGGER trigger_users_updated_at
       BEFORE UPDATE ON users
       FOR EACH ROW EXECUTE FUNCTION
       trigger_updated_at();
     """
+
     execute """
     CREATE INDEX users_index_gto
       ON users
@@ -82,6 +84,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
         note
       ) gin_trgm_ops);
     """
+
     execute "CREATE INDEX users_created_at_index ON users (created_at);"
     execute "CREATE INDEX users_updated_at_index ON users (updated_at);"
     execute "CREATE INDEX users_deleted_at_index ON users (deleted_at);"
@@ -91,7 +94,9 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
     execute "CREATE INDEX users_tagging_index ON users (tagging);"
     execute "CREATE INDEX users_tagging_index_tpo ON users (tagging text_pattern_ops);"
     execute "CREATE UNIQUE INDEX index_users_email ON users (email);"
+
     execute "CREATE INDEX users_work_role_onet_soc_2019_code_index ON users (work_role_onet_soc_2019_code);"
+
     execute "CREATE INDEX users_work_role_uk_civil_service_grade_abbreviation_index ON users (work_role_uk_civil_service_grade_abbreviation);"
   end
 
@@ -124,5 +129,4 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
     execute "DROP INDEX IF EXISTS users_work_role_uk_civil_service_grade_abbreviation_index;"
     execute "DROP TABLE IF EXISTS users;"
   end
-
 end

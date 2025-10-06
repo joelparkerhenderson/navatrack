@@ -8,7 +8,6 @@ defmodule Navatrack.Repo.Migrations.AddSql do
   use Ecto.Migration
 
   def up do
-
     create table(:tokens, primary_key: false) do
       add :updated_at, :utc_datetime_usec,
         null: false,

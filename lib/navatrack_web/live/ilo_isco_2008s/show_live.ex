@@ -12,10 +12,9 @@ defmodule NavatrackWeb.IloIsco2008s.ShowLive do
     x = Ash.get!(X, id)
 
     {:noreply,
-      socket
-      |> assign(:page_title, x.name)
-      |> assign(:x, x)
-    }
+     socket
+     |> assign(:page_title, x.name)
+     |> assign(:x, x)}
   end
 
   def render(assigns) do
@@ -36,5 +35,4 @@ defmodule NavatrackWeb.IloIsco2008s.ShowLive do
     </Layouts.app>
     """
   end
-
 end

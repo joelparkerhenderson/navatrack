@@ -28,12 +28,14 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
       main_image_1080x1920_alt text
     );
     """
+
     execute """
     CREATE TRIGGER trigger_traits_updated_at
       BEFORE UPDATE ON traits
       FOR EACH ROW EXECUTE FUNCTION
       trigger_updated_at();
     """
+
     execute """
     CREATE INDEX traits_index_gto
       ON traits USING GIN ((
@@ -48,6 +50,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
         description_as_markdown
       ) gin_trgm_ops);
     """
+
     execute "CREATE INDEX traits_created_at_index ON traits (created_at);"
     execute "CREATE INDEX traits_updated_at_index ON traits (updated_at);"
     execute "CREATE INDEX traits_deleted_at_index ON traits (deleted_at);"
@@ -75,5 +78,4 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
     execute "DROP INDEX IF EXISTS traits_tagging_index_tpo;"
     execute "DROP TABLE IF EXISTS traits;"
   end
-
 end

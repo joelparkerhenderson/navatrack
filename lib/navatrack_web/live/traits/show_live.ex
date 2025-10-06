@@ -12,10 +12,9 @@ defmodule NavatrackWeb.Traits.ShowLive do
     x = Ash.get!(X, id)
 
     {:noreply,
-      socket
-      |> assign(:page_title, x.name)
-      |> assign(:x, x)
-    }
+     socket
+     |> assign(:page_title, x.name)
+     |> assign(:x, x)}
   end
 
   def render(assigns) do
@@ -30,9 +29,7 @@ defmodule NavatrackWeb.Traits.ShowLive do
           >
             Delete
           </.button>
-          <.button
-            navigate={~p"/traits/#{@x.id}/edit"}
-          >
+          <.button navigate={~p"/traits/#{@x.id}/edit"}>
             Edit
           </.button>
         </:actions>
@@ -50,16 +47,15 @@ defmodule NavatrackWeb.Traits.ShowLive do
         {:noreply,
          socket
          |> put_flash(:info, "Deleted.")
-         |> push_navigate(to: path_index(X))
-        }
+         |> push_navigate(to: path_index(X))}
+
       {:error, error} ->
-          Logger.warning("Delete failed for trait '#{id}':
+        Logger.warning("Delete failed for trait '#{id}':
           #{inspect(error)}")
-          {:noreply,
-            socket
-            |> put_flash(:error, "Delete failed.")
-          }
+
+        {:noreply,
+         socket
+         |> put_flash(:error, "Delete failed.")}
     end
   end
-
 end

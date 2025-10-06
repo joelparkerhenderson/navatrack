@@ -93,5 +93,4 @@ defmodule NavatrackWeb.Layouts do
   end
 
   def backpex(assigns)
-
 end

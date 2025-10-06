@@ -6,7 +6,7 @@ defmodule Navatrack.Repo.Migrations.CreateExtensionPgPCRE do
   use Ecto.Migration
 
   def up do
-    #TODO The extension must first be installed on the system where PostgreSQL is running.
+    # TODO The extension must first be installed on the system where PostgreSQL is running.
     # execute("CREATE EXTENSION IF NOT EXISTS \"pgpcre\"")
   end
 

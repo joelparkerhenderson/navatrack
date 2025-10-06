@@ -146,7 +146,6 @@ defmodule NavatrackWeb.Router do
     ash_authentication_live_session :ash_authentication_live_session_routes do
       live_resources "/manage/initiatives", Backpex.InitiativesLive
     end
-
   end
 
   # Other scopes may use custom stacks.
@@ -180,5 +179,4 @@ defmodule NavatrackWeb.Router do
       ash_admin "/"
     end
   end
-
 end

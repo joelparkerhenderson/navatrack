@@ -19,12 +19,14 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserTraitLinks do
       tagging text
     );
     """
+
     execute """
     CREATE TRIGGER trigger_user_trait_links_updated_at
       BEFORE UPDATE ON user_trait_links
       FOR EACH ROW EXECUTE FUNCTION
       trigger_updated_at();
     """
+
     execute "CREATE INDEX user_trait_links_created_at_index ON user_trait_links (created_at);"
     execute "CREATE INDEX user_trait_links_updated_at_index ON user_trait_links (updated_at);"
     execute "CREATE INDEX user_trait_links_deleted_at_index ON user_trait_links (deleted_at);"
@@ -43,5 +45,4 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserTraitLinks do
     execute "DROP INDEX IF EXISTS user_trait_links_trait_id_index"
     execute "DROP TABLE IF EXISTS user_trait_links;"
   end
-
 end

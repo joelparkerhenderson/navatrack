@@ -19,17 +19,24 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserUkGdadPcfRoleLinks do
       tagging text
     );
     """
+
     execute """
     CREATE TRIGGER trigger_user_uk_gdad_pcf_role_links_updated_at
       BEFORE UPDATE ON user_uk_gdad_pcf_role_links
       FOR EACH ROW EXECUTE FUNCTION
       trigger_updated_at();
     """
+
     execute "CREATE INDEX user_uk_gdad_pcf_role_links_created_at_index ON user_uk_gdad_pcf_role_links (created_at);"
+
     execute "CREATE INDEX user_uk_gdad_pcf_role_links_updated_at_index ON user_uk_gdad_pcf_role_links (updated_at);"
+
     execute "CREATE INDEX user_uk_gdad_pcf_role_links_deleted_at_index ON user_uk_gdad_pcf_role_links (deleted_at);"
+
     execute "CREATE INDEX user_uk_gdad_pcf_role_links_locale_code_index ON user_uk_gdad_pcf_role_links (locale_code);"
+
     execute "CREATE INDEX user_uk_gdad_pcf_role_links_user_id_index ON user_uk_gdad_pcf_role_links (user_id);"
+
     execute "CREATE INDEX user_uk_gdad_pcf_role_links_uk_gdad_pcf_role_id_index ON user_uk_gdad_pcf_role_links (uk_gdad_pcf_role_id);"
   end
 
@@ -43,5 +50,4 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserUkGdadPcfRoleLinks do
     execute "DROP INDEX IF EXISTS user_uk_gdad_pcf_role_links_uk_gdad_pcf_role_id_index"
     execute "DROP TABLE IF EXISTS user_uk_gdad_pcf_role_links;"
   end
-
 end

@@ -73,8 +73,12 @@ defmodule NavatrackWeb.UsersSmokeTest do
     assert response =~ "Work Codes"
     assert response =~ "O*NET SOC 2019"
     assert response =~ "United Kingdom (UK) Civil Service Grade Abbreviation"
-    assert response =~ "United Kingdom (UK) Standard Occupational Classification (SOC) 2020 Code Service Grade Abbreviation"
-    assert response =~ "United Kingdom (UK) Government Digital and Data (GDAD) Profession Capability Framework (PCF) URL"
+
+    assert response =~
+             "United Kingdom (UK) Standard Occupational Classification (SOC) 2020 Code Service Grade Abbreviation"
+
+    assert response =~
+             "United Kingdom (UK) Government Digital and Data (GDAD) Profession Capability Framework (PCF) URL"
   end
 
   test "create", %{conn: conn} do
@@ -90,11 +94,12 @@ defmodule NavatrackWeb.UsersSmokeTest do
     case result do
       {:error, {:live_redirect, %{to: path}}} ->
         assert path == "/users"
+
       html when is_binary(html) ->
         assert html =~ "Users"
+
       other ->
         flunk("Unexpected result: #{inspect(other)}")
     end
   end
-
 end

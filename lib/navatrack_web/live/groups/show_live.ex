@@ -12,10 +12,9 @@ defmodule NavatrackWeb.Groups.ShowLive do
     x = Ash.get!(X, id)
 
     {:noreply,
-      socket
-      |> assign(:page_title, x.name)
-      |> assign(:x, x)
-    }
+     socket
+     |> assign(:page_title, x.name)
+     |> assign(:x, x)}
   end
 
   def render(assigns) do
@@ -30,9 +29,7 @@ defmodule NavatrackWeb.Groups.ShowLive do
           >
             Delete
           </.button>
-          <.button
-            navigate={Path.join(["/", X.plural_snake_case(), @x.id, "edit"])}
-          >
+          <.button navigate={Path.join(["/", X.plural_snake_case(), @x.id, "edit"])}>
             Edit
           </.button>
         </:actions>
@@ -50,16 +47,15 @@ defmodule NavatrackWeb.Groups.ShowLive do
         {:noreply,
          socket
          |> put_flash(:info, "Deleted.")
-         |> push_navigate(to: path_index(X))
-        }
+         |> push_navigate(to: path_index(X))}
+
       {:error, error} ->
-          Logger.warning("Delete failed for group '#{id}':
+        Logger.warning("Delete failed for group '#{id}':
           #{inspect(error)}")
-          {:noreply,
-            socket
-            |> put_flash(:error, "Delete failed.")
-          }
+
+        {:noreply,
+         socket
+         |> put_flash(:error, "Delete failed.")}
     end
   end
-
 end

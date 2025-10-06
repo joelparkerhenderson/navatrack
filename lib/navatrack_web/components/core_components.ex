@@ -480,11 +480,15 @@ defmodule NavatrackWeb.CoreComponents do
 
   def section(assigns) do
     ~H"""
-    <section id={"section_#{@id}"} class="collapse collapse-arrow bg-base-100 border border-base-300 my-4" phx-update="ignore">
+    <section
+      id={"section_#{@id}"}
+      class="collapse collapse-arrow bg-base-100 border border-base-300 my-4"
+      phx-update="ignore"
+    >
       <input id={"section_#{@id}_input"} type="checkbox" class="collapse-toggle" />
       <div class="collapse-title">{@title}</div>
       <div class="collapse-content">
-        <%= render_slot(@inner_block) %>
+        {render_slot(@inner_block)}
       </div>
     </section>
     """
@@ -559,5 +563,4 @@ defmodule NavatrackWeb.CoreComponents do
   end
 
   def convert_tags_param(params), do: params
-
 end

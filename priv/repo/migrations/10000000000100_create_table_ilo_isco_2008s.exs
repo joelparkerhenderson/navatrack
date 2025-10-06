@@ -15,6 +15,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableIloIsco2008s do
       definition text not null
     );
     """
+
     execute """
     CREATE INDEX ilo_isco_2008s_index_gto
       ON ilo_isco_2008s
@@ -26,10 +27,14 @@ defmodule Navatrack.Repo.Migrations.CreateTableIloIsco2008s do
         definition
       ) gin_trgm_ops);
     """
+
     execute "CREATE INDEX ilo_isco_2008s_locale_code_index ON ilo_isco_2008s (locale_code);"
     execute "CREATE INDEX ilo_isco_2008s_code_index ON ilo_isco_2008s (code);"
+
     execute "CREATE INDEX ilo_isco_2008s_code_index_tpo ON ilo_isco_2008s (code text_pattern_ops);"
+
     execute "CREATE INDEX ilo_isco_2008s_name_index ON ilo_isco_2008s (name);"
+
     execute "CREATE INDEX ilo_isco_2008s_name_index_tpo ON ilo_isco_2008s (name text_pattern_ops);"
   end
 
@@ -42,5 +47,4 @@ defmodule Navatrack.Repo.Migrations.CreateTableIloIsco2008s do
     execute "DROP INDEX IF EXISTS ilo_isco_2008s_name_index_tpo;"
     execute "DROP TABLE IF EXISTS ilo_isco_2008s;"
   end
-
 end

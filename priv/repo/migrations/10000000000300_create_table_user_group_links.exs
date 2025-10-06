@@ -19,12 +19,14 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserGroupLinks do
       tagging text
     );
     """
+
     execute """
     CREATE TRIGGER trigger_user_group_links_updated_at
       BEFORE UPDATE ON user_group_links
       FOR EACH ROW EXECUTE FUNCTION
       trigger_updated_at();
     """
+
     execute "CREATE INDEX user_group_links_created_at_index ON user_group_links (created_at);"
     execute "CREATE INDEX user_group_links_updated_at_index ON user_group_links (updated_at);"
     execute "CREATE INDEX user_group_links_deleted_at_index ON user_group_links (deleted_at);"
@@ -43,5 +45,4 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserGroupLinks do
     execute "DROP INDEX IF EXISTS user_group_links_group_id_index"
     execute "DROP TABLE IF EXISTS user_group_links;"
   end
-
 end

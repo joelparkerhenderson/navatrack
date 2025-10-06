@@ -7,21 +7,21 @@ defmodule NavatrackWeb.Users.IndexLive do
   def mount(_params, _session, socket) do
     socket =
       socket
-      |> assign(:page_title, X.plural_title_case)
+      |> assign(:page_title, X.plural_title_case())
 
     {:ok, socket}
   end
 
   def handle_params(_params, _url, socket) do
-    xx = X
-    |> Ash.Query.for_read(:read)
-    |> Ash.read!()
+    xx =
+      X
+      |> Ash.Query.for_read(:read)
+      |> Ash.read!()
 
     {:noreply,
-      socket
-      |> assign(:page_title, X.plural_title_case)
-      |> assign(:xx, xx)
-    }
+     socket
+     |> assign(:page_title, X.plural_title_case())
+     |> assign(:xx, xx)}
   end
 
   def render(assigns) do
@@ -30,15 +30,13 @@ defmodule NavatrackWeb.Users.IndexLive do
       <.header>
         {@page_title}
         <:actions>
-          <.button
-            navigate={~p"/users/new"}
-          >
+          <.button navigate={~p"/users/new"}>
             New
           </.button>
         </:actions>
       </.header>
 
-      <Cinder.Table.table  theme={Cinder.Themes.Smart} resource={X}>
+      <Cinder.Table.table theme={Cinder.Themes.Smart} resource={X}>
         <:col :let={x} field="id" label="➡️ Id" filter sort search><.link_show x={x} /></:col>
         <:col :let={x} field="name" label="📛 Name" sort search>{x.name}</:col>
         <:col :let={x} field="status" label="🚦 Status" sort search>{x.status}</:col>
@@ -47,11 +45,14 @@ defmodule NavatrackWeb.Users.IndexLive do
         <:col :let={x} field="email" label="📧 Email" sort search>{x.email}</:col>
         <:col :let={x} field="phone" label="📱 Phone" sort search>{x.phone}</:col>
         <:col :let={x} field="messaging" label="💬 Messaging" sort search>{x.messaging}</:col>
-        <:col :let={x} field="location_iso_3166_1_alpha_2" label="🌎 Country" sort search>{x.location_iso_3166_1_alpha_2}</:col>
-        <:col :let={x} field="work_role_name" label="👷 Work Role" sort search>{x.work_role_name}</:col>
+        <:col :let={x} field="location_iso_3166_1_alpha_2" label="🌎 Country" sort search>
+          {x.location_iso_3166_1_alpha_2}
+        </:col>
+        <:col :let={x} field="work_role_name" label="👷 Work Role" sort search>
+          {x.work_role_name}
+        </:col>
       </Cinder.Table.table>
     </Layouts.app>
     """
   end
-
 end

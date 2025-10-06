@@ -43,5 +43,4 @@ defmodule Navatrack.Repo.Migrations.TriggerUpdatedAtEverywhere do
     END $$;
     """
   end
-
 end

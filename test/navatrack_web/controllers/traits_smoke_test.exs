@@ -42,11 +42,12 @@ defmodule NavatrackWeb.TraitsSmokeTest do
     case result do
       {:error, {:live_redirect, %{to: path}}} ->
         assert path == "/traits"
+
       html when is_binary(html) ->
         assert html =~ "Traits"
+
       other ->
         flunk("Unexpected result: #{inspect(other)}")
     end
   end
-
 end

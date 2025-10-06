@@ -14,20 +14,22 @@ defmodule NavatrackWeb.Traits.FormLive do
     form = AshPhoenix.Form.for_create(X, :edit)
     x = Ash.get!(X, id)
 
-    {:ok, assign(socket,
-      page_title: "Update #{X.singular_title_case}",
-      form: to_form(form),
-      x: x
-    )}
+    {:ok,
+     assign(socket,
+       page_title: "Update #{X.singular_title_case()}",
+       form: to_form(form),
+       x: x
+     )}
   end
 
   def mount(_params, _session, socket) do
     form = AshPhoenix.Form.for_create(X, :create)
 
-    {:ok, assign(socket,
-      page_title: "Create #{X.singular_title_case}",
-      form: to_form(form)
-    )}
+    {:ok,
+     assign(socket,
+       page_title: "Create #{X.singular_title_case()}",
+       form: to_form(form)
+     )}
   end
 
   @doc """
@@ -48,7 +50,6 @@ defmodule NavatrackWeb.Traits.FormLive do
         phx-change="validate"
         phx-submit="save"
       >
-
         <h2 class="h2">Introduction</h2>
 
         <.input field={form[:name]} label="📛 Name" autofocus />
@@ -61,27 +62,41 @@ defmodule NavatrackWeb.Traits.FormLive do
         </.section>
 
         <.section id="images" title="Images">
-
           <h3 class="h3">Avatar 400x400</h3>
 
-          <.input field={form[:avatar_image_400x400_url]} label="🔗 URL" placeholder="https://example.com" />
+          <.input
+            field={form[:avatar_image_400x400_url]}
+            label="🔗 URL"
+            placeholder="https://example.com"
+          />
           <.input field={form[:avatar_image_400x400_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1080x1080 square</h3>
 
-          <.input field={form[:main_image_1080x1080_url]} label="🔗 URL" placeholder="https://example.com" />
+          <.input
+            field={form[:main_image_1080x1080_url]}
+            label="🔗 URL"
+            placeholder="https://example.com"
+          />
           <.input field={form[:main_image_1080x1080_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1920x1080 landscape</h3>
 
-          <.input field={form[:main_image_1920x1080_url]} label="🔗 URL" placeholder="https://example.com" />
+          <.input
+            field={form[:main_image_1920x1080_url]}
+            label="🔗 URL"
+            placeholder="https://example.com"
+          />
           <.input field={form[:main_image_1920x1080_alt]} label="Alt" />
 
           <h3 class="h3">Splash 1920x1080 portrait</h3>
 
-          <.input field={form[:main_image_1080x1920_url]} label="🔗 URL" placeholder="https://example.com" />
+          <.input
+            field={form[:main_image_1080x1920_url]}
+            label="🔗 URL"
+            placeholder="https://example.com"
+          />
           <.input field={form[:main_image_1080x1920_alt]} label="Alt" />
-
         </.section>
 
         <.button type="primary">Save</.button>
@@ -105,30 +120,30 @@ defmodule NavatrackWeb.Traits.FormLive do
   def handle_event("validate", %{"form" => form_data}, socket) do
     # form_data = convert_tags_param(form_data)
     {:noreply,
-      update(
-          socket,
-          :form,
-          fn form -> AshPhoenix.Form.validate(form, form_data)
-      end)
-    }
+     update(
+       socket,
+       :form,
+       fn form -> AshPhoenix.Form.validate(form, form_data) end
+     )}
   end
 
   def handle_event("save", %{"form" => form_data}, socket) do
     # form_data = convert_tags_param(form_data)
     IO.inspect(form_data, label: "form_data")
 
-    changeset = Navatrack.Works.Trait
-    |> Ash.Changeset.for_create(:create, form_data)
+    changeset =
+      Navatrack.Works.Trait
+      |> Ash.Changeset.for_create(:create, form_data)
+
     IO.inspect(changeset.attributes, label: "Changeset attributes")
     IO.inspect(changeset.errors, label: "Changeset errors")
 
     case AshPhoenix.Form.submit(socket.assigns.form, params: form_data) do
       {:ok, _x} ->
         {:noreply,
-          socket
-          |> put_flash(:info, "Saved.")
-          |> push_navigate(to: path_index(X))
-        }
+         socket
+         |> put_flash(:info, "Saved.")
+         |> push_navigate(to: path_index(X))}
 
       {:error, form} ->
         # Print all errors
@@ -144,12 +159,9 @@ defmodule NavatrackWeb.Traits.FormLive do
         IO.inspect(form.params, label: "form.params (after processing)")
 
         {:noreply,
-          socket
-          |> put_flash(:error, "Save failed.")
-          |> assign(:form, form)
-      }
-
+         socket
+         |> put_flash(:error, "Save failed.")
+         |> assign(:form, form)}
     end
   end
-
 end

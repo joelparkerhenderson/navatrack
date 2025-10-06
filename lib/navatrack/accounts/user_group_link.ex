@@ -16,12 +16,12 @@ defmodule Navatrack.Accounts.UserGroupLink do
     repo Navatrack.Repo
   end
 
+  actions do
+    defaults [:read, :destroy, create: :*, update: :*]
+  end
+
   relationships do
     belongs_to :user, Navatrack.Accounts.User, primary_key?: true, allow_nil?: false
     belongs_to :group, Navatrack.Works.Group, primary_key?: true, allow_nil?: false
-  end
-
-  actions do
-    defaults [:read, :destroy, create: :*, update: :*]
   end
 end

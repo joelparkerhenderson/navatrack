@@ -107,6 +107,5 @@ defmodule Navatrack.Accounts.Token do
     attribute :extra_data, :map do
       public? true
     end
-
   end
 end

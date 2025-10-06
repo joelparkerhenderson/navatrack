@@ -171,5 +171,4 @@ defmodule NavatrackWeb.InitiativesSmokeTest do
   #       flunk("Unexpected result: #{inspect(other)}")
   #   end
   # end
-
 end

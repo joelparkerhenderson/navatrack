@@ -9,5 +9,4 @@ defmodule NavatrackWeb.UkGdadPcfRolesSmokeTest do
     assert response =~ "➡️ Id"
     assert response =~ "📛 Name"
   end
-
 end

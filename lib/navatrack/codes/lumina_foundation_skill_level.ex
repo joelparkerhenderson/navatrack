@@ -14,6 +14,10 @@ defmodule Navatrack.Codes.LuminaFoundationSkillLevel do
     repo Navatrack.Repo
   end
 
+  actions do
+    defaults [:read]
+  end
+
   attributes do
     uuid_primary_key :id
 
@@ -37,9 +41,4 @@ defmodule Navatrack.Codes.LuminaFoundationSkillLevel do
       public? true
     end
   end
-
-  actions do
- 	  defaults [:read]
-  end
-
 end

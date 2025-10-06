@@ -10,5 +10,4 @@ defmodule NavatrackWeb.LuminaFoundationSkillLevels do
     assert response =~ "➡️ Id"
     assert response =~ "📛 Name"
   end
-
 end

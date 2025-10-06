@@ -42,103 +42,6 @@ defmodule Navatrack.Accounts.User do
     repo Navatrack.Repo
   end
 
-  attributes do
-    uuid_primary_key :id
-    attribute :created_at, :utc_datetime_usec
-    attribute :updated_at, :utc_datetime_usec
-    attribute :deleted_at, :utc_datetime_usec
-    attribute :name, :string
-    attribute :status, :string
-    attribute :tagging, :string
-    attribute :url, :string
-    attribute :email, :string
-    attribute :phone, :string
-    attribute :messaging, :string
-    attribute :postal, :string
-    attribute :orcid_pid, :string
-    attribute :rdf_type, :string
-    attribute :linkedin_url, :string
-    attribute :github_url, :string
-    attribute :codeberg_url, :string
-    attribute :location_iso_3166_1_alpha_2, :string
-    attribute :location_iso_3166_2, :string
-    attribute :location_postal_code, :string
-    attribute :location_latitude_as_decimal_degrees, :decimal
-    attribute :location_longitude_as_decimal_degrees, :decimal
-    attribute :note, :string
-    attribute :daisyui_timeline_html, :string
-    attribute :org_mode, :string
-    attribute :task_list_as_markdown, :string
-    attribute :ways_of_working_as_markdown, :string
-    attribute :objectives_and_key_results_as_markdown, :string
-    attribute :key_performance_indicators_as_markdown, :string
-    attribute :agents_as_markdown, :string
-    attribute :avatar_image_400x400_url, :string
-    attribute :avatar_image_400x400_alt, :string
-    attribute :main_image_1080x1080_url, :string
-    attribute :main_image_1080x1080_alt, :string
-    attribute :main_image_1920x1080_url, :string
-    attribute :main_image_1920x1080_alt, :string
-    attribute :main_image_1080x1920_url, :string
-    attribute :main_image_1080x1920_alt, :string
-    attribute :work_profile_resume_as_pdf_url, :string
-    attribute :work_profile_resume_as_markdown, :string
-    attribute :work_profile_curriculum_vitae_as_pdf_url, :string
-    attribute :work_profile_curriculum_vitae_as_markdown, :string
-    attribute :work_role_name, :string
-    attribute :work_role_start_date, :date
-    attribute :work_role_stop_date, :date
-    attribute :work_role_level, :string
-    attribute :work_role_description_as_markdown, :string
-    attribute :work_role_professional_development_plan_markdown, :string
-    attribute :work_role_onet_soc_2019_code, :string
-    attribute :work_role_uk_civil_service_grade_abbreviation, :string
-    attribute :work_role_uk_soc_2020_code, :string
-    attribute :work_role_uk_gdad_pcf_url, :string
-  end
-
-  identities do
-    identity :unique_email, [:email]
-  end
-
-  relationships do
-    many_to_many :groups, Navatrack.Works.Group do
-      through Navatrack.Accounts.UserGroupLink
-      source_attribute_on_join_resource :user_id
-      destination_attribute_on_join_resource :group_id
-    end
-    many_to_many :traits, Navatrack.Accounts.Trait do
-      through Navatrack.Accounts.UserTraitLink
-      source_attribute_on_join_resource :user_id
-      destination_attribute_on_join_resource :trait_id
-    end
-    many_to_many :initiatives, Navatrack.Accounts.Initiative do
-      through Navatrack.Accounts.UserInitiativeLink
-      source_attribute_on_join_resource :user_id
-      destination_attribute_on_join_resource :initiative_id
-    end
-    many_to_many :ilo_isco_2008s, Navatrack.Codes.IloIsco2008 do
-      through Navatrack.Accounts.UserIloIsco2008Link
-      source_attribute_on_join_resource :user_id
-      destination_attribute_on_join_resource :ilo_isco_2008_id
-    end
-    many_to_many :lumina_foundation_skill_levels, Navatrack.Codes.LuminaFoundationSkillLevel do
-      through Navatrack.Accounts.UserLuminaFoundationSkillLevelLink
-      source_attribute_on_join_resource :user_id
-      destination_attribute_on_join_resource :lumina_foundation_skill_level_id
-    end
-    many_to_many :uk_gdad_pcf_roles, Navatrack.Codes.UkGdadPcfRole do
-      through Navatrack.Accounts.UserUkGdadPcfRoleLink
-      source_attribute_on_join_resource :user_id
-      destination_attribute_on_join_resource :uk_gdad_pcf_role_id
-    end
-    many_to_many :uk_gdad_pcf_skills, Navatrack.Codes.UkGdadPcfSkill do
-      through Navatrack.Accounts.UserUkGdadPcfSkillLink
-      source_attribute_on_join_resource :user_id
-      destination_attribute_on_join_resource :uk_gdad_pcf_skill_id
-    end
-  end
-
   actions do
     read :get_by_subject do
       description "Get a user by the subject claim in a JWT"
@@ -186,7 +89,8 @@ defmodule Navatrack.Accounts.User do
       run AshAuthentication.Strategy.MagicLink.Request
     end
 
- 	  defaults [:create, :read, :update, :destroy]
+    defaults [:create, :read, :update, :destroy]
+
     default_accept [
       :created_at,
       :updated_at,
@@ -247,26 +151,128 @@ defmodule Navatrack.Accounts.User do
       authorize_if always()
     end
 
-    #TODO tighten
+    # TODO tighten
     policy action(:create) do
-      authorize_if always() # Allows anyone to create users
+      # Allows anyone to create users
+      authorize_if always()
     end
 
-    #TODO tighten
+    # TODO tighten
     policy action(:read) do
       authorize_if always()
     end
 
-    #TODO tighten
+    # TODO tighten
     policy action(:update) do
       authorize_if always()
     end
 
-    #TODO tighten
+    # TODO tighten
     policy action(:destroy) do
       authorize_if always()
     end
-
   end
 
+  attributes do
+    uuid_primary_key :id
+    attribute :created_at, :utc_datetime_usec
+    attribute :updated_at, :utc_datetime_usec
+    attribute :deleted_at, :utc_datetime_usec
+    attribute :name, :string
+    attribute :status, :string
+    attribute :tagging, :string
+    attribute :url, :string
+    attribute :email, :string
+    attribute :phone, :string
+    attribute :messaging, :string
+    attribute :postal, :string
+    attribute :orcid_pid, :string
+    attribute :rdf_type, :string
+    attribute :linkedin_url, :string
+    attribute :github_url, :string
+    attribute :codeberg_url, :string
+    attribute :location_iso_3166_1_alpha_2, :string
+    attribute :location_iso_3166_2, :string
+    attribute :location_postal_code, :string
+    attribute :location_latitude_as_decimal_degrees, :decimal
+    attribute :location_longitude_as_decimal_degrees, :decimal
+    attribute :note, :string
+    attribute :daisyui_timeline_html, :string
+    attribute :org_mode, :string
+    attribute :task_list_as_markdown, :string
+    attribute :ways_of_working_as_markdown, :string
+    attribute :objectives_and_key_results_as_markdown, :string
+    attribute :key_performance_indicators_as_markdown, :string
+    attribute :agents_as_markdown, :string
+    attribute :avatar_image_400x400_url, :string
+    attribute :avatar_image_400x400_alt, :string
+    attribute :main_image_1080x1080_url, :string
+    attribute :main_image_1080x1080_alt, :string
+    attribute :main_image_1920x1080_url, :string
+    attribute :main_image_1920x1080_alt, :string
+    attribute :main_image_1080x1920_url, :string
+    attribute :main_image_1080x1920_alt, :string
+    attribute :work_profile_resume_as_pdf_url, :string
+    attribute :work_profile_resume_as_markdown, :string
+    attribute :work_profile_curriculum_vitae_as_pdf_url, :string
+    attribute :work_profile_curriculum_vitae_as_markdown, :string
+    attribute :work_role_name, :string
+    attribute :work_role_start_date, :date
+    attribute :work_role_stop_date, :date
+    attribute :work_role_level, :string
+    attribute :work_role_description_as_markdown, :string
+    attribute :work_role_professional_development_plan_markdown, :string
+    attribute :work_role_onet_soc_2019_code, :string
+    attribute :work_role_uk_civil_service_grade_abbreviation, :string
+    attribute :work_role_uk_soc_2020_code, :string
+    attribute :work_role_uk_gdad_pcf_url, :string
+  end
+
+  relationships do
+    many_to_many :groups, Navatrack.Works.Group do
+      through Navatrack.Accounts.UserGroupLink
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :group_id
+    end
+
+    many_to_many :traits, Navatrack.Accounts.Trait do
+      through Navatrack.Accounts.UserTraitLink
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :trait_id
+    end
+
+    many_to_many :initiatives, Navatrack.Accounts.Initiative do
+      through Navatrack.Accounts.UserInitiativeLink
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :initiative_id
+    end
+
+    many_to_many :ilo_isco_2008s, Navatrack.Codes.IloIsco2008 do
+      through Navatrack.Accounts.UserIloIsco2008Link
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :ilo_isco_2008_id
+    end
+
+    many_to_many :lumina_foundation_skill_levels, Navatrack.Codes.LuminaFoundationSkillLevel do
+      through Navatrack.Accounts.UserLuminaFoundationSkillLevelLink
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :lumina_foundation_skill_level_id
+    end
+
+    many_to_many :uk_gdad_pcf_roles, Navatrack.Codes.UkGdadPcfRole do
+      through Navatrack.Accounts.UserUkGdadPcfRoleLink
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :uk_gdad_pcf_role_id
+    end
+
+    many_to_many :uk_gdad_pcf_skills, Navatrack.Codes.UkGdadPcfSkill do
+      through Navatrack.Accounts.UserUkGdadPcfSkillLink
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :uk_gdad_pcf_skill_id
+    end
+  end
+
+  identities do
+    identity :unique_email, [:email]
+  end
 end

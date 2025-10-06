@@ -8,5 +8,4 @@ defmodule Navatrack.Repo.Migrations.InitOban do
   def down do
     Oban.Migration.down(version: 1)
   end
-
 end

@@ -19,17 +19,24 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserInitiativeLinks do
       tagging text
     );
     """
+
     execute """
     CREATE TRIGGER trigger_user_initiative_links_updated_at
       BEFORE UPDATE ON user_initiative_links
       FOR EACH ROW EXECUTE FUNCTION
       trigger_updated_at();
     """
+
     execute "CREATE INDEX user_initiative_links_created_at_index ON user_initiative_links (created_at);"
+
     execute "CREATE INDEX user_initiative_links_updated_at_index ON user_initiative_links (updated_at);"
+
     execute "CREATE INDEX user_initiative_links_deleted_at_index ON user_initiative_links (deleted_at);"
+
     execute "CREATE INDEX user_initiative_links_locale_code_index ON user_initiative_links (locale_code);"
+
     execute "CREATE INDEX user_initiative_links_user_id_index ON user_initiative_links (user_id);"
+
     execute "CREATE INDEX user_initiative_links_initiative_id_index ON user_initiative_links (initiative_id);"
   end
 
@@ -43,5 +50,4 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserInitiativeLinks do
     execute "DROP INDEX IF EXISTS user_initiative_links_initiative_id_index"
     execute "DROP TABLE IF EXISTS user_initiative_links;"
   end
-
 end

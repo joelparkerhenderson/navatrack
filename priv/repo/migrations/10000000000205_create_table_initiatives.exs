@@ -251,12 +251,14 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       halstead_complexity_effort_description text
     );
     """
+
     execute """
     CREATE TRIGGER trigger_initiatives_updated_at
       BEFORE UPDATE ON initiatives
       FOR EACH ROW EXECUTE FUNCTION
       trigger_updated_at();
     """
+
     execute """
     CREATE INDEX initiatives_index_gto
       ON initiatives USING GIN ((
@@ -269,6 +271,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
         note
     ) gin_trgm_ops);
     """
+
     execute "CREATE INDEX initiatives_created_at_index ON initiatives (created_at);"
     execute "CREATE INDEX initiatives_updated_at_index ON initiatives (updated_at);"
     execute "CREATE INDEX initiatives_deleted_at_index ON initiatives (deleted_at);"
@@ -276,6 +279,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
     execute "CREATE INDEX initiatives_name_index ON initiatives (name);"
     execute "CREATE INDEX initiatives_name_index_tpo ON initiatives (name text_pattern_ops);"
     execute "CREATE INDEX initiatives_tagging_index ON initiatives (tagging);"
+
     execute "CREATE INDEX initiatives_tagging_index_tpo ON initiatives (tagging text_pattern_ops);"
   end
 
@@ -330,5 +334,4 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
     execute "DROP INDEX IF EXISTS initiatives_tagging_index_tpo;"
     execute "DROP TABLE IF EXISTS initiatives;"
   end
-
 end

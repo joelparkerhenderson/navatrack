@@ -14,6 +14,10 @@ defmodule Navatrack.Codes.IloIsco2008 do
     repo Navatrack.Repo
   end
 
+  actions do
+    defaults [:read]
+  end
+
   attributes do
     uuid_primary_key :id
 
@@ -36,11 +40,5 @@ defmodule Navatrack.Codes.IloIsco2008 do
       allow_nil? false
       public? true
     end
-
   end
-
-  actions do
- 	  defaults [:read]
-  end
-
 end

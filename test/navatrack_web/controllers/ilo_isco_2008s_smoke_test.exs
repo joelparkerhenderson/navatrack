@@ -11,5 +11,4 @@ defmodule NavatrackWeb.IloIsco2008s do
     assert response =~ "🪧 Code"
     assert response =~ "📛 Name"
   end
-
 end

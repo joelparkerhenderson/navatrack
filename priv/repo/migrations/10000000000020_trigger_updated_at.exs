@@ -16,5 +16,4 @@ defmodule Navatrack.Repo.Migrations.TriggerUpdatedAt do
   def down do
     execute "DROP FUNCTION IF EXISTS trigger_updated_at();"
   end
-
 end

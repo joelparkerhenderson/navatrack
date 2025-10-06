@@ -29,7 +29,9 @@ defmodule Cinder.Themes.Smart do
     set :row_class,
         "hover:bg-gray-50 transition-colors duration-100"
 
-    set :th_class, "py-2 text-sm text-gray-700 text-left whitespace-nowrap border-b border-gray-300"
+    set :th_class,
+        "py-2 text-sm text-gray-700 text-left whitespace-nowrap border-b border-gray-300"
+
     set :td_class, "py-2 text-sm text-gray-700"
     set :loading_class, "text-center py-6 text-gray-500 text-sm"
     set :empty_class, "text-center py-6 text-gray-500 text-sm italic"

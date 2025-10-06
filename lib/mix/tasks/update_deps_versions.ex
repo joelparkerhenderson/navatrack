@@ -31,10 +31,11 @@ defmodule Mix.Tasks.UpdateDepsVersions do
   def run(args) do
     Mix.Task.run("app.start")
 
-    {opts, _} = OptionParser.parse!(args,
-      switches: [dry_run: :boolean, backup: :boolean, no_backup: :boolean],
-      aliases: [d: :dry_run]
-    )
+    {opts, _} =
+      OptionParser.parse!(args,
+        switches: [dry_run: :boolean, backup: :boolean, no_backup: :boolean],
+        aliases: [d: :dry_run]
+      )
 
     dry_run = Keyword.get(opts, :dry_run, false)
     create_backup = !Keyword.get(opts, :no_backup, false) && Keyword.get(opts, :backup, true)
@@ -60,16 +61,15 @@ defmodule Mix.Tasks.UpdateDepsVersions do
     if Enum.empty?(outdated_deps) do
       Mix.shell().info("✅ All dependencies are up to date!")
     else
+      Mix.shell().info("📦 Found #{length(outdated_deps)} outdated dependencies:")
 
-    Mix.shell().info("📦 Found #{length(outdated_deps)} outdated dependencies:")
-    Enum.each(outdated_deps, fn {name, current, latest} ->
-      Mix.shell().info("  • #{name}: #{current} → #{latest}")
-    end)
+      Enum.each(outdated_deps, fn {name, current, latest} ->
+        Mix.shell().info("  • #{name}: #{current} → #{latest}")
+      end)
 
       if dry_run do
         Mix.shell().info("🔍 Dry run complete - no changes made")
       else
-
         # Create backup if requested
         if create_backup do
           create_mix_backup()
@@ -83,7 +83,10 @@ defmodule Mix.Tasks.UpdateDepsVersions do
         # Write updated content
         File.write!("mix.exs", updated_content)
 
-        Mix.shell().info("✅ Successfully updated #{length(outdated_deps)} dependencies in mix.exs")
+        Mix.shell().info(
+          "✅ Successfully updated #{length(outdated_deps)} dependencies in mix.exs"
+        )
+
         Mix.shell().info("🔄 Run 'mix deps.get && mix compile' to fetch and compile new versions")
       end
     end
@@ -93,6 +96,7 @@ defmodule Mix.Tasks.UpdateDepsVersions do
     case System.cmd("mix", ["hex.outdated", "--format", "csv"], stderr_to_stdout: true) do
       {output, 0} ->
         parse_outdated_output(output)
+
       {error, _} ->
         Mix.shell().error("Failed to get outdated dependencies: #{error}")
         []
@@ -102,19 +106,23 @@ defmodule Mix.Tasks.UpdateDepsVersions do
   defp parse_outdated_output(output) do
     output
     |> String.split("\n")
-    |> Enum.drop(1)  # Skip CSV header
+    # Skip CSV header
+    |> Enum.drop(1)
     |> Enum.filter(&(&1 != ""))
     |> Enum.map(&parse_outdated_line/1)
-    |> Enum.filter(& &1)  # Remove nils
+    # Remove nils
+    |> Enum.filter(& &1)
   end
 
   defp parse_outdated_line(line) do
     case String.split(line, ",") do
       [name, current, latest, "Update possible" | _] ->
         {String.trim(name), String.trim(current), String.trim(latest)}
+
       [name, current, latest, "Update not possible" | _] ->
         Mix.shell().info("⚠️  Cannot update #{name}: #{current} (latest: #{latest})")
         nil
+
       _ ->
         nil
     end
@@ -171,6 +179,7 @@ defmodule Mix.Tasks.UpdateDepsVersions do
       ^content ->
         Mix.shell().info("  ⚠️  Could not find dependency pattern for #{name}")
         content
+
       updated ->
         updated
     end
