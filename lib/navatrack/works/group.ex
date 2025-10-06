@@ -1,4 +1,4 @@
-defmodule Navatrack.Accounts.Group do
+defmodule Navatrack.Works.Group do
   use Ash.Resource,
     otp_app: :navatrack,
     domain: Navatrack.Accounts,
@@ -86,6 +86,14 @@ defmodule Navatrack.Accounts.Group do
     attribute :employee_handbook_policy_as_markdown, :string
     attribute :human_resources_policy_as_url, :string
     attribute :human_resources_policy_as_markdown, :string
+  end
+
+  relationships do
+    many_to_many :groups, Navatrack.Accounts.User do
+      through Navatrack.Accounts.UserGroupLink
+      source_attribute_on_join_resource :group_id
+      destination_attribute_on_join_resource :user_id
+    end
   end
 
   actions do
