@@ -16,6 +16,7 @@
 #
 # <https://experimentingwithcode.com/organizing-phoenix-seeds/>
 
-# Code.require_file("seeds/users.exs", __DIR__)
-# Code.require_file("seeds/groups.exs", __DIR__)
+Code.require_file("seeds/users.exs", __DIR__)
+Code.require_file("seeds/groups.exs", __DIR__)
+Code.require_file("seeds/uk_gdad_pcf_roles.exs", __DIR__)
 Code.require_file("seeds/uk_gdad_pcf_skills.exs", __DIR__)

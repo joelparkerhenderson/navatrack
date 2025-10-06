@@ -235,13 +235,13 @@ defmodule Navatrack.Accounts.User do
       destination_attribute_on_join_resource :group_id
     end
 
-    many_to_many :traits, Navatrack.Accounts.Trait do
+    many_to_many :traits, Navatrack.Works.Trait do
       through Navatrack.Accounts.UserTraitLink
       source_attribute_on_join_resource :user_id
       destination_attribute_on_join_resource :trait_id
     end
 
-    many_to_many :initiatives, Navatrack.Accounts.Initiative do
+    many_to_many :initiatives, Navatrack.Works.Initiative do
       through Navatrack.Accounts.UserInitiativeLink
       source_attribute_on_join_resource :user_id
       destination_attribute_on_join_resource :initiative_id
