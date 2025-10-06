@@ -107,13 +107,19 @@ Run:
 mix ash.generate_resource_diagrams
 ```
 
-## Reset databases
+## Redo data
 
-Reset databases:
+Redo databases:
 
 ```sh
 MIX_ENV=dev  mix ecto.drop; MIX_ENV=dev  mix ecto.create; MIX_ENV=dev  mix ecto.migrate;
 MIX_ENV=test mix ecto.drop; MIX_ENV=test mix ecto.create; MIX_ENV=test mix ecto.migrate;
+```
+
+Redo seeds:
+
+```sh
+mix run priv/repo/seeds.exs
 ```
 
 ## Search

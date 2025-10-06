@@ -12,7 +12,7 @@ File.stream!("priv/repo/seeds/uk_gdad_pcf_roles.csv")
     locale_code: "en-GB",
     family: row["Role Family"],
     name: row["Role"],
-    url: "https://ddat-capability-framework.service.gov.uk/" <> Recase.to_kebab(row["Role"]),
+    url: "https://ddat-capability-framework.service.gov.uk/role/" <> Recase.to_kebab(row["Role"]),
     description_as_markdown: row["Role Description"],
     description_as_html: MDEx.to_html!(row["Role Description"]),
     level_name: row["Role Level"],
