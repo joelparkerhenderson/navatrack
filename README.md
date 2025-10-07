@@ -107,7 +107,7 @@ Run:
 mix ash.generate_resource_diagrams
 ```
 
-## Redo data
+## Redo
 
 Redo databases:
 

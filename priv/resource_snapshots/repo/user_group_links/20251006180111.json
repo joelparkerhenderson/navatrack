@@ -19,7 +19,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_group_links_user_id_fkey",
+        "name": "user_user_group_links_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -50,16 +50,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_group_links_group_id_fkey",
+        "name": "user_user_group_links_links_user_group_links_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "groups"
+        "table": "user_group_linkss"
       },
       "scale": null,
       "size": null,
-      "source": "group_id",
+      "source": "user_group_links_id",
       "type": "uuid"
     }
   ],
@@ -77,5 +77,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_group_links"
+  "table": "user_user_group_links_links"
 }

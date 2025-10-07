@@ -143,6 +143,35 @@ defmodule NavatrackWeb.Router do
     live "/uk_gdad_pcf_skills", UkGdadPcfSkills.IndexLive
     live "/uk_gdad_pcf_skills/:id", UkGdadPcfSkills.ShowLive
 
+    ### Links
+
+    live "/user_group_links", UserGroupLinks.IndexLive
+    live "/user_group_links/new", UserGroupLinks.FormLive, User:new
+    live "/user_group_links/:id", UserGroupLinks.ShowLive
+    live "/user_group_links/:id/edit", UserGroupLinks.FormLive, User:edit
+
+    live "/user_trait_links", UserTraitLinks.IndexLive
+    live "/user_trait_links/new", UserTraitLinks.FormLive, User:new
+    live "/user_trait_links/:id", UserTraitLinks.ShowLive
+    live "/user_trait_links/:id/edit", UserTraitLinks.FormLive, User:edit
+
+    live "/user_initiative_links", UserInitiativeLinks.IndexLive
+    live "/user_initiative_links/new", UserInitiativeLinks.FormLive, User:new
+    live "/user_initiative_links/:id", UserInitiativeLinks.ShowLive
+    live "/user_initiative_links/:id/edit", UserInitiativeLinks.FormLive, User:edit
+
+    live "/user_ilo_isco_2008_links", UserIloIsco2008Links.IndexLive
+    live "/user_ilo_isco_2008_links/:id", UserIloIsco2008Links.ShowLive
+
+    live "/user_lumina_foundation_skill_level_links", UserLuminaFoundationSkillLevelLinks.IndexLive
+    live "/user_lumina_foundation_skill_level_links/:id", UserLuminaFoundationSkillLevelLinks.ShowLive
+
+    live "/user_uk_gdad_pcf_role_links", UserUkGdadPcfRoleLinks.IndexLive
+    live "/user_uk_gdad_pcf_role_links/:id", UserUkGdadPcfRoleLinks.ShowLive
+
+    live "/user_uk_gdad_pcf_skill_links", UserUkGdadPcfSkillLinks.IndexLive
+    live "/user_uk_gdad_pcf_skill_links/:id", UserUkGdadPcfSkillLinks.ShowLive
+
     ash_authentication_live_session :ash_authentication_live_session_routes do
       live_resources "/manage/initiatives", Backpex.InitiativesLive
     end
