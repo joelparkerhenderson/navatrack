@@ -21,6 +21,7 @@ defmodule Navatrack.Works.Group do
       :created_at,
       :updated_at,
       :deleted_at,
+      :locale_code,
       :name,
       :status,
       :tagging,
@@ -96,6 +97,7 @@ defmodule Navatrack.Works.Group do
     attribute :created_at, :utc_datetime_usec
     attribute :updated_at, :utc_datetime_usec
     attribute :deleted_at, :utc_datetime_usec
+    attribute :locale_code, :string
     attribute :name, :string
     attribute :status, :string
     attribute :tagging, :string
@@ -166,7 +168,7 @@ defmodule Navatrack.Works.Group do
   end
 
   relationships do
-    many_to_many :groups, Navatrack.Accounts.User do
+    many_to_many :users, Navatrack.Accounts.User do
       through Navatrack.Accounts.UserGroupLink
       source_attribute_on_join_resource :group_id
       destination_attribute_on_join_resource :user_id

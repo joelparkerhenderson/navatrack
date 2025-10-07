@@ -1,6 +1,6 @@
 defmodule NavatrackWeb.UserIloIsco2008Links.FormLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Works.UserIloIsco2008Link, as: X
+  alias Navatrack.Accounts.UserIloIsco2008Link, as: X
 
   require Logger
 

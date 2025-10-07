@@ -14,7 +14,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserGroupLinks do
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       user_id uuid REFERENCES users(id) ON DELETE SET NULL,
-      group_id uuid REFERENCES users(id) ON DELETE SET NULL,
+      group_id uuid REFERENCES groups(id) ON DELETE SET NULL,
       status text,
       tagging text
     );
@@ -26,7 +26,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserGroupLinks do
       FOR EACH ROW EXECUTE FUNCTION
       trigger_updated_at();
     """
-
     execute "CREATE INDEX user_group_links_created_at_index ON user_group_links (created_at);"
     execute "CREATE INDEX user_group_links_updated_at_index ON user_group_links (updated_at);"
     execute "CREATE INDEX user_group_links_deleted_at_index ON user_group_links (deleted_at);"

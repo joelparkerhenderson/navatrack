@@ -18,6 +18,23 @@ defmodule Navatrack.Accounts.UserTraitLink do
 
   actions do
     defaults [:read, :destroy, create: :*, update: :*]
+
+    default_accept [
+      :created_at,
+      :updated_at,
+      :deleted_at,
+      :locale_code,
+      :user_id,
+      :trait_id,
+    ]
+  end
+
+  attributes do
+    uuid_primary_key :id
+    attribute :created_at, :utc_datetime_usec
+    attribute :updated_at, :utc_datetime_usec
+    attribute :deleted_at, :utc_datetime_usec
+    attribute :locale_code, :string
   end
 
   relationships do

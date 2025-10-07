@@ -1,8 +1,20 @@
-defmodule NavatrackWeb.TraitsSmokeTest do
+defmodule NavatrackWeb.TraitsTest do
   import Phoenix.LiveViewTest
   use NavatrackWeb.ConnCase
+  use NavatrackWeb.AuthCase
 
-  test "GET /traits", %{conn: conn} do
+  setup %{conn: conn} do
+    {:ok, user} = my_user()
+    {:ok, user} = my_sign_in(user)
+    conn =
+      conn
+      |> Phoenix.ConnTest.init_test_session(%{})
+      |> AshAuthentication.Plug.Helpers.store_in_session(user)
+
+    {:ok, conn: conn}
+  end
+
+  test "index", %{conn: conn} do
     conn = get(conn, ~p"/traits")
     response = html_response(conn, 200)
     assert response =~ "Traits"
@@ -12,7 +24,7 @@ defmodule NavatrackWeb.TraitsSmokeTest do
     assert response =~ "🏷️ Tags"
   end
 
-  test "GET /traits/new", %{conn: conn} do
+  test "new", %{conn: conn} do
     conn = get(conn, ~p"/traits/new")
     response = html_response(conn, 200)
     assert response =~ "Traits"

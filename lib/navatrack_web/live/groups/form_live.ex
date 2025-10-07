@@ -4,6 +4,8 @@ defmodule NavatrackWeb.Groups.FormLive do
 
   require Logger
 
+  on_mount {NavatrackWeb.LiveUserAuth, :live_user_required}
+
   @doc """
   Mount the LiveView:
   - Update an item via an item id.

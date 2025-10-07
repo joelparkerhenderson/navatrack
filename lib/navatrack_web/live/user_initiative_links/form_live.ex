@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.Groups.FormLive do
+defmodule NavatrackWeb.UserInitiativeLinks.FormLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Works.Group, as: X
+  alias Navatrack.Accounts.UserInitiativeLink, as: X
 
   require Logger
 

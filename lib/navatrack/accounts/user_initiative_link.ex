@@ -18,10 +18,28 @@ defmodule Navatrack.Accounts.UserInitiativeLink do
 
   actions do
     defaults [:read, :destroy, create: :*, update: :*]
+
+    default_accept [
+      :created_at,
+      :updated_at,
+      :deleted_at,
+      :locale_code,
+      :user_id,
+      :initiative_id,
+    ]
+  end
+
+  attributes do
+    uuid_primary_key :id
+    attribute :created_at, :utc_datetime_usec
+    attribute :updated_at, :utc_datetime_usec
+    attribute :deleted_at, :utc_datetime_usec
+    attribute :locale_code, :string
   end
 
   relationships do
     belongs_to :user, Navatrack.Accounts.User, primary_key?: true, allow_nil?: false
     belongs_to :initiative, Navatrack.Works.Initiative, primary_key?: true, allow_nil?: false
   end
+
 end

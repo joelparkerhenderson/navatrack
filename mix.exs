@@ -45,7 +45,7 @@ defmodule Navatrack.MixProject do
       {:mdex, "~> 0.9"},
       {:cinder, "~> 0.7.2"},
       {:picosat_elixir, "~> 0.2"},
-      {:ash_authentication_phoenix, "~> 2.0"},
+      {:ash_authentication_phoenix, "~> 2.10.5"},
       {:absinthe_phoenix, "~> 2.0"},
       {:usage_rules, "~> 0.1"},
       {:sourceror, "~> 1.8"},

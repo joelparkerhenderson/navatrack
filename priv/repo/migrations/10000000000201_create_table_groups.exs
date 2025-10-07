@@ -103,7 +103,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
         note
       ) gin_trgm_ops);
     """
-
     execute "CREATE INDEX groups_created_at_index ON groups (created_at);"
     execute "CREATE INDEX groups_updated_at_index ON groups (updated_at);"
     execute "CREATE INDEX groups_deleted_at_index ON groups (deleted_at);"
@@ -114,9 +113,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
     execute "CREATE INDEX groups_tagging_index_tpo ON groups (tagging text_pattern_ops);"
     execute "CREATE INDEX groups_gs1_digital_link_index ON groups (gs1_digital_link);"
     execute "CREATE INDEX groups_gs1_country_code_index ON groups (gs1_country_code);"
-
     execute "CREATE INDEX groups_gs1_global_location_number_index ON groups (gs1_global_location_number);"
-
     execute "CREATE INDEX groups_isic_v4_code_index ON groups (isic_v4_code);"
   end
 

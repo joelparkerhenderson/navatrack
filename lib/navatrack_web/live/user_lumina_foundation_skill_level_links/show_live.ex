@@ -1,6 +1,6 @@
 defmodule NavatrackWeb.UserLuminaFoundationSkillLevelLinks.ShowLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Works.UserLuminaFoundationSkillLevelLink, as: X
+  alias Navatrack.Accounts.UserLuminaFoundationSkillLevelLink, as: X
 
   require Logger
 

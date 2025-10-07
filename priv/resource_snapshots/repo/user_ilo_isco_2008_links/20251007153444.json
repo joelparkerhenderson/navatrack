@@ -19,7 +19,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_user_group_links_links_user_id_fkey",
+        "name": "user_ilo_isco_2008_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -50,16 +50,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_user_group_links_links_user_group_links_id_fkey",
+        "name": "user_ilo_isco_2008_links_ilo_isco_2008_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "user_group_linkss"
+        "table": "ilo_isco_2008s"
       },
       "scale": null,
       "size": null,
-      "source": "user_group_links_id",
+      "source": "ilo_isco_2008_id",
       "type": "uuid"
     }
   ],
@@ -68,7 +68,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "C1BE4DDFD3E37D5E84AF1DFD7959767FAF14ED92800CBD81B18607CE404B23BB",
+  "hash": "27A2F69D1766DB2028165F2603DDB2974A2814BAB0D748643BCECCA99AD58EDC",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -77,5 +77,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_user_group_links_links"
+  "table": "user_ilo_isco_2008_links"
 }

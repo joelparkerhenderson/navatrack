@@ -1,6 +1,19 @@
-defmodule NavatrackWeb.InitiativesSmokeTest do
+defmodule NavatrackWeb.InitiativesTest do
   import Phoenix.LiveViewTest
   use NavatrackWeb.ConnCase
+  use NavatrackWeb.AuthCase
+
+  setup %{conn: conn} do
+    {:ok, user} = my_user()
+    {:ok, user} = my_sign_in(user)
+
+    conn =
+      conn
+      |> Phoenix.ConnTest.init_test_session(%{})
+      |> AshAuthentication.Plug.Helpers.store_in_session(user)
+
+    {:ok, conn: conn}
+  end
 
   test "index", %{conn: conn} do
     conn = get(conn, ~p"/initiatives")
@@ -152,23 +165,23 @@ defmodule NavatrackWeb.InitiativesSmokeTest do
     assert response =~ "Halstead Complexity Effort"
   end
 
-  # test "create", %{conn: conn} do
-  #   {:ok, lv, _html} = live(conn, ~p"/initiatives/new")
+  test "create", %{conn: conn} do
+    {:ok, lv, _html} = live(conn, ~p"/initiatives/new")
 
-  #   result =
-  #     lv
-  #     |> form("#x_form", %{
-  #       "form[name]" => "alfa"
-  #     })
-  #     |> render_submit()
+    result =
+      lv
+      |> form("#x_form", %{
+        "form[name]" => "alfa"
+      })
+      |> render_submit()
 
-  #   case result do
-  #     {:error, {:live_redirect, %{to: path}}} ->
-  #       assert path == "/initiatives"
-  #     html when is_binary(html) ->
-  #       assert html =~ "Initiatives"
-  #     other ->
-  #       flunk("Unexpected result: #{inspect(other)}")
-  #   end
-  # end
+    case result do
+      {:error, {:live_redirect, %{to: path}}} ->
+        assert path == "/initiatives"
+      html when is_binary(html) ->
+        assert html =~ "Initiatives"
+      other ->
+        flunk("Unexpected result: #{inspect(other)}")
+    end
+  end
 end

@@ -1,6 +1,19 @@
-defmodule NavatrackWeb.UsersSmokeTest do
+defmodule NavatrackWeb.UsersTest do
   import Phoenix.LiveViewTest
   use NavatrackWeb.ConnCase
+  use NavatrackWeb.AuthCase
+
+  setup %{conn: conn} do
+    {:ok, user} = my_user()
+    {:ok, user} = my_sign_in(user)
+
+    conn =
+      conn
+      |> Phoenix.ConnTest.init_test_session(%{})
+      |> AshAuthentication.Plug.Helpers.store_in_session(user)
+
+    {:ok, conn: conn}
+  end
 
   test "GET /users", %{conn: conn} do
     conn = get(conn, ~p"/users")
@@ -73,12 +86,8 @@ defmodule NavatrackWeb.UsersSmokeTest do
     assert response =~ "Work Codes"
     assert response =~ "O*NET SOC 2019"
     assert response =~ "United Kingdom (UK) Civil Service Grade Abbreviation"
-
-    assert response =~
-             "United Kingdom (UK) Standard Occupational Classification (SOC) 2020 Code Service Grade Abbreviation"
-
-    assert response =~
-             "United Kingdom (UK) Government Digital and Data (GDAD) Profession Capability Framework (PCF) URL"
+    assert response =~ "United Kingdom (UK) Standard Occupational Classification (SOC) 2020 Code Service Grade Abbreviation"
+    assert response =~ "United Kingdom (UK) Government Digital and Data (GDAD) Profession Capability Framework (PCF) URL"
   end
 
   test "create", %{conn: conn} do

@@ -50,7 +50,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
         description_as_markdown
       ) gin_trgm_ops);
     """
-
     execute "CREATE INDEX traits_created_at_index ON traits (created_at);"
     execute "CREATE INDEX traits_updated_at_index ON traits (updated_at);"
     execute "CREATE INDEX traits_deleted_at_index ON traits (deleted_at);"

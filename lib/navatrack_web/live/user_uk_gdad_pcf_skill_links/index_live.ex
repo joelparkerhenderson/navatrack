@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.UkGdadPcfSkills.IndexLive do
+defmodule NavatrackWeb.UserUkGdadPcfSkillLinks.IndexLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Works.UkGdadPcfSkill, as: X
+  alias Navatrack.Accounts.UserUkGdadPcfSkillLink, as: X
 
   require Logger
 

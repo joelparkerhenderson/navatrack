@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.Traits.IndexLive do
+defmodule NavatrackWeb.UserTraitLinks.IndexLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Works.Trait, as: X
+  alias Navatrack.Accounts.UserTraitLink, as: X
 
   require Logger
 

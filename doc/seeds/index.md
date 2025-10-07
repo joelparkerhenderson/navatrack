@@ -47,7 +47,7 @@ Replace:
 ```regex-replace
 """
 }
-Navatrack.Repo.insert!(%Navatrack.Works.UkGdadPcfSkill{
+Navatrack.Repo.insert!(%Navatrack.Codes.UkGdadPcfSkill{
   title: "$1",
   url: "https://ddat-capability-framework.service.gov.uk/traits#\L$1",
   description: """

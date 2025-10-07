@@ -4,6 +4,8 @@ defmodule NavatrackWeb.Groups.ShowLive do
 
   require Logger
 
+  on_mount {NavatrackWeb.LiveUserAuth, :live_user_required}
+
   def mount(_params, _session, socket) do
     {:ok, socket}
   end

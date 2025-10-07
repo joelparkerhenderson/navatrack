@@ -1,5 +1,5 @@
-defmodule UserGroupLinkTest do
-  alias Navatrack.Accounts.UserGroupLink, as: X
+defmodule UserInitiativeLinkTest do
+  alias Navatrack.Accounts.UserInitiativeLink, as: X
   use ExUnit.Case
   # import ExUnitProperties
   # import Generator
@@ -18,8 +18,8 @@ defmodule UserGroupLinkTest do
       })
       |> Ash.create!()
 
-    group =
-      Navatrack.Works.Group
+    initiative =
+      Navatrack.Works.Initiative
       |> Ash.Changeset.for_create(:create, %{
         name: "alfa bravo"
       })
@@ -29,7 +29,7 @@ defmodule UserGroupLinkTest do
       X
       |> Ash.Changeset.for_create(:create, %{})
       |> Ash.Changeset.manage_relationship(:user, user, type: :append_and_remove)
-      |> Ash.Changeset.manage_relationship(:group, group, type: :append_and_remove)
+      |> Ash.Changeset.manage_relationship(:initiative, initiative, type: :append_and_remove)
       |> Ash.create(authorize?: false)
   end
 end

@@ -95,6 +95,7 @@ defmodule Navatrack.Accounts.User do
       :created_at,
       :updated_at,
       :deleted_at,
+      :locale_code,
       :name,
       :status,
       :tagging,
@@ -178,6 +179,7 @@ defmodule Navatrack.Accounts.User do
     attribute :created_at, :utc_datetime_usec
     attribute :updated_at, :utc_datetime_usec
     attribute :deleted_at, :utc_datetime_usec
+    attribute :locale_code, :string
     attribute :name, :string
     attribute :status, :string
     attribute :tagging, :string

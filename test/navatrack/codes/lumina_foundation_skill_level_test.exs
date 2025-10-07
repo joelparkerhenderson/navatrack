@@ -1,8 +1,7 @@
 defmodule LuminaFoundationSkillLevelTest do
   alias Navatrack.Codes.LuminaFoundationSkillLevel, as: X
   use ExUnit.Case
-  import ExUnitProperties
-  # import Generator
+  import Ecto.Query
 
   setup do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Navatrack.Repo)
@@ -10,13 +9,11 @@ defmodule LuminaFoundationSkillLevelTest do
     :ok
   end
 
-  # TODO
-  # test "create" do
-  #   {:ok, x} =
-  #     X
-  #     |> Ash.Changeset.for_create(:create, %{
-  #       name: "alfa bravo"
-  #     })
-  #     |> Ash.create()
-  # end
+  test "random" do
+    Navatrack.Repo.one(
+      from l in X,
+        order_by: fragment("RANDOM()"),
+        limit: 1
+    )
+  end
 end

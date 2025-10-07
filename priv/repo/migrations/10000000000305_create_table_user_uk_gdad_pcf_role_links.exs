@@ -14,7 +14,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserUkGdadPcfRoleLinks do
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       user_id uuid REFERENCES users(id) ON DELETE SET NULL,
-      uk_gdad_pcf_role_id uuid REFERENCES users(id) ON DELETE SET NULL,
+      uk_gdad_pcf_role_id uuid REFERENCES uk_gdad_pcf_roles(id) ON DELETE SET NULL,
       status text,
       tagging text
     );
@@ -26,17 +26,11 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserUkGdadPcfRoleLinks do
       FOR EACH ROW EXECUTE FUNCTION
       trigger_updated_at();
     """
-
     execute "CREATE INDEX user_uk_gdad_pcf_role_links_created_at_index ON user_uk_gdad_pcf_role_links (created_at);"
-
     execute "CREATE INDEX user_uk_gdad_pcf_role_links_updated_at_index ON user_uk_gdad_pcf_role_links (updated_at);"
-
     execute "CREATE INDEX user_uk_gdad_pcf_role_links_deleted_at_index ON user_uk_gdad_pcf_role_links (deleted_at);"
-
     execute "CREATE INDEX user_uk_gdad_pcf_role_links_locale_code_index ON user_uk_gdad_pcf_role_links (locale_code);"
-
     execute "CREATE INDEX user_uk_gdad_pcf_role_links_user_id_index ON user_uk_gdad_pcf_role_links (user_id);"
-
     execute "CREATE INDEX user_uk_gdad_pcf_role_links_uk_gdad_pcf_role_id_index ON user_uk_gdad_pcf_role_links (uk_gdad_pcf_role_id);"
   end
 

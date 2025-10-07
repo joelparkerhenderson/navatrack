@@ -21,6 +21,7 @@ defmodule Navatrack.Works.Initiative do
       :created_at,
       :updated_at,
       :deleted_at,
+      :locale_code,
       :name,
       :status,
       :tagging,
@@ -238,6 +239,7 @@ defmodule Navatrack.Works.Initiative do
     attribute :created_at, :utc_datetime_usec
     attribute :updated_at, :utc_datetime_usec
     attribute :deleted_at, :utc_datetime_usec
+    attribute :locale_code, :string
     attribute :name, :string, public?: true
     attribute :status, :string
     attribute :tagging, :string
@@ -451,4 +453,13 @@ defmodule Navatrack.Works.Initiative do
     attribute :halstead_complexity_effort_unit, :string
     attribute :halstead_complexity_effort_description, :string
   end
+
+  relationships do
+    many_to_many :users, Navatrack.Accounts.User do
+      through Navatrack.Accounts.UserInitiativeLink
+      source_attribute_on_join_resource :initiative_id
+      destination_attribute_on_join_resource :user_id
+    end
+  end
+
 end

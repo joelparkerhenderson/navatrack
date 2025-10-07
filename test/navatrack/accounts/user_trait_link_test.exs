@@ -1,7 +1,7 @@
 defmodule UserTraitLinkTest do
   alias Navatrack.Accounts.UserTraitLink, as: X
   use ExUnit.Case
-  import ExUnitProperties
+  # import ExUnitProperties
   # import Generator
 
   setup do
@@ -10,28 +10,26 @@ defmodule UserTraitLinkTest do
     :ok
   end
 
-  # TODO
-  # test "create" do
-  #   user =
-  #     Navatrack.Accounts.User
-  #     |> Ash.Changeset.for_create(:create, %{
-  #       name: "alfa bravo"
-  #     })
-  #     |> Ash.create!()
+  test "create" do
+    user =
+      Navatrack.Accounts.User
+      |> Ash.Changeset.for_create(:create, %{
+        name: "alfa bravo"
+      })
+      |> Ash.create!()
 
-  #   trait =
-  #     Navatrack.Works.Trait
-  #     |> Ash.Changeset.for_create(:create, %{
-  #       name: "alfa bravo"
-  #     })
-  #     |> Ash.create!()
+    trait =
+      Navatrack.Works.Trait
+      |> Ash.Changeset.for_create(:create, %{
+        name: "alfa bravo"
+      })
+      |> Ash.create!()
 
-  #   {:ok, x} =
-  #     X
-  #     |> Ash.Changeset.for_create(:create, %{
-  #       user: user,
-  #       trait: trait
-  #     })
-  #     |> Ash.create()
-  # end
+    {:ok, _x} =
+      X
+      |> Ash.Changeset.for_create(:create, %{})
+      |> Ash.Changeset.manage_relationship(:user, user, type: :append_and_remove)
+      |> Ash.Changeset.manage_relationship(:trait, trait, type: :append_and_remove)
+      |> Ash.create(authorize?: false)
+  end
 end

@@ -87,11 +87,12 @@ defmodule NavatrackWeb.Initiatives.FormLive do
           />
           <.input
             field={form[:orcid_pid]}
-            label="🀣🌺 ORCID PID"
+            label="🌺 ORCID PID"
             placeholder="0009-0000-4681-282X"
           />
           <.input field={form[:rdf_type]} label="🖇️ RDF Type" />
-        </.section>🀣
+        </.section>
+
         <.section id="agents" title="AGENTS.md">
           <.input
             field={form[:agents_as_url]}

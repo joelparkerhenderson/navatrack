@@ -1,7 +1,7 @@
 defmodule UserTest do
   alias Navatrack.Accounts.User, as: X
   use ExUnit.Case
-  import ExUnitProperties
+  # import ExUnitProperties
   # import Generator
 
   setup do
@@ -11,7 +11,7 @@ defmodule UserTest do
   end
 
   test "create" do
-    {:ok, x} =
+    {:ok, _x} =
       X
       |> Ash.Changeset.for_create(:create, %{
         name: "alfa bravo"

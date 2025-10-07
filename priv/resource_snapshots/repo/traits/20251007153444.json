@@ -57,19 +57,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "sign",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "kind",
+      "source": "locale_code",
       "type": "text"
     },
     {
@@ -234,7 +222,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "A15DA3D326E9CCB3C42BC3370AAD352926B0800934A32E5D9B558AE2924844D2",
+  "hash": "016ED2C5A7CBE665D134D60DE22C0328A8D65562F6871A7EC2ED9191CFBC21B9",
   "identities": [],
   "multitenancy": {
     "attribute": null,

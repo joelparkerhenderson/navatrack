@@ -1,8 +1,7 @@
 defmodule UserUkGdadPcfRoleLinkTest do
   alias Navatrack.Accounts.UserUkGdadPcfRoleLink, as: X
   use ExUnit.Case
-  import ExUnitProperties
-  # import Generator
+  import Ecto.Query
 
   setup do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Navatrack.Repo)
@@ -10,28 +9,34 @@ defmodule UserUkGdadPcfRoleLinkTest do
     :ok
   end
 
-  # TODO
-  # test "create" do
-  #   user =
-  #     Navatrack.Accounts.User
-  #     |> Ash.Changeset.for_create(:create, %{
-  #       name: "alfa bravo"
-  #     })
-  #     |> Ash.create!()
+  test "create" do
+    user =
+      Navatrack.Accounts.User
+      |> Ash.Changeset.for_create(:create, %{
+        name: "alfa bravo"
+      })
+      |> Ash.create!()
 
-  #   uk_gdad_pcf_role =
-  #     Navatrack.Codes.UkGdadPcfRole
-  #     |> Ash.Changeset.for_create(:create, %{
-  #       name: "alfa bravo"
-  #     })
-  #     |> Ash.create!()
+    uk_gdad_pcf_role =
+      Navatrack.Repo.one(
+        from l in Navatrack.Codes.UkGdadPcfRole,
+          order_by: fragment("RANDOM()"),
+          limit: 1
+      )
 
-  #   {:ok, x} =
-  #     X
-  #     |> Ash.Changeset.for_create(:create, %{
-  #       user: user,
-  #       uk_gdad_pcf_role: uk_gdad_pcf_role
-  #     })
-  #     |> Ash.create()
-  # end
+    {:ok, _x} =
+      X
+      |> Ash.Changeset.for_create(:create, %{})
+      |> Ash.Changeset.manage_relationship(
+        :user,
+        user,
+        type: :append_and_remove
+      )
+      |> Ash.Changeset.manage_relationship(
+        :uk_gdad_pcf_role,
+        uk_gdad_pcf_role,
+        type: :append_and_remove
+      )
+      |> Ash.create(authorize?: false)
+  end
 end

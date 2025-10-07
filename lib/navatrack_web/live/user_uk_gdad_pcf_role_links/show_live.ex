@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.UkGdadPcfRoles.ShowLive do
+defmodule NavatrackWeb.UserUkGdadPcfRoleLinks.ShowLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Works.UkGdadPcfRole, as: X
+  alias Navatrack.Accounts.UserUkGdadPcfRoleLink, as: X
 
   require Logger
 

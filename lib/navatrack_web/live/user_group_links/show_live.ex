@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.UserUserGroupLinkLinks.ShowLive do
+defmodule NavatrackWeb.UserGroupLinks.ShowLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Works.UserGroupLink, as: X
+  alias Navatrack.Accounts.UserGroupLink, as: X
 
   require Logger
 

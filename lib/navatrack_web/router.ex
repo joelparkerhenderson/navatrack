@@ -30,7 +30,10 @@ defmodule NavatrackWeb.Router do
 
   scope "/", NavatrackWeb do
     pipe_through :browser
+    get "/", PageController, :home
+
     backpex_routes()
+
     auth_routes AuthController, Navatrack.Accounts.User, path: "/auth"
     sign_out_route AuthController
 
@@ -61,23 +64,104 @@ defmodule NavatrackWeb.Router do
       auth_routes_prefix: "/auth",
       overrides: [NavatrackWeb.AuthOverrides, AshAuthentication.Phoenix.Overrides.Default]
     )
-  end
 
-  scope "/", NavatrackWeb do
-    pipe_through :browser
+    # In each LiveView, add one of the following at the top of the module:
+    #
+    # If an authenticated user must be present:
+    # on_mount {NavatrackWeb.LiveUserAuth, :live_user_required}
+    #
+    # If an authenticated user *may* be present:
+    # on_mount {NavatrackWeb.LiveUserAuth, :live_user_optional}
+    #
+    # If an authenticated user must *not* be present:
+    # on_mount {NavatrackWeb.LiveUserAuth, :live_no_user}
 
-    ash_authentication_live_session :authenticated_routes do
-      # in each liveview, add one of the following at the top of the module:
-      #
-      # If an authenticated user must be present:
-      # on_mount {NavatrackWeb.LiveUserAuth, :live_user_required}
-      #
-      # If an authenticated user *may* be present:
-      # on_mount {NavatrackWeb.LiveUserAuth, :live_user_optional}
-      #
-      # If an authenticated user must *not* be present:
-      # on_mount {NavatrackWeb.LiveUserAuth, :live_no_user}
+    ash_authentication_live_session :authentication_optional,
+      on_mount: {NavatrackWeb.LiveUserAuth, :live_user_optional} do
+      end
+
+    ash_authentication_live_session :authentication_required,
+      on_mount: {NavatrackWeb.LiveUserAuth, :live_user_required} do
+
+        ### Core Resources
+
+        live "/users", Users.IndexLive
+        live "/users/new", Users.FormLive, :new
+        live "/users/:id", Users.ShowLive
+        live "/users/:id/edit", Users.FormLive, :edit
+
+        live "/groups", Groups.IndexLive
+        live "/groups/new", Groups.FormLive, :new
+        live "/groups/:id", Groups.ShowLive
+        live "/groups/:id/edit", Groups.FormLive, :edit
+
+        live "/traits", Traits.IndexLive
+        live "/traits/new", Traits.FormLive, :new
+        live "/traits/:id", Traits.ShowLive
+        live "/traits/:id/edit", Traits.FormLive, :edit
+
+        live "/initiatives", Initiatives.IndexLive
+        live "/initiatives/new", Initiatives.FormLive, :new
+        live "/initiatives/:id", Initiatives.ShowLive
+        live "/initiatives/:id/edit", Initiatives.FormLive, :edit
+
+        ### Read-Only Codes
+
+        live "/ilo_isco_2008s", IloIsco2008s.IndexLive
+        live "/ilo_isco_2008s/:id", IloIsco2008s.ShowLive
+
+        live "/lumina_foundation_skill_levels", LuminaFoundationSkillLevels.IndexLive
+        live "/lumina_foundation_skill_levels/:id", LuminaFoundationSkillLevels.ShowLive
+
+        live "/uk_gdad_pcf_roles", UkGdadPcfRoles.IndexLive
+        live "/uk_gdad_pcf_roles/:id", UkGdadPcfRoles.ShowLive
+
+        live "/uk_gdad_pcf_skills", UkGdadPcfSkills.IndexLive
+        live "/uk_gdad_pcf_skills/:id", UkGdadPcfSkills.ShowLive
+
+        ### Links
+
+        live "/user_group_links", UserGroupLinks.IndexLive
+        live "/user_group_links/new", UserGroupLinks.FormLive, :new
+        live "/user_group_links/:id", UserGroupLinks.ShowLive
+        live "/user_group_links/:id/edit", UserGroupLinks.FormLive, :edit
+
+        live "/user_trait_links", UserTraitLinks.IndexLive
+        live "/user_trait_links/new", UserTraitLinks.FormLive, :new
+        live "/user_trait_links/:id", UserTraitLinks.ShowLive
+        live "/user_trait_links/:id/edit", UserTraitLinks.FormLive, :edit
+
+        live "/user_initiative_links", UserInitiativeLinks.IndexLive
+        live "/user_initiative_links/new", UserInitiativeLinks.FormLive, :new
+        live "/user_initiative_links/:id", UserInitiativeLinks.ShowLive
+        live "/user_initiative_links/:id/edit", UserInitiativeLinks.FormLive, :edit
+
+        live "/user_ilo_isco_2008_links", UserIloIsco2008Links.IndexLive
+        live "/user_ilo_isco_2008_links/new", UserIloIsco2008Links.FormLive, :new
+        live "/user_ilo_isco_2008_links/:id", UserIloIsco2008Links.ShowLive
+        live "/user_ilo_isco_2008_links/:id/edit", UserIloIsco2008Links.FormLive, :edit
+
+        live "/user_lumina_foundation_skill_level_links", UserLuminaFoundationSkillLevelLinks.IndexLive
+        live "/user_lumina_foundation_skill_level_links/new", UserLuminaFoundationSkillLevelLinks.FormLive, :new
+        live "/user_lumina_foundation_skill_level_links/:id", UserLuminaFoundationSkillLevelLinks.ShowLive
+        live "/user_lumina_foundation_skill_level_links/:id/edit", UserLuminaFoundationSkillLevelLinks.FormLive, :edit
+
+        live "/user_uk_gdad_pcf_role_links", UserUkGdadPcfRoleLinks.IndexLive
+        live "/user_uk_gdad_pcf_role_links/new", UserUkGdadPcfRoleLinks.FormLive, :new
+        live "/user_uk_gdad_pcf_role_links/:id", UserUkGdadPcfRoleLinks.ShowLive
+        live "/user_uk_gdad_pcf_role_links/:id/edit", UserUkGdadPcfRoleLinks.FormLive, :edit
+
+        live "/user_uk_gdad_pcf_skill_links", UserUkGdadPcfSkillLinks.IndexLive
+        live "/user_uk_gdad_pcf_skill_links/new", UserUkGdadPcfSkillLinks.FormLive, :new
+        live "/user_uk_gdad_pcf_skill_links/:id", UserUkGdadPcfSkillLinks.ShowLive
+        live "/user_uk_gdad_pcf_skill_links/:id/edit", UserUkGdadPcfSkillLinks.FormLive, :edit
+
+      end
+
+    ash_authentication_live_session :ash_authentication_live_session_routes do
+      live_resources "/manage/initiatives", Backpex.InitiativesLive
     end
+
   end
 
   scope "/api/json" do
@@ -99,82 +183,6 @@ defmodule NavatrackWeb.Router do
       interface: :simple
 
     forward "/", Absinthe.Plug, schema: Module.concat(["NavatrackWeb.GraphqlSchema"])
-  end
-
-  scope "/", NavatrackWeb do
-    pipe_through :browser
-    backpex_routes()
-
-    get "/", PageController, :home
-
-    ### Core Resources
-
-    live "/users", Users.IndexLive
-    live "/users/new", Users.FormLive, :new
-    live "/users/:id", Users.ShowLive
-    live "/users/:id/edit", Users.FormLive, :edit
-
-    live "/groups", Groups.IndexLive
-    live "/groups/new", Groups.FormLive, :new
-    live "/groups/:id", Groups.ShowLive
-    live "/groups/:id/edit", Groups.FormLive, :edit
-
-    live "/traits", Traits.IndexLive
-    live "/traits/new", Traits.FormLive, :new
-    live "/traits/:id", Traits.ShowLive
-    live "/traits/:id/edit", Traits.FormLive, :edit
-
-    live "/initiatives", Initiatives.IndexLive
-    live "/initiatives/new", Initiatives.FormLive, :new
-    live "/initiatives/:id", Initiatives.ShowLive
-    live "/initiatives/:id/edit", Initiatives.FormLive, :edit
-
-    ### Read-Only Codes
-
-    live "/ilo_isco_2008s", IloIsco2008s.IndexLive
-    live "/ilo_isco_2008s/:id", IloIsco2008s.ShowLive
-
-    live "/lumina_foundation_skill_levels", LuminaFoundationSkillLevels.IndexLive
-    live "/lumina_foundation_skill_levels/:id", LuminaFoundationSkillLevels.ShowLive
-
-    live "/uk_gdad_pcf_roles", UkGdadPcfRoles.IndexLive
-    live "/uk_gdad_pcf_roles/:id", UkGdadPcfRoles.ShowLive
-
-    live "/uk_gdad_pcf_skills", UkGdadPcfSkills.IndexLive
-    live "/uk_gdad_pcf_skills/:id", UkGdadPcfSkills.ShowLive
-
-    ### Links
-
-    live "/user_group_links", UserGroupLinks.IndexLive
-    live "/user_group_links/new", UserGroupLinks.FormLive, User:new
-    live "/user_group_links/:id", UserGroupLinks.ShowLive
-    live "/user_group_links/:id/edit", UserGroupLinks.FormLive, User:edit
-
-    live "/user_trait_links", UserTraitLinks.IndexLive
-    live "/user_trait_links/new", UserTraitLinks.FormLive, User:new
-    live "/user_trait_links/:id", UserTraitLinks.ShowLive
-    live "/user_trait_links/:id/edit", UserTraitLinks.FormLive, User:edit
-
-    live "/user_initiative_links", UserInitiativeLinks.IndexLive
-    live "/user_initiative_links/new", UserInitiativeLinks.FormLive, User:new
-    live "/user_initiative_links/:id", UserInitiativeLinks.ShowLive
-    live "/user_initiative_links/:id/edit", UserInitiativeLinks.FormLive, User:edit
-
-    live "/user_ilo_isco_2008_links", UserIloIsco2008Links.IndexLive
-    live "/user_ilo_isco_2008_links/:id", UserIloIsco2008Links.ShowLive
-
-    live "/user_lumina_foundation_skill_level_links", UserLuminaFoundationSkillLevelLinks.IndexLive
-    live "/user_lumina_foundation_skill_level_links/:id", UserLuminaFoundationSkillLevelLinks.ShowLive
-
-    live "/user_uk_gdad_pcf_role_links", UserUkGdadPcfRoleLinks.IndexLive
-    live "/user_uk_gdad_pcf_role_links/:id", UserUkGdadPcfRoleLinks.ShowLive
-
-    live "/user_uk_gdad_pcf_skill_links", UserUkGdadPcfSkillLinks.IndexLive
-    live "/user_uk_gdad_pcf_skill_links/:id", UserUkGdadPcfSkillLinks.ShowLive
-
-    ash_authentication_live_session :ash_authentication_live_session_routes do
-      live_resources "/manage/initiatives", Backpex.InitiativesLive
-    end
   end
 
   # Other scopes may use custom stacks.

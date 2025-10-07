@@ -21,6 +21,7 @@ defmodule Navatrack.Works.Trait do
       :created_at,
       :updated_at,
       :deleted_at,
+      :locale_code,
       :name,
       :status,
       :tagging,
@@ -42,6 +43,7 @@ defmodule Navatrack.Works.Trait do
     attribute :created_at, :utc_datetime_usec
     attribute :updated_at, :utc_datetime_usec
     attribute :deleted_at, :utc_datetime_usec
+    attribute :locale_code, :string
     attribute :name, :string
     attribute :status, :string
     attribute :tagging, :string
@@ -56,4 +58,13 @@ defmodule Navatrack.Works.Trait do
     attribute :main_image_1080x1920_url, :string
     attribute :main_image_1080x1920_alt, :string
   end
+
+  relationships do
+    many_to_many :users, Navatrack.Accounts.User do
+      through Navatrack.Accounts.UserTraitLink
+      source_attribute_on_join_resource :trait_id
+      destination_attribute_on_join_resource :user_id
+    end
+  end
+
 end

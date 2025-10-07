@@ -84,7 +84,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
         note
       ) gin_trgm_ops);
     """
-
     execute "CREATE INDEX users_created_at_index ON users (created_at);"
     execute "CREATE INDEX users_updated_at_index ON users (updated_at);"
     execute "CREATE INDEX users_deleted_at_index ON users (deleted_at);"
@@ -94,9 +93,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
     execute "CREATE INDEX users_tagging_index ON users (tagging);"
     execute "CREATE INDEX users_tagging_index_tpo ON users (tagging text_pattern_ops);"
     execute "CREATE UNIQUE INDEX index_users_email ON users (email);"
-
     execute "CREATE INDEX users_work_role_onet_soc_2019_code_index ON users (work_role_onet_soc_2019_code);"
-
     execute "CREATE INDEX users_work_role_uk_civil_service_grade_abbreviation_index ON users (work_role_uk_civil_service_grade_abbreviation);"
   end
 
