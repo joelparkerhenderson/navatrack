@@ -46,22 +46,12 @@ defmodule Navatrack.Codes.UkGdadPcfRole do
       public? true
     end
 
-    attribute :description_as_html, :string do
-      allow_nil? false
-      public? true
-    end
-
     attribute :level_name, :string do
       allow_nil? false
       public? true
     end
 
     attribute :level_description_as_markdown, :string do
-      allow_nil? false
-      public? true
-    end
-
-    attribute :level_description_as_html, :string do
       allow_nil? false
       public? true
     end

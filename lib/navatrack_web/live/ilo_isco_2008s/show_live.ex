@@ -29,7 +29,7 @@ defmodule NavatrackWeb.IloIsco2008s.ShowLive do
           <li>Locale: {@x.locale_code}</li>
           <li>Code: {@x.name}</li>
           <li>Name: {@x.name}</li>
-          <li>Definition: {@x.definition}</li>
+          <li>Definition: {@x.definition_as_markdown}</li>
         </ul>
       </main>
     </Layouts.app>

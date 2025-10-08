@@ -115,11 +115,10 @@ Redo databases, which is equivalent to ecto.drop, ecto.create, ecto.migrate, and
 rm -rf priv/resource_snapshots/*
 (export MIX_ENV=dev  && mix ecto.reset) &&
 (export MIX_ENV=test && mix ecto.reset)
-```
-
-Redo seeds:
-
-```sh
+mix ash.codegen tmp
+rm priv/repo/migrations/*_tmp.exs
+rm priv/repo/migrations/*_tmp_extensions_1.exs
+mix phx.server
 ```
 
 ## Search

@@ -33,18 +33,6 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "family",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
       "source": "name",
       "type": "text"
     },
@@ -69,7 +57,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "description_as_markdown",
+      "source": "description",
       "type": "text"
     },
     {
@@ -81,7 +69,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "description_as_html",
+      "source": "level_1_description_as_markdown",
       "type": "text"
     },
     {
@@ -93,7 +81,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "level_name",
+      "source": "level_2_description_as_markdown",
       "type": "text"
     },
     {
@@ -105,7 +93,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "level_description_as_markdown",
+      "source": "level_3_description_as_markdown",
       "type": "text"
     },
     {
@@ -117,7 +105,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "level_description_as_html",
+      "source": "level_4_description_as_markdown",
       "type": "text"
     },
     {
@@ -129,8 +117,8 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "senior_civil_service_flag",
-      "type": "boolean"
+      "source": "roles_that_require_this_skill_as_markdown",
+      "type": "text"
     }
   ],
   "base_filter": null,
@@ -138,7 +126,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": false,
-  "hash": "2D8F2EB341C9400FEDFAF9C9FB66259BB6C8FA0DFA7AEBB33D138AB203BA503E",
+  "hash": "B7B5DA2313531CE3FD225994AF1019A41197602C612CE6FE17311EF5A9A74F69",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -147,5 +135,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "uk_gdad_pcf_roles"
+  "table": "uk_gdad_pcf_skills"
 }

@@ -4,8 +4,8 @@ defmodule Navatrack.Codes.IloIsco2008 do
     domain: Navatrack.Codes,
     data_layer: AshPostgres.DataLayer
 
-  def singular_snake_case(), do: "iso_isco_2008"
-  def plural_snake_case(), do: "iso_isco_2008s"
+  def singular_snake_case(), do: "ilo_isco_2008"
+  def plural_snake_case(), do: "ilo_isco_2008s"
   def singular_title_case(), do: "ILO ISCO 2008"
   def plural_title_case(), do: "ILO ISCO 2008s"
 
@@ -36,7 +36,7 @@ defmodule Navatrack.Codes.IloIsco2008 do
       public? true
     end
 
-    attribute :definition, :string do
+    attribute :definition_as_markdown, :string do
       allow_nil? false
       public? true
     end

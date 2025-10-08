@@ -12,7 +12,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableIloIsco2008s do
       locale_code text not null,
       code text not null CONSTRAINT code_check CHECK (code ~* '^[0-9]*$' AND char_length(code) < 4),
       name text not null,
-      definition text not null
+      definition_as_markdown text not null
     );
     """
 
@@ -24,7 +24,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableIloIsco2008s do
           || ' ' ||
         name
           || ' ' ||
-        definition
+        definition_as_markdown
       ) gin_trgm_ops);
     """
     execute "CREATE INDEX ilo_isco_2008s_locale_code_index ON ilo_isco_2008s (locale_code);"

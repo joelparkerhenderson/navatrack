@@ -14,10 +14,8 @@ defmodule Navatrack.Repo.Migrations.CreateUkGdadPcfRole do
       name text not null,
       url text not null,
       description_as_markdown text not null,
-      description_as_html text not null,
       level_name text not null,
       level_description_as_markdown text not null,
-      level_description_as_html text not null,
       senior_civil_service_flag boolean not null
     )
     """
