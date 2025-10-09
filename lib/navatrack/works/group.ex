@@ -29,6 +29,7 @@ defmodule Navatrack.Works.Group do
       :email,
       :phone,
       :messaging,
+      :calendar,
       :postal,
       :orcid_pid,
       :rdf_type,
@@ -47,6 +48,7 @@ defmodule Navatrack.Works.Group do
       :ways_of_working_as_markdown,
       :objectives_and_key_results_as_markdown,
       :key_performance_indicators_as_markdown,
+      :agents_as_url,
       :agents_as_markdown,
       :avatar_image_400x400_url,
       :avatar_image_400x400_alt,
@@ -105,6 +107,7 @@ defmodule Navatrack.Works.Group do
     attribute :email, :string
     attribute :phone, :string
     attribute :messaging, :string
+    attribute :calendar, :string
     attribute :postal, :string
     attribute :orcid_pid, :string
     attribute :rdf_type, :string
@@ -123,6 +126,7 @@ defmodule Navatrack.Works.Group do
     attribute :ways_of_working_as_markdown, :string
     attribute :objectives_and_key_results_as_markdown, :string
     attribute :key_performance_indicators_as_markdown, :string
+    attribute :agents_as_url, :string
     attribute :agents_as_markdown, :string
     attribute :avatar_image_400x400_url, :string
     attribute :avatar_image_400x400_alt, :string

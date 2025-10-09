@@ -103,6 +103,7 @@ defmodule Navatrack.Accounts.User do
       :email,
       :phone,
       :messaging,
+      :calendar,
       :postal,
       :orcid_pid,
       :rdf_type,
@@ -121,6 +122,7 @@ defmodule Navatrack.Accounts.User do
       :ways_of_working_as_markdown,
       :objectives_and_key_results_as_markdown,
       :key_performance_indicators_as_markdown,
+      :agents_as_url,
       :agents_as_markdown,
       :avatar_image_400x400_url,
       :avatar_image_400x400_alt,
@@ -139,7 +141,7 @@ defmodule Navatrack.Accounts.User do
       :work_role_stop_date,
       :work_role_level,
       :work_role_description_as_markdown,
-      :work_role_professional_development_plan_markdown,
+      :work_role_professional_development_plan_as_markdown,
       :work_role_onet_soc_2019_code,
       :work_role_uk_civil_service_grade_abbreviation,
       :work_role_uk_soc_2020_code,
@@ -187,6 +189,7 @@ defmodule Navatrack.Accounts.User do
     attribute :email, :string
     attribute :phone, :string
     attribute :messaging, :string
+    attribute :calendar, :string
     attribute :postal, :string
     attribute :orcid_pid, :string
     attribute :rdf_type, :string
@@ -205,6 +208,7 @@ defmodule Navatrack.Accounts.User do
     attribute :ways_of_working_as_markdown, :string
     attribute :objectives_and_key_results_as_markdown, :string
     attribute :key_performance_indicators_as_markdown, :string
+    attribute :agents_as_url, :string
     attribute :agents_as_markdown, :string
     attribute :avatar_image_400x400_url, :string
     attribute :avatar_image_400x400_alt, :string
@@ -223,7 +227,7 @@ defmodule Navatrack.Accounts.User do
     attribute :work_role_stop_date, :date
     attribute :work_role_level, :string
     attribute :work_role_description_as_markdown, :string
-    attribute :work_role_professional_development_plan_markdown, :string
+    attribute :work_role_professional_development_plan_as_markdown, :string
     attribute :work_role_onet_soc_2019_code, :string
     attribute :work_role_uk_civil_service_grade_abbreviation, :string
     attribute :work_role_uk_soc_2020_code, :string

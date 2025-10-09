@@ -52,51 +52,88 @@ defmodule NavatrackWeb.Traits.FormLive do
       >
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:name]} label="📛 Name" autofocus />
-        <.input field={form[:status]} label="🚦 Status" />
-        <.input field={form[:tagging]} label="🏷️ Tags" />
+        <.input
+          field={form[:name]}
+          label="📛 Name"
+          autofocus
+        />
+        <.input
+          field={form[:status]}
+          label="🚦 Status"
+        />
+        <.input
+          field={form[:tagging]}
+          label="🏷️ Tags"
+        />
 
         <.section id="details" title="Details">
-          <.input field={form[:summary_as_markdown]} label="Summary" />
-          <.input field={form[:description_as_markdown]} label="Description" />
+
+          <.input
+            field={form[:summary_as_markdown]}
+            label="Summary"
+          />
+          <.input
+            field={form[:description_as_markdown]}
+            label="Description"
+          />
         </.section>
 
         <.section id="images" title="Images">
-          <h3 class="h3">Avatar 400x400</h3>
+          <h3 class="h3">
+            Avatar image 400x400
+          </h3>
 
           <.input
             field={form[:avatar_image_400x400_url]}
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:avatar_image_400x400_alt]} label="Alt" />
+          <.input
+            field={form[:avatar_image_400x400_alt]}
+            label="Alt"
+          />
 
-          <h3 class="h3">Splash 1080x1080 square</h3>
+          <h3 class="h3">
+            Main image 1080x1080 square
+          </h3>
 
           <.input
             field={form[:main_image_1080x1080_url]}
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:main_image_1080x1080_alt]} label="Alt" />
+          <.input
+            field={form[:main_image_1080x1080_alt]}
+            label="Alt"
+          />
 
-          <h3 class="h3">Splash 1920x1080 landscape</h3>
+          <h3 class="h3">
+            Main image 1920x1080 landscape
+          </h3>
 
           <.input
             field={form[:main_image_1920x1080_url]}
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:main_image_1920x1080_alt]} label="Alt" />
+          <.input
+            field={form[:main_image_1920x1080_alt]}
+            label="Alt"
+          />
 
-          <h3 class="h3">Splash 1920x1080 portrait</h3>
+          <h3 class="h3">
+            Main image 1080x1920 portrait
+          </h3>
 
           <.input
             field={form[:main_image_1080x1920_url]}
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:main_image_1080x1920_alt]} label="Alt" />
+          <.input
+            field={form[:main_image_1080x1920_alt]}
+            label="Alt"
+          />
         </.section>
 
         <.button type="primary">Save</.button>

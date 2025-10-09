@@ -52,11 +52,22 @@ defmodule NavatrackWeb.Initiatives.FormLive do
       >
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:name]} label="📛 Name" autofocus />
-        <.input field={form[:status]} label="🚦 Status" />
-        <.input field={form[:tagging]} label="🏷️ Tags" />
+        <.input
+          field={form[:name]}
+          label="📛 Name"
+          autofocus
+        />
+        <.input
+          field={form[:status]}
+          label="🚦 Status"
+        />
+        <.input
+          field={form[:tagging]}
+          label="🏷️ Tags"
+        />
 
-        <.section id="contact" title="Contacts">
+        <.section id="contact" title="Contact">
+
           <.input
             field={form[:url]}
             type="url"
@@ -65,8 +76,7 @@ defmodule NavatrackWeb.Initiatives.FormLive do
           />
           <.input
             field={form[:email]}
-            type="email"
-            label="📧 Email"
+            type="email"            label="📧 Email"
             placeholder="example@example.com"
           />
           <.input
@@ -90,69 +100,109 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🌺 ORCID PID"
             placeholder="0009-0000-4681-282X"
           />
-          <.input field={form[:rdf_type]} label="🖇️ RDF Type" />
+          <.input
+            field={form[:rdf_type]}
+            label="🖇️ RDF Type"
+          />
         </.section>
 
         <.section id="agents" title="AGENTS.md">
+
           <.input
             field={form[:agents_as_url]}
             type="url"
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:agents_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:agents_as_markdown]} type="textarea"
+            label="Text"
+          />
+
         </.section>
 
         <.section id="charts" title="Chart">
+
           <.input
             field={form[:apache_echart_as_url]}
             type="url"
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:apache_echart_as_typescript]} label="TypeScript" />
+          <.input
+            field={form[:apache_echart_as_typescript]}
+            label="TypeScript"
+          />
+
         </.section>
 
         <.section id="images" title="Images">
-          <h3 class="h3">Avatar 400x400</h3>
+
+          <h3 class="h3">
+            Avatar image 400x400
+          </h3>
 
           <.input
             field={form[:avatar_image_400x400_url]}
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:avatar_image_400x400_alt]} label="Alt" />
+          <.input
+            field={form[:avatar_image_400x400_alt]}
+            label="Alt"
+          />
 
-          <h3 class="h3">Splash 1080x1080 square</h3>
+          <h3 class="h3">
+            Main image 1080x1080 square
+          </h3>
 
           <.input
             field={form[:main_image_1080x1080_url]}
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:main_image_1080x1080_alt]} label="Alt" />
+          <.input
+            field={form[:main_image_1080x1080_alt]}
+            label="Alt"
+          />
 
-          <h3 class="h3">Splash 1920x1080 landscape</h3>
+          <h3 class="h3">
+            Main image 1920x1080 landscape
+          </h3>
 
           <.input
             field={form[:main_image_1920x1080_url]}
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:main_image_1920x1080_alt]} label="Alt" />
+          <.input
+            field={form[:main_image_1920x1080_alt]}
+            label="Alt"
+          />
 
-          <h3 class="h3">Splash 1920x1080 portrait</h3>
+          <h3 class="h3">
+            Main image 1080x1920 portrait
+          </h3>
 
           <.input
             field={form[:main_image_1080x1920_url]}
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:main_image_1080x1920_alt]} label="Alt" />
+          <.input
+            field={form[:main_image_1080x1920_alt]}
+            label="Alt"
+          />
+
         </.section>
 
         <.section id="links" title="Links">
-          <.input field={form[:home_emoji_url]} label="🏠 Home" placeholder="https://example.com" />
+
+          <.input
+            field={form[:home_emoji_url]}
+            label="🏠 Home"
+            placeholder="https://example.com"
+          />
           <.input
             field={form[:bellhop_bell_emoji_url]}
             label="🛎️ Concierge"
@@ -173,7 +223,10 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🗓️ Calendar"
             placeholder="https://example.com"
           />
-          <.input field={form[:sparkles_emoji_url]} label="✨ AI" placeholder="https://example.com" />
+          <.input
+            field={form[:sparkles_emoji_url]}
+            label="✨ AI" placeholder="https://example.com"
+          />
           <.input
             field={form[:speech_bubble_emoji_url]}
             label="💬 Chat"
@@ -214,15 +267,35 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🐞 Bug Tracker"
             placeholder="https://example.com"
           />
+
         </.section>
 
         <.section id="deeper_dive" title="Deeper Dive">
-          <.input field={form[:note]} label="Note" />
-          <.input field={form[:email_distribution_list]} label="Email distribution list" />
-          <.input field={form[:daisyui_timeline_html]} label="DaisyUI timeline HTML" />
-          <.input field={form[:org_mode]} label="Org Mode" />
-          <.input field={form[:task_list_as_markdown]} type="textarea" label="Task list as markdown" />
-          <.input field={form[:ways_of_working_as_markdown]} type="textarea" label="Ways Of Working" />
+
+          <.input
+            field={form[:note]}
+            label="Note"
+          />
+          <.input
+            field={form[:email_distribution_list]}
+            label="Email distribution list"
+          />
+          <.input
+            field={form[:daisyui_timeline_html]}
+            label="DaisyUI timeline HTML"
+          />
+          <.input
+            field={form[:org_mode]}
+            label="Org Mode"
+          />
+          <.input
+            field={form[:task_list_as_markdown]} type="textarea"
+            label="Task list as markdown"
+          />
+          <.input
+            field={form[:ways_of_working_as_markdown]} type="textarea"
+            label="Ways Of Working"
+          />
           <.input
             field={form[:objectives_and_key_results_as_markdown]}
             type="textarea"
@@ -233,20 +306,29 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             type="textarea"
             label="Key Performance Indicators (KPIs)"
           />
+
         </.section>
 
         <.section id="business_analysis" title="Business Analysis">
-          <h3 class="h3">Six-Pager Double-Sider</h3>
+
+          <h3 class="h3">
+            Six-Pager Double-Sider
+          </h3>
 
           <.input
-            field={form[:six_pager_as_url]}
+            field={form[:six_pager_double_sider_as_url]}
             type="url"
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:six_pager_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:six_pager_double_sider_as_markdown]} type="textarea"
+            label="Text"
+          />
 
-          <h3 class="h3">Strengths Weaknesses Opportunities Threats (SWOT)</h3>
+          <h3 class="h3">
+            Strengths Weaknesses Opportunities Threats (SWOT)
+          </h3>
 
           <.input
             field={form[:swot_as_url]}
@@ -254,9 +336,14 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:swot_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:swot_as_markdown]} type="textarea"
+            label="Text"
+          />
 
-          <h3 class="h3">Porter's Five Forces</h3>
+          <h3 class="h3">
+            Porter's Five Forces
+          </h3>
 
           <.input
             field={form[:porters_five_forces_as_url]}
@@ -264,7 +351,10 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:porters_five_forces_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:porters_five_forces_as_markdown]} type="textarea"
+            label="Text"
+          />
 
           <h3 class="h3">
             Political, Economic, Social, Technological, Legal, Environmental (PESTLE)
@@ -276,11 +366,18 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:pestle_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:pestle_as_markdown]} type="textarea"
+            label="Text"
+          />
+
         </.section>
 
         <.section id="touchpoints" title="Touchpoints">
-          <h3 class="h3">Glossary</h3>
+
+          <h3 class="h3">
+            Glossary
+          </h3>
 
           <.input
             field={form[:glossary_as_url]}
@@ -288,9 +385,14 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:glossary_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:glossary_as_markdown]} type="textarea"
+            label="Text"
+          />
 
-          <h3 class="h3">Roles and Responsibilities</h3>
+          <h3 class="h3">
+            Roles and Responsibilities
+          </h3>
 
           <.input
             field={form[:roles_and_responsibilities_as_url]}
@@ -298,9 +400,15 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:roles_and_responsibilities_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:roles_and_responsibilities_as_markdown]}
+            type="textarea"
+            label="Text"
+          />
 
-          <h3 class="h3">Responsibility Assignment Matrix (RAM)</h3>
+          <h3 class="h3">
+            Responsibility Assignment Matrix (RAM)
+          </h3>
 
           <.input
             field={form[:responsibility_assignment_matrix_as_url]}
@@ -314,23 +422,40 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="Text"
           />
 
-          <h3 class="h3">Code of Conduct</h3>
+          <h3 class="h3">
+            Code of Conduct
+          </h3>
 
           <.input
             field={form[:code_of_conduct_url]}
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:code_of_conduct_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:code_of_conduct_as_markdown]} type="textarea"
+            label="Text"
+          />
 
-          <h3 class="h3">License</h3>
+          <h3 class="h3">
+            License
+          </h3>
 
-          <.input field={form[:license_url]} label="🔗 URL" placeholder="https://example.com" />
-          <.input field={form[:license_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:license_url]}
+            label="🔗 URL" placeholder="https://example.com"
+          />
+          <.input
+            field={form[:license_as_markdown]} type="textarea"
+            label="Text"
+          />
+
         </.section>
 
         <.section id="sipoc" title="Suppliers Inputs Processes Outputs Customers (SIPOC)">
-          <h3 class="h3">Suppliers</h3>
+
+          <h3 class="h3">
+            Suppliers
+          </h3>
 
           <.input
             field={form[:sipoc_suppliers_as_url]}
@@ -338,9 +463,14 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:sipoc_suppliers_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:sipoc_suppliers_as_markdown]} type="textarea"
+            label="Text"
+          />
 
-          <h3 class="h3">Inputs</h3>
+          <h3 class="h3">
+            Inputs
+          </h3>
 
           <.input
             field={form[:sipoc_inputs_as_url]}
@@ -348,9 +478,14 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:sipoc_inputs_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:sipoc_inputs_as_markdown]} type="textarea"
+            label="Text"
+          />
 
-          <h3 class="h3">Processes</h3>
+          <h3 class="h3">
+            Processes
+          </h3>
 
           <.input
             field={form[:sipoc_processes_as_url]}
@@ -358,9 +493,14 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:sipoc_processes_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:sipoc_processes_as_markdown]} type="textarea"
+            label="Text"
+          />
 
-          <h3 class="h3">Outputs</h3>
+          <h3 class="h3">
+            Outputs
+          </h3>
 
           <.input
             field={form[:sipoc_outputs_as_url]}
@@ -368,9 +508,14 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:sipoc_outputs_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:sipoc_outputs_as_markdown]} type="textarea"
+            label="Text"
+          />
 
-          <h3 class="h3">Customers</h3>
+          <h3 class="h3">
+            Customers
+          </h3>
 
           <.input
             field={form[:sipoc_customers_as_url]}
@@ -378,11 +523,18 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:sipoc_customers_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:sipoc_customers_as_markdown]} type="textarea"
+            label="Text"
+          />
+
         </.section>
 
         <.section id="arc42" title="Arc42">
-          <h3 class="h3">Arc42 full documentation</h3>
+
+          <h3 class="h3">
+            Arc42 full documentation
+          </h3>
 
           <.input
             field={form[:arc42_as_url]}
@@ -390,9 +542,14 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:arc42_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:arc42_as_markdown]} type="textarea"
+            label="Text"
+          />
 
-          <h3 class="h3">Arc42 sections</h3>
+          <h3 class="h3">
+            Arc42 sections
+          </h3>
 
           <.input
             field={form[:arc42_01_introduction_and_goals_as_markdown]}
@@ -432,7 +589,7 @@ defmodule NavatrackWeb.Initiatives.FormLive do
           <.input
             field={form[:arc42_08_crosscutting_concepts_as_markdown]}
             type="textarea"
-            label="Arc42 section 08: Crosscutting Concerns"
+            label="Arc42 section 08: Crosscutting Concepts"
           />
           <.input
             field={form[:arc42_09_architectural_decisions_as_markdown]}
@@ -454,15 +611,21 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             type="textarea"
             label="Arc42 section 12: Glossary"
           />
+
         </.section>
 
         <.section id="explain" title="Explain">
+
           <.input
             field={form[:explain_stakeholders_as_markdown]}
             type="textarea"
             label="Explain Stakeholders"
           />
-          <.input field={form[:explain_history_as_markdown]} type="textarea" label="Explain History" />
+          <.input
+            field={form[:explain_history_as_markdown]}
+            type="textarea"
+            label="Explain History"
+          />
           <.input
             field={form[:explain_authentication_as_markdown]}
             type="textarea"
@@ -483,11 +646,31 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             type="textarea"
             label="Explain Demographics"
           />
-          <.input field={form[:explain_ui_as_markdown]} type="textarea" label="Explain UI" />
-          <.input field={form[:explain_api_as_markdown]} type="textarea" label="Explain API" />
-          <.input field={form[:explain_data_as_markdown]} type="textarea" label="Explain Data" />
-          <.input field={form[:explain_mobile_as_markdown]} type="textarea" label="Explain Mobile" />
-          <.input field={form[:explain_legal_as_markdown]} type="textarea" label="Explain Legal" />
+          <.input
+            field={form[:explain_ui_as_markdown]}
+            type="textarea"
+            label="Explain UI"
+          />
+          <.input
+            field={form[:explain_api_as_markdown]}
+            type="textarea"
+            label="Explain API"
+          />
+          <.input
+            field={form[:explain_data_as_markdown]}
+            type="textarea"
+            label="Explain Data"
+          />
+          <.input
+            field={form[:explain_mobile_as_markdown]}
+            type="textarea"
+            label="Explain Mobile"
+          />
+          <.input
+            field={form[:explain_legal_as_markdown]}
+            type="textarea"
+            label="Explain Legal"
+          />
           <.input
             field={form[:explain_financial_as_markdown]}
             type="textarea"
@@ -501,11 +684,13 @@ defmodule NavatrackWeb.Initiatives.FormLive do
           <.input
             field={form[:explain_disaster_recovery_as_markdown]}
             type="textarea"
-            label="Explain Disaster Recover (DR)"
+            label="Explain Disaster Recovery (DR)"
           />
+
         </.section>
 
         <.section id="system_quality_attributes" title="System Quality Attributes (SQA)">
+
           <.input
             field={form[:quality_availability_as_markdown]}
             type="textarea"
@@ -521,7 +706,10 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             type="textarea"
             label="Compatibility"
           />
-          <.input field={form[:quality_efficiency_as_markdown]} type="textarea" label="Efficiency" />
+          <.input
+            field={form[:quality_efficiency_as_markdown]} type="textarea"
+            label="Efficiency"
+          />
           <.input
             field={form[:quality_governability_as_markdown]}
             type="textarea"
@@ -537,16 +725,31 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             type="textarea"
             label="Observability"
           />
-          <.input field={form[:quality_operability_as_markdown]} type="textarea" label="Operability" />
+          <.input
+            field={form[:quality_operability_as_markdown]} type="textarea"
+            label="Operability"
+          />
           <.input
             field={form[:quality_recoverability_as_markdown]}
             type="textarea"
             label="Recoverability"
           />
-          <.input field={form[:quality_scalability_as_markdown]} type="textarea" label="Scalability" />
-          <.input field={form[:quality_security_as_markdown]} type="textarea" label="Security" />
-          <.input field={form[:quality_suitability_as_markdown]} type="textarea" label="Suitability" />
-          <.input field={form[:quality_testability_as_markdown]} type="textarea" label="Testability" />
+          <.input
+            field={form[:quality_scalability_as_markdown]} type="textarea"
+            label="Scalability"
+          />
+          <.input
+            field={form[:quality_security_as_markdown]} type="textarea"
+            label="Security"
+          />
+          <.input
+            field={form[:quality_suitability_as_markdown]} type="textarea"
+            label="Suitability"
+          />
+          <.input
+            field={form[:quality_testability_as_markdown]} type="textarea"
+            label="Testability"
+          />
           <.input
             field={form[:quality_transferability_as_markdown]}
             type="textarea"
@@ -565,7 +768,10 @@ defmodule NavatrackWeb.Initiatives.FormLive do
         </.section>
 
         <.section id="net_promoter_score" title="Net Promoter Score (NPS)">
-          <h3 class="h3">Customer Perspective</h3>
+
+          <h3 class="h3">
+            Customer Perspective
+          </h3>
 
           <.input
             field={form[:net_promoter_score_customer_perspective_actual_value]}
@@ -575,14 +781,19 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             field={form[:net_promoter_score_customer_perspective_target_value]}
             label="Target Value"
           />
-          <.input field={form[:net_promoter_score_customer_perspective_unit]} label="Unit" />
+          <.input
+            field={form[:net_promoter_score_customer_perspective_unit]}
+            label="Unit"
+          />
           <.input
             field={form[:net_promoter_score_customer_perspective_description_as_markdown]}
             type="textarea"
             label="Description"
           />
 
-          <h3 class="h3">User Perspective</h3>
+          <h3 class="h3">
+            User Perspective
+          </h3>
 
           <.input
             field={form[:net_promoter_score_user_perspective_actual_value]}
@@ -592,14 +803,19 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             field={form[:net_promoter_score_user_perspective_target_value]}
             label="Target Value"
           />
-          <.input field={form[:net_promoter_score_user_perspective_unit]} label="Unit" />
+          <.input
+            field={form[:net_promoter_score_user_perspective_unit]}
+            label="Unit"
+          />
           <.input
             field={form[:net_promoter_score_user_perspective_description_as_markdown]}
             type="textarea"
             label="Description"
           />
 
-          <h3 class="h3">Worker Perspective</h3>
+          <h3 class="h3">
+            Worker Perspective
+          </h3>
 
           <.input
             field={form[:net_promoter_score_worker_perspective_actual_value]}
@@ -609,7 +825,10 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             field={form[:net_promoter_score_worker_perspective_target_value]}
             label="Target Value"
           />
-          <.input field={form[:net_promoter_score_worker_perspective_unit]} label="Unit" />
+          <.input
+            field={form[:net_promoter_score_worker_perspective_unit]}
+            label="Unit"
+          />
           <.input
             field={form[:net_promoter_score_worker_perspective_description_as_markdown]}
             type="textarea"
@@ -618,38 +837,90 @@ defmodule NavatrackWeb.Initiatives.FormLive do
         </.section>
 
         <.section id="user_metrics" title="User Metrics">
-          <h3 class="h3">Active Users</h3>
 
-          <.input field={form[:active_users_actual_value]} label="Actual Value" />
-          <.input field={form[:active_users_target_value]} label="Target Value" />
-          <.input field={form[:active_users_unit]} label="Unit" />
-          <.input field={form[:active_users_description]} type="textarea" label="Description" />
+          <h3 class="h3">
+            Active Users
+          </h3>
 
-          <h3 class="h3">Uptime Percentage</h3>
+          <.input
+            field={form[:active_users_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:active_users_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:active_users_unit]}
+            label="Unit"
+          />
+          <.input
+            field={form[:active_users_description]} type="textarea"
+            label="Description"
+          />
 
-          <.input field={form[:uptime_percentage_actual_value]} label="Actual Value" />
-          <.input field={form[:uptime_percentage_target_value]} label="Target Value" />
-          <.input field={form[:uptime_percentage_unit]} label="Unit" />
-          <.input field={form[:uptime_percentage_description]} type="textarea" label="Description" />
+          <h3 class="h3">
+            Uptime Percentage
+          </h3>
+
+          <.input
+            field={form[:uptime_percentage_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:uptime_percentage_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:uptime_percentage_unit]}
+            label="Unit"
+          />
+          <.input
+            field={form[:uptime_percentage_description]} type="textarea"
+            label="Description"
+          />
         </.section>
 
         <.section id="burn_rate" title="Burn Rate">
-          <h3 class="h3">Net Cash Per Week</h3>
 
-          <.input field={form[:burn_rate_net_cash_per_week_actual_value]} label="Actual Value" />
-          <.input field={form[:burn_rate_net_cash_per_week_target_value]} label="Target Value" />
-          <.input field={form[:burn_rate_net_cash_per_week_unit]} label="Unit" />
+          <h3 class="h3">
+            Net Cash Per Week
+          </h3>
+
+          <.input
+            field={form[:burn_rate_net_cash_per_week_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:burn_rate_net_cash_per_week_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:burn_rate_net_cash_per_week_unit]}
+            label="Unit"
+          />
           <.input
             field={form[:burn_rate_net_cash_per_week_description]}
             type="textarea"
             label="Description"
           />
 
-          <h3 class="h3">Hours Per Week</h3>
+          <h3 class="h3">
+            Hours Per Week
+          </h3>
 
-          <.input field={form[:burn_rate_hours_per_week_actual_value]} label="Actual Value" />
-          <.input field={form[:burn_rate_hours_per_week_target_value]} label="Target Value" />
-          <.input field={form[:burn_rate_hours_per_week_unit]} label="Unit" />
+          <.input
+            field={form[:burn_rate_hours_per_week_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:burn_rate_hours_per_week_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:burn_rate_hours_per_week_unit]}
+            label="Unit"
+          />
           <.input
             field={form[:burn_rate_hours_per_week_description]}
             type="textarea"
@@ -658,13 +929,25 @@ defmodule NavatrackWeb.Initiatives.FormLive do
         </.section>
 
         <.section id="earned_value_management" title="Earned Value Management (EVM)">
-          <.input field={form[:earned_value_management_planned_value]} label="Planned Value (PV)" />
-          <.input field={form[:earned_value_management_earned_value]} label="Earned Value (EV)" />
-          <.input field={form[:earned_value_management_actual_cost]} label="Actual Cost (AC)" />
+          <.input
+            field={form[:earned_value_management_planned_value]}
+            label="Planned Value (PV)"
+          />
+          <.input
+            field={form[:earned_value_management_earned_value]}
+            label="Earned Value (EV)"
+          />
+          <.input
+            field={form[:earned_value_management_actual_cost]}
+            label="Actual Cost (AC)"
+          />
         </.section>
 
         <.section id="total_project_control" title="Total Project Control (TPC)">
-          <.input field={form[:total_project_control_dipp]} label="DIPP" />
+          <.input
+            field={form[:total_project_control_dipp]}
+            label="DIPP"
+          />
           <.input
             field={form[:total_project_control_dipp_progress_index_ratio]}
             label="Progress Index (ratio)"
@@ -688,36 +971,87 @@ defmodule NavatrackWeb.Initiatives.FormLive do
         </.section>
 
         <.section id="dora_metrics" title="DORA Metrics">
-          <h3 class="h3">Deployment Frequency</h3>
 
-          <.input field={form[:deployment_frequency_actual_value]} label="Actual Value" />
-          <.input field={form[:deployment_frequency_target_value]} label="Target Value" />
-          <.input field={form[:deployment_frequency_unit]} label="Unit" />
-          <.input field={form[:deployment_frequency_description]} type="textarea" label="Description" />
+          <h3 class="h3">
+            Deployment Frequency
+          </h3>
 
-          <h3 class="h3">Lead Time For Changes</h3>
+          <.input
+            field={form[:deployment_frequency_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:deployment_frequency_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:deployment_frequency_unit]}
+            label="Unit"
+          />
+          <.input
+            field={form[:deployment_frequency_description]} type="textarea"
+            label="Description"
+          />
 
-          <.input field={form[:lead_time_for_changes_actual_value]} label="Actual Value" />
-          <.input field={form[:lead_time_for_changes_target_value]} label="Target Value" />
-          <.input field={form[:lead_time_for_changes_unit]} label="Unit" />
+          <h3 class="h3">
+            Lead Time For Changes
+          </h3>
+
+          <.input
+            field={form[:lead_time_for_changes_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:lead_time_for_changes_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:lead_time_for_changes_unit]}
+            label="Unit"
+          />
           <.input
             field={form[:lead_time_for_changes_description]}
             type="textarea"
             label="Description"
           />
 
-          <h3 class="h3">Change Failure Rate</h3>
+          <h3 class="h3">
+            Change Failure Rate
+          </h3>
 
-          <.input field={form[:change_failure_rate_actual_value]} label="Actual Value" />
-          <.input field={form[:change_failure_rate_target_value]} label="Target Value" />
-          <.input field={form[:change_failure_rate_unit]} label="Unit" />
-          <.input field={form[:change_failure_rate_description]} type="textarea" label="Description" />
+          <.input
+            field={form[:change_failure_rate_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:change_failure_rate_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:change_failure_rate_unit]}
+            label="Unit"
+          />
+          <.input
+            field={form[:change_failure_rate_description]} type="textarea"
+            label="Description"
+          />
 
-          <h3 class="h3">Mean Time To Recovery</h3>
+          <h3 class="h3">
+            Mean Time To Recovery
+          </h3>
 
-          <.input field={form[:mean_time_to_recovery_actual_value]} label="Actual Value" />
-          <.input field={form[:mean_time_to_recovery_target_value]} label="Target Value" />
-          <.input field={form[:mean_time_to_recovery_unit]} label="Unit" />
+          <.input
+            field={form[:mean_time_to_recovery_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:mean_time_to_recovery_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:mean_time_to_recovery_unit]}
+            label="Unit"
+          />
           <.input
             field={form[:mean_time_to_recovery_description]}
             type="textarea"
@@ -726,67 +1060,137 @@ defmodule NavatrackWeb.Initiatives.FormLive do
         </.section>
 
         <.section id="code_metrics" title="Code Metrics">
-          <h3 class="h3">Maintainability Index</h3>
+          <h3 class="h3">
+            Maintainability Index
+          </h3>
 
-          <.input field={form[:maintainability_index_actual_value]} label="Actual Value" />
-          <.input field={form[:maintainability_index_target_value]} label="Target Value" />
-          <.input field={form[:maintainability_index_unit]} label="Unit" />
+          <.input
+            field={form[:maintainability_index_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:maintainability_index_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:maintainability_index_unit]}
+            label="Unit"
+          />
           <.input
             field={form[:maintainability_index_description]}
             type="textarea"
             label="Description"
           />
 
-          <h3 class="h3">Line Count</h3>
+          <h3 class="h3">
+            Line Count
+          </h3>
 
-          <.input field={form[:line_count_actual_value]} label="Actual Value" />
-          <.input field={form[:line_count_target_value]} label="Target Value" />
-          <.input field={form[:line_count_unit]} label="Unit" />
-          <.input field={form[:line_count_description]} type="textarea" label="Description" />
+          <.input
+            field={form[:line_count_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:line_count_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:line_count_unit]}
+            label="Unit"
+          />
+          <.input
+            field={form[:line_count_description]} type="textarea"
+            label="Description"
+          />
 
-          <h3 class="h3">Test Automation Code Coverage</h3>
+          <h3 class="h3">
+            Test Automation Code Coverage
+          </h3>
 
-          <.input field={form[:test_automation_code_coverage_actual_value]} label="Actual Value" />
-          <.input field={form[:test_automation_code_coverage_target_value]} label="Target Value" />
-          <.input field={form[:test_automation_code_coverage_unit]} label="Unit" />
+          <.input
+            field={form[:test_automation_code_coverage_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:test_automation_code_coverage_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:test_automation_code_coverage_unit]}
+            label="Unit"
+          />
           <.input
             field={form[:test_automation_code_coverage_description]}
             type="textarea"
             label="Description"
           />
 
-          <h3 class="h3">Halstead Complexity Volume</h3>
+          <h3 class="h3">
+            Halstead Complexity Volume
+          </h3>
 
-          <.input field={form[:halstead_complexity_volume_actual_value]} label="Actual Value" />
-          <.input field={form[:halstead_complexity_volume_target_value]} label="Target Value" />
-          <.input field={form[:halstead_complexity_volume_unit]} label="Unit" />
+          <.input
+            field={form[:halstead_complexity_volume_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:halstead_complexity_volume_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:halstead_complexity_volume_unit]}
+            label="Unit"
+          />
           <.input
             field={form[:halstead_complexity_volume_description]}
             type="textarea"
             label="Description"
           />
 
-          <h3 class="h3">Halstead Complexity Difficulty</h3>
+          <h3 class="h3">
+            Halstead Complexity Difficulty
+          </h3>
 
-          <.input field={form[:halstead_complexity_difficulty_actual_value]} label="Actual Value" />
-          <.input field={form[:halstead_complexity_difficulty_target_value]} label="Target Value" />
-          <.input field={form[:halstead_complexity_difficulty_unit]} label="Unit" />
+          <.input
+            field={form[:halstead_complexity_difficulty_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:halstead_complexity_difficulty_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:halstead_complexity_difficulty_unit]}
+            label="Unit"
+          />
           <.input
             field={form[:halstead_complexity_difficulty_description]}
             type="textarea"
             label="Description"
           />
 
-          <h3 class="h3">Halstead Complexity Effort</h3>
+          <h3 class="h3">
+            Halstead Complexity Effort
+          </h3>
 
-          <.input field={form[:halstead_complexity_effort_actual_value]} label="Actual Value" />
-          <.input field={form[:halstead_complexity_effort_target_value]} label="Target Value" />
-          <.input field={form[:halstead_complexity_effort_unit]} label="Unit" />
+          <.input
+            field={form[:halstead_complexity_effort_actual_value]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:halstead_complexity_effort_target_value]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:halstead_complexity_effort_unit]}
+            label="Unit"
+          />
           <.input
             field={form[:halstead_complexity_effort_description]}
             type="textarea"
             label="Description"
           />
+
         </.section>
 
         <.button type="primary">Save</.button>

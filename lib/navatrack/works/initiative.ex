@@ -29,9 +29,13 @@ defmodule Navatrack.Works.Initiative do
       :email,
       :phone,
       :messaging,
+      :calendar,
       :postal,
       :orcid_pid,
       :rdf_type,
+      :linkedin_url,
+      :github_url,
+      :codeberg_url,
       :agents_as_url,
       :agents_as_markdown,
       :avatar_image_400x400_url,
@@ -247,6 +251,7 @@ defmodule Navatrack.Works.Initiative do
     attribute :email, :string
     attribute :phone, :string
     attribute :messaging, :string
+    attribute :calendar, :string
     attribute :postal, :string
     attribute :orcid_pid, :string
     attribute :rdf_type, :string
@@ -371,20 +376,20 @@ defmodule Navatrack.Works.Initiative do
     attribute :net_promoter_score_worker_perspective_target_value, :decimal
     attribute :net_promoter_score_worker_perspective_unit, :string
     attribute :net_promoter_score_worker_perspective_description_as_markdown, :string
-    attribute :active_users_actual_value, :integer
-    attribute :active_users_target_value, :integer
+    attribute :active_users_actual_value, :decimal
+    attribute :active_users_target_value, :decimal
     attribute :active_users_unit, :string
     attribute :active_users_description, :string
     attribute :uptime_percentage_actual_value, :decimal
     attribute :uptime_percentage_target_value, :decimal
     attribute :uptime_percentage_unit, :string
     attribute :uptime_percentage_description, :string
-    attribute :burn_rate_net_cash_per_week_actual_value, :integer
-    attribute :burn_rate_net_cash_per_week_target_value, :integer
+    attribute :burn_rate_net_cash_per_week_actual_value, :decimal
+    attribute :burn_rate_net_cash_per_week_target_value, :decimal
     attribute :burn_rate_net_cash_per_week_unit, :string
     attribute :burn_rate_net_cash_per_week_description, :string
-    attribute :burn_rate_hours_per_week_actual_value, :integer
-    attribute :burn_rate_hours_per_week_target_value, :integer
+    attribute :burn_rate_hours_per_week_actual_value, :decimal
+    attribute :burn_rate_hours_per_week_target_value, :decimal
     attribute :burn_rate_hours_per_week_unit, :string
     attribute :burn_rate_hours_per_week_description, :string
     attribute :earned_value_management_planned_value, :decimal

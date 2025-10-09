@@ -56,7 +56,7 @@ defmodule NavatrackWeb.UserIloIsco2008Links.FormLive do
         <.input field={form[:status]} label="🚦 Status" />
         <.input field={form[:tagging]} label="🏷️ Tags" />
 
-        <.section id="contact" title="Contacts">
+        <.section id="contact" title="Contact">
           <.input field={form[:url]} type="url" label="🔗 URL" placeholder="https://example.com" />
           <.input
             field={form[:email]}
@@ -132,7 +132,9 @@ defmodule NavatrackWeb.UserIloIsco2008Links.FormLive do
         </.section>
 
         <.section id="images" title="Images">
-          <h3 class="h3">Avatar 400x400</h3>
+          <h3 class="h3">
+            Avatar image 400x400
+          </h3>
 
           <.input
             field={form[:avatar_image_400x400_url]}
@@ -141,7 +143,9 @@ defmodule NavatrackWeb.UserIloIsco2008Links.FormLive do
           />
           <.input field={form[:avatar_image_400x400_alt]} label="Alt" />
 
-          <h3 class="h3">Splash 1080x1080 square</h3>
+          <h3 class="h3">
+            Main image 1080x1080 square
+          </h3>
 
           <.input
             field={form[:main_image_1080x1080_url]}
@@ -150,7 +154,9 @@ defmodule NavatrackWeb.UserIloIsco2008Links.FormLive do
           />
           <.input field={form[:main_image_1080x1080_alt]} label="Alt" />
 
-          <h3 class="h3">Splash 1920x1080 landscape</h3>
+          <h3 class="h3">
+            Main image 1920x1080 landscape
+          </h3>
 
           <.input
             field={form[:main_image_1920x1080_url]}
@@ -159,7 +165,9 @@ defmodule NavatrackWeb.UserIloIsco2008Links.FormLive do
           />
           <.input field={form[:main_image_1920x1080_alt]} label="Alt" />
 
-          <h3 class="h3">Splash 1920x1080 portrait</h3>
+          <h3 class="h3">
+            Main image 1080x1920 portrait
+          </h3>
 
           <.input
             field={form[:main_image_1080x1920_url]}
@@ -171,7 +179,6 @@ defmodule NavatrackWeb.UserIloIsco2008Links.FormLive do
 
         <.section id="deeper_dive" title="Deeper Dive">
           <.input field={form[:note]} label="Note" />
-          <.input field={form[:email_distribution_list]} label="Email distribution list" />
           <.input field={form[:daisyui_timeline_html]} label="DaisyUI timeline HTML" />
           <.input field={form[:org_mode]} label="Org Mode" />
           <.input field={form[:task_list_as_markdown]} type="textarea" label="Task list as markdown" />
@@ -200,7 +207,9 @@ defmodule NavatrackWeb.UserIloIsco2008Links.FormLive do
         </.section>
 
         <.section id="net_promoter_score" title="Net Promoter Score">
-          <h3 class="h3">Net Promoter Score (NPS) Customer Perspective</h3>
+          <h3 class="h3">
+            Net Promoter Score (NPS) Customer Perspective
+          </h3>
 
           <.input
             field={form[:net_promoter_score_customer_perspective_actual_value]}
@@ -217,7 +226,9 @@ defmodule NavatrackWeb.UserIloIsco2008Links.FormLive do
             label="Description"
           />
 
-          <h3 class="h3">Net Promoter Score (NPS) User Perspective</h3>
+          <h3 class="h3">
+            Net Promoter Score (NPS) User Perspective
+          </h3>
 
           <.input
             field={form[:net_promoter_score_user_perspective_actual_value]}
@@ -234,7 +245,9 @@ defmodule NavatrackWeb.UserIloIsco2008Links.FormLive do
             label="Description"
           />
 
-          <h3 class="h3">Net Promoter Score (NPS) Worker Perspective</h3>
+          <h3 class="h3">
+            Net Promoter Score (NPS) Worker Perspective
+          </h3>
 
           <.input
             field={form[:net_promoter_score_worker_perspective_actual_value]}
@@ -253,72 +266,100 @@ defmodule NavatrackWeb.UserIloIsco2008Links.FormLive do
         </.section>
 
         <.section id="policies" title="Policies">
-          <h3 class="h3">Ethics Policy</h3>
+          <h3 class="h3">
+            Ethics Policy
+          </h3>
 
           <.input field={form[:ethics_policy_as_url]} type="url" label="Code" />
           <.input field={form[:ethics_policy_as_markdown]} label="Name" />
 
-          <h3 class="h3">Copyright Policy</h3>
+          <h3 class="h3">
+            Copyright Policy
+          </h3>
 
           <.input field={form[:copyright_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:copyright_policy_as_markdown]} label="Text" />
 
-          <h3 class="h3">Corrections Policy</h3>
+          <h3 class="h3">
+            Corrections Policy
+          </h3>
 
           <.input field={form[:corrections_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:corrections_policy_as_markdown]} label="Text" />
 
-          <h3 class="h3">Legal Policy</h3>
+          <h3 class="h3">
+            Legal Policy
+          </h3>
 
           <.input field={form[:legal_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:legal_policy_as_markdown]} label="Text" />
 
-          <h3 class="h3">Privacy Policy</h3>
+          <h3 class="h3">
+            Privacy Policy
+          </h3>
 
           <.input field={form[:privacy_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:privacy_policy_as_markdown]} label="Text" />
 
-          <h3 class="h3">Security Policy</h3>
+          <h3 class="h3">
+            Security Policy
+          </h3>
 
           <.input field={form[:security_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:security_policy_as_markdown]} label="Text" />
 
-          <h3 class="h3">Coordinated Disclosure Policy</h3>
+          <h3 class="h3">
+            Coordinated Disclosure Policy
+          </h3>
 
           <.input field={form[:coordinated_disclosure_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:coordinated_disclosure_policy_as_markdown]} label="Text" />
 
-          <h3 class="h3">Open Source Policy</h3>
+          <h3 class="h3">
+            Open Source Policy
+          </h3>
 
           <.input field={form[:open_source_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:open_source_policy_as_markdown]} label="Text" />
 
-          <h3 class="h3">Code of Conduct Policy</h3>
+          <h3 class="h3">
+            Code of Conduct Policy
+          </h3>
 
           <.input field={form[:code_of_conduct_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:code_of_conduct_policy_as_markdown]} label="Text" />
 
-          <h3 class="h3">Equal Opportunity Policy</h3>
+          <h3 class="h3">
+            Equal Opportunity Policy
+          </h3>
 
           <.input field={form[:equal_opportunity_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:equal_opportunity_policy_as_markdown]} label="Text" />
 
-          <h3 class="h3">Social Network Policy</h3>
+          <h3 class="h3">
+            Social Network Policy
+          </h3>
 
           <.input field={form[:social_network_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:social_network_policy_as_markdown]} type="url" label="Text" />
 
-          <h3 class="h3">Health &amp; Safety Policy</h3>
+          <h3 class="h3">
+            Health &amp; Safety Policy
+          </h3>
 
           <.input field={form[:health_and_safety_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:health_and_safety_policy_as_markdown]} label="Text" />
 
-          <h3 class="h3">Employee Handbook Policy</h3>
+          <h3 class="h3">
+            Employee Handbook Policy
+          </h3>
 
           <.input field={form[:employee_handbook_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:employee_handbook_policy_as_markdown]} label="Text" />
 
-          <h3 class="h3">Human Resources Policy</h3>
+          <h3 class="h3">
+            Human Resources Policy
+          </h3>
 
           <.input field={form[:human_resources_policy_as_url]} type="url" label="🔗 URL" />
           <.input field={form[:human_resources_policy_as_markdown]} label="Text" />

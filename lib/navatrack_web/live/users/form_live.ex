@@ -52,19 +52,36 @@ defmodule NavatrackWeb.Users.FormLive do
       >
         <h2 class="h2">Introduction</h2>
 
-        <.input field={form[:name]} label="📛 Name" autofocus />
-        <.input field={form[:status]} label="🚦 Status" />
-        <.input field={form[:tagging]} label="🏷️ Tags" />
+        <.input
+          field={form[:name]}
+          label="📛 Name"
+          autofocus
+        />
+        <.input
+          field={form[:status]}
+          label="🚦 Status"
+        />
+        <.input
+          field={form[:tagging]}
+          label="🏷️ Tags"
+        />
 
-        <.section id="contact" title="Contacts">
-          <.input field={form[:url]} type="url" label="🔗 URL" placeholder="https://example.com" />
+        <.section id="contact" title="Contact">
+          <.input
+            field={form[:url]}
+            type="url"
+            label="🔗 URL"
+            placeholder="https://example.com" />
           <.input
             field={form[:email]}
             type="email"
             label="📧 Email"
             placeholder="example@example.com"
           />
-          <.input field={form[:phone]} type="tel" label=" 📱 Phone" placeholder="+1-415-555-5555" />
+          <.input field={form[:phone]}
+            type="tel"
+            label=" 📱 Phone" placeholder="+1-415-555-5555"
+          />
           <.input
             field={form[:messaging]}
             label="💬 Messaging"
@@ -75,8 +92,15 @@ defmodule NavatrackWeb.Users.FormLive do
             label="📫 Postal"
             placeholder="123 Main St, San Francisco, CA, US, 94100, US"
           />
-          <.input field={form[:orcid_pid]} label="🌺 ORCID PID" placeholder="0009-0000-4681-282X" />
-          <.input field={form[:rdf_type]} label="🖇️ RDF Type" />
+          <.input
+            field={form[:orcid_pid]}
+            label="🌺 ORCID PID"
+            placeholder="0009-0000-4681-282X"
+          />
+          <.input
+            field={form[:rdf_type]}
+            label="🖇️ RDF Type"
+          />
         </.section>
 
         <.section id="socials" title="Socials">
@@ -108,7 +132,9 @@ defmodule NavatrackWeb.Users.FormLive do
             label="Subcountry code (ISO 3166-2)"
             placeholder="CA"
           />
-          <.input field={form[:location_postal_code]} label="Postal code" placeholder="94100" />
+          <.input
+            field={form[:location_postal_code]}
+            label="Postal code" placeholder="94100" />
           <.input
             field={form[:location_latitude_as_decimal_degrees]}
             label="Latitude"
@@ -128,54 +154,92 @@ defmodule NavatrackWeb.Users.FormLive do
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:agents_as_markdown]} type="textarea" label="Text" />
+          <.input field={form[:agents_as_markdown]}
+            type="textarea"
+            label="Markdown"
+          />
         </.section>
 
         <.section id="images" title="Images">
-          <h3 class="h3">Avatar 400x400</h3>
+
+          <h3 class="h3">
+            Avatar image 400x400
+          </h3>
 
           <.input
             field={form[:avatar_image_400x400_url]}
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:avatar_image_400x400_alt]} label="Alt" />
+          <.input
+            field={form[:avatar_image_400x400_alt]}
+            label="Alt"
+          />
 
-          <h3 class="h3">Splash 1080x1080 square</h3>
+          <h3 class="h3">
+            Main image 1080x1080 square
+          </h3>
 
           <.input
             field={form[:main_image_1080x1080_url]}
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:main_image_1080x1080_alt]} label="Alt" />
+          <.input
+            field={form[:main_image_1080x1080_alt]}
+            label="Alt"
+          />
 
-          <h3 class="h3">Splash 1920x1080 landscape</h3>
+          <h3 class="h3">
+            Main image 1920x1080 landscape
+          </h3>
 
           <.input
             field={form[:main_image_1920x1080_url]}
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:main_image_1920x1080_alt]} label="Alt" />
+          <.input
+            field={form[:main_image_1920x1080_alt]}
+            label="Alt"
+          />
 
-          <h3 class="h3">Splash 1920x1080 portrait</h3>
+          <h3 class="h3">
+            Main image 1080x1920 portrait
+          </h3>
 
           <.input
             field={form[:main_image_1080x1920_url]}
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input field={form[:main_image_1080x1920_alt]} label="Alt" />
+          <.input
+            field={form[:main_image_1080x1920_alt]}
+            label="Alt"
+          />
         </.section>
 
         <.section id="deeper_dive" title="Deeper Dive">
-          <.input field={form[:note]} label="Note" />
-          <.input field={form[:email_distribution_list]} label="Email distribution list" />
-          <.input field={form[:daisyui_timeline_html]} label="DaisyUI timeline HTML" />
-          <.input field={form[:org_mode]} label="Org Mode" />
-          <.input field={form[:task_list_as_markdown]} type="textarea" label="Task list as markdown" />
-          <.input field={form[:ways_of_working_as_markdown]} type="textarea" label="Ways Of Working" />
+          <.input
+            field={form[:note]}
+            label="Note"
+          />
+          <.input field={form[:daisyui_timeline_html]}
+            label="DaisyUI timeline HTML"
+          />
+          <.input field={form[:org_mode]}
+            label="Org Mode"
+          />
+          <.input
+            field={form[:task_list_as_markdown]}
+            type="textarea"
+            label="Task list as markdown"
+          />
+          <.input
+            field={form[:ways_of_working_as_markdown]}
+            type="textarea"
+            label="Ways Of Working"
+          />
           <.input
             field={form[:objectives_and_key_results_as_markdown]}
             type="textarea"
@@ -189,16 +253,24 @@ defmodule NavatrackWeb.Users.FormLive do
         </.section>
 
         <.section id="work_profile" title="Work Profile">
-          <h3 class="h3">Résumé</h3>
+          <h3 class="h3">
+            Résumé
+          </h3>
 
           <.input
             field={form[:work_profile_resume_as_pdf_url]}
             label="PDF URL"
             placeholder="https://example.com/resume.pdf"
           />
-          <.input field={form[:work_profile_resume_as_markdown]} type="textarea" label="Text" />
+          <.input
+            field={form[:work_profile_resume_as_markdown]}
+            type="textarea"
+            label="Text"
+          />
 
-          <h3 class="h3">Curriculum Vitae</h3>
+          <h3 class="h3">
+            Curriculum Vitae
+          </h3>
 
           <.input
             field={form[:work_profile_curriculum_vitae_as_pdf_url]}
@@ -213,7 +285,9 @@ defmodule NavatrackWeb.Users.FormLive do
         </.section>
 
         <.section id="work_role" title="Work Role">
-          <h3 class="h3">Summary</h3>
+          <h3 class="h3">
+            Summary
+          </h3>
 
           <.input
             field={form[:work_role_name]}
@@ -231,19 +305,30 @@ defmodule NavatrackWeb.Users.FormLive do
             label="Description"
           />
           <.input
-            field={form[:work_role_professional_development_plan_markdown]}
+            field={form[:work_role_professional_development_plan_as_markdown]}
             type="textarea"
             label="Professional Development Plan"
           />
 
-          <h3 class="h3">Dates</h3>
+          <h3 class="h3">
+            Dates
+          </h3>
 
-          <.input field={form[:work_role_start_date]} type="date" label="Start Date" />
-          <.input field={form[:work_role_stop_date]} type="date" label="Stop Date" />
+          <.input field={form[:work_role_start_date]}
+            type="date"
+            label="Start Date"
+          />
+          <.input field={form[:work_role_stop_date]}
+            type="date"
+            label="Stop Date"
+          />
         </.section>
 
         <.section id="work_codes" title="Work Codes">
-          <.input field={form[:work_role_onet_soc_2019_code]} label="O*NET SOC 2019" />
+          <.input
+            field={form[:work_role_onet_soc_2019_code]}
+            label="O*NET SOC 2019"
+          />
           <.input
             field={form[:work_role_uk_civil_service_grade_abbreviation]}
             label="United Kingdom (UK) Civil Service Grade Abbreviation"
