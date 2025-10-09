@@ -112,13 +112,25 @@ mix ash.generate_resource_diagrams
 Redo databases, which is equivalent to ecto.drop, ecto.create, ecto.migrate, and running seeds:
 
 ```sh
-rm -rf priv/resource_snapshots/*
-(export MIX_ENV=dev  && mix ecto.reset) &&
-(export MIX_ENV=test && mix ecto.reset)
-mix ash.codegen tmp
-rm priv/repo/migrations/*_tmp.exs
-rm priv/repo/migrations/*_tmp_extensions_1.exs
+rm -rf priv/resource_snapshots/* &&
+for env in dev test; do
+   export MIX_ENV=$env
+   mix ecto.reset
+   mix ash.codegen tmp
+   rm priv/repo/migrations/*_tmp.exs
+   rm priv/repo/migrations/*_tmp_extensions_1.exs
+   mix ash.migrate
+done
+export MIX_ENV=dev
 mix phx.server
+```
+
+Redo dependencies:
+
+```sh
+mix deps.clean ash_authentication_phoenix --build
+mix deps.get
+mix compile --force
 ```
 
 ## Search
