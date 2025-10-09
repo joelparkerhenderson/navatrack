@@ -10,7 +10,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableIloIsco2008s do
     CREATE TABLE ilo_isco_2008s (
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       locale_code text not null,
-      code text not null CONSTRAINT code_check CHECK (code ~* '^[0-9]*$' AND char_length(code) < 4),
+      code text not null CONSTRAINT code_check CHECK (code ~* '^[0-9]*$' AND char_length(code) <= 4),
       name text not null,
       definition_as_markdown text not null
     );
