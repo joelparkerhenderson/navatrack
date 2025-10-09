@@ -153,6 +153,18 @@
       "references": null,
       "scale": null,
       "size": null,
+      "source": "calendar",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
       "source": "postal",
       "type": "text"
     },
@@ -358,6 +370,18 @@
       "scale": null,
       "size": null,
       "source": "key_performance_indicators_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "agents_as_url",
       "type": "text"
     },
     {
@@ -870,7 +894,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "B8BCBF38CE16FB48E1ACA5A0792463BA44A5BEADAA55C8B3500E0916BF9C5F8A",
+  "hash": "E9DB0D8C4A7FAE4C2698C9A5C882D946C91900624ADD4F0AF6587886AFB68DF1",
   "identities": [],
   "multitenancy": {
     "attribute": null,

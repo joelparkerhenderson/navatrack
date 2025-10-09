@@ -19,7 +19,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_ilo_isco_2008_links_user_id_fkey",
+        "name": "user_uk_gdad_pcf_skill_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -50,16 +50,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_ilo_isco_2008_links_ilo_isco_2008_id_fkey",
+        "name": "user_uk_gdad_pcf_skill_links_uk_gdad_pcf_skill_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "ilo_isco_2008s"
+        "table": "uk_gdad_pcf_skills"
       },
       "scale": null,
       "size": null,
-      "source": "ilo_isco_2008_id",
+      "source": "uk_gdad_pcf_skill_id",
       "type": "uuid"
     }
   ],
@@ -68,7 +68,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "9680973E4DEDEDD4155005BB58BE848E2513E96C3B5C0740F0F60EF7F6543D08",
+  "hash": "8C2722FEF65E8192343D1BC21AAF6E039AE76DB4E16D0B64D22AFFA0481884BC",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -77,5 +77,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_ilo_isco_2008_links"
+  "table": "user_uk_gdad_pcf_skill_links"
 }

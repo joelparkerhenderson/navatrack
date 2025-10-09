@@ -19,7 +19,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_lumina_foundation_skill_level_links_user_id_fkey",
+        "name": "user_uk_gdad_pcf_role_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -50,16 +50,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_lumina_foundation_skill_level_links_lumina_foundation_skill_level_id_fkey",
+        "name": "user_uk_gdad_pcf_role_links_uk_gdad_pcf_role_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "lumina_foundation_skill_levels"
+        "table": "uk_gdad_pcf_roles"
       },
       "scale": null,
       "size": null,
-      "source": "lumina_foundation_skill_level_id",
+      "source": "uk_gdad_pcf_role_id",
       "type": "uuid"
     }
   ],
@@ -68,7 +68,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "2DB7131AF852010E1E08D112E9633B5DE159C1C0B24F0DA16D7105F6980F5E42",
+  "hash": "B1E76FE06C281CA77B0963AFA1149A2E91608BB6B23A59F53E328924F90E282A",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -77,5 +77,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_lumina_foundation_skill_level_links"
+  "table": "user_uk_gdad_pcf_role_links"
 }

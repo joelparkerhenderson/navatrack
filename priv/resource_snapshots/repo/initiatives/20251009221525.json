@@ -153,6 +153,18 @@
       "references": null,
       "scale": null,
       "size": null,
+      "source": "calendar",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
       "source": "postal",
       "type": "text"
     },
@@ -1642,7 +1654,7 @@
       "scale": null,
       "size": null,
       "source": "active_users_actual_value",
-      "type": "bigint"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1654,7 +1666,7 @@
       "scale": null,
       "size": null,
       "source": "active_users_target_value",
-      "type": "bigint"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1738,7 +1750,7 @@
       "scale": null,
       "size": null,
       "source": "burn_rate_net_cash_per_week_actual_value",
-      "type": "bigint"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1750,7 +1762,7 @@
       "scale": null,
       "size": null,
       "source": "burn_rate_net_cash_per_week_target_value",
-      "type": "bigint"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1786,7 +1798,7 @@
       "scale": null,
       "size": null,
       "source": "burn_rate_hours_per_week_actual_value",
-      "type": "bigint"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -1798,7 +1810,7 @@
       "scale": null,
       "size": null,
       "source": "burn_rate_hours_per_week_target_value",
-      "type": "bigint"
+      "type": "decimal"
     },
     {
       "allow_nil?": true,
@@ -2610,7 +2622,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "B71C7D3683A6AD12D918E4F75E0FB77E9F588CC064851F04A0F6E3201C123ECF",
+  "hash": "77BF85D178DBF60F369ACA90C2F3ED4092FF8C9322C9412923FD2A4437D66920",
   "identities": [],
   "multitenancy": {
     "attribute": null,

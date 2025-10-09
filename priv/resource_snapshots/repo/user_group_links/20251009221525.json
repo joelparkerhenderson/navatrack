@@ -61,11 +61,11 @@
       "type": "text"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -79,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_trait_links_user_id_fkey",
+        "name": "user_group_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -92,11 +92,11 @@
       "type": "uuid"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -110,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_trait_links_trait_id_fkey",
+        "name": "user_group_links_group_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "traits"
+        "table": "groups"
       },
       "scale": null,
       "size": null,
-      "source": "trait_id",
+      "source": "group_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "C02A5F4503955BA5C80150BA31BEE510E87E1801B389D87D841B2D4F05ED6027",
+  "hash": "74D401E4DE5EAD5C41FC33C68437D4FC6C0287BE180788E08B42E504654E8DE2",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_trait_links"
+  "table": "user_group_links"
 }
