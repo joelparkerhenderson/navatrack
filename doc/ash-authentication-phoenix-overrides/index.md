@@ -1,4 +1,11 @@
-defmodule NavatrackWeb.AuthOverrides do
+# Ash Authentication Phoenix Overrides
+
+## Create customization
+
+Edit the auto-generated file `lib/NavatrackWeb/AuthOverrides.exs`.
+
+```elixir
+defmodule NavatrackWeb.AshAuthenticationPhoenixOverrides do
   use AshAuthentication.Phoenix.Overrides
 
   # configure your UI overrides here
@@ -22,3 +29,17 @@ defmodule NavatrackWeb.AuthOverrides do
     set :image_url, nil
   end
 end
+```
+
+## Verify router
+
+View file `lib/navatrack_web/router.ex`.
+
+Verify the presence of `NavatrackWeb.AuthOverrides` in the `sign_in_route` and the `reset_route`.
+
+```elixir
+overrides: [
+  NavatrackWeb.AuthOverrides,
+  AshAuthentication.Phoenix.Overrides.Default
+]
+```

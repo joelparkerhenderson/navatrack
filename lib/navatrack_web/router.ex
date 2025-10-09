@@ -31,7 +31,6 @@ defmodule NavatrackWeb.Router do
   scope "/", NavatrackWeb do
     pipe_through :browser
     get "/", PageController, :home
-
     backpex_routes()
 
     auth_routes AuthController, Navatrack.Accounts.User, path: "/auth"
