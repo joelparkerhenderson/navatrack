@@ -94,7 +94,7 @@ defmodule NavatrackWeb.UsersTest do
     assert response =~ "📛 Name"
     assert response =~ "🚦 Status"
     assert response =~ "🏷️ Tags"
-    assert response =~ "Contacts"
+    assert response =~ "Contact"
     assert response =~ "🔗 URL"
     assert response =~ "📧 Email"
     assert response =~ "📱 Phone"
@@ -152,19 +152,21 @@ defmodule NavatrackWeb.UsersTest do
     x = x!()
     conn = get(conn, ~p"/users/#{x.id}")
     response = html_response(conn, 200)
+
     assert response =~ "Users"
+
     assert response =~ "Id: #{x.id}"
     # assert response =~ "Created at: #{x.created_at}"
     # assert response =~ "Updated at: #{x.updated_at}"
     # assert response =~ "Deleted at: #{x.deleted_at}"
     assert response =~ "Locale code: #{x.locale_code}"
-    assert response =~ "Name: #{x.name}"
-    assert response =~ "Status: #{x.status}"
-    assert response =~ "Tagging: #{x.tagging}"
-    assert response =~ "URL: #{x.url}"
+    assert response =~ "📛 Name: #{x.name}"
+    assert response =~ "🚦 Status: #{x.status}"
+    assert response =~ "🏷️ Tags: #{x.tagging}"
 
     assert response =~ "Contact"
 
+    assert response =~ "URL: #{x.url}"
     assert response =~ "Email: #{x.email}"
     assert response =~ "Phone: #{x.phone}"
     assert response =~ "Messaging: #{x.messaging}"
@@ -200,14 +202,21 @@ defmodule NavatrackWeb.UsersTest do
 
     assert response =~ "Images"
 
-    assert response =~ "Avatar image 400x400 url: #{x.avatar_image_400x400_url}"
-    assert response =~ "Avatar image 400x400 alt: #{x.avatar_image_400x400_alt}"
-    assert response =~ "Main image 1080x1080 url: #{x.main_image_1080x1080_url}"
-    assert response =~ "Main image 1080x1080 alt: #{x.main_image_1080x1080_alt}"
-    assert response =~ "Main image 1920x1080 url: #{x.main_image_1920x1080_url}"
-    assert response =~ "Main image 1920x1080 alt: #{x.main_image_1920x1080_alt}"
-    assert response =~ "Main image 1080x1920 url: #{x.main_image_1080x1920_url}"
-    assert response =~ "Main image 1080x1920 alt: #{x.main_image_1080x1920_alt}"
+    assert response =~ "Avatar image 400x400"
+    assert response =~ "URL: #{x.avatar_image_400x400_url}"
+    assert response =~ "Alt: #{x.avatar_image_400x400_alt}"
+
+    assert response =~ "Main image 1080x1080 square"
+    assert response =~ "URL: #{x.main_image_1080x1080_url}"
+    assert response =~ "Alt: #{x.main_image_1080x1080_alt}"
+
+    assert response =~ "Main image 1920x1080 landscape"
+    assert response =~ "URL: #{x.main_image_1920x1080_url}"
+    assert response =~ "Alt: #{x.main_image_1920x1080_alt}"
+
+    assert response =~ "Main image 1080x1920 portrait"
+    assert response =~ "URL: #{x.main_image_1080x1920_url}"
+    assert response =~ "Alt: #{x.main_image_1080x1920_alt}"
 
     assert response =~ "Work Profile"
 

@@ -111,7 +111,7 @@ defmodule NavatrackWeb.GroupsTest do
     assert response =~ "🚦 Status"
     assert response =~ "🏷️ Tags"
 
-    assert response =~ "Contacts"
+    assert response =~ "Contact"
     assert response =~ "🔗 URL"
     assert response =~ "📧 Email"
     assert response =~ "📱 Phone"
@@ -172,9 +172,16 @@ defmodule NavatrackWeb.GroupsTest do
     conn = get(conn, ~p"/groups/#{x.id}")
     response = html_response(conn, 200)
 
-    assert response =~ "Name: #{x.name}"
-    assert response =~ "Status: #{x.status}"
-    assert response =~ "Tagging: #{x.tagging}"
+    assert response =~ "Groups"
+
+    assert response =~ "Id: #{x.id}"
+    # assert response =~ "Created at: #{x.created_at}"
+    # assert response =~ "Updated at: #{x.updated_at}"
+    # assert response =~ "Deleted at: #{x.deleted_at}"
+    assert response =~ "Locale code: #{x.locale_code}"
+    assert response =~ "📛 Name: #{x.name}"
+    assert response =~ "🚦 Status: #{x.status}"
+    assert response =~ "🏷️ Tags: #{x.tagging}"
 
     assert response =~ "Contact"
     assert response =~ "URL: #{x.url}"
