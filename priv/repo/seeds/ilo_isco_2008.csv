@@ -5306,7 +5306,7 @@ Examples of the occupations classified here:
 - Investment analyst
 
 - Securities consultant"
-"Minor Group","242","Administration Professionals Administration professionals apply various concepts
+"Minor Group","242","Administration Professionals","Administration professionals apply various concepts
 and theories related to improving the effectiveness of organizations and the
 individuals within the organization.
 
@@ -5661,7 +5661,7 @@ Examples of the occupations classified here:
 Some related occupations classified elsewhere:
 
 - Shop sales assistants – 5223"
-"Sub-Major Group 25","Information and Communications Technology Professionals","Information and communications technology professionals conduct research; plan,
+"Sub-Major Group","25","Information and Communications Technology Professionals","Information and communications technology professionals conduct research; plan,
 design, write, test, provide advice and improve information technology systems,
 hardware, software and related concepts for specific applications; develop
 associated documentation including principles, policies and procedures; and
@@ -6058,7 +6058,7 @@ Examples of the occupations classified here:
 - Digital forensic specialist
 
 - Security specialist (ICT)"
-"Sub-major Group","26","Legal, Social and Cultural Professionals Legal, social and cultural
+"Sub-major Group","26","Legal, Social and Cultural Professionals","Legal, social and cultural
 professionals conduct research; improve or develop concepts, theories and
 operational methods; or apply knowledge relating to the law, storage and
 retrieval of information and artefacts, psychology, social welfare, politics,
@@ -8829,10 +8829,7 @@ therapies; advising individuals, families and the community on health,
 nutrition, hygiene, lifestyle and other issues to maintain or improve health and
 well-being; referring patients to, and exchanging information with, other health
 care providers to ensure comprehensive and continuing care."
-"Leaf"
-"3230"
-"Traditional and Complementary Medicine Associate Professionals"
-"Traditional and complementary medicine associate professionals prevent, care for
+"Leaf","3230","Traditional and Complementary Medicine Associate Professionals","Traditional and complementary medicine associate professionals prevent, care for
 and treat human physical and mental illnesses, disorders and injuries using
 herbal and other therapies based on theories, beliefs and experiences
 originating in specific cultures. They administer treatments using traditional
@@ -11543,10 +11540,7 @@ issue of equipment to staff; responding to telephone or electronic inquiries or
 forwarding to appropriate persons; checking figures, preparing invoices and
 recording details of financial transactions made; transcribing information onto
 computers, and proofreading and correcting copy."
-"Leaf"
-"4110"
-"General Office Clerks"
-"General office clerks perform a range of clerical and administrative tasks
+"Leaf","4110","General Office Clerks","General office clerks perform a range of clerical and administrative tasks
 according to established procedures.
 
 Tasks include:
@@ -11724,7 +11718,7 @@ Examples of the occupations classified here:
 - Data input clerk
 
 - Payment entry clerk"
-"Sub-Major Group 42","Customer Services Clerks","Customer services clerks deal with clients in connection with money-handling
+"Sub-Major Group","42","Customer Services Clerks","Customer services clerks deal with clients in connection with money-handling
 operations, travel arrangements, requests for information, making appointments,
 operating telephone switchboards, and interviewing for surveys or to complete
 applications for eligibility for services. Competent performance in most
@@ -12291,10 +12285,7 @@ computing quantities of the production materials required at specified dates and
 helping with preparation and checking of production operation schedules; keeping
 records of operational aspects and coordinating the timing of passenger and
 freight transport."
-"Leaf"
-"4321"
-"Stock Clerks"
-"Stock clerks maintain records of goods produced and production materials
+"Leaf","4321","Stock Clerks","Stock clerks maintain records of goods produced and production materials
 received, weighed, issued, dispatched or put into stock.
 
 Tasks include:
@@ -16246,8 +16237,7 @@ to make and repair machinery, tools, equipment and other articles; setting for
 operators or setting and operating various machine tools; fitting, maintaining
 and repairing industrial machinery, including engines and vehicles. Supervision
 of other workers may be included."
-"Minor Group","721","Sheet and Structural Metal Workers, Moulders and Welders, and Related Workers"
-"Sheet and structural metal workers, moulders and welders, and related workers,
+"Minor Group","721","Sheet and Structural Metal Workers, Moulders and Welders, and Related Workers","Sheet and structural metal workers, moulders and welders, and related workers,
 make moulds and cores for casting metal, weld and cut metal parts, make and
 repair articles of sheet metal, and install, erect, maintain and repair heavy
 metal structures, tackle, cable cars and related equipment.
