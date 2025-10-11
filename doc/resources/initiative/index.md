@@ -85,17 +85,16 @@ mix ash.gen.resource Navatrack.Works.Initiative \
   --attribute swot_as_url:string \
   --attribute swot_as_markdown:string \
   \
-  --attribute pestle_as_url:string \
-  --attribute pestle_as_markdown:string \
-  \
-  --attribute pestle_as_url:string \
-  --attribute pestle_as_markdown:string \
+  --attribute steeple_as_url:string \
+  --attribute steeple_social_as_markdown:string \
+  --attribute steeple_technological_as_markdown:string \
+  --attribute steeple_economic_as_markdown:string \
+  --attribute steeple_political__as_markdown:string \
+  --attribute steeple_legal_as_markdown:string \
+  --attribute steeple_ethical_as_markdown:string \
   \
   --attribute porters_five_forces_as_url:string \
   --attribute porters_five_forces_as_markdown:string \
-  \
-  --attribute pestle_as_url:string \
-  --attribute pestle_as_markdown:string \
   \
   --attribute roles_and_responsibilities_as_url:string \
   --attribute roles_and_responsibilities_as_markdown:string \
@@ -110,8 +109,6 @@ mix ash.gen.resource Navatrack.Works.Initiative \
   --attribute license_as_markdown:string \
   \
   --attribute arc42_as_url:string \
-  --attribute arc42_as_markdown:string \
-  \
   --attribute arc42_01_introduction_and_goals_as_markdown:string \
   --attribute arc42_02_constraints_as_markdown:string \
   --attribute arc42_03_context_and_scope_as_markdown:string \

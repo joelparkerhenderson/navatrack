@@ -153,31 +153,44 @@ defmodule NavatrackWeb.Initiatives.ShowLive do
             <li>Markdown: {@x.six_pager_double_sider_as_markdown}</li>
           </ul>
 
-          <h3 class="h3">
-            Strengths Weaknesses Opportunities Threats (SWOT)
-          </h3>
+        </.section>
+
+        <.section id="swot" title="Strengths Weaknesses Opportunities Threats (SWOT)">
 
           <ul>
             <li>URL: {@x.swot_as_url}</li>
-            <li>Markdown: {@x.swot_as_markdown}</li>
+            <li>Strengths: {@x.swot_strengths_as_markdown}</li>
+            <li>Weaknesses: {@x.swot_weaknesses_as_markdown}</li>
+            <li>Opportunities: {@x.swot_opportunities_as_markdown}</li>
+            <li>Threats: {@x.swot_threats_as_markdown}</li>
           </ul>
 
-          <h3 class="h3">
-            Porter's Five Forces
-          </h3>
+        </.section>
+
+        <.section id="porters_five_forces" title="Porter's Five Forces">
 
           <ul>
             <li>URL: {@x.porters_five_forces_as_url}</li>
-            <li>Markdown: {@x.porters_five_forces_as_markdown}</li>
+            <li>Threat Of Entrants: {@x.porters_five_forces_entrants_as_markdown}</li>
+            <li>Threat Of Substitutes: {@x.porters_five_forces_substitutes_as_markdown}</li>
+            <li>Bargaining Power Of Customers: {@x.porters_five_forces_customers_as_markdown}</li>
+            <li>Bargaining Power Of Suppliers: {@x.porters_five_forces_suppliers_as_markdown}</li>
+            <li>Rivalry Of Competitors: {@x.porters_five_forces_competitors_as_markdown}</li>
           </ul>
 
-          <h3 class="h3">
-            Political, Economic, Social, Technological, Legal, Environmental (PESTLE)
-          </h3>
+        </.section>
+
+        <.section id="steeple" title="Social, Technological, Economic, Environmental, Political, Legal, Ethical (STEEPLE)">
 
           <ul>
-            <li>URL: {@x.pestle_as_url}</li>
-            <li>Markdown: {@x.pestle_as_markdown}</li>
+            <li>URL: {@x.steeple_as_url}</li>
+            <li>Social: {@x.steeple_social_as_markdown}</li>
+            <li>Technological: {@x.steeple_technological_as_markdown}</li>
+            <li>Economic: {@x.steeple_economic_as_markdown}</li>
+            <li>Environmental: {@x.steeple_environmental_as_markdown}</li>
+            <li>Political: {@x.steeple_political_as_markdown}</li>
+            <li>Legal: {@x.steeple_legal_as_markdown}</li>
+            <li>Ethical: {@x.steeple_ethical_as_markdown}</li>
           </ul>
 
         </.section>
@@ -282,18 +295,8 @@ defmodule NavatrackWeb.Initiatives.ShowLive do
 
         <.section id="arc42" title="Arc42">
 
-          <h3 class="h3">
-            Arc42 full documentation
-          </h3>
-
-          <li>URL: {@x.arc42_as_url}</li>
-          <li>Markdown: {@x.arc42_as_markdown}</li>
-
-          <h3 class="h3">
-            Arc42 sections
-          </h3>
-
           <ul>
+            <li>URL: {@x.arc42_as_url}</li>
             <li>01: Introduction and Goals: {@x.arc42_01_introduction_and_goals_as_markdown}</li>
             <li>02: Constraints: {@x.arc42_02_constraints_as_markdown}</li>
             <li>03: Context and Scope: {@x.arc42_03_context_and_scope_as_markdown}</li>

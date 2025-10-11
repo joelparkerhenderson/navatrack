@@ -65,11 +65,24 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       six_pager_double_sider_as_url text CONSTRAINT six_pager_double_sider_as_url_check CHECK (six_pager_double_sider_as_url ~* '^https://'),
       six_pager_double_sider_as_markdown text,
       swot_as_url text CONSTRAINT swot_as_url_check CHECK (swot_as_url ~* '^https://'),
-      swot_as_markdown text,
+      swot_strengths_as_markdown text,
+      swot_weaknesses_as_markdown text,
+      swot_opportunities_as_markdown text,
+      swot_threats_as_markdown text,
       porters_five_forces_as_url text CONSTRAINT porters_five_forces_as_url_check CHECK (porters_five_forces_as_url ~* '^https://'),
-      porters_five_forces_as_markdown text,
-      pestle_as_url text CONSTRAINT pestle_as_url_check CHECK (pestle_as_url ~* '^https://'),
-      pestle_as_markdown text,
+      porters_five_forces_entrants_as_markdown text,
+      porters_five_forces_substitutes_as_markdown text,
+      porters_five_forces_customers_as_markdown text,
+      porters_five_forces_suppliers_as_markdown text,
+      porters_five_forces_competitors_as_markdown text,
+      steeple_as_url text CONSTRAINT steeple_as_url_check CHECK (steeple_as_url ~* '^https://'),
+      steeple_social_as_markdown text,
+      steeple_technological_as_markdown text,
+      steeple_economic_as_markdown text,
+      steeple_environmental_as_markdown text,
+      steeple_political_as_markdown text,
+      steeple_legal_as_markdown text,
+      steeple_ethical_as_markdown text,
       roles_and_responsibilities_as_url text CONSTRAINT roles_and_responsibilities_as_url_check CHECK (roles_and_responsibilities_as_url ~* '^https://'),
       roles_and_responsibilities_as_markdown text,
       responsibility_assignment_matrix_as_url text CONSTRAINT responsibility_assignment_matrix_as_url_check CHECK (responsibility_assignment_matrix_as_url ~* '^https://'),
@@ -91,7 +104,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
       sipoc_customers_as_markdown text,
       --- arc42
       arc42_as_url text CONSTRAINT arc42_as_url_check CHECK (arc42_as_url ~* '^https://'),
-      arc42_as_markdown text,
       arc42_01_introduction_and_goals_as_markdown text,
       arc42_02_constraints_as_markdown text,
       arc42_03_context_and_scope_as_markdown text,
@@ -310,7 +322,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableInitiatives do
     execute "DROP CONSTRAINT IF EXISTS six_pager_double_sider_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS swot_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS porters_five_forces_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS pestle_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS steeple_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS roles_and_responsibilities_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS responsibility_assignment_matrix_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS code_of_conduct_url_check;"

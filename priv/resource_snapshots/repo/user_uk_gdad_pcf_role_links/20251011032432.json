@@ -2,66 +2,6 @@
   "attributes": [
     {
       "allow_nil?": false,
-      "default": "fragment(\"gen_random_uuid()\")",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": true,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "id",
-      "type": "uuid"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "created_at",
-      "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "updated_at",
-      "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "deleted_at",
-      "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "locale_code",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -79,7 +19,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_trait_links_user_id_fkey",
+        "name": "user_uk_gdad_pcf_role_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -110,16 +50,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_trait_links_trait_id_fkey",
+        "name": "user_uk_gdad_pcf_role_links_uk_gdad_pcf_role_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "traits"
+        "table": "uk_gdad_pcf_roles"
       },
       "scale": null,
       "size": null,
-      "source": "trait_id",
+      "source": "uk_gdad_pcf_role_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +68,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "D82B25A9AC747749502F38C1C3447C7EBD864E7B630D5C6A80DC32E7534848FD",
+  "hash": "485C7170CA7FF0F8D1E01EE0F777BFD971635737D8295C062BBAAA78FE466954",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +77,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_trait_links"
+  "table": "user_uk_gdad_pcf_role_links"
 }

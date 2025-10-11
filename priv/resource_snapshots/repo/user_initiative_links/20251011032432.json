@@ -2,6 +2,66 @@
   "attributes": [
     {
       "allow_nil?": false,
+      "default": "fragment(\"gen_random_uuid()\")",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": true,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "created_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "updated_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "deleted_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "locale_code",
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -19,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_lumina_foundation_skill_level_links_user_id_fkey",
+        "name": "user_initiative_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -50,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_lumina_foundation_skill_level_links_lumina_foundation_skill_level_id_fkey",
+        "name": "user_initiative_links_initiative_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "lumina_foundation_skill_levels"
+        "table": "initiatives"
       },
       "scale": null,
       "size": null,
-      "source": "lumina_foundation_skill_level_id",
+      "source": "initiative_id",
       "type": "uuid"
     }
   ],
@@ -68,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "75AACDDD213EFBBDE0DC798F7FDBACF1ADA5A692C5395C8D3C29546AC4DD695C",
+  "hash": "D642289CC8B0A622BADCF20BB3D2EDC27F747F6EC15C9C95F06FDA81693EF0C5",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -77,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_lumina_foundation_skill_level_links"
+  "table": "user_initiative_links"
 }

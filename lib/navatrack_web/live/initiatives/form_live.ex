@@ -326,9 +326,9 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="Text"
           />
 
-          <h3 class="h3">
-            Strengths Weaknesses Opportunities Threats (SWOT)
-          </h3>
+        </.section>
+
+        <.section id="swot" title="Strengths Weaknesses Opportunities Threats (SWOT)">
 
           <.input
             field={form[:swot_as_url]}
@@ -337,13 +337,28 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             placeholder="https://example.com"
           />
           <.input
-            field={form[:swot_as_markdown]} type="textarea"
-            label="Text"
+            field={form[:swot_strengths_as_markdown]} type="textarea"
+            label="Strengths"
+            placeholder=""
           />
+          <.input
+            field={form[:swot_weaknesses_as_markdown]} type="textarea"
+            label="Weaknesses"
+            placeholder=""
+          />
+          <.input
+            field={form[:swot_opportunities_as_markdown]} type="textarea"
+            label="Opportunities"
+            placeholder=""
+          />
+          <.input
+            field={form[:swot_threats_as_markdown]} type="textarea"
+            label="Threats"
+            placeholder=""
+          />
+        </.section>
 
-          <h3 class="h3">
-            Porter's Five Forces
-          </h3>
+        <.section id="porters_five_forces" title="Porter's Five Forces">
 
           <.input
             field={form[:porters_five_forces_as_url]}
@@ -352,23 +367,81 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             placeholder="https://example.com"
           />
           <.input
-            field={form[:porters_five_forces_as_markdown]} type="textarea"
-            label="Text"
+            field={form[:porters_five_forces_entrants_as_markdown]}
+            type="textarea"
+            label="Threat Of Entrants"
           />
+          <.input
+            field={form[:porters_five_forces_substitutes__as_markdown]}
+            type="textarea"
+            label="Threat Of Substitutes"
+          />
+          <.input
+            field={form[:porters_five_forces_customers_as_markdown]}
+            type="textarea"
+            label="Bargaining Power Of Customers"
+          />
+          <.input
+            field={form[:porters_five_forces_suppliers_as_markdown]}
+            type="textarea"
+            label="Bargaining Power Of Suppliers"
+          />
+          <.input
+            field={form[:porters_five_forces_competitors_as_markdown]}
+            type="textarea"
+            label="Rivalry Of Competitors"
+          />
+        </.section>
 
-          <h3 class="h3">
-            Political, Economic, Social, Technological, Legal, Environmental (PESTLE)
-          </h3>
+        <.section id="steeple" title="Social, Technological, Economic, Environmental, Political, Legal, Ethical (STEEPLE)">
 
           <.input
-            field={form[:pestle_as_url]}
+            field={form[:steeple_as_url]}
             type="url"
             label="🔗 URL"
             placeholder="https://example.com"
           />
           <.input
-            field={form[:pestle_as_markdown]} type="textarea"
-            label="Text"
+            field={form[:steeple_social_as_markdown]}
+            type="textarea"
+            label="Social"
+            placeholder="Social considerations, cultural norms, lifestyle trends, health consciousness, age distribution, education levels, changing demographics"
+          />
+          <.input
+            field={form[:steeple_technological_as_markdown]}
+            type="textarea"
+            label="Technological"
+            placeholder="Technological considerations, advancements, innovation, automation, research and development activity, technology incentives, rate of technological change"
+          />
+          <.input
+            field={form[:steeple_economic_as_markdown]}
+            type="textarea"
+            label="Economic"
+            placeholder="Economic considerations, growth, interest rates, exchange rates, inflation rates, unemployment rates, disposable income of consumers and businesses"
+          />
+          <.input
+            field={form[:steeple_environmental_as_markdown]}
+            type="textarea"
+            label="Environmental"
+            placeholder="Environmental considerations, regulations, climate change, weather, ecological aspects, carbon footprint, sustainability initiatives"
+          />
+          <.input
+            field={form[:steeple_political_as_markdown]}
+            type="textarea"
+            label="Political"
+            placeholder="Political considerations, leadership stability, government policies, tax policies, trade restrictions, tariffs, labor laws, environmental regulations"
+          />
+          <.input
+            field={form[:steeple_legal_as_markdown]}
+            type="textarea"
+            label="Legal"
+            placeholder="Legal considerations, employment law, health and safety, antitrust, consumer protection, intellectual property, data protection"
+          />
+          <.input
+            field={form[:steeple_ethical_as_markdown]}
+            type="textarea"
+            label="Ethical"
+            placeholder="Ethical considerations, corporate social responsibility, fair trade practices, labor standards, community engagement"
           />
 
         </.section>
@@ -386,7 +459,8 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             placeholder="https://example.com"
           />
           <.input
-            field={form[:glossary_as_markdown]} type="textarea"
+            field={form[:glossary_as_markdown]}
+            type="textarea"
             label="Text"
           />
 
@@ -542,15 +616,6 @@ defmodule NavatrackWeb.Initiatives.FormLive do
             label="🔗 URL"
             placeholder="https://example.com"
           />
-          <.input
-            field={form[:arc42_as_markdown]} type="textarea"
-            label="Text"
-          />
-
-          <h3 class="h3">
-            Arc42 sections
-          </h3>
-
           <.input
             field={form[:arc42_01_introduction_and_goals_as_markdown]}
             type="textarea"

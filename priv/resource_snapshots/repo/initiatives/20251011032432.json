@@ -681,7 +681,43 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "swot_as_markdown",
+      "source": "swot_strengths_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "swot_weaknesses_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "swot_opportunities_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "swot_threats_as_markdown",
       "type": "text"
     },
     {
@@ -705,7 +741,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "porters_five_forces_as_markdown",
+      "source": "porters_five_forces_entrants_as_markdown",
       "type": "text"
     },
     {
@@ -717,7 +753,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "pestle_as_url",
+      "source": "porters_five_forces_substitutes_as_markdown",
       "type": "text"
     },
     {
@@ -729,7 +765,127 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "pestle_as_markdown",
+      "source": "porters_five_forces_customers_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "porters_five_forces_suppliers_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "porters_five_forces_competitors_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "steeple_as_url",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "steeple_social_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "steeple_technological_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "steeple_economic_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "steeple_environmental_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "steeple_political_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "steeple_legal_as_markdown",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "steeple_ethical_as_markdown",
       "type": "text"
     },
     {
@@ -958,18 +1114,6 @@
       "scale": null,
       "size": null,
       "source": "arc42_as_url",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "arc42_as_markdown",
       "type": "text"
     },
     {
@@ -2622,7 +2766,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "77BF85D178DBF60F369ACA90C2F3ED4092FF8C9322C9412923FD2A4437D66920",
+  "hash": "B05F32A329E34FB7934B1B0076F6342E5174C572B9B0E119EED0986922090D1D",
   "identities": [],
   "multitenancy": {
     "attribute": null,

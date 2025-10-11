@@ -72,12 +72,25 @@ defmodule Navatrack.Works.Initiative do
       :glossary_as_markdown,
       :six_pager_double_sider_as_url,
       :six_pager_double_sider_as_markdown,
-      :swot_as_url,
-      :swot_as_markdown,
       :porters_five_forces_as_url,
-      :porters_five_forces_as_markdown,
-      :pestle_as_url,
-      :pestle_as_markdown,
+      :porters_five_forces_entrants_as_markdown,
+      :porters_five_forces_substitutes_as_markdown,
+      :porters_five_forces_customers_as_markdown,
+      :porters_five_forces_suppliers_as_markdown,
+      :porters_five_forces_competitors_as_markdown,
+      :swot_as_url,
+      :swot_strengths_as_markdown,
+      :swot_weaknesses_as_markdown,
+      :swot_opportunities_as_markdown,
+      :swot_threats_as_markdown,
+      :steeple_as_url,
+      :steeple_social_as_markdown,
+      :steeple_technological_as_markdown,
+      :steeple_economic_as_markdown,
+      :steeple_environmental_as_markdown,
+      :steeple_political_as_markdown,
+      :steeple_legal_as_markdown,
+      :steeple_ethical_as_markdown,
       :roles_and_responsibilities_as_url,
       :roles_and_responsibilities_as_markdown,
       :responsibility_assignment_matrix_as_url,
@@ -97,7 +110,6 @@ defmodule Navatrack.Works.Initiative do
       :sipoc_customers_as_url,
       :sipoc_customers_as_markdown,
       :arc42_as_url,
-      :arc42_as_markdown,
       :arc42_01_introduction_and_goals_as_markdown,
       :arc42_02_constraints_as_markdown,
       :arc42_03_context_and_scope_as_markdown,
@@ -295,11 +307,24 @@ defmodule Navatrack.Works.Initiative do
     attribute :six_pager_double_sider_as_url, :string
     attribute :six_pager_double_sider_as_markdown, :string
     attribute :swot_as_url, :string
-    attribute :swot_as_markdown, :string
+    attribute :swot_strengths_as_markdown, :string
+    attribute :swot_weaknesses_as_markdown, :string
+    attribute :swot_opportunities_as_markdown, :string
+    attribute :swot_threats_as_markdown, :string
     attribute :porters_five_forces_as_url, :string
-    attribute :porters_five_forces_as_markdown, :string
-    attribute :pestle_as_url, :string
-    attribute :pestle_as_markdown, :string
+    attribute :porters_five_forces_entrants_as_markdown, :string
+    attribute :porters_five_forces_substitutes_as_markdown, :string
+    attribute :porters_five_forces_customers_as_markdown, :string
+    attribute :porters_five_forces_suppliers_as_markdown, :string
+    attribute :porters_five_forces_competitors_as_markdown, :string
+    attribute :steeple_as_url, :string
+    attribute :steeple_social_as_markdown, :string
+    attribute :steeple_technological_as_markdown, :string
+    attribute :steeple_economic_as_markdown, :string
+    attribute :steeple_environmental_as_markdown, :string
+    attribute :steeple_political_as_markdown, :string
+    attribute :steeple_legal_as_markdown, :string
+    attribute :steeple_ethical_as_markdown, :string
     attribute :roles_and_responsibilities_as_url, :string
     attribute :roles_and_responsibilities_as_markdown, :string
     attribute :responsibility_assignment_matrix_as_url, :string
@@ -319,7 +344,6 @@ defmodule Navatrack.Works.Initiative do
     attribute :sipoc_customers_as_url, :string
     attribute :sipoc_customers_as_markdown, :string
     attribute :arc42_as_url, :string
-    attribute :arc42_as_markdown, :string
     attribute :arc42_01_introduction_and_goals_as_markdown, :string
     attribute :arc42_02_constraints_as_markdown, :string
     attribute :arc42_03_context_and_scope_as_markdown, :string

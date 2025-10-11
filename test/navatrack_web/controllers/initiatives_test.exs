@@ -58,11 +58,24 @@ defmodule NavatrackWeb.InitiativesTest do
         six_pager_double_sider_as_url: "https://my-six_pager-double-sider-as-url",
         six_pager_double_sider_as_markdown: "my-six-pager-double-sider-as-markdown",
         swot_as_url: "https://my-swot-as-url",
-        swot_as_markdown: "my-swot-as-markdown",
+        swot_strengths_as_markdown: "my-swot-strengths-as-markdown",
+        swot_weaknesses_as_markdown: "my-swot-weaknesses-as-markdown",
+        swot_opportunities_as_markdown: "my-swot-opportunities-as-markdown",
+        swot_threats_as_markdown: "my-swot-opportunities-as-markdown",
         porters_five_forces_as_url: "https://my-porters-five-forces-as-url",
-        porters_five_forces_as_markdown: "my-porters-five-forces-as-markdown",
-        pestle_as_url: "https://my-pestle-as-url",
-        pestle_as_markdown: "my-pestle-as-markdown",
+        porters_five_forces_entrants_as_markdown: "my-porters-five-forces-entrants-as-markdown",
+        porters_five_forces_substitutes_as_markdown: "my-porters-five-forces-substitutes-as-markdown",
+        porters_five_forces_customers_as_markdown: "my-porters-five-forces-customers-as-markdown",
+        porters_five_forces_suppliers_as_markdown: "my-porters-five-forces-suppliers-as-markdown",
+        porters_five_forces_competitors_as_markdown: "my-porters-five-forces-competitors-as-markdown",
+        steeple_as_url: "https://my-steeple-as-url",
+        steeple_social_as_markdown: "my-steeple-social-as-markdown",
+        steeple_technological_as_markdown: "my-steeple-technological-as-markdown",
+        steeple_economic_as_markdown: "my-steeple-economic-as-markdown",
+        steeple_environmental_as_markdown: "my-steeple-environmental-as-markdown",
+        steeple_political_as_markdown: "my-steeple-political-as-markdown",
+        steeple_legal_as_markdown: "my-steeple-legal-as-markdown",
+        steeple_ethical_as_markdown: "my-steeple-ethical-as-markdown",
         roles_and_responsibilities_as_url: "https://my-roles-and-responsibilities-as-url",
         roles_and_responsibilities_as_markdown: "my-roles-and-responsibilities-as-markdown",
         responsibility_assignment_matrix_as_url: "https://my-responsibility-assignment-matrix-as-url",
@@ -82,7 +95,6 @@ defmodule NavatrackWeb.InitiativesTest do
         sipoc_customers_as_url: "https://my-sipoc-customers-as-url",
         sipoc_customers_as_markdown: "my-sipoc-customers-as-markdown",
         arc42_as_url: "https://my-arc42-as-url",
-        arc42_as_markdown: "my-arc42-as-markdown",
         arc42_01_introduction_and_goals_as_markdown: "my-arc42-01-introduction-and-goals-as-markdown",
         arc42_02_constraints_as_markdown: "my-arc42-02-constraints-as-markdown",
         arc42_03_context_and_scope_as_markdown: "my-arc42-03-context-and-scope-as-markdown",
@@ -281,18 +293,37 @@ defmodule NavatrackWeb.InitiativesTest do
     assert response =~ "Key Performance Indicators (KPIs)"
     assert response =~ "Business Analysis"
     assert response =~ "Six-Pager Double-Sider"
+
+    assert response =~ "Porter&#39;s Five Forces"
+    assert response =~ "Threat Of Entrants"
+    assert response =~ "Threat Of Substitutes"
+    assert response =~ "Bargaining Power Of Customers"
+    assert response =~ "Bargaining Power Of Suppliers"
+    assert response =~ "Rivalry Of Competitors"
+
     assert response =~ "Strengths Weaknesses Opportunities Threats (SWOT)"
-    assert response =~ "Porter's Five Forces"
-    assert response =~ "Political, Economic, Social, Technological, Legal, Environmental (PESTLE)"
+    assert response =~ "Strengths"
+    assert response =~ "Weaknesses"
+    assert response =~ "Opportunities"
+    assert response =~ "Threats"
+
+    assert response =~ "Social, Technological, Economic, Environmental, Political, Legal, Ethical (STEEPLE)"
+    assert response =~ "Social"
+    assert response =~ "Technological"
+    assert response =~ "Economic"
+    assert response =~ "Environmental"
+    assert response =~ "Political"
+    assert response =~ "Legal"
+    assert response =~ "Ethical"
+
     assert response =~ "Touchpoints"
     assert response =~ "Glossary"
     assert response =~ "Roles and Responsibilities"
     assert response =~ "Responsibility Assignment Matrix (RAM)"
     assert response =~ "Code of Conduct"
     assert response =~ "License"
+
     assert response =~ "Arc42"
-    assert response =~ "Arc42 full documentation"
-    assert response =~ "Arc42 sections"
     assert response =~ "Arc42 section 01: Introduction and Goals"
     assert response =~ "Arc42 section 02: Constraints"
     assert response =~ "Arc42 section 03: Context and Scope"
@@ -305,6 +336,7 @@ defmodule NavatrackWeb.InitiativesTest do
     assert response =~ "Arc42 section 10: Quality Requirements"
     assert response =~ "Arc42 section 11: Risks and Technical Debt"
     assert response =~ "Arc42 section 12: Glossary"
+
     assert response =~ "Explain"
     assert response =~ "Explain Stakeholders"
     assert response =~ "Explain History"
@@ -320,6 +352,7 @@ defmodule NavatrackWeb.InitiativesTest do
     assert response =~ "Explain Financial"
     assert response =~ "Explain Service Level Agreement (SLA)"
     assert response =~ "Explain Disaster Recovery (DR)"
+
     assert response =~ "System Quality Attributes"
     assert response =~ "Availability"
     assert response =~ "Certifiability"
@@ -337,6 +370,7 @@ defmodule NavatrackWeb.InitiativesTest do
     assert response =~ "Transferability"
     assert response =~ "Translatability"
     assert response =~ "Warrantability"
+
     assert response =~ "Net Promoter Score"
     assert response =~ "Customer Perspective"
     assert response =~ "User Perspective"
@@ -347,10 +381,12 @@ defmodule NavatrackWeb.InitiativesTest do
     assert response =~ "Burn Rate"
     assert response =~ "Net Cash Per Week"
     assert response =~ "Hours Per Week"
+
     assert response =~ "Earned Value Management (EVM)"
     assert response =~ "Planned Value (PV)"
     assert response =~ "Earned Value (EV)"
     assert response =~ "Actual Cost (AC)"
+
     assert response =~ "Total Project Control (TPC)"
     assert response =~ "DIPP"
     assert response =~ "Progress Index (ratio)"
@@ -358,6 +394,7 @@ defmodule NavatrackWeb.InitiativesTest do
     assert response =~ "Progress Index (denominator)"
     assert response =~ "Expected Monetary Value"
     assert response =~ "Cost Estimate To Complete"
+
     assert response =~ "DORA Metrics"
     assert response =~ "Code Metrics"
     assert response =~ "Maintainability Index"
@@ -455,15 +492,28 @@ defmodule NavatrackWeb.InitiativesTest do
 
     assert response =~ "Strengths Weaknesses Opportunities Threats (SWOT)"
     assert response =~ "URL: #{x.swot_as_url}"
-    assert response =~ "Markdown: #{x.swot_as_markdown}"
+    assert response =~ "Strengths: #{x.swot_strengths_as_markdown}"
+    assert response =~ "Weaknesses: #{x.swot_weaknesses_as_markdown}"
+    assert response =~ "Opportunities: #{x.swot_opportunities_as_markdown}"
+    assert response =~ "Threats: #{x.swot_threats_as_markdown}"
 
-    assert response =~ "Porter's Five Forces"
+    assert response =~ "Porter&#39;s Five Forces"
     assert response =~ "URL: #{x.porters_five_forces_as_url}"
-    assert response =~ "Markdown: #{x.porters_five_forces_as_markdown}"
+    assert response =~ "Threat Of Entrants: #{x.porters_five_forces_entrants_as_markdown}"
+    assert response =~ "Threat Of Substitutes: #{x.porters_five_forces_substitutes_as_markdown}"
+    assert response =~ "Bargaining Power Of Customers: #{x.porters_five_forces_customers_as_markdown}"
+    assert response =~ "Bargaining Power Of Suppliers: #{x.porters_five_forces_suppliers_as_markdown}"
+    assert response =~ "Rivalry Of Competitors: #{x.porters_five_forces_competitors_as_markdown}"
 
-    assert response =~ "Political, Economic, Social, Technological, Legal, Environmental (PESTLE)"
-    assert response =~ "URL: #{x.pestle_as_url}"
-    assert response =~ "Markdown: #{x.pestle_as_markdown}"
+    assert response =~ "Social, Technological, Economic, Environmental, Political, Legal, Ethical (STEEPLE)"
+    assert response =~ "URL: #{x.steeple_as_url}"
+    assert response =~ "Social: #{x.steeple_social_as_markdown}"
+    assert response =~ "Technological: #{x.steeple_technological_as_markdown}"
+    assert response =~ "Economic: #{x.steeple_economic_as_markdown}"
+    assert response =~ "Environmental: #{x.steeple_environmental_as_markdown}"
+    assert response =~ "Political: #{x.steeple_political_as_markdown}"
+    assert response =~ "Legal: #{x.steeple_legal_as_markdown}"
+    assert response =~ "Ethical: #{x.steeple_ethical_as_markdown}"
 
     assert response =~ "Roles and Responsibilities"
     assert response =~ "URL: #{x.roles_and_responsibilities_as_url}"
@@ -505,8 +555,6 @@ defmodule NavatrackWeb.InitiativesTest do
 
     assert response =~ "Arc42"
     assert response =~ "URL: #{x.arc42_as_url}"
-    assert response =~ "Markdown: #{x.arc42_as_markdown}"
-
     assert response =~ "01: Introduction and Goals: #{x.arc42_01_introduction_and_goals_as_markdown}"
     assert response =~ "02: Constraints: #{x.arc42_02_constraints_as_markdown}"
     assert response =~ "03: Context and Scope: #{x.arc42_03_context_and_scope_as_markdown}"
@@ -712,7 +760,7 @@ defmodule NavatrackWeb.InitiativesTest do
       {:error, {:live_redirect, %{to: path}}} ->
         assert path == "/initiatives"
       html when is_binary(html) ->
-        assert html =~ "Initiatives"
+        assert html =~ "Initiative"
       other ->
         flunk("Unexpected result: #{inspect(other)}")
     end
