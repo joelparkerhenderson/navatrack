@@ -3,7 +3,7 @@ defmodule Navatrack.Works do
     otp_app: :navatrack
 
   resources do
-    resource Navatrack.Works.Initiative
+    resource Navatrack.Works.Topic
     resource Navatrack.Works.Trait
   end
 end

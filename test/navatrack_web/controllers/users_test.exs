@@ -11,30 +11,41 @@ defmodule NavatrackWeb.UsersTest do
         name: "my-name",
         status: "my-status",
         tagging: "my-tagging",
-        url: "https://my-url",
+        note: "my-note",
+        ### contact
+        web: "https://my-web",
         email: "my-email@example.com",
         phone: "my-phone",
-        messaging: "my-messaging",
+        chat: "my-chat",
+        calendar: "my-calendar",
         postal: "my-postal",
-        orcid_pid: "my-orchid-pid",
         rdf_type: "my-rdf-type",
-        linkedin_url: "https://linkedin.com/in/my-handle",
-        github_url: "https://github.com/in/my-handle",
-        codeberg_url: "https://codeberg.org/in/my-handle",
+        ### social
+        bluesky_as_url: "https://bsky.app/profile/my-handle",
+        codeberg_as_url: "https://codeberg.org/in/my-handle",
+        facebook_as_url: "https://facebook.com/my-handle",
+        github_as_url: "https://github.com/in/my-handle",
+        instagram_as_url: "https://instagram.com/my-handle",
+        linkedin_as_url: "https://linkedin.com/in/my-handle",
+        orcid_as_url: "https://orcid.org/my-handle",
+        tiktok_as_url: "https://tiktok.com/my-handle",
+        wikipedia_as_url: "https://wikipedia.org/my-handle",
+        youtube_as_url: "https://youtube.com/my-handle",
+        ### location
         location_iso_3166_1_alpha_2: "my",
         location_iso_3166_2: "my-location-iso-3166-2",
         location_postal_code: "my-postal-code",
         location_latitude_as_decimal_degrees: "1.2",
         location_longitude_as_decimal_degrees: "3.4",
-        note: "my-note",
+        ### workable
+        email_distribution_list: "my-email-distribution-list",
         daisyui_timeline_html: "my-daisyui-timeline-html",
         org_mode: "my-org-mode",
         task_list_as_markdown: "my-task-list-as-markdown",
         ways_of_working_as_markdown: "my-ways-of-working-as-markdown",
         objectives_and_key_results_as_markdown: "my-objectives-and-key-results-as-markdown",
         key_performance_indicators_as_markdown: "my-key-performance-indicators-as-markdown",
-        agents_as_url: "https://my-agents-as-markdown",
-        agents_as_markdown: "my-agents-as-markdown",
+        ### images
         avatar_image_400x400_url: "https://my-avatar-image-400x400-url",
         avatar_image_400x400_alt: "my-avatar-image-400x400-alt",
         main_image_1080x1080_url: "https://my-main-image-1080x1080-url",
@@ -43,10 +54,20 @@ defmodule NavatrackWeb.UsersTest do
         main_image_1920x1080_alt: "my-main-image-1920x1080-alt",
         main_image_1080x1920_url: "https://my-main-image-1080x1920-url",
         main_image_1080x1920_alt: "my-main-image-1080x1920-alt",
+        ### ideals
+        purpose_statement: "my-purpose-statement",
+        vision_statement: "my-vision-statement",
+        mission_statement: "my-mission-statement",
+        values_statement: "my-values-statement",
+        ### ai
+        ai_agent_instructions_as_url: "https://my-agent-instructions-as-url",
+        ai_agent_instructions_as_markdown: "my-agent-instructions-as-markdown",
+        ### work profile
         work_profile_resume_as_pdf_url: "https://my-work-profile-resume-as-pdf-url",
         work_profile_resume_as_markdown: "my-work-profile-resume-as-markdown",
         work_profile_curriculum_vitae_as_pdf_url: "https://my-work-profile-curriculum-vitae-as-pdf-url",
         work_profile_curriculum_vitae_as_markdown: "my-work-profile-curriculum-vitae-as-markdown",
+        ### work role
         work_role_name: "my-work-role-name",
         work_role_start_date:  Date.from_iso8601!("1970-01-01"),
         work_role_stop_date: Date.from_iso8601!("1970-01-01"),
@@ -80,10 +101,10 @@ defmodule NavatrackWeb.UsersTest do
     assert response =~ "📛 Name"
     assert response =~ "🚦 Status"
     assert response =~ "🏷️ Tags"
-    assert response =~ "🔗 URL"
+    assert response =~ "🌐 Web"
     assert response =~ "📧 Email"
     assert response =~ "📱 Phone"
-    assert response =~ "🌎 Country"
+    assert response =~ "🗺️ Country"
     assert response =~ "👷 Work Role"
   end
 
@@ -94,34 +115,51 @@ defmodule NavatrackWeb.UsersTest do
     assert response =~ "📛 Name"
     assert response =~ "🚦 Status"
     assert response =~ "🏷️ Tags"
+    assert response =~ "🗒️ Note"
+
     assert response =~ "Contact"
     assert response =~ "🔗 URL"
     assert response =~ "📧 Email"
     assert response =~ "📱 Phone"
-    assert response =~ "💬 Messaging"
+    assert response =~ "💬 Chat"
+    assert response =~ "🗓️ Calendar"
     assert response =~ "📫 Postal"
-    assert response =~ "🌺 ORCID PID"
     assert response =~ "🖇️ RDF Type"
-    assert response =~ "Socials"
-    assert response =~ "LinkedIn URL"
-    assert response =~ "GitHub URL"
+
+    assert response =~ "Social"
+    assert response =~ "Bluesky URL"
     assert response =~ "Codeberg URL"
-    assert response =~ "Locations"
+    assert response =~ "Facebook URL"
+    assert response =~ "GitHub URL"
+    assert response =~ "Instagram URL"
+    assert response =~ "LinkedIn URL"
+    assert response =~ "ORCID URL"
+    assert response =~ "TikTok URL"
+    assert response =~ "Wikipedia URL"
+    assert response =~ "YouTube URL"
+
+    assert response =~ "Location"
     assert response =~ "Country code (ISO 3166-1 Alpha 2)"
     assert response =~ "Subcountry code (ISO 3166-2)"
     assert response =~ "Postal code"
     assert response =~ "Latitude"
     assert response =~ "Longitude"
-    assert response =~ "AGENTS.md"
-    assert response =~ "URL"
-    assert response =~ "Markdown"
+
     assert response =~ "Images"
     assert response =~ "Avatar image 400x400"
     assert response =~ "Main image 1080x1080 square"
     assert response =~ "Main image 1920x1080 landscape"
     assert response =~ "Main image 1080x1920 portrait"
+
+    assert response =~ "Ideals"
+    assert response =~ "Purpose Statement"
+    assert response =~ "Vision Statement"
+    assert response =~ "Mission Statement"
+    assert response =~ "Values Statement"
+
+    assert response =~ "AI Agent Instructions"
+
     assert response =~ "Deeper Dive"
-    assert response =~ "Note"
     assert response =~ "Email distribution list"
     assert response =~ "DaisyUI timeline HTML"
     assert response =~ "Org Mode"
@@ -129,9 +167,11 @@ defmodule NavatrackWeb.UsersTest do
     assert response =~ "Ways Of Working"
     assert response =~ "Objectives and Key Results (OKRs)"
     assert response =~ "Key Performance Indicators (KPIs)"
+
     assert response =~ "Work Profile"
     assert response =~ "Résumé"
     assert response =~ "Curriculum Vitae"
+
     assert response =~ "Work Role"
     assert response =~ "Summary"
     assert response =~ "Role Name/Title/etc."
@@ -163,19 +203,28 @@ defmodule NavatrackWeb.UsersTest do
     assert response =~ "📛 Name: #{x.name}"
     assert response =~ "🚦 Status: #{x.status}"
     assert response =~ "🏷️ Tags: #{x.tagging}"
+    assert response =~ "🗒️ Note: #{x.note}"
 
     assert response =~ "Contact"
+    assert response =~ "🌐 Web: #{x.web}"
+    assert response =~ "📧 Email: #{x.email}"
+    assert response =~ "📱 Phone: #{x.phone}"
+    assert response =~ "💬 Chat: #{x.chat}"
+    assert response =~ "🗓️ Calendar: #{x.calendar}"
+    assert response =~ "📫 Postal: #{x.postal}"
+    assert response =~ "🖇️ RDF Type: #{x.rdf_type}"
 
-    assert response =~ "URL: #{x.url}"
-    assert response =~ "Email: #{x.email}"
-    assert response =~ "Phone: #{x.phone}"
-    assert response =~ "Messaging: #{x.messaging}"
-    assert response =~ "Postal: #{x.postal}"
-    assert response =~ "ORCID PID: #{x.orcid_pid}"
-    assert response =~ "RDF type: #{x.rdf_type}"
-    assert response =~ "LinkedIn URL: #{x.linkedin_url}"
-    assert response =~ "GitHub URL: #{x.github_url}"
-    assert response =~ "Codeberg URL: #{x.codeberg_url}"
+    assert response =~ "Social"
+    assert response =~ "Bluesky URL: #{x.bluesky_as_url}"
+    assert response =~ "Codeberg URL: #{x.codeberg_as_url}"
+    assert response =~ "Facebook URL: #{x.facebook_as_url}"
+    assert response =~ "GitHub URL: #{x.github_as_url}"
+    assert response =~ "Instagram URL: #{x.instagram_as_url}"
+    assert response =~ "LinkedIn URL: #{x.linkedin_as_url}"
+    assert response =~ "ORCID URL: #{x.orcid_as_url}"
+    assert response =~ "TikTok URL: #{x.tiktok_as_url}"
+    assert response =~ "Wikipedia URL: #{x.wikipedia_as_url}"
+    assert response =~ "YouTube URL: #{x.youtube_as_url}"
 
     assert response =~ "Location"
 
@@ -185,20 +234,15 @@ defmodule NavatrackWeb.UsersTest do
     assert response =~ "Latitude as decimal degrees: #{x.location_latitude_as_decimal_degrees}"
     assert response =~ "Longitude as decimal degrees: #{x.location_longitude_as_decimal_degrees}"
 
-    assert response =~ "About"
+    assert response =~ "Deeper Dive"
 
-    assert response =~ "Note: #{x.note}"
+    assert response =~ "Email distribution list: #{x.email_distribution_list}"
     assert response =~ "DaisyUI timeline HTML: #{x.daisyui_timeline_html}"
     assert response =~ "Org mode: #{x.org_mode}"
     assert response =~ "Task list as markdown: #{x.task_list_as_markdown}"
     assert response =~ "Ways of working as markdown: #{x.ways_of_working_as_markdown}"
     assert response =~ "Objectives and Key Results (OKRs) as markdown: #{x.objectives_and_key_results_as_markdown}"
     assert response =~ "Key Performance Indicators (KPIs) as markdown: #{x.key_performance_indicators_as_markdown}"
-
-    assert response =~ "AGENTS.md"
-
-    assert response =~ "URL: #{x.agents_as_url}"
-    assert response =~ "Markdown: #{x.agents_as_markdown}"
 
     assert response =~ "Images"
 
@@ -217,6 +261,16 @@ defmodule NavatrackWeb.UsersTest do
     assert response =~ "Main image 1080x1920 portrait"
     assert response =~ "URL: #{x.main_image_1080x1920_url}"
     assert response =~ "Alt: #{x.main_image_1080x1920_alt}"
+
+    assert response =~ "Ideals"
+    assert response =~ "Purpose Statement: #{x.purpose_statement}"
+    assert response =~ "Vision Statement: #{x.vision_statement}"
+    assert response =~ "Mission Statement: #{x.mission_statement}"
+    assert response =~ "Values Statement: #{x.values_statement}"
+
+    assert response =~ "AI Agent Instructions"
+    assert response =~ "URL: #{x.ai_agent_instructions_as_url}"
+    assert response =~ "Markdown: #{x.ai_agent_instructions_as_markdown}"
 
     assert response =~ "Work Profile"
 

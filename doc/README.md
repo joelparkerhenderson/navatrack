@@ -2,7 +2,7 @@
 
 Resources:
 
-- [group](https://github.com/contactopensource/contactopensource/tree/master/api/group)
+- [topic](https://github.com/contactopensource/contactopensource/tree/master/api/group)
 
 - [person](https://github.com/contactopensource/contactopensource/tree/master/api/person)
 

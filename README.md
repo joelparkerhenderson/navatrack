@@ -49,9 +49,9 @@ config ​:ash_authentication​, ​debug_authentication_failures?:​ true
 Resources that we prefer to create:
 
 - [User](doc/user/)
-- [Group](doc/group/)
+- [topic](doc/group/)
 - [Trait](doc/trait/)
-- [Initiative](doc/initiative/)
+- [Topic](doc/topic/)
 
 ## Update
 
@@ -112,7 +112,7 @@ mix ash.generate_resource_diagrams
 Redo databases, which is equivalent to ecto.drop, ecto.create, ecto.migrate, and running seeds:
 
 ```sh
-rm -rf priv/resource_snapshots/* &&
+rm -rf priv/resource_snapshots/*
 for env in dev test; do
    export MIX_ENV=$env
    mix ecto.reset
@@ -121,8 +121,8 @@ for env in dev test; do
    rm priv/repo/migrations/*_tmp_extensions_1.exs
    mix ash.migrate
 done
-export MIX_ENV=dev
-mix phx.server
+export MIX_ENV=test && mix test
+export MIX_ENV=dev && mix phx.server
 ```
 
 Redo dependencies:
@@ -227,42 +227,60 @@ Tagging ideas for users:
 - broker
 - coach
 - consultant
+- consumer
 - customer
 - employee
 - investor
 - partner
+- producer
 - supplier
+- vendor
 - volunteer
 
-Tagging ideas for groups:
+Tagging ideas for topics about groups:
 
 - association
 - committee
 - community
+- community of interest
+- community of practice
 - company
+- club
 - department
 - directorate
+- division
+- interest
 - group
 - organization
 - partnership
+- party
 - team
 - union
 - venture
 
-Tagging ideas for initiatives:
+Tagging ideas for topics about working:
 
+- deliverable
+- initiative
+- milestone
+- offering
+- outcome
+- output
 - package
 - plan
 - practice
 - process
 - proof
+- proof of capability
+- proof of concept
+- proof of value
 - product
 - project
 - program/programme
 - portfolio
 - service
 - solution
-- offering
+- venture
 
 Tagging ideas for traits:
 
@@ -274,6 +292,8 @@ Tagging ideas for traits:
 - diploma
 - license
 - passport
+- skill
+- talent
 - training
 
 Tagging ideas for status emoji:

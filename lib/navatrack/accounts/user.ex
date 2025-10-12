@@ -99,31 +99,41 @@ defmodule Navatrack.Accounts.User do
       :name,
       :status,
       :tagging,
-      :url,
+      :note,
+      ### contact
+      :web,
       :email,
       :phone,
-      :messaging,
+      :chat,
       :calendar,
       :postal,
-      :orcid_pid,
       :rdf_type,
-      :linkedin_url,
-      :github_url,
-      :codeberg_url,
+      ### social
+      :bluesky_as_url,
+      :codeberg_as_url,
+      :facebook_as_url,
+      :github_as_url,
+      :instagram_as_url,
+      :linkedin_as_url,
+      :orcid_as_url,
+      :tiktok_as_url,
+      :wikipedia_as_url,
+      :youtube_as_url,
+      ### location
       :location_iso_3166_1_alpha_2,
       :location_iso_3166_2,
       :location_postal_code,
       :location_latitude_as_decimal_degrees,
       :location_longitude_as_decimal_degrees,
-      :note,
+      ### workable
+      :email_distribution_list,
       :daisyui_timeline_html,
       :org_mode,
       :task_list_as_markdown,
       :ways_of_working_as_markdown,
       :objectives_and_key_results_as_markdown,
       :key_performance_indicators_as_markdown,
-      :agents_as_url,
-      :agents_as_markdown,
+      ### images
       :avatar_image_400x400_url,
       :avatar_image_400x400_alt,
       :main_image_1080x1080_url,
@@ -132,10 +142,20 @@ defmodule Navatrack.Accounts.User do
       :main_image_1920x1080_alt,
       :main_image_1080x1920_url,
       :main_image_1080x1920_alt,
+      ### ideals
+      :purpose_statement,
+      :vision_statement,
+      :mission_statement,
+      :values_statement,
+      ## ai
+      :ai_agent_instructions_as_url,
+      :ai_agent_instructions_as_markdown,
+      ### work profile
       :work_profile_resume_as_pdf_url,
       :work_profile_resume_as_markdown,
       :work_profile_curriculum_vitae_as_pdf_url,
       :work_profile_curriculum_vitae_as_markdown,
+      ### work role
       :work_role_name,
       :work_role_start_date,
       :work_role_stop_date,
@@ -185,31 +205,33 @@ defmodule Navatrack.Accounts.User do
     attribute :name, :string
     attribute :status, :string
     attribute :tagging, :string
-    attribute :url, :string
+    attribute :note, :string
+    ### contact
+    attribute :web, :string
     attribute :email, :string
     attribute :phone, :string
-    attribute :messaging, :string
+    attribute :chat, :string
     attribute :calendar, :string
     attribute :postal, :string
-    attribute :orcid_pid, :string
     attribute :rdf_type, :string
-    attribute :linkedin_url, :string
-    attribute :github_url, :string
-    attribute :codeberg_url, :string
+    ### social
+    attribute :bluesky_as_url, :string
+    attribute :codeberg_as_url, :string
+    attribute :facebook_as_url, :string
+    attribute :github_as_url, :string
+    attribute :instagram_as_url, :string
+    attribute :linkedin_as_url, :string
+    attribute :orcid_as_url, :string
+    attribute :tiktok_as_url, :string
+    attribute :wikipedia_as_url, :string
+    attribute :youtube_as_url, :string
+    ### location
     attribute :location_iso_3166_1_alpha_2, :string
     attribute :location_iso_3166_2, :string
     attribute :location_postal_code, :string
     attribute :location_latitude_as_decimal_degrees, :decimal
     attribute :location_longitude_as_decimal_degrees, :decimal
-    attribute :note, :string
-    attribute :daisyui_timeline_html, :string
-    attribute :org_mode, :string
-    attribute :task_list_as_markdown, :string
-    attribute :ways_of_working_as_markdown, :string
-    attribute :objectives_and_key_results_as_markdown, :string
-    attribute :key_performance_indicators_as_markdown, :string
-    attribute :agents_as_url, :string
-    attribute :agents_as_markdown, :string
+    ### images
     attribute :avatar_image_400x400_url, :string
     attribute :avatar_image_400x400_alt, :string
     attribute :main_image_1080x1080_url, :string
@@ -218,10 +240,28 @@ defmodule Navatrack.Accounts.User do
     attribute :main_image_1920x1080_alt, :string
     attribute :main_image_1080x1920_url, :string
     attribute :main_image_1080x1920_alt, :string
+    ### ideals
+    attribute :purpose_statement, :string
+    attribute :vision_statement, :string
+    attribute :mission_statement, :string
+    attribute :values_statement, :string
+    ## ai
+    attribute :ai_agent_instructions_as_url, :string
+    attribute :ai_agent_instructions_as_markdown, :string
+    ### workable
+    attribute :email_distribution_list, :string
+    attribute :daisyui_timeline_html, :string
+    attribute :org_mode, :string
+    attribute :task_list_as_markdown, :string
+    attribute :ways_of_working_as_markdown, :string
+    attribute :objectives_and_key_results_as_markdown, :string
+    attribute :key_performance_indicators_as_markdown, :string
+    ### work profile
     attribute :work_profile_resume_as_pdf_url, :string
     attribute :work_profile_resume_as_markdown, :string
     attribute :work_profile_curriculum_vitae_as_pdf_url, :string
     attribute :work_profile_curriculum_vitae_as_markdown, :string
+    ### work role
     attribute :work_role_name, :string
     attribute :work_role_start_date, :date
     attribute :work_role_stop_date, :date
@@ -235,22 +275,16 @@ defmodule Navatrack.Accounts.User do
   end
 
   relationships do
-    many_to_many :groups, Navatrack.Works.Group do
-      through Navatrack.Accounts.UserGroupLink
+    many_to_many :topics, Navatrack.Works.Topic do
+      through Navatrack.Accounts.UserTopicLink
       source_attribute_on_join_resource :user_id
-      destination_attribute_on_join_resource :group_id
+      destination_attribute_on_join_resource :topic_id
     end
 
     many_to_many :traits, Navatrack.Works.Trait do
       through Navatrack.Accounts.UserTraitLink
       source_attribute_on_join_resource :user_id
       destination_attribute_on_join_resource :trait_id
-    end
-
-    many_to_many :initiatives, Navatrack.Works.Initiative do
-      through Navatrack.Accounts.UserInitiativeLink
-      source_attribute_on_join_resource :user_id
-      destination_attribute_on_join_resource :initiative_id
     end
 
     many_to_many :ilo_isco_2008s, Navatrack.Codes.IloIsco2008 do

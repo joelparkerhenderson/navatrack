@@ -38,7 +38,8 @@
         "UkGdadPcfSkill",
         "UkGdadPcfSkills",
         "UNPS",
-        "WNPS"
+        "WNPS",
+        "workables"
     ],
     "ignoreWords": [],
     "import": []

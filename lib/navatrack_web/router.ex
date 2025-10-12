@@ -89,20 +89,15 @@ defmodule NavatrackWeb.Router do
         live "/users/:id", Users.ShowLive
         live "/users/:id/edit", Users.FormLive, :edit
 
-        live "/groups", Groups.IndexLive
-        live "/groups/new", Groups.FormLive, :new
-        live "/groups/:id", Groups.ShowLive
-        live "/groups/:id/edit", Groups.FormLive, :edit
+        live "/topics", Topics.IndexLive
+        live "/topics/new", Topics.FormLive, :new
+        live "/topics/:id", Topics.ShowLive
+        live "/topics/:id/edit", Topics.FormLive, :edit
 
         live "/traits", Traits.IndexLive
         live "/traits/new", Traits.FormLive, :new
         live "/traits/:id", Traits.ShowLive
         live "/traits/:id/edit", Traits.FormLive, :edit
-
-        live "/initiatives", Initiatives.IndexLive
-        live "/initiatives/new", Initiatives.FormLive, :new
-        live "/initiatives/:id", Initiatives.ShowLive
-        live "/initiatives/:id/edit", Initiatives.FormLive, :edit
 
         ### Read-Only Codes
 
@@ -120,20 +115,15 @@ defmodule NavatrackWeb.Router do
 
         ### Links
 
-        live "/user_group_links", UserGroupLinks.IndexLive
-        live "/user_group_links/new", UserGroupLinks.FormLive, :new
-        live "/user_group_links/:id", UserGroupLinks.ShowLive
-        live "/user_group_links/:id/edit", UserGroupLinks.FormLive, :edit
+        live "/user_topic_links", UserTopicLinks.IndexLive
+        live "/user_topic_links/new", UserTopicLinks.FormLive, :new
+        live "/user_topic_links/:id", UserTopicLinks.ShowLive
+        live "/user_topic_links/:id/edit", UserTopicLinks.FormLive, :edit
 
         live "/user_trait_links", UserTraitLinks.IndexLive
         live "/user_trait_links/new", UserTraitLinks.FormLive, :new
         live "/user_trait_links/:id", UserTraitLinks.ShowLive
         live "/user_trait_links/:id/edit", UserTraitLinks.FormLive, :edit
-
-        live "/user_initiative_links", UserInitiativeLinks.IndexLive
-        live "/user_initiative_links/new", UserInitiativeLinks.FormLive, :new
-        live "/user_initiative_links/:id", UserInitiativeLinks.ShowLive
-        live "/user_initiative_links/:id/edit", UserInitiativeLinks.FormLive, :edit
 
         live "/user_ilo_isco_2008_links", UserIloIsco2008Links.IndexLive
         live "/user_ilo_isco_2008_links/new", UserIloIsco2008Links.FormLive, :new
@@ -158,7 +148,7 @@ defmodule NavatrackWeb.Router do
       end
 
     ash_authentication_live_session :ash_authentication_live_session_routes do
-      live_resources "/manage/initiatives", Backpex.InitiativesLive
+      live_resources "/manage/topics", Backpex.TopicsLive
     end
 
   end

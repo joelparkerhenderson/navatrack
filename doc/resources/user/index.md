@@ -17,17 +17,25 @@ mix ash.gen.resource Navatrack.Accounts.User \
   --attribute name:string \
   --attribute status:string \
   --attribute tagging:string \
+  --attribute note:string \
   \
-  --attribute url:string \
+  --attribute web:string \
   --attribute email:string \
   --attribute phone:string \
-  --attribute messaging:string \
+  --attribute chat:string \
   --attribute postal:string \
-  --attribute orcid_pid:string \
   --attribute rdf_type:string \
-  --attribute linkedin_url:string \
-  --attribute github_url:string \
-  --attribute codeberg_url:string \
+  \
+  --attribute bluesky_as_url:string \
+  --attribute codeberg_as_url:string \
+  --attribute facebook_as_url:string \
+  --attribute github_as_url:string \
+  --attribute instagram_as_url:string \
+  --attribute linkedin_as_url:string \
+  --attribute orcid_as_url:string \
+  --attribute tiktok_as_url:string \
+  --attribute wikipedia_as_url:string \
+  --attribute youtube_as_url:string \
   \
   --attribute location_iso_3166_1_alpha_2:string \
   --attribute location_iso_3166_2:string \
@@ -35,26 +43,30 @@ mix ash.gen.resource Navatrack.Accounts.User \
   --attribute location_latitude_as_decimal_degrees:decimal \
   --attribute location_longitude_as_decimal_degrees:decimal \
   \
-  --attribute note:string \
+  --attribute email_distribution_list:string \
   --attribute daisyui_timeline_html:string \
   --attribute org_mode:string \
   --attribute task_list_as_markdown:string \
   --attribute ways_of_working_as_markdown:string \
   --attribute objectives_and_key_results_as_markdown:string \
   --attribute key_performance_indicators_as_markdown:string \
-  --attribute agents_as_markdown:string \
   \
   --attribute avatar_image_400x400_url:string \
   --attribute avatar_image_400x400_alt:string \
-  \
   --attribute main_main_image_1080x1080_url:string \
   --attribute main_main_image_1080x1080_alt:string \
-  \
   --attribute main_main_image_1920x1080_url:string \
   --attribute main_main_image_1920x1080_alt:string \
-  \
   --attribute main_main_image_1080x1920_url:string \
   --attribute main_main_image_1080x1920_alt:string \
+  \
+  --attribute purpose_statement:string \
+  --attribute :vision_statement:string \
+  --attribute :mission_statement:string \
+  --attribute :values_statement:string \
+  \
+  --attribute :ai_agent_instructions_as_url:string \
+  --attribute :ai_agent_instructions_as_markdown:string \
   \
   --attribute work_profile_resume_as_pdf_url:string \
   --attribute work_profile_resume_as_markdown:string \

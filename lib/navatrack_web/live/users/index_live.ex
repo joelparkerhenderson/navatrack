@@ -41,11 +41,11 @@ defmodule NavatrackWeb.Users.IndexLive do
         <:col :let={x} field="name" label="📛 Name" sort search>{x.name}</:col>
         <:col :let={x} field="status" label="🚦 Status" sort search>{x.status}</:col>
         <:col :let={x} field="tagging" label="🏷️ Tags" sort search>{x.tagging}</:col>
-        <:col :let={x} field="url" label="🔗 URL" sort search>{x.url}</:col>
+        <:col :let={x} field="web" label="🌐 Web" sort search>{x.web}</:col>
         <:col :let={x} field="email" label="📧 Email" sort search>{x.email}</:col>
         <:col :let={x} field="phone" label="📱 Phone" sort search>{x.phone}</:col>
-        <:col :let={x} field="messaging" label="💬 Messaging" sort search>{x.messaging}</:col>
-        <:col :let={x} field="location_iso_3166_1_alpha_2" label="🌎 Country" sort search>
+        <:col :let={x} field="chat" label="💬 Chat" sort search>{x.chat}</:col>
+        <:col :let={x} field="location_iso_3166_1_alpha_2" label="🗺️ Country" sort search>
           {x.location_iso_3166_1_alpha_2}
         </:col>
         <:col :let={x} field="work_role_name" label="👷 Work Role" sort search>

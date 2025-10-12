@@ -427,7 +427,7 @@ defmodule NavatrackWeb.CoreComponents do
   ```elixir
   path_index(resource_module)
   ->
-  "/initiatives"
+  "/topics"
   ```
   """
 
@@ -443,7 +443,7 @@ defmodule NavatrackWeb.CoreComponents do
   ```elixir
   path_show(resource_instance)
   ->
-  "/initiatives/f785eb8f-3913-4fd5-b7f4-7c6ea468ddb7"
+  "/topics/f785eb8f-3913-4fd5-b7f4-7c6ea468ddb7"
   ```
   """
 
@@ -459,7 +459,7 @@ defmodule NavatrackWeb.CoreComponents do
   ```elixir
   link_show(x)
   ->
-  ~H <.link navigate=/initiatives/f785eb8f-3913-4fd5-b7f4-7c6ea468ddb7" data-role="x-id">➡️</.link>
+  ~H <.link navigate=/topics/f785eb8f-3913-4fd5-b7f4-7c6ea468ddb7" data-role="x-id">➡️</.link>
   ```
   """
 

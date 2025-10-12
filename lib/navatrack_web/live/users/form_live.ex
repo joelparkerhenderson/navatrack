@@ -65,12 +65,16 @@ defmodule NavatrackWeb.Users.FormLive do
           field={form[:tagging]}
           label="🏷️ Tags"
         />
+        <.input
+          field={form[:note]}
+          label="🗒️ Note"
+        />
 
         <.section id="contact" title="Contact">
           <.input
-            field={form[:url]}
+            field={form[:web]}
             type="url"
-            label="🔗 URL"
+            label="🌐 Web"
             placeholder="https://example.com" />
           <.input
             field={form[:email]}
@@ -83,9 +87,14 @@ defmodule NavatrackWeb.Users.FormLive do
             label=" 📱 Phone" placeholder="+1-415-555-5555"
           />
           <.input
-            field={form[:messaging]}
-            label="💬 Messaging"
-            placeholder="https://bsky.app/profile/example"
+            field={form[:chat]}
+            label="💬 Chat"
+            placeholder=""
+          />
+          <.input
+            field={form[:calendar]}
+            label="🗓️ Calendar"
+            placeholder=""
           />
           <.input
             field={form[:postal]}
@@ -93,35 +102,75 @@ defmodule NavatrackWeb.Users.FormLive do
             placeholder="123 Main St, San Francisco, CA, US, 94100, US"
           />
           <.input
-            field={form[:orcid_pid]}
-            label="🌺 ORCID PID"
-            placeholder="0009-0000-4681-282X"
-          />
-          <.input
             field={form[:rdf_type]}
             label="🖇️ RDF Type"
           />
         </.section>
 
-        <.section id="socials" title="Socials">
+        <.section id="Social" title="Social">
           <.input
-            field={form[:linkedin_url]}
-            label="LinkedIn URL"
-            placeholder="https://linkedin.com/in/example"
+            field={form[:bluesky_as_url]}
+            label="Bluesky URL"
+            type="url"
+            placeholder="https://bsky.app/profile/example"
           />
           <.input
-            field={form[:github_url]}
+            field={form[:codeberg_as_url]}
+            label="Codeberg URL"
+            type="url"
+            placeholder="https://codeberg.com/example"
+          />
+          <.input
+            field={form[:facebook_as_url]}
+            label="Facebook URL"
+            type="url"
+            placeholder="https://facebook.com/example"
+          />
+          <.input
+            field={form[:github_as_url]}
             label="GitHub URL"
+            type="url"
             placeholder="https://github.com/in/example"
           />
           <.input
-            field={form[:codeberg_url]}
-            label="Codeberg URL"
-            placeholder="https://codeberg.com/example"
+            field={form[:instagram_as_url]}
+            label="Instagram URL"
+            type="url"
+            placeholder="https://instagram.com/example"
+          />
+          <.input
+            field={form[:linkedin_as_url]}
+            label="LinkedIn URL"
+            type="url"
+            placeholder="https://linkedin.com/in/example"
+          />
+          <.input
+            field={form[:orcid_as_url]}
+            label="ORCID URL"
+            type="url"
+            placeholder="https://orcid.org/example"
+          />
+          <.input
+            field={form[:tiktok_as_url]}
+            label="TikTok URL"
+            type="url"
+            placeholder="https://tiktok.com/example"
+          />
+          <.input
+            field={form[:wikipedia_as_url]}
+            label="Wikipedia URL"
+            type="url"
+            placeholder="https://wikipedia.org/example"
+          />
+          <.input
+            field={form[:youtube_as_url]}
+            label="YouTube URL"
+            type="url"
+            placeholder="https://youtube.com/example"
           />
         </.section>
 
-        <.section id="location" title="Locations">
+        <.section id="location" title="Location">
           <.input
             field={form[:location_iso_3166_1_alpha_2]}
             label="Country code (ISO 3166-1 Alpha 2)"
@@ -134,7 +183,8 @@ defmodule NavatrackWeb.Users.FormLive do
           />
           <.input
             field={form[:location_postal_code]}
-            label="Postal code" placeholder="94100" />
+            label="Postal code" placeholder="94100"
+          />
           <.input
             field={form[:location_latitude_as_decimal_degrees]}
             label="Latitude"
@@ -144,19 +194,6 @@ defmodule NavatrackWeb.Users.FormLive do
             field={form[:location_longitude_as_decimal_degrees]}
             label="Longitude"
             placeholder="122.3936"
-          />
-        </.section>
-
-        <.section id="agents" title="AGENTS.md">
-          <.input
-            field={form[:agents_as_url]}
-            type="url"
-            label="🔗 URL"
-            placeholder="https://example.com"
-          />
-          <.input field={form[:agents_as_markdown]}
-            type="textarea"
-            label="Markdown"
           />
         </.section>
 
@@ -219,10 +256,42 @@ defmodule NavatrackWeb.Users.FormLive do
           />
         </.section>
 
-        <.section id="deeper_dive" title="Deeper Dive">
+        <.section id="ideals" title="Ideals">
           <.input
-            field={form[:note]}
-            label="Note"
+            field={form[:purpose_statement]}
+            label="Purpose Statement"
+          />
+          <.input
+            field={form[:vision_statement]}
+            label="Vision Statement"
+          />
+          <.input
+            field={form[:mission_statement]}
+            label="Mission Statement"
+          />
+          <.input
+            field={form[:values_statement]}
+            label="Values Statement"
+          />
+        </.section>
+
+        <.section id="ai" title="AI Agent Instructions">
+          <.input
+            field={form[:ai_agent_instructions_as_url]}
+            label="URL"
+            type="url"
+            placeholder="https://example.com"
+          />
+          <.input
+            field={form[:ai_agent_instructions_as_markdown]}
+            label="Markdown"
+            type="textarea"
+          />
+        </.section>
+
+        <.section id="deeper_dive" title="Deeper Dive">
+          <.input field={form[:email_distribution_list]}
+            label="Email distribution list"
           />
           <.input field={form[:daisyui_timeline_html]}
             label="DaisyUI timeline HTML"
