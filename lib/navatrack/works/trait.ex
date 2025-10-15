@@ -26,6 +26,7 @@ defmodule Navatrack.Works.Trait do
       :sign,
       :status,
       :tagging,
+      :note,
       :summary_as_markdown,
       :description_as_markdown,
       :avatar_image_400x400_url,
@@ -49,6 +50,7 @@ defmodule Navatrack.Works.Trait do
     attribute :sign, :string
     attribute :status, :string
     attribute :tagging, :string
+    attribute :note, :string
     attribute :summary_as_markdown, :string
     attribute :description_as_markdown, :string
     attribute :avatar_image_400x400_url, :string

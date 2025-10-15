@@ -18,7 +18,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
       status text,
       tagging text,
       note text,
-      agent text,
       ---
       summary_as_markdown text,
       description_as_markdown text,
@@ -53,8 +52,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
         tagging
           || ' ' ||
         note
-          || ' ' ||
-        agent
           || ' ' ||
         summary_as_markdown
           || ' ' ||
