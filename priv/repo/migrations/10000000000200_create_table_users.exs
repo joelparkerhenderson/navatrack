@@ -16,6 +16,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       locale_code text,
       --- card
       name text,
+      sign text CONSTRAINT sign_check CHECK (LENGTH(sign) = 1),
       status text,
       tagging text,
       note text,
@@ -99,6 +100,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
     CREATE INDEX users_index_gto
       ON users
       USING GIN ((
+        sign
+          || ' ' ||
         name
           || ' ' ||
         status
@@ -124,6 +127,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
   end
 
   def down do
+    execute "DROP CONSTRAINT IF EXISTS sign_check;"
     execute "DROP CONSTRAINT IF EXISTS web_check;"
     execute "DROP CONSTRAINT IF EXISTS email_check;"
     execute "DROP CONSTRAINT IF EXISTS bluesky_as_url_check;"

@@ -9,6 +9,7 @@ defmodule NavatrackWeb.UsersTest do
       |> Ash.Changeset.for_create(:create, %{
         locale_code: "en-US",
         name: "my-name",
+        sign: "○",
         status: "my-status",
         tagging: "my-tagging",
         note: "my-note",
@@ -99,7 +100,8 @@ defmodule NavatrackWeb.UsersTest do
     response = html_response(conn, 200)
     assert response =~ "Users"
     assert response =~ "📛 Name"
-    assert response =~ "🚦 Status"
+    assert response =~ "🚦 Sign"
+    assert response =~ "📍 Status"
     assert response =~ "🏷️ Tags"
     assert response =~ "🌐 Web"
     assert response =~ "📧 Email"
@@ -113,7 +115,8 @@ defmodule NavatrackWeb.UsersTest do
     response = html_response(conn, 200)
     assert response =~ "Users"
     assert response =~ "📛 Name"
-    assert response =~ "🚦 Status"
+    assert response =~ "🚦 Sign"
+    assert response =~ "📍 Status"
     assert response =~ "🏷️ Tags"
     assert response =~ "🗒️ Note"
 
@@ -126,7 +129,7 @@ defmodule NavatrackWeb.UsersTest do
     assert response =~ "📫 Postal"
     assert response =~ "🖇️ RDF Type"
 
-    assert response =~ "Social"
+    assert response =~ "Socials"
     assert response =~ "Bluesky URL"
     assert response =~ "Codeberg URL"
     assert response =~ "Facebook URL"
@@ -201,7 +204,8 @@ defmodule NavatrackWeb.UsersTest do
     # assert response =~ "Deleted at: #{x.deleted_at}"
     assert response =~ "Locale code: #{x.locale_code}"
     assert response =~ "📛 Name: #{x.name}"
-    assert response =~ "🚦 Status: #{x.status}"
+    assert response =~ "🚦 Sign: #{x.sign}"
+    assert response =~ "📍 Status: #{x.status}"
     assert response =~ "🏷️ Tags: #{x.tagging}"
     assert response =~ "🗒️ Note: #{x.note}"
 
@@ -214,17 +218,17 @@ defmodule NavatrackWeb.UsersTest do
     assert response =~ "📫 Postal: #{x.postal}"
     assert response =~ "🖇️ RDF Type: #{x.rdf_type}"
 
-    assert response =~ "Social"
-    assert response =~ "Bluesky URL: #{x.bluesky_as_url}"
-    assert response =~ "Codeberg URL: #{x.codeberg_as_url}"
-    assert response =~ "Facebook URL: #{x.facebook_as_url}"
-    assert response =~ "GitHub URL: #{x.github_as_url}"
-    assert response =~ "Instagram URL: #{x.instagram_as_url}"
-    assert response =~ "LinkedIn URL: #{x.linkedin_as_url}"
-    assert response =~ "ORCID URL: #{x.orcid_as_url}"
-    assert response =~ "TikTok URL: #{x.tiktok_as_url}"
-    assert response =~ "Wikipedia URL: #{x.wikipedia_as_url}"
-    assert response =~ "YouTube URL: #{x.youtube_as_url}"
+    assert response =~ "Socials"
+    assert response =~ "Bluesky URL: <a href=\"#{x.bluesky_as_url}\">#{x.bluesky_as_url}</a>"
+    assert response =~ "Codeberg URL: <a href=\"#{x.codeberg_as_url}\">#{x.codeberg_as_url}</a>"
+    assert response =~ "Facebook URL: <a href=\"#{x.facebook_as_url}\">#{x.facebook_as_url}</a>"
+    assert response =~ "GitHub URL: <a href=\"#{x.github_as_url}\">#{x.github_as_url}</a>"
+    assert response =~ "Instagram URL: <a href=\"#{x.instagram_as_url}\">#{x.instagram_as_url}</a>"
+    assert response =~ "LinkedIn URL: <a href=\"#{x.linkedin_as_url}\">#{x.linkedin_as_url}</a>"
+    assert response =~ "ORCID URL: <a href=\"#{x.orcid_as_url}\">#{x.orcid_as_url}</a>"
+    assert response =~ "TikTok URL: <a href=\"#{x.tiktok_as_url}\">#{x.tiktok_as_url}</a>"
+    assert response =~ "Wikipedia URL: <a href=\"#{x.wikipedia_as_url}\">#{x.wikipedia_as_url}</a>"
+    assert response =~ "YouTube URL: <a href=\"#{x.youtube_as_url}\">#{x.youtube_as_url}</a>"
 
     assert response =~ "Location"
 
@@ -247,19 +251,19 @@ defmodule NavatrackWeb.UsersTest do
     assert response =~ "Images"
 
     assert response =~ "Avatar image 400x400"
-    assert response =~ "URL: #{x.avatar_image_400x400_url}"
+    assert response =~ "URL: <a href=\"#{x.avatar_image_400x400_url}\">#{x.avatar_image_400x400_url}</a>"
     assert response =~ "Alt: #{x.avatar_image_400x400_alt}"
 
     assert response =~ "Main image 1080x1080 square"
-    assert response =~ "URL: #{x.main_image_1080x1080_url}"
+    assert response =~ "URL: <a href=\"#{x.main_image_1080x1080_url}\">#{x.main_image_1080x1080_url}</a>"
     assert response =~ "Alt: #{x.main_image_1080x1080_alt}"
 
     assert response =~ "Main image 1920x1080 landscape"
-    assert response =~ "URL: #{x.main_image_1920x1080_url}"
+    assert response =~ "URL: <a href=\"#{x.main_image_1920x1080_url}\">#{x.main_image_1920x1080_url}</a>"
     assert response =~ "Alt: #{x.main_image_1920x1080_alt}"
 
     assert response =~ "Main image 1080x1920 portrait"
-    assert response =~ "URL: #{x.main_image_1080x1920_url}"
+    assert response =~ "URL: <a href=\"#{x.main_image_1080x1920_url}\">#{x.main_image_1080x1920_url}</a>"
     assert response =~ "Alt: #{x.main_image_1080x1920_alt}"
 
     assert response =~ "Ideals"
@@ -269,14 +273,14 @@ defmodule NavatrackWeb.UsersTest do
     assert response =~ "Values Statement: #{x.values_statement}"
 
     assert response =~ "AI Agent Instructions"
-    assert response =~ "URL: #{x.ai_agent_instructions_as_url}"
+    assert response =~ "URL: <a href=\"#{x.ai_agent_instructions_as_url}\">#{x.ai_agent_instructions_as_url}</a>"
     assert response =~ "Markdown: #{x.ai_agent_instructions_as_markdown}"
 
     assert response =~ "Work Profile"
 
-    assert response =~ "Résumé as PDF URL: #{x.work_profile_resume_as_pdf_url}"
+    assert response =~ "Résumé as PDF URL: <a href=\"#{x.work_profile_resume_as_pdf_url}\">#{x.work_profile_resume_as_pdf_url}</a>"
     assert response =~ "Résumé as markdown: #{x.work_profile_resume_as_markdown}"
-    assert response =~ "Curriculum vitae as PDF URL: #{x.work_profile_curriculum_vitae_as_pdf_url}"
+    assert response =~ "Curriculum vitae as PDF URL: <a href=\"#{x.work_profile_curriculum_vitae_as_pdf_url}\">#{x.work_profile_curriculum_vitae_as_pdf_url}</a>"
     assert response =~ "Curriculum vitae as markdown: #{x.work_profile_curriculum_vitae_as_markdown}"
 
     assert response =~ "Work Role"
@@ -290,7 +294,7 @@ defmodule NavatrackWeb.UsersTest do
     assert response =~ "Onet SOC 2019 code: #{x.work_role_onet_soc_2019_code}"
     assert response =~ "UK Civil Service Grade abbreviation: #{x.work_role_uk_civil_service_grade_abbreviation}"
     assert response =~ "UK SOC 2020 code: #{x.work_role_uk_soc_2020_code}"
-    assert response =~ "UK GDAD PCF URL: #{x.work_role_uk_gdad_pcf_url}"
+    assert response =~ "UK GDAD PCF URL: <a href=\"#{x.work_role_uk_gdad_pcf_url}\">#{x.work_role_uk_gdad_pcf_url}</a>"
   end
 
   test "create", %{conn: conn} do

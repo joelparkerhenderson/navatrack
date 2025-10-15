@@ -84,10 +84,30 @@ defmodule NavatrackWeb.Router do
 
         ### Core Resources
 
+        live "/events", Events.IndexLive
+        live "/events/new", Events.FormLive, :new
+        live "/events/:id", Events.ShowLive
+        live "/events/:id/edit", Events.FormLive, :edit
+
+        live "/groups", Groups.IndexLive
+        live "/groups/new", Groups.FormLive, :new
+        live "/groups/:id", Groups.ShowLive
+        live "/groups/:id/edit", Groups.FormLive, :edit
+
         live "/users", Users.IndexLive
         live "/users/new", Users.FormLive, :new
         live "/users/:id", Users.ShowLive
         live "/users/:id/edit", Users.FormLive, :edit
+
+        live "/plans", Plans.IndexLive
+        live "/plans/new", Plans.FormLive, :new
+        live "/plans/:id", Plans.ShowLive
+        live "/plans/:id/edit", Plans.FormLive, :edit
+
+        live "/tasks", Tasks.IndexLive
+        live "/tasks/new", Tasks.FormLive, :new
+        live "/tasks/:id", Tasks.ShowLive
+        live "/tasks/:id/edit", Tasks.FormLive, :edit
 
         live "/topics", Topics.IndexLive
         live "/topics/new", Topics.FormLive, :new
@@ -114,6 +134,16 @@ defmodule NavatrackWeb.Router do
         live "/uk_gdad_pcf_skills/:id", UkGdadPcfSkills.ShowLive
 
         ### Links
+
+        live "/user_group_links", UserGroupLinks.IndexLive
+        live "/user_group_links/new", UserGroupLinks.FormLive, :new
+        live "/user_group_links/:id", UserGroupLinks.ShowLive
+        live "/user_group_links/:id/edit", UserGroupLinks.FormLive, :edit
+
+        live "/user_plan_links", UserPlanLinks.IndexLive
+        live "/user_plan_links/new", UserPlanLinks.FormLive, :new
+        live "/user_plan_links/:id", UserPlanLinks.ShowLive
+        live "/user_plan_links/:id/edit", UserPlanLinks.FormLive, :edit
 
         live "/user_topic_links", UserTopicLinks.IndexLive
         live "/user_topic_links/new", UserTopicLinks.FormLive, :new

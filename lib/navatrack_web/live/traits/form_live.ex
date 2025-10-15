@@ -58,8 +58,12 @@ defmodule NavatrackWeb.Traits.FormLive do
           autofocus
         />
         <.input
+          field={form[:sign]}
+          label="🚦 Sign"
+        />
+        <.input
           field={form[:status]}
-          label="🚦 Status"
+          label="📍 Status"
         />
         <.input
           field={form[:tagging]}

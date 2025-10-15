@@ -23,6 +23,7 @@ defmodule Navatrack.Works.Topic do
       :deleted_at,
       :locale_code,
       :name,
+      :sign,
       :status,
       :tagging,
       :note,
@@ -143,6 +144,8 @@ defmodule Navatrack.Works.Topic do
       :copyright_policy_as_markdown,
       :corrections_policy_as_url,
       :corrections_policy_as_markdown,
+      :diversity_policy_as_url,
+      :diversity_policy_as_markdown,
       :equal_opportunity_policy_as_url,
       :equal_opportunity_policy_as_markdown,
       :ethics_policy_as_url,
@@ -213,37 +216,44 @@ defmodule Navatrack.Works.Topic do
       :apache_echart_as_url,
       :apache_echart_as_typescript,
       ### net promoter score
-      :net_promoter_score_customer_perspective_actual_value,
-      :net_promoter_score_customer_perspective_target_value,
+      :net_promoter_score_customer_perspective_actual,
+      :net_promoter_score_customer_perspective_expect,
+      #:net_promoter_score_customer_perspective_ratio,
       :net_promoter_score_customer_perspective_unit,
       :net_promoter_score_customer_perspective_description_as_markdown,
-      :net_promoter_score_user_perspective_actual_value,
-      :net_promoter_score_user_perspective_target_value,
+      :net_promoter_score_user_perspective_actual,
+      :net_promoter_score_user_perspective_expect,
+      #:net_promoter_score_user_perspective_ratio,
       :net_promoter_score_user_perspective_unit,
       :net_promoter_score_user_perspective_description_as_markdown,
-      :net_promoter_score_worker_perspective_actual_value,
-      :net_promoter_score_worker_perspective_target_value,
+      :net_promoter_score_worker_perspective_actual,
+      :net_promoter_score_worker_perspective_expect,
+      #:net_promoter_score_worker_perspective_ratio,
       :net_promoter_score_worker_perspective_unit,
       :net_promoter_score_worker_perspective_description_as_markdown,
       ### active users
-      :active_users_actual_value,
-      :active_users_target_value,
+      :active_users_actual,
+      :active_users_expect,
+      #:active_users_ratio,
       :active_users_unit,
       :active_users_description,
       ### uptime percentage
-      :uptime_percentage_actual_value,
-      :uptime_percentage_target_value,
+      :uptime_percentage_actual,
+      :uptime_percentage_expect,
+      #:uptime_percentage_ratio,
       :uptime_percentage_unit,
       :uptime_percentage_description,
       ### burn rate
-      :burn_rate_net_cash_per_week_actual_value,
-      :burn_rate_net_cash_per_week_target_value,
+      :burn_rate_net_cash_per_week_actual,
+      :burn_rate_net_cash_per_week_expect,
+      #:burn_rate_net_cash_per_week_ratio,
       :burn_rate_net_cash_per_week_unit,
       :burn_rate_net_cash_per_week_description,
-      :burn_rate_hours_per_week_actual_value,
-      :burn_rate_hours_per_week_target_value,
-      :burn_rate_hours_per_week_unit,
-      :burn_rate_hours_per_week_description,
+      :burn_rate_net_hours_per_week_actual,
+      :burn_rate_net_hours_per_week_expect,
+      #:burn_rate_net_hours_per_week_ratio,
+      :burn_rate_net_hours_per_week_unit,
+      :burn_rate_net_hours_per_week_description,
       ### earned value management
       :earned_value_management_planned_value,
       :earned_value_management_earned_value,
@@ -261,53 +271,53 @@ defmodule Navatrack.Works.Topic do
       :total_project_control_dipp_progress_index_denominator,
       :total_project_control_expected_monetary_value,
       :total_project_control_cost_estimate_to_complete,
-      :deployment_frequency_actual_value,
-      :deployment_frequency_target_value,
+      :deployment_frequency_actual,
+      :deployment_frequency_expect,
       # :deployment_frequency_ratio,
       :deployment_frequency_unit,
       :deployment_frequency_description,
-      :lead_time_for_changes_actual_value,
-      :lead_time_for_changes_target_value,
+      :lead_time_for_changes_actual,
+      :lead_time_for_changes_expect,
       # :lead_time_for_changes_ratio,
       :lead_time_for_changes_unit,
       :lead_time_for_changes_description,
-      :change_failure_rate_actual_value,
-      :change_failure_rate_target_value,
+      :change_failure_rate_actual,
+      :change_failure_rate_expect,
       # :change_failure_rate_ratio,
       :change_failure_rate_unit,
       :change_failure_rate_description,
-      :mean_time_to_recovery_actual_value,
-      :mean_time_to_recovery_target_value,
+      :mean_time_to_recovery_actual,
+      :mean_time_to_recovery_expect,
       # :mean_time_to_recovery_ratio,
       :mean_time_to_recovery_unit,
       :mean_time_to_recovery_description,
-      :maintainability_index_actual_value,
-      :maintainability_index_target_value,
+      :maintainability_index_actual,
+      :maintainability_index_expect,
       # :maintainability_index_ratio,
       :maintainability_index_unit,
       :maintainability_index_description,
-      :line_count_actual_value,
-      :line_count_target_value,
+      :line_count_actual,
+      :line_count_expect,
       # :line_count_ratio,
       :line_count_unit,
       :line_count_description,
-      :test_automation_code_coverage_actual_value,
-      :test_automation_code_coverage_target_value,
+      :test_automation_code_coverage_actual,
+      :test_automation_code_coverage_expect,
       # :test_automation_code_coverage_ratio,
       :test_automation_code_coverage_unit,
       :test_automation_code_coverage_description,
-      :halstead_complexity_volume_actual_value,
-      :halstead_complexity_volume_target_value,
+      :halstead_complexity_volume_actual,
+      :halstead_complexity_volume_expect,
       # :halstead_complexity_volume_ratio,
       :halstead_complexity_volume_unit,
       :halstead_complexity_volume_description,
-      :halstead_complexity_difficulty_actual_value,
-      :halstead_complexity_difficulty_target_value,
+      :halstead_complexity_difficulty_actual,
+      :halstead_complexity_difficulty_expect,
       # :halstead_complexity_difficulty_ratio,
       :halstead_complexity_difficulty_unit,
       :halstead_complexity_difficulty_description,
-      :halstead_complexity_effort_actual_value,
-      :halstead_complexity_effort_target_value,
+      :halstead_complexity_effort_actual,
+      :halstead_complexity_effort_expect,
       # :halstead_complexity_effort_ratio,
       :halstead_complexity_effort_unit,
       :halstead_complexity_effort_description
@@ -315,12 +325,15 @@ defmodule Navatrack.Works.Topic do
   end
 
   attributes do
+    ### meta
     uuid_primary_key :id
     attribute :created_at, :utc_datetime_usec
     attribute :updated_at, :utc_datetime_usec
     attribute :deleted_at, :utc_datetime_usec
     attribute :locale_code, :string
+    ### head
     attribute :name, :string, public?: true
+    attribute :sign, :string
     attribute :status, :string
     attribute :tagging, :string
     attribute :note, :string
@@ -441,6 +454,8 @@ defmodule Navatrack.Works.Topic do
     attribute :copyright_policy_as_markdown, :string
     attribute :corrections_policy_as_url, :string
     attribute :corrections_policy_as_markdown, :string
+    attribute :diversity_policy_as_url, :string
+    attribute :diversity_policy_as_markdown, :string
     attribute :equal_opportunity_policy_as_url, :string
     attribute :equal_opportunity_policy_as_markdown, :string
     attribute :ethics_policy_as_url, :string
@@ -511,36 +526,36 @@ defmodule Navatrack.Works.Topic do
     attribute :apache_echart_as_url, :string
     attribute :apache_echart_as_typescript, :string
     ### net promoter score
-    attribute :net_promoter_score_customer_perspective_actual_value, :decimal
-    attribute :net_promoter_score_customer_perspective_target_value, :decimal
+    attribute :net_promoter_score_customer_perspective_actual, :decimal
+    attribute :net_promoter_score_customer_perspective_expect, :decimal
     attribute :net_promoter_score_customer_perspective_unit, :string
     attribute :net_promoter_score_customer_perspective_description_as_markdown, :string
-    attribute :net_promoter_score_user_perspective_actual_value, :decimal
-    attribute :net_promoter_score_user_perspective_target_value, :decimal
+    attribute :net_promoter_score_user_perspective_actual, :decimal
+    attribute :net_promoter_score_user_perspective_expect, :decimal
     attribute :net_promoter_score_user_perspective_unit, :string
     attribute :net_promoter_score_user_perspective_description_as_markdown, :string
-    attribute :net_promoter_score_worker_perspective_actual_value, :decimal
-    attribute :net_promoter_score_worker_perspective_target_value, :decimal
+    attribute :net_promoter_score_worker_perspective_actual, :decimal
+    attribute :net_promoter_score_worker_perspective_expect, :decimal
     attribute :net_promoter_score_worker_perspective_unit, :string
     attribute :net_promoter_score_worker_perspective_description_as_markdown, :string
     ### user metrics
-    attribute :active_users_actual_value, :decimal
-    attribute :active_users_target_value, :decimal
+    attribute :active_users_actual, :decimal
+    attribute :active_users_expect, :decimal
     attribute :active_users_unit, :string
     attribute :active_users_description, :string
-    attribute :uptime_percentage_actual_value, :decimal
-    attribute :uptime_percentage_target_value, :decimal
+    attribute :uptime_percentage_actual, :decimal
+    attribute :uptime_percentage_expect, :decimal
     attribute :uptime_percentage_unit, :string
     attribute :uptime_percentage_description, :string
     ### burn rate
-    attribute :burn_rate_net_cash_per_week_actual_value, :decimal
-    attribute :burn_rate_net_cash_per_week_target_value, :decimal
+    attribute :burn_rate_net_cash_per_week_actual, :decimal
+    attribute :burn_rate_net_cash_per_week_expect, :decimal
     attribute :burn_rate_net_cash_per_week_unit, :string
     attribute :burn_rate_net_cash_per_week_description, :string
-    attribute :burn_rate_hours_per_week_actual_value, :decimal
-    attribute :burn_rate_hours_per_week_target_value, :decimal
-    attribute :burn_rate_hours_per_week_unit, :string
-    attribute :burn_rate_hours_per_week_description, :string
+    attribute :burn_rate_net_hours_per_week_actual, :decimal
+    attribute :burn_rate_net_hours_per_week_expect, :decimal
+    attribute :burn_rate_net_hours_per_week_unit, :string
+    attribute :burn_rate_net_hours_per_week_description, :string
     ### earned value management
     attribute :earned_value_management_planned_value, :decimal
     attribute :earned_value_management_earned_value, :decimal
@@ -559,60 +574,60 @@ defmodule Navatrack.Works.Topic do
     attribute :total_project_control_expected_monetary_value, :decimal
     attribute :total_project_control_cost_estimate_to_complete, :decimal
     ### deployment_frequency
-    attribute :deployment_frequency_actual_value, :decimal
-    attribute :deployment_frequency_target_value, :decimal
+    attribute :deployment_frequency_actual, :decimal
+    attribute :deployment_frequency_expect, :decimal
     attribute :deployment_frequency_ratio, :decimal
     attribute :deployment_frequency_unit, :string
     attribute :deployment_frequency_description, :string
     ### lead_time_for_changes
-    attribute :lead_time_for_changes_actual_value, :decimal
-    attribute :lead_time_for_changes_target_value, :decimal
+    attribute :lead_time_for_changes_actual, :decimal
+    attribute :lead_time_for_changes_expect, :decimal
     attribute :lead_time_for_changes_ratio, :decimal
     attribute :lead_time_for_changes_unit, :string
     attribute :lead_time_for_changes_description, :string
     ### change_failure_rate
-    attribute :change_failure_rate_actual_value, :decimal
-    attribute :change_failure_rate_target_value, :decimal
+    attribute :change_failure_rate_actual, :decimal
+    attribute :change_failure_rate_expect, :decimal
     attribute :change_failure_rate_ratio, :decimal
     attribute :change_failure_rate_unit, :string
     attribute :change_failure_rate_description, :string
     ### mean_time_to_recovery
-    attribute :mean_time_to_recovery_actual_value, :decimal
-    attribute :mean_time_to_recovery_target_value, :decimal
+    attribute :mean_time_to_recovery_actual, :decimal
+    attribute :mean_time_to_recovery_expect, :decimal
     attribute :mean_time_to_recovery_ratio, :decimal
     attribute :mean_time_to_recovery_unit, :string
     attribute :mean_time_to_recovery_description, :string
     ### maintainability_index
-    attribute :maintainability_index_actual_value, :decimal
-    attribute :maintainability_index_target_value, :decimal
+    attribute :maintainability_index_actual, :decimal
+    attribute :maintainability_index_expect, :decimal
     attribute :maintainability_index_ratio, :decimal
     attribute :maintainability_index_unit, :string
     attribute :maintainability_index_description, :string
     ### line_count
-    attribute :line_count_actual_value, :decimal
-    attribute :line_count_target_value, :decimal
+    attribute :line_count_actual, :decimal
+    attribute :line_count_expect, :decimal
     attribute :line_count_ratio, :decimal
     attribute :line_count_unit, :string
     attribute :line_count_description, :string
     ### test_automation_code_coverage
-    attribute :test_automation_code_coverage_actual_value, :decimal
-    attribute :test_automation_code_coverage_target_value, :decimal
+    attribute :test_automation_code_coverage_actual, :decimal
+    attribute :test_automation_code_coverage_expect, :decimal
     attribute :test_automation_code_coverage_ratio, :decimal
     attribute :test_automation_code_coverage_unit, :string
     attribute :test_automation_code_coverage_description, :string
     ### halstead_complexity
-    attribute :halstead_complexity_volume_actual_value, :decimal
-    attribute :halstead_complexity_volume_target_value, :decimal
+    attribute :halstead_complexity_volume_actual, :decimal
+    attribute :halstead_complexity_volume_expect, :decimal
     attribute :halstead_complexity_volume_ratio, :decimal
     attribute :halstead_complexity_volume_unit, :string
     attribute :halstead_complexity_volume_description, :string
-    attribute :halstead_complexity_difficulty_actual_value, :decimal
-    attribute :halstead_complexity_difficulty_target_value, :decimal
+    attribute :halstead_complexity_difficulty_actual, :decimal
+    attribute :halstead_complexity_difficulty_expect, :decimal
     attribute :halstead_complexity_difficulty_ratio, :decimal
     attribute :halstead_complexity_difficulty_unit, :string
     attribute :halstead_complexity_difficulty_description, :string
-    attribute :halstead_complexity_effort_actual_value, :decimal
-    attribute :halstead_complexity_effort_target_value, :decimal
+    attribute :halstead_complexity_effort_actual, :decimal
+    attribute :halstead_complexity_effort_expect, :decimal
     attribute :halstead_complexity_effort_ratio, :decimal
     attribute :halstead_complexity_effort_unit, :string
     attribute :halstead_complexity_effort_description, :string

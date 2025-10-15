@@ -121,8 +121,8 @@ for env in dev test; do
    rm priv/repo/migrations/*_tmp_extensions_1.exs
    mix ash.migrate
 done
-export MIX_ENV=test && mix test
-export MIX_ENV=dev && mix phx.server
+export MIX_ENV=test && mix && mix test
+export MIX_ENV=dev && mix && mix phx.server
 ```
 
 Redo dependencies:
@@ -224,26 +224,39 @@ defp​ sort_options ​do​
 Tagging ideas for users:
 
 - advisor
+- approver
+- author
 - broker
+- creator
 - coach
 - consultant
 - consumer
 - customer
+- editor
 - employee
+- endorser
+- endorsee
+- grantor
+- grantee
+- inventor
 - investor
+- investee
 - partner
 - producer
+- reviewer
+- signatory
+- sponsor
 - supplier
+- writer
 - vendor
 - volunteer
 
 Tagging ideas for topics about groups:
 
 - association
+- chapter
 - committee
 - community
-- community of interest
-- community of practice
 - company
 - club
 - department
@@ -251,10 +264,14 @@ Tagging ideas for topics about groups:
 - division
 - interest
 - group
+- guild
 - organization
 - partnership
 - party
+- practice
+- squad
 - team
+- tribe
 - union
 - venture
 
@@ -281,6 +298,18 @@ Tagging ideas for topics about working:
 - service
 - solution
 - venture
+
+Tagging ideas for topics about training:
+
+- article
+- book
+- coaching
+- class
+- concept
+- course
+- offering
+- training
+- video
 
 Tagging ideas for traits:
 

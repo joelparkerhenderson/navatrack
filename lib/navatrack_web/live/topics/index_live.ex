@@ -39,25 +39,26 @@ defmodule NavatrackWeb.Topics.IndexLive do
       <Cinder.Table.table theme={Cinder.Themes.Smart} resource={X}>
         <:col :let={x} field="id" label="➡️ Id" filter sort search><.link_show x={x} /></:col>
         <:col :let={x} field="name" label="📛 Name" sort search>{x.name}</:col>
-        <:col :let={x} field="status" label="🚦 Status" sort search>{x.status}</:col>
+        <:col :let={x} field="status" label="🚦 Sign" sort search>{x.status}</:col>
+        <:col :let={x} field="status" label="📍 Status" sort search>{x.status}</:col>
         <:col :let={x} field="tagging" label="🏷️ Tags" sort search>{x.tagging}</:col>
         <:col
           :let={x}
-          field="net_promoter_score_customer_perspective_actual_value"
+          field="net_promoter_score_customer_perspective_actual"
           label="👍 NPS"
           sort
           search
         >
-          {x.net_promoter_score_customer_perspective_actual_value}
+          {x.net_promoter_score_customer_perspective_actual}
         </:col>
         <:col :let={x} field="total_project_control_dipp" label="💘 DIPP" sort search>
           {x.total_project_control_dipp}
         </:col>
-        <:col :let={x} field="burn_rate_net_cash_per_week_actual_value" label="🔥 Burn" sort search>
-          {x.burn_rate_net_cash_per_week_actual_value}
+        <:col :let={x} field="burn_rate_net_cash_per_week_actual" label="🔥 Burn" sort search>
+          {x.burn_rate_net_cash_per_week_actual}
         </:col>
-        <:col :let={x} field="deployment_frequency_actual_value" label="⛵️ Ship" sort search>
-          {x.deployment_frequency_actual_value}
+        <:col :let={x} field="deployment_frequency_actual" label="⛵️ Ship" sort search>
+          {x.deployment_frequency_actual}
         </:col>
         <:col :let={x} field="maintainability_index_unit" label="🛠️ Code" sort search>
           {x.maintainability_index_unit}

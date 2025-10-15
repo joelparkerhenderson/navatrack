@@ -9,6 +9,7 @@ defmodule NavatrackWeb.TopicsTest do
       |> Ash.Changeset.for_create(:create, %{
         locale_code: "en-US",
         name: "my-name",
+        sign: "○",
         status: "my-status",
         tagging: "my-tagging",
         note: "my-note",
@@ -130,6 +131,8 @@ defmodule NavatrackWeb.TopicsTest do
         copyright_policy_as_markdown: "my-copyright-policy-as-markdown",
         corrections_policy_as_url: "https://my-corrections-policy-as-url",
         corrections_policy_as_markdown: "my-corrections-policy-as-markdown",
+        diversity_policy_as_url: "https://my-diversity-policy-as-url",
+        diversity_policy_as_markdown: "my-diversity-policy-as-markdown",
         equal_opportunity_policy_as_url: "https://my-equal_opportunity-policy-as-url",
         equal_opportunity_policy_as_markdown: "my-equal_opportunity-policy-as-markdown",
         ethics_policy_as_url: "https://my-ethics-policy-as-url",
@@ -200,37 +203,37 @@ defmodule NavatrackWeb.TopicsTest do
         apache_echart_as_url: "https://my-apache-echart-as-url",
         apache_echart_as_typescript: "my-apache-echart-as-typescript",
         ### net promoter score
-        net_promoter_score_customer_perspective_actual_value: 1.0,
-        net_promoter_score_customer_perspective_target_value: 2.0,
+        net_promoter_score_customer_perspective_actual: 1.0,
+        net_promoter_score_customer_perspective_expect: 2.0,
         net_promoter_score_customer_perspective_unit: "my-net_promoter-score-customer-perspective-unit",
         net_promoter_score_customer_perspective_description_as_markdown: "my-net_promoter-score-customer-perspective-description-as-markdown",
-        net_promoter_score_user_perspective_actual_value: 1.0,
-        net_promoter_score_user_perspective_target_value: 2.0,
+        net_promoter_score_user_perspective_actual: 1.0,
+        net_promoter_score_user_perspective_expect: 2.0,
         net_promoter_score_user_perspective_unit: "my-net_promoter-score-user-perspective-unit",
         net_promoter_score_user_perspective_description_as_markdown: "my-net_promoter-score-user-perspective-description-as-markdown",
-        net_promoter_score_worker_perspective_actual_value: 1.0,
-        net_promoter_score_worker_perspective_target_value: 2.0,
+        net_promoter_score_worker_perspective_actual: 1.0,
+        net_promoter_score_worker_perspective_expect: 2.0,
         net_promoter_score_worker_perspective_unit: "my-net_promoter-score-worker-perspective-unit",
         net_promoter_score_worker_perspective_description_as_markdown: "my-net_promoter_score-worker-perspective-description-as-markdown",
         ### active users
-        active_users_actual_value: 1.0,
-        active_users_target_value: 2.0,
+        active_users_actual: 1.0,
+        active_users_expect: 2.0,
         active_users_unit: "my-active-users-unit",
         active_users_description: "my-active-users-description",
         ### uptime percentage
-        uptime_percentage_actual_value: 1.0,
-        uptime_percentage_target_value: 2.0,
+        uptime_percentage_actual: 1.0,
+        uptime_percentage_expect: 2.0,
         uptime_percentage_unit: "my-uptime-percentage-unit",
         uptime_percentage_description: "my-uptime-percentage-description",
         ### burn rate
-        burn_rate_net_cash_per_week_actual_value: 1.0,
-        burn_rate_net_cash_per_week_target_value: 2.0,
+        burn_rate_net_cash_per_week_actual: 1.0,
+        burn_rate_net_cash_per_week_expect: 2.0,
         burn_rate_net_cash_per_week_unit: "my-burn_rate_net-cash-per-week-unit",
         burn_rate_net_cash_per_week_description: "my-burn_rate_net-cash-per-week-description",
-        burn_rate_hours_per_week_actual_value: 1.0,
-        burn_rate_hours_per_week_target_value: 2.0,
-        burn_rate_hours_per_week_unit: "my-burn_rate-hours-per-week-unit",
-        burn_rate_hours_per_week_description: "my-burn_rate-hours-per-week-description",
+        burn_rate_net_hours_per_week_actual: 1.0,
+        burn_rate_net_hours_per_week_expect: 2.0,
+        burn_rate_net_hours_per_week_unit: "my-burn_rate-hours-per-week-unit",
+        burn_rate_net_hours_per_week_description: "my-burn_rate-hours-per-week-description",
         ### earned value management
         earned_value_management_planned_value: 1.0,
         earned_value_management_earned_value: 1.0,
@@ -242,51 +245,51 @@ defmodule NavatrackWeb.TopicsTest do
         total_project_control_expected_monetary_value: 1.0,
         total_project_control_cost_estimate_to_complete: 1.0,
         ### deployment frequency
-        deployment_frequency_actual_value: 1.0,
-        deployment_frequency_target_value: 2.0,
+        deployment_frequency_actual: 1.0,
+        deployment_frequency_expect: 2.0,
         deployment_frequency_unit: "my-deployment-frequency-unit",
         deployment_frequency_description: "my-deployment-frequency-description",
         ### lead time for changes
-        lead_time_for_changes_actual_value: 1.0,
-        lead_time_for_changes_target_value: 2.0,
+        lead_time_for_changes_actual: 1.0,
+        lead_time_for_changes_expect: 2.0,
         lead_time_for_changes_unit: "my-lead-time-for-changes-unit",
         lead_time_for_changes_description: "my-lead-time-for-changes-description",
         ### change failure rate
-        change_failure_rate_actual_value: 1.0,
-        change_failure_rate_target_value: 2.0,
+        change_failure_rate_actual: 1.0,
+        change_failure_rate_expect: 2.0,
         change_failure_rate_unit: "my-change-failure-rate-unit",
         change_failure_rate_description: "my-change-failure-rate-description",
         ### mean time to_ ecovery
-        mean_time_to_recovery_actual_value: 1.0,
-        mean_time_to_recovery_target_value: 2.0,
+        mean_time_to_recovery_actual: 1.0,
+        mean_time_to_recovery_expect: 2.0,
         mean_time_to_recovery_unit: "my-mean-time-to-recovery-unit",
         mean_time_to_recovery_description: "my-mean-time-to-recovery-description",
         ### maintainability index
-        maintainability_index_actual_value: 1.0,
-        maintainability_index_target_value: 2.0,
+        maintainability_index_actual: 1.0,
+        maintainability_index_expect: 2.0,
         maintainability_index_unit: "my-maintainability-index-unit",
         maintainability_index_description: "my-maintainability-index-description",
         ### line count
-        line_count_actual_value: 1.0,
-        line_count_target_value: 2.0,
+        line_count_actual: 1.0,
+        line_count_expect: 2.0,
         line_count_unit: "my-line-count-unit",
         line_count_description: "my-line-count-description",
         ### test automation code coverage
-        test_automation_code_coverage_actual_value: 1.0,
-        test_automation_code_coverage_target_value: 2.0,
+        test_automation_code_coverage_actual: 1.0,
+        test_automation_code_coverage_expect: 2.0,
         test_automation_code_coverage_unit: "my-test-automation-code-coverage-unit",
         test_automation_code_coverage_description: "my-test-automation-code-coverage-description",
         ### halstead_complexity
-        halstead_complexity_volume_actual_value: 1.0,
-        halstead_complexity_volume_target_value: 2.0,
+        halstead_complexity_volume_actual: 1.0,
+        halstead_complexity_volume_expect: 2.0,
         halstead_complexity_volume_unit: "my-halstead-complexity-volume-unit",
         halstead_complexity_volume_description: "my-halstead-complexity-volume-description",
-        halstead_complexity_difficulty_actual_value: 1.0,
-        halstead_complexity_difficulty_target_value: 2.0,
+        halstead_complexity_difficulty_actual: 1.0,
+        halstead_complexity_difficulty_expect: 2.0,
         halstead_complexity_difficulty_unit: "my-halstead-complexity-difficulty-unit",
         halstead_complexity_difficulty_description: "my-halstead-complexity-difficulty-description",
-        halstead_complexity_effort_actual_value: 1.0,
-        halstead_complexity_effort_target_value: 2.0,
+        halstead_complexity_effort_actual: 1.0,
+        halstead_complexity_effort_expect: 2.0,
         halstead_complexity_effort_unit: "my-halstead-complexity-effort-unit",
         halstead_complexity_effort_description: "my-halstead-complexity-effort-description",
       })
@@ -311,7 +314,8 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "Topics"
     assert response =~ "➡️ Id"
     assert response =~ "📛 Name"
-    assert response =~ "🚦 Status"
+    assert response =~ "🚦 Sign"
+    assert response =~ "📍 Status"
     assert response =~ "🏷️ Tags"
   end
 
@@ -322,7 +326,8 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "Topics"
 
     assert response =~ "📛 Name"
-    assert response =~ "🚦 Status"
+    assert response =~ "🚦 Sign"
+    assert response =~ "📍 Status"
     assert response =~ "🏷️ Tags"
     assert response =~ "🗒️ Note"
 
@@ -335,7 +340,7 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "📫 Postal"
     assert response =~ "🖇️ RDF Type"
 
-    assert response =~ "Social"
+    assert response =~ "Socials"
     assert response =~ "Bluesky URL"
     assert response =~ "Codeberg URL"
     assert response =~ "Facebook URL"
@@ -418,7 +423,7 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "Threats"
 
     assert response =~ "STEEPLE: Social Technological Economic Environmental Political Legal Ethical"
-    assert response =~ "Social"
+    assert response =~ "Socials"
     assert response =~ "Technological"
     assert response =~ "Economic"
     assert response =~ "Environmental"
@@ -438,6 +443,7 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "Coordinated Disclosure Policy"
     assert response =~ "Copyright Policy"
     assert response =~ "Corrections Policy"
+    assert response =~ "Diversity Policy"
     assert response =~ "Equal Opportunity Policy"
     assert response =~ "Ethics Policy"
     assert response =~ "Legal Policy"
@@ -542,7 +548,8 @@ defmodule NavatrackWeb.TopicsTest do
     # assert response =~ "Deleted at: #{x.deleted_at}"
     assert response =~ "Locale code: #{x.locale_code}"
     assert response =~ "📛 Name: #{x.name}"
-    assert response =~ "🚦 Status: #{x.status}"
+    assert response =~ "🚦 Sign: #{x.sign}"
+    assert response =~ "📍 Status: #{x.status}"
     assert response =~ "🏷️ Tags: #{x.tagging}"
     assert response =~ "🗒️ Note: #{x.note}"
 
@@ -555,17 +562,17 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "📫 Postal: #{x.postal}"
     assert response =~ "🖇️ RDF Type: #{x.rdf_type}"
 
-    assert response =~ "Social"
-    assert response =~ "Bluesky URL: #{x.bluesky_as_url}"
-    assert response =~ "Codeberg URL: #{x.codeberg_as_url}"
-    assert response =~ "Facebook URL: #{x.facebook_as_url}"
-    assert response =~ "GitHub URL: #{x.github_as_url}"
-    assert response =~ "Instagram URL: #{x.instagram_as_url}"
-    assert response =~ "LinkedIn URL: #{x.linkedin_as_url}"
-    assert response =~ "ORCID URL: #{x.orcid_as_url}"
-    assert response =~ "TikTok URL: #{x.tiktok_as_url}"
-    assert response =~ "Wikipedia URL: #{x.wikipedia_as_url}"
-    assert response =~ "YouTube URL: #{x.youtube_as_url}"
+    assert response =~ "Socials"
+    assert response =~ "Bluesky URL: <a href=\"#{x.bluesky_as_url}\">#{x.bluesky_as_url}</a>"
+    assert response =~ "Codeberg URL: <a href=\"#{x.codeberg_as_url}\">#{x.codeberg_as_url}</a>"
+    assert response =~ "GitHub URL: <a href=\"#{x.github_as_url}\">#{x.github_as_url}</a>"
+    assert response =~ "Facebook URL: <a href=\"#{x.facebook_as_url}\">#{x.facebook_as_url}</a>"
+    assert response =~ "Instagram URL: <a href=\"#{x.instagram_as_url}\">#{x.instagram_as_url}</a>"
+    assert response =~ "LinkedIn URL: <a href=\"#{x.linkedin_as_url}\">#{x.linkedin_as_url}</a>"
+    assert response =~ "ORCID URL: <a href=\"#{x.orcid_as_url}\">#{x.orcid_as_url}</a>"
+    assert response =~ "TikTok URL: <a href=\"#{x.tiktok_as_url}\">#{x.tiktok_as_url}</a>"
+    assert response =~ "Wikipedia URL: <a href=\"#{x.wikipedia_as_url}\">#{x.wikipedia_as_url}</a>"
+    assert response =~ "YouTube URL: <a href=\"#{x.youtube_as_url}\">#{x.youtube_as_url}</a>"
 
     assert response =~ "Location"
     assert response =~ "Country code ISO 3166-1 Alpha 2: #{x.location_iso_3166_1_alpha_2}"
@@ -577,19 +584,19 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "Images"
 
     assert response =~ "Avatar image 400x400"
-    assert response =~ "URL: #{x.avatar_image_400x400_url}"
+    assert response =~ "URL: <a href=\"#{x.avatar_image_400x400_url}\">#{x.avatar_image_400x400_url}</a>"
     assert response =~ "Alt: #{x.avatar_image_400x400_alt}"
 
     assert response =~ "Main image 1080x1080 square"
-    assert response =~ "URL: #{x.main_image_1080x1080_url}"
+    assert response =~ "URL: <a href=\"#{x.main_image_1080x1080_url}\">#{x.main_image_1080x1080_url}</a>"
     assert response =~ "Alt: #{x.main_image_1080x1080_alt}"
 
     assert response =~ "Main image 1920x1080 landscape"
-    assert response =~ "URL: #{x.main_image_1920x1080_url}"
+    assert response =~ "URL: <a href=\"#{x.main_image_1920x1080_url}\">#{x.main_image_1920x1080_url}</a>"
     assert response =~ "Alt: #{x.main_image_1920x1080_alt}"
 
     assert response =~ "Main image 1080x1920 portrait"
-    assert response =~ "URL: #{x.main_image_1080x1920_url}"
+    assert response =~ "URL: <a href=\"#{x.main_image_1080x1920_url}\">#{x.main_image_1080x1920_url}</a>"
     assert response =~ "Alt: #{x.main_image_1080x1920_alt}"
 
     assert response =~ "Ideals"
@@ -599,7 +606,7 @@ defmodule NavatrackWeb.TopicsTest do
     # assert response =~ "Values Statement: #{x.values_statement}"
 
     assert response =~ "AI Agent Instructions"
-    assert response =~ "URL: #{x.ai_agent_instructions_as_url}"
+    assert response =~ "URL: <a href=\"#{x.ai_agent_instructions_as_url}\">#{x.ai_agent_instructions_as_url}</a>"
     assert response =~ "Markdown: #{x.ai_agent_instructions_as_markdown}"
 
     assert response =~ "Deeper Dive"
@@ -611,25 +618,25 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "Objectives and Key Results (OKRs): #{x.objectives_and_key_results_as_markdown}"
     assert response =~ "Key Performance Indicators (KPIs): #{x.key_performance_indicators_as_markdown}"
 
-    assert response =~ "🏠 Home: #{x.home_emoji_url}"
-    assert response =~ "🛎️ Concierge: #{x.bellhop_bell_emoji_url}"
-    assert response =~ "🎯 Target: #{x.target_emoji_url}"
-    assert response =~ "⚙️ Technical Contact: #{x.gear_emoji_url}"
-    assert response =~ "🗓️ Calendar: #{x.spiral_calendar_emoji_url}"
-    assert response =~ "✨ AI: #{x.sparkles_emoji_url}"
-    assert response =~ "💬 Chat: #{x.speech_bubble_emoji_url}"
-    assert response =~ "📰 News: #{x.newspaper_emoji_url}"
-    assert response =~ "📊 Charts: #{x.bar_chart_emoji_url}"
-    assert response =~ "🎥 Videos: #{x.movie_camera_emoji_url}"
-    assert response =~ "👷 Workers: #{x.construction_worker_emoji_url}"
-    assert response =~ "🔮 Future: #{x.crystal_ball_emoji_url}"
-    assert response =~ "🦋 Feature Tracker: #{x.butterfly_emoji_url}"
-    assert response =~ "🐞 Bug Tracker: #{x.lady_beetle_emoji_url}"
+    assert response =~ "🏠 Home: <a href=\"#{x.home_emoji_url}\">#{x.home_emoji_url}</a>"
+    assert response =~ "🛎️ Concierge: <a href=\"#{x.bellhop_bell_emoji_url}\">#{x.bellhop_bell_emoji_url}</a>"
+    assert response =~ "🎯 Target: <a href=\"#{x.target_emoji_url}\">#{x.target_emoji_url}</a>"
+    assert response =~ "⚙️ Technical Contact: <a href=\"#{x.gear_emoji_url}\">#{x.gear_emoji_url}</a>"
+    assert response =~ "🗓️ Calendar: <a href=\"#{x.spiral_calendar_emoji_url}\">#{x.spiral_calendar_emoji_url}</a>"
+    assert response =~ "✨ AI: <a href=\"#{x.sparkles_emoji_url}\">#{x.sparkles_emoji_url}</a>"
+    assert response =~ "💬 Chat: <a href=\"#{x.speech_bubble_emoji_url}\">#{x.speech_bubble_emoji_url}</a>"
+    assert response =~ "📰 News: <a href=\"#{x.newspaper_emoji_url}\">#{x.newspaper_emoji_url}</a>"
+    assert response =~ "📊 Charts: <a href=\"#{x.bar_chart_emoji_url}\">#{x.bar_chart_emoji_url}</a>"
+    assert response =~ "🎥 Videos: <a href=\"#{x.movie_camera_emoji_url}\">#{x.movie_camera_emoji_url}</a>"
+    assert response =~ "👷 Workers: <a href=\"#{x.construction_worker_emoji_url}\">#{x.construction_worker_emoji_url}</a>"
+    assert response =~ "🔮 Future: <a href=\"#{x.crystal_ball_emoji_url}\">#{x.crystal_ball_emoji_url}</a>"
+    assert response =~ "🦋 Feature Tracker: <a href=\"#{x.butterfly_emoji_url}\">#{x.butterfly_emoji_url}</a>"
+    assert response =~ "🐞 Bug Tracker: <a href=\"#{x.lady_beetle_emoji_url}\">#{x.lady_beetle_emoji_url}</a>"
 
     assert response =~ "Touchpoints"
 
     assert response =~ "Glossary"
-    assert response =~ "URL: #{x.glossary_as_url}"
+    assert response =~ "URL: <a href=\"#{x.glossary_as_url}\">#{x.glossary_as_url}</a>"
     assert response =~ "Markdown: #{x.glossary_as_markdown}"
 
     assert response =~ "Business Analysis"
@@ -644,18 +651,18 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "ISIC v4 name: #{x.isic_v4_name}"
 
     assert response =~ "Six-Pager Double-Sider"
-    assert response =~ "URL: #{x.six_pager_double_sider_as_url}"
+    assert response =~ "URL: <a href=\"#{x.six_pager_double_sider_as_url}\">#{x.six_pager_double_sider_as_url}</a>"
     assert response =~ "Markdown: #{x.six_pager_double_sider_as_markdown}"
 
     assert response =~ "SWOT: Strengths Weaknesses Opportunities Threats"
-    assert response =~ "URL: #{x.swot_as_url}"
+    assert response =~ "URL: <a href=\"#{x.swot_as_url}\">#{x.swot_as_url}</a>"
     assert response =~ "Strengths: #{x.swot_strengths_as_markdown}"
     assert response =~ "Weaknesses: #{x.swot_weaknesses_as_markdown}"
     assert response =~ "Opportunities: #{x.swot_opportunities_as_markdown}"
     assert response =~ "Threats: #{x.swot_threats_as_markdown}"
 
     assert response =~ "Porter&#39;s Five Forces"
-    assert response =~ "URL: #{x.porters_five_forces_as_url}"
+    assert response =~ "URL: <a href=\"#{x.porters_five_forces_as_url}\">#{x.porters_five_forces_as_url}</a>"
     assert response =~ "Threat Of Entrants: #{x.porters_five_forces_entrants_as_markdown}"
     assert response =~ "Threat Of Substitutes: #{x.porters_five_forces_substitutes_as_markdown}"
     assert response =~ "Bargaining Power Of Customers: #{x.porters_five_forces_customers_as_markdown}"
@@ -663,7 +670,7 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "Rivalry Of Competitors: #{x.porters_five_forces_competitors_as_markdown}"
 
     assert response =~ "SIPOC: Suppliers Inputs Processes Outputs Customers"
-    assert response =~ "URL: #{x.sipoc_as_url}"
+    assert response =~ "URL: <a href=\"#{x.sipoc_as_url}\">#{x.sipoc_as_url}</a>"
     assert response =~ "Suppliers: #{x.sipoc_suppliers_as_markdown}"
     assert response =~ "Inputs: #{x.sipoc_inputs_as_markdown}"
     assert response =~ "Processes: #{x.sipoc_processes_as_markdown}"
@@ -671,7 +678,7 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "Customers: #{x.sipoc_customers_as_markdown}"
 
     assert response =~ "STEEPLE: Social Technological Economic Environmental Political Legal Ethical"
-    assert response =~ "URL: #{x.steeple_as_url}"
+    assert response =~ "URL: <a href=\"#{x.steeple_as_url}\">#{x.steeple_as_url}</a>"
     assert response =~ "Social: #{x.steeple_social_as_markdown}"
     assert response =~ "Technological: #{x.steeple_technological_as_markdown}"
     assert response =~ "Economic: #{x.steeple_economic_as_markdown}"
@@ -681,73 +688,77 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "Ethical: #{x.steeple_ethical_as_markdown}"
 
     assert response =~ "Roles and Responsibilities"
-    assert response =~ "URL: #{x.roles_and_responsibilities_as_url}"
+    assert response =~ "URL: <a href=\"#{x.roles_and_responsibilities_as_url}\">#{x.roles_and_responsibilities_as_url}</a>"
     assert response =~ "Markdown: #{x.roles_and_responsibilities_as_markdown}"
 
     assert response =~ "Responsibility Assignment Matrix (RAM)"
-    assert response =~ "URL: #{x.responsibility_assignment_matrix_as_url}"
+    assert response =~ "URL: <a href=\"#{x.responsibility_assignment_matrix_as_url}\">#{x.responsibility_assignment_matrix_as_url}</a>"
     assert response =~ "Markdown: #{x.responsibility_assignment_matrix_as_markdown}"
 
     assert response =~ "Policies"
 
     assert response =~ "Code of Conduct Policy"
-    assert response =~ "URL: #{x.code_of_conduct_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.code_of_conduct_policy_as_url}\">#{x.code_of_conduct_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.code_of_conduct_policy_as_markdown}"
 
     assert response =~ "Coordinated Disclosure Policy"
-    assert response =~ "URL: #{x.coordinated_disclosure_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.coordinated_disclosure_policy_as_url}\">#{x.coordinated_disclosure_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.coordinated_disclosure_policy_as_markdown}"
 
     assert response =~ "Copyright Policy"
-    assert response =~ "URL: #{x.copyright_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.copyright_policy_as_url}\">#{x.copyright_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.copyright_policy_as_markdown}"
 
     assert response =~ "Corrections Policy"
-    assert response =~ "URL: #{x.corrections_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.corrections_policy_as_url}\">#{x.corrections_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.corrections_policy_as_markdown}"
 
+    assert response =~ "Diversity Policy"
+    assert response =~ "URL: <a href=\"#{x.diversity_policy_as_url}\">#{x.diversity_policy_as_url}</a>"
+    assert response =~ "Markdown: #{x.diversity_policy_as_markdown}"
+
     assert response =~ "Equal Opportunity Policy"
-    assert response =~ "URL: #{x.equal_opportunity_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.equal_opportunity_policy_as_url}\">#{x.equal_opportunity_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.equal_opportunity_policy_as_markdown}"
 
     assert response =~ "Ethics Policy"
-    assert response =~ "URL: #{x.ethics_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.ethics_policy_as_url}\">#{x.ethics_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.ethics_policy_as_markdown}"
 
     assert response =~ "Legal Policy"
-    assert response =~ "URL: #{x.legal_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.legal_policy_as_url}\">#{x.legal_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.legal_policy_as_markdown}"
 
     assert response =~ "License Policy"
-    assert response =~ "URL: #{x.license_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.license_policy_as_url}\">#{x.license_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.license_policy_as_markdown}"
 
     assert response =~ "Open Source Policy"
-    assert response =~ "URL: #{x.open_source_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.open_source_policy_as_url}\">#{x.open_source_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.open_source_policy_as_markdown}"
 
     assert response =~ "Privacy Policy"
-    assert response =~ "URL: #{x.privacy_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.privacy_policy_as_url}\">#{x.privacy_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.privacy_policy_as_markdown}"
 
     assert response =~ "Safety Policy"
-    assert response =~ "URL: #{x.safety_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.safety_policy_as_url}\">#{x.safety_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.safety_policy_as_markdown}"
 
     assert response =~ "Security Policy"
-    assert response =~ "URL: #{x.security_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.security_policy_as_url}\">#{x.security_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.security_policy_as_markdown}"
 
     assert response =~ "Socials Policy"
-    assert response =~ "URL: #{x.socials_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.socials_policy_as_url}\">#{x.socials_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.socials_policy_as_markdown}"
 
     assert response =~ "Staff Policy"
-    assert response =~ "URL: #{x.staff_policy_as_url}"
+    assert response =~ "URL: <a href=\"#{x.staff_policy_as_url}\">#{x.staff_policy_as_url}</a>"
     assert response =~ "Markdown: #{x.staff_policy_as_markdown}"
 
     assert response =~ "Arc42"
-    assert response =~ "URL: #{x.arc42_as_url}"
+    assert response =~ "URL: <a href=\"#{x.arc42_as_url}\">#{x.arc42_as_url}</a>"
     assert response =~ "01: Introduction and Goals: #{x.arc42_01_introduction_and_goals_as_markdown}"
     assert response =~ "02: Constraints: #{x.arc42_02_constraints_as_markdown}"
     assert response =~ "03: Context and Scope: #{x.arc42_03_context_and_scope_as_markdown}"
@@ -796,56 +807,56 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "Warrantability: #{x.quality_warrantability_as_markdown}"
 
     assert response =~ "Chart"
-    assert response =~ "URL: #{x.apache_echart_as_url}"
+    assert response =~ "URL: <a href=\"#{x.apache_echart_as_url}\">#{x.apache_echart_as_url}</a>"
     assert response =~ "TypeScript: #{x.apache_echart_as_typescript}"
 
     assert response =~ "Net Promoter Score (NPS)"
 
     assert response =~ "Customer Perspective"
-    assert response =~ "Actual Value: #{x.net_promoter_score_customer_perspective_actual_value}"
-    assert response =~ "Target Value: #{x.net_promoter_score_customer_perspective_target_value}"
+    assert response =~ "Actual Value: #{x.net_promoter_score_customer_perspective_actual}"
+    assert response =~ "Target Value: #{x.net_promoter_score_customer_perspective_expect}"
     assert response =~ "Unit: #{x.net_promoter_score_customer_perspective_unit}"
     assert response =~ "Description: #{x.net_promoter_score_customer_perspective_description_as_markdown}"
 
     assert response =~ "User Perspective"
-    assert response =~ "Actual Value: #{x.net_promoter_score_user_perspective_actual_value}"
-    assert response =~ "Target Value: #{x.net_promoter_score_user_perspective_target_value}"
+    assert response =~ "Actual Value: #{x.net_promoter_score_user_perspective_actual}"
+    assert response =~ "Target Value: #{x.net_promoter_score_user_perspective_expect}"
     assert response =~ "Unit: #{x.net_promoter_score_user_perspective_unit}"
     assert response =~ "Description: #{x.net_promoter_score_user_perspective_description_as_markdown}"
 
     assert response =~ "Worker Perspective"
-    assert response =~ "Actual Value: #{x.net_promoter_score_worker_perspective_actual_value}"
-    assert response =~ "Target Value: #{x.net_promoter_score_worker_perspective_target_value}"
+    assert response =~ "Actual Value: #{x.net_promoter_score_worker_perspective_actual}"
+    assert response =~ "Target Value: #{x.net_promoter_score_worker_perspective_expect}"
     assert response =~ "Unit: #{x.net_promoter_score_worker_perspective_unit}"
     assert response =~ "Description: #{x.net_promoter_score_worker_perspective_description_as_markdown}"
 
     assert response =~ "User Metrics"
 
     assert response =~ "Active Users"
-    assert response =~ "Actual Value: #{x.active_users_actual_value}"
-    assert response =~ "Target Value: #{x.active_users_target_value}"
+    assert response =~ "Actual Value: #{x.active_users_actual}"
+    assert response =~ "Target Value: #{x.active_users_expect}"
     assert response =~ "Unit: #{x.active_users_unit}"
     assert response =~ "Description: #{x.active_users_description}"
 
     assert response =~ "Uptime Percentage"
-    assert response =~ "Actual Value: #{x.uptime_percentage_actual_value}"
-    assert response =~ "Target Value: #{x.uptime_percentage_target_value}"
+    assert response =~ "Actual Value: #{x.uptime_percentage_actual}"
+    assert response =~ "Target Value: #{x.uptime_percentage_expect}"
     assert response =~ "Unit: #{x.uptime_percentage_unit}"
     assert response =~ "Description: #{x.uptime_percentage_description}"
 
     assert response =~ "Burn Rate"
 
     assert response =~ "Net Cash Per Week"
-    assert response =~ "Actual Value: #{x.burn_rate_net_cash_per_week_actual_value}"
-    assert response =~ "Target Value: #{x.burn_rate_net_cash_per_week_target_value}"
+    assert response =~ "Actual Value: #{x.burn_rate_net_cash_per_week_actual}"
+    assert response =~ "Target Value: #{x.burn_rate_net_cash_per_week_expect}"
     assert response =~ "Unit: #{x.burn_rate_net_cash_per_week_unit}"
     assert response =~ "Description: #{x.burn_rate_net_cash_per_week_description}"
 
     assert response =~ "Net Hours Per Week"
-    assert response =~ "Actual Value: #{x.burn_rate_hours_per_week_actual_value}"
-    assert response =~ "Target Value: #{x.burn_rate_hours_per_week_target_value}"
-    assert response =~ "Unit: #{x.burn_rate_hours_per_week_unit}"
-    assert response =~ "Description: #{x.burn_rate_hours_per_week_description}"
+    assert response =~ "Actual Value: #{x.burn_rate_net_hours_per_week_actual}"
+    assert response =~ "Target Value: #{x.burn_rate_net_hours_per_week_expect}"
+    assert response =~ "Unit: #{x.burn_rate_net_hours_per_week_unit}"
+    assert response =~ "Description: #{x.burn_rate_net_hours_per_week_description}"
 
     assert response =~ "Earned Value Management (EVM)"
     assert response =~ "Planned Value (PV): #{x.earned_value_management_planned_value}"
@@ -867,50 +878,50 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "Cost Estimate To Complete: #{x.total_project_control_cost_estimate_to_complete}"
 
     assert response =~ "Deployment Frequency"
-    assert response =~ "Actual Value: #{x.deployment_frequency_actual_value}"
-    assert response =~ "Target Value: #{x.deployment_frequency_target_value}"
+    assert response =~ "Actual Value: #{x.deployment_frequency_actual}"
+    assert response =~ "Target Value: #{x.deployment_frequency_expect}"
     assert response =~ "Ratio: #{x.deployment_frequency_ratio}"
     assert response =~ "Unit: #{x.deployment_frequency_unit}"
     assert response =~ "Description: #{x.deployment_frequency_description}"
 
     assert response =~ "Lead Time For Changes"
-    assert response =~ "Actual Value: #{x.lead_time_for_changes_actual_value}"
-    assert response =~ "Target Value: #{x.lead_time_for_changes_target_value}"
+    assert response =~ "Actual Value: #{x.lead_time_for_changes_actual}"
+    assert response =~ "Target Value: #{x.lead_time_for_changes_expect}"
     assert response =~ "Ratio: #{x.lead_time_for_changes_ratio}"
     assert response =~ "Unit: #{x.lead_time_for_changes_unit}"
     assert response =~ "Description: #{x.lead_time_for_changes_description}"
 
     assert response =~ "Change Failure Rate"
-    assert response =~ "Actual Value: #{x.change_failure_rate_actual_value}"
-    assert response =~ "Target Value: #{x.change_failure_rate_target_value}"
+    assert response =~ "Actual Value: #{x.change_failure_rate_actual}"
+    assert response =~ "Target Value: #{x.change_failure_rate_expect}"
     assert response =~ "Ratio: #{x.change_failure_rate_ratio}"
     assert response =~ "Unit: #{x.change_failure_rate_unit}"
     assert response =~ "Description: #{x.change_failure_rate_description}"
 
     assert response =~ "Mean Time To Recovery"
-    assert response =~ "Actual Value: #{x.mean_time_to_recovery_actual_value}"
-    assert response =~ "Target Value: #{x.mean_time_to_recovery_target_value}"
+    assert response =~ "Actual Value: #{x.mean_time_to_recovery_actual}"
+    assert response =~ "Target Value: #{x.mean_time_to_recovery_expect}"
     assert response =~ "Ratio: #{x.mean_time_to_recovery_ratio}"
     assert response =~ "Unit: #{x.mean_time_to_recovery_unit}"
     assert response =~ "Description: #{x.mean_time_to_recovery_description}"
 
     assert response =~ "Maintainability Index"
-    assert response =~ "Actual Value: #{x.maintainability_index_actual_value}"
-    assert response =~ "Target Value: #{x.maintainability_index_target_value}"
+    assert response =~ "Actual Value: #{x.maintainability_index_actual}"
+    assert response =~ "Target Value: #{x.maintainability_index_expect}"
     assert response =~ "Ratio: #{x.maintainability_index_ratio}"
     assert response =~ "Unit: #{x.maintainability_index_unit}"
     assert response =~ "Description: #{x.maintainability_index_description}"
 
     assert response =~ "Line Count"
-    assert response =~ "Actual Value: #{x.line_count_actual_value}"
-    assert response =~ "Target Value: #{x.line_count_target_value}"
+    assert response =~ "Actual Value: #{x.line_count_actual}"
+    assert response =~ "Target Value: #{x.line_count_expect}"
     assert response =~ "Ratio: #{x.line_count_ratio}"
     assert response =~ "Unit: #{x.line_count_unit}"
     assert response =~ "Description: #{x.line_count_description}"
 
     assert response =~ "Test Automation Code Coverage"
-    assert response =~ "Actual Value: #{x.test_automation_code_coverage_actual_value}"
-    assert response =~ "Target Value: #{x.test_automation_code_coverage_target_value}"
+    assert response =~ "Actual Value: #{x.test_automation_code_coverage_actual}"
+    assert response =~ "Target Value: #{x.test_automation_code_coverage_expect}"
     assert response =~ "Ratio: #{x.test_automation_code_coverage_ratio}"
     assert response =~ "Unit: #{x.test_automation_code_coverage_unit}"
     assert response =~ "Description: #{x.test_automation_code_coverage_description}"
@@ -918,21 +929,21 @@ defmodule NavatrackWeb.TopicsTest do
     assert response =~ "Halstead Complexity Volume"
 
     assert response =~ "Volume"
-    assert response =~ "Actual Value: #{x.halstead_complexity_volume_actual_value}"
-    assert response =~ "Target Value: #{x.halstead_complexity_volume_target_value}"
+    assert response =~ "Actual Value: #{x.halstead_complexity_volume_actual}"
+    assert response =~ "Target Value: #{x.halstead_complexity_volume_expect}"
     assert response =~ "Unit: #{x.halstead_complexity_volume_unit}"
     assert response =~ "Description: #{x.halstead_complexity_volume_description}"
 
     assert response =~ "Difficulty"
-    assert response =~ "Actual Value: #{x.halstead_complexity_difficulty_actual_value}"
-    assert response =~ "Target Value: #{x.halstead_complexity_difficulty_target_value}"
+    assert response =~ "Actual Value: #{x.halstead_complexity_difficulty_actual}"
+    assert response =~ "Target Value: #{x.halstead_complexity_difficulty_expect}"
     assert response =~ "Ratio: #{x.halstead_complexity_difficulty_ratio}"
     assert response =~ "Unit: #{x.halstead_complexity_difficulty_unit}"
     assert response =~ "Description: #{x.halstead_complexity_difficulty_description}"
 
     assert response =~ "Effort"
-    assert response =~ "Actual Value: #{x.halstead_complexity_effort_actual_value}"
-    assert response =~ "Target Value: #{x.halstead_complexity_effort_target_value}"
+    assert response =~ "Actual Value: #{x.halstead_complexity_effort_actual}"
+    assert response =~ "Target Value: #{x.halstead_complexity_effort_expect}"
     assert response =~ "Ratio: #{x.halstead_complexity_effort_ratio}"
     assert response =~ "Unit: #{x.halstead_complexity_effort_unit}"
     assert response =~ "Description: #{x.halstead_complexity_effort_description}"

@@ -36,43 +36,15 @@ defmodule NavatrackWeb.Topics.ShowLive do
       </.header>
       <main>
 
-        <p>Id: {@x.id}</p>
-        <p>Created at: {@x.created_at}</p>
-        <p>Updated at: {@x.updated_at}</p>
-        <p>Deleted at: {@x.deleted_at}</p>
-        <p>Locale code: {@x.locale_code}</p>
-        <p>📛 Name: {@x.name}</p>
-        <p>🚦 Status: {@x.status}</p>
-        <p>🏷️ Tags: {@x.tagging}</p>
-        <p>🗒️ Note: {@x.note}</p>
-
-        <.section id="contact" title="Contact">
-          <p>🌐 Web: {@x.web}</p>
-          <p>📧 Email: {@x.email}</p>
-          <p>📱 Phone: {@x.phone}</p>
-          <p>💬 Chat: {@x.chat}</p>
-          <p>🗓️ Calendar: {@x.calendar}</p>
-          <p>📫 Postal: {@x.postal}</p>
-          <p>🖇️ RDF Type: {@x.rdf_type}</p>
-        </.section>
+        <.show_live_lede x={@x} />
+        <.show_live_section_contact x={@x} />
 
         <.section id="charts" title="Chart">
-          <p>URL: {@x.apache_echart_as_url}</p>
+          <p>URL: <a href={@x.apache_echart_as_url}>{@x.apache_echart_as_url}</a></p>
           <p>TypeScript: {@x.apache_echart_as_typescript}</p>
         </.section>
 
-        <.section id="social" title="Social">
-          <p>Bluesky URL: {@x.bluesky_as_url}</p>
-          <p>Codeberg URL: {@x.codeberg_as_url}</p>
-          <p>GitHub URL: {@x.github_as_url}</p>
-          <p>Facebook URL: {@x.facebook_as_url}</p>
-          <p>Instagram URL: {@x.instagram_as_url}</p>
-          <p>LinkedIn URL: {@x.linkedin_as_url}</p>
-          <p>ORCID URL: {@x.orcid_as_url}</p>
-          <p>TikTok URL: {@x.tiktok_as_url}</p>
-          <p>Wikipedia URL: {@x.wikipedia_as_url}</p>
-          <p>YouTube URL: {@x.youtube_as_url}</p>
-        </.section>
+        <.show_live_section_socials x={@x} />
 
         <.section id="location" title="Location">
           <p>Country code ISO 3166-1 Alpha 2: {@x.location_iso_3166_1_alpha_2}</p>
@@ -82,37 +54,7 @@ defmodule NavatrackWeb.Topics.ShowLive do
           <p>Longitude: {@x.location_longitude_as_decimal_degrees}</p>
         </.section>
 
-        <.section id="images" title="Images">
-
-          <h3 class="h3">
-            Avatar image 400x400
-          </h3>
-
-          <p>URL: {@x.avatar_image_400x400_url}</p>
-          <p>Alt: {@x.avatar_image_400x400_alt}</p>
-
-          <h3 class="h3">
-            Main image 1080x1080 square
-          </h3>
-
-          <p>URL: {@x.main_image_1080x1080_url}</p>
-          <p>Alt: {@x.main_image_1080x1080_alt}</p>
-
-          <h3 class="h3">
-            Main image 1920x1080 landscape
-          </h3>
-
-          <p>URL: {@x.main_image_1920x1080_url}</p>
-          <p>Alt: {@x.main_image_1920x1080_alt}</p>
-
-          <h3 class="h3">
-            Main image 1080x1920 portrait
-          </h3>
-
-          <p>URL: {@x.main_image_1080x1920_url}</p>
-          <p>Alt: {@x.main_image_1080x1920_alt}</p>
-
-        </.section>
+        <.show_live_section_images x={@x} />
 
         <.section id="ideals" title="Ideals">
           <p>Purpose Statement: {@x.purpose_statement}</p>
@@ -122,25 +64,25 @@ defmodule NavatrackWeb.Topics.ShowLive do
         </.section>
 
         <.section id="ai" title="AI Agent Instructions">
-          <p>URL: {@x.ai_agent_instructions_as_url}</p>
+          <p>URL: <a href={@x.ai_agent_instructions_as_url}>{@x.ai_agent_instructions_as_url}</a></p>
           <p>Markdown: {@x.ai_agent_instructions_as_markdown}</p>
         </.section>
 
         <.section id="links" title="Links">
-          <p>🏠 Home: {@x.home_emoji_url}</p>
-          <p>🛎️ Concierge: {@x.bellhop_bell_emoji_url}</p>
-          <p>🎯 Target: {@x.target_emoji_url}</p>
-          <p>⚙️ Technical Contact: {@x.gear_emoji_url}</p>
-          <p>🗓️ Calendar: {@x.spiral_calendar_emoji_url}</p>
-          <p>✨ AI: {@x.sparkles_emoji_url}</p>
-          <p>💬 Chat: {@x.speech_bubble_emoji_url}</p>
-          <p>📰 News: {@x.newspaper_emoji_url}</p>
-          <p>📊 Charts: {@x.bar_chart_emoji_url}</p>
-          <p>🎥 Videos: {@x.movie_camera_emoji_url}</p>
-          <p>👷 Workers: {@x.construction_worker_emoji_url}</p>
-          <p>🔮 Future: {@x.crystal_ball_emoji_url}</p>
-          <p>🦋 Feature Tracker: {@x.butterfly_emoji_url}</p>
-          <p>🐞 Bug Tracker: {@x.lady_beetle_emoji_url}</p>
+          <p>🏠 Home: <a href={@x.home_emoji_url}>{@x.home_emoji_url}</a></p>
+          <p>🛎️ Concierge: <a href={@x.bellhop_bell_emoji_url}>{@x.bellhop_bell_emoji_url}</a></p>
+          <p>🎯 Target: <a href={@x.target_emoji_url}>{@x.target_emoji_url}</a></p>
+          <p>⚙️ Technical Contact: <a href={@x.gear_emoji_url}>{@x.gear_emoji_url}</a></p>
+          <p>🗓️ Calendar: <a href={@x.spiral_calendar_emoji_url}>{@x.spiral_calendar_emoji_url}</a></p>
+          <p>✨ AI: <a href={@x.sparkles_emoji_url}>{@x.sparkles_emoji_url}</a></p>
+          <p>💬 Chat: <a href={@x.speech_bubble_emoji_url}>{@x.speech_bubble_emoji_url}</a></p>
+          <p>📰 News: <a href={@x.newspaper_emoji_url}>{@x.newspaper_emoji_url}</a></p>
+          <p>📊 Charts: <a href={@x.bar_chart_emoji_url}>{@x.bar_chart_emoji_url}</a></p>
+          <p>🎥 Videos: <a href={@x.movie_camera_emoji_url}>{@x.movie_camera_emoji_url}</a></p>
+          <p>👷 Workers: <a href={@x.construction_worker_emoji_url}>{@x.construction_worker_emoji_url}</a></p>
+          <p>🔮 Future: <a href={@x.crystal_ball_emoji_url}>{@x.crystal_ball_emoji_url}</a></p>
+          <p>🦋 Feature Tracker: <a href={@x.butterfly_emoji_url}>{@x.butterfly_emoji_url}</a></p>
+          <p>🐞 Bug Tracker: <a href={@x.lady_beetle_emoji_url}>{@x.lady_beetle_emoji_url}</a></p>
         </.section>
 
         <.section id="deeper_dive" title="Deeper Dive">
@@ -175,14 +117,14 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Six-Pager Double-Sider
           </h3>
 
-          <p>URL: {@x.six_pager_double_sider_as_url}</p>
+          <p>URL: <a href={@x.six_pager_double_sider_as_url}>{@x.six_pager_double_sider_as_url}</a></p>
           <p>Markdown: {@x.six_pager_double_sider_as_markdown}</p>
 
         </.section>
 
         <.section id="swot" title="SWOT: Strengths Weaknesses Opportunities Threats">
 
-          <p>URL: {@x.swot_as_url}</p>
+          <p>URL: <a href={@x.swot_as_url}>{@x.swot_as_url}</a></p>
           <p>Strengths: {@x.swot_strengths_as_markdown}</p>
           <p>Weaknesses: {@x.swot_weaknesses_as_markdown}</p>
           <p>Opportunities: {@x.swot_opportunities_as_markdown}</p>
@@ -191,7 +133,7 @@ defmodule NavatrackWeb.Topics.ShowLive do
         </.section>
 
         <.section id="sipoc" title="SIPOC: Suppliers Inputs Processes Outputs Customers">
-          <p>URL: {@x.sipoc_as_url}</p>
+          <p>URL: <a href={@x.sipoc_as_url}>{@x.sipoc_as_url}</a></p>
           <p>Suppliers: {@x.sipoc_suppliers_as_markdown}</p>
           <p>Inputs: {@x.sipoc_inputs_as_markdown}</p>
           <p>Processes: {@x.sipoc_processes_as_markdown}</p>
@@ -202,7 +144,7 @@ defmodule NavatrackWeb.Topics.ShowLive do
 
         <.section id="steeple" title="STEEPLE: Social Technological Economic Environmental Political Legal Ethical">
 
-          <p>URL: {@x.steeple_as_url}</p>
+          <p>URL: <a href={@x.steeple_as_url}>{@x.steeple_as_url}</a></p>
           <p>Social: {@x.steeple_social_as_markdown}</p>
           <p>Technological: {@x.steeple_technological_as_markdown}</p>
           <p>Economic: {@x.steeple_economic_as_markdown}</p>
@@ -215,7 +157,7 @@ defmodule NavatrackWeb.Topics.ShowLive do
 
         <.section id="porters_five_forces" title="Porter's Five Forces">
 
-          <p>URL: {@x.porters_five_forces_as_url}</p>
+          <p>URL: <a href={@x.porters_five_forces_as_url}>{@x.porters_five_forces_as_url}</a></p>
           <p>Threat Of Entrants: {@x.porters_five_forces_entrants_as_markdown}</p>
           <p>Threat Of Substitutes: {@x.porters_five_forces_substitutes_as_markdown}</p>
           <p>Bargaining Power Of Customers: {@x.porters_five_forces_customers_as_markdown}</p>
@@ -230,28 +172,28 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Glossary
           </h3>
 
-          <p>URL: {@x.glossary_as_url}</p>
+          <p>URL: <a href={@x.glossary_as_url}>{@x.glossary_as_url}</a></p>
           <p>Markdown: {@x.glossary_as_markdown}</p>
 
           <h3 class="h3">
             Roles and Responsibilities
           </h3>
 
-          <p>URL: {@x.roles_and_responsibilities_as_url}</p>
+          <p>URL: <a href={@x.roles_and_responsibilities_as_url}>{@x.roles_and_responsibilities_as_url}</a></p>
           <p>Markdown: {@x.roles_and_responsibilities_as_markdown}</p>
 
           <h3 class="h3">
             Responsibility Assignment Matrix (RAM)
           </h3>
 
-          <p>URL: {@x.responsibility_assignment_matrix_as_url}</p>
+          <p>URL: <a href={@x.responsibility_assignment_matrix_as_url}>{@x.responsibility_assignment_matrix_as_url}</a></p>
           <p>Markdown: {@x.responsibility_assignment_matrix_as_markdown}</p>
 
         </.section>
 
         <.section id="arc42" title="Arc42">
 
-          <p>URL: {@x.arc42_as_url}</p>
+          <p>URL: <a href={@x.arc42_as_url}>{@x.arc42_as_url}</a></p>
           <p>01: Introduction and Goals: {@x.arc42_01_introduction_and_goals_as_markdown}</p>
           <p>02: Constraints: {@x.arc42_02_constraints_as_markdown}</p>
           <p>03: Context and Scope: {@x.arc42_03_context_and_scope_as_markdown}</p>
@@ -309,8 +251,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Customer Perspective
           </h3>
 
-          <p>Actual Value: {@x.net_promoter_score_customer_perspective_actual_value}</p>
-          <p>Target Value: {@x.net_promoter_score_customer_perspective_target_value}</p>
+          <p>Actual Value: {@x.net_promoter_score_customer_perspective_actual}</p>
+          <p>Target Value: {@x.net_promoter_score_customer_perspective_expect}</p>
           <p>Unit: {@x.net_promoter_score_customer_perspective_unit}</p>
           <p>Description: {@x.net_promoter_score_customer_perspective_description_as_markdown}</p>
 
@@ -318,8 +260,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             User Perspective
           </h3>
 
-          <p>Actual Value: {@x.net_promoter_score_user_perspective_actual_value}</p>
-          <p>Target Value: {@x.net_promoter_score_user_perspective_target_value}</p>
+          <p>Actual Value: {@x.net_promoter_score_user_perspective_actual}</p>
+          <p>Target Value: {@x.net_promoter_score_user_perspective_expect}</p>
           <p>Unit: {@x.net_promoter_score_user_perspective_unit}</p>
           <p>Description: {@x.net_promoter_score_user_perspective_description_as_markdown}</p>
 
@@ -327,8 +269,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Worker Perspective
           </h3>
 
-          <p>Actual Value: {@x.net_promoter_score_worker_perspective_actual_value}</p>
-          <p>Target Value: {@x.net_promoter_score_worker_perspective_target_value}</p>
+          <p>Actual Value: {@x.net_promoter_score_worker_perspective_actual}</p>
+          <p>Target Value: {@x.net_promoter_score_worker_perspective_expect}</p>
           <p>Unit: {@x.net_promoter_score_worker_perspective_unit}</p>
           <p>Description: {@x.net_promoter_score_worker_perspective_description_as_markdown}</p>
 
@@ -340,8 +282,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Active Users
           </h3>
 
-          <p>Actual Value: {@x.active_users_actual_value}</p>
-          <p>Target Value: {@x.active_users_target_value}</p>
+          <p>Actual Value: {@x.active_users_actual}</p>
+          <p>Target Value: {@x.active_users_expect}</p>
           <p>Unit: {@x.active_users_unit}</p>
           <p>Description: {@x.active_users_description}</p>
 
@@ -349,8 +291,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Uptime Percentage
           </h3>
 
-          <p>Actual Value: {@x.uptime_percentage_actual_value}</p>
-          <p>Target Value: {@x.uptime_percentage_target_value}</p>
+          <p>Actual Value: {@x.uptime_percentage_actual}</p>
+          <p>Target Value: {@x.uptime_percentage_expect}</p>
           <p>Unit: {@x.uptime_percentage_unit}</p>
           <p>Description: {@x.uptime_percentage_description}</p>
 
@@ -362,8 +304,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Net Cash Per Week
           </h3>
 
-          <p>Actual Value: {@x.burn_rate_net_cash_per_week_actual_value}</p>
-          <p>Target Value: {@x.burn_rate_net_cash_per_week_target_value}</p>
+          <p>Actual Value: {@x.burn_rate_net_cash_per_week_actual}</p>
+          <p>Target Value: {@x.burn_rate_net_cash_per_week_expect}</p>
           <p>Unit: {@x.burn_rate_net_cash_per_week_unit}</p>
           <p>Description: {@x.burn_rate_net_cash_per_week_description}</p>
 
@@ -371,10 +313,10 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Net Hours Per Week
           </h3>
 
-          <p>Actual Value: {@x.burn_rate_hours_per_week_actual_value}</p>
-          <p>Target Value: {@x.burn_rate_hours_per_week_target_value}</p>
-          <p>Unit: {@x.burn_rate_hours_per_week_unit}</p>
-          <p>Description: {@x.burn_rate_hours_per_week_description}</p>
+          <p>Actual Value: {@x.burn_rate_net_hours_per_week_actual}</p>
+          <p>Target Value: {@x.burn_rate_net_hours_per_week_expect}</p>
+          <p>Unit: {@x.burn_rate_net_hours_per_week_unit}</p>
+          <p>Description: {@x.burn_rate_net_hours_per_week_description}</p>
 
         </.section>
 
@@ -405,98 +347,105 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Code of Conduct Policy
           </h3>
 
-          <p>URL: {@x.code_of_conduct_policy_as_url}</p>
+          <p>URL: <a href={@x.code_of_conduct_policy_as_url}>{@x.code_of_conduct_policy_as_url}</a></p>
           <p>Markdown: {@x.code_of_conduct_policy_as_markdown}</p>
 
           <h3 class="h3">
             Coordinated Disclosure Policy
           </h3>
 
-          <p>URL: {@x.coordinated_disclosure_policy_as_url}</p>
+          <p>URL: <a href={@x.coordinated_disclosure_policy_as_url}>{@x.coordinated_disclosure_policy_as_url}</a></p>
           <p>Markdown: {@x.coordinated_disclosure_policy_as_markdown}</p>
 
           <h3 class="h3">
             Copyright Policy
           </h3>
 
-          <p>URL: {@x.copyright_policy_as_url}</p>
+          <p>URL: <a href={@x.copyright_policy_as_url}>{@x.copyright_policy_as_url}</a></p>
           <p>Markdown: {@x.copyright_policy_as_markdown}</p>
 
           <h3 class="h3">
             Corrections Policy
           </h3>
 
-          <p>URL: {@x.corrections_policy_as_url}</p>
+          <p>URL: <a href={@x.corrections_policy_as_url}>{@x.corrections_policy_as_url}</a></p>
           <p>Markdown: {@x.corrections_policy_as_markdown}</p>
+
+          <h3 class="h3">
+            Diversity Policy
+          </h3>
+
+          <p>URL: <a href={@x.diversity_policy_as_url}>{@x.diversity_policy_as_url}</a></p>
+          <p>Markdown: {@x.diversity_policy_as_markdown}</p>
 
           <h3 class="h3">
             Equal Opportunity Policy
           </h3>
 
-          <p>URL: {@x.equal_opportunity_policy_as_url}</p>
+          <p>URL: <a href={@x.equal_opportunity_policy_as_url}>{@x.equal_opportunity_policy_as_url}</a></p>
           <p>Markdown: {@x.equal_opportunity_policy_as_markdown}</p>
 
           <h3 class="h3">
             Ethics Policy
           </h3>
 
-          <p>URL: {@x.ethics_policy_as_url}</p>
+          <p>URL: <a href={@x.ethics_policy_as_url}>{@x.ethics_policy_as_url}</a></p>
           <p>Markdown: {@x.ethics_policy_as_markdown}</p>
 
           <h3 class="h3">
             Legal Policy
           </h3>
 
-          <p>URL: {@x.legal_policy_as_url}</p>
+          <p>URL: <a href={@x.legal_policy_as_url}>{@x.legal_policy_as_url}</a></p>
           <p>Markdown: {@x.legal_policy_as_markdown}</p>
 
           <h3 class="h3">
             License Policy
           </h3>
 
-          <p>URL: {@x.license_policy_as_url}</p>
+          <p>URL: <a href={@x.license_policy_as_url}>{@x.license_policy_as_url}</a></p>
           <p>Markdown: {@x.license_policy_as_markdown}</p>
 
           <h3 class="h3">
             Privacy Policy
           </h3>
 
-          <p>URL: {@x.privacy_policy_as_url}</p>
+          <p>URL: <a href={@x.privacy_policy_as_url}>{@x.privacy_policy_as_url}</a></p>
           <p>Markdown: {@x.privacy_policy_as_markdown}</p>
 
           <h3 class="h3">
             Security Policy
           </h3>
 
-          <p>URL: {@x.security_policy_as_url}</p>
+          <p>URL: <a href={@x.security_policy_as_url}>{@x.security_policy_as_url}</a></p>
           <p>Markdown: {@x.security_policy_as_markdown}</p>
 
           <h3 class="h3">
             Open Source Policy
           </h3>
 
-          <p>URL: {@x.open_source_policy_as_url}</p>
+          <p>URL: <a href={@x.open_source_policy_as_url}>{@x.open_source_policy_as_url}</a></p>
           <p>Markdown: {@x.open_source_policy_as_markdown}</p>
 
           <h3 class="h3">
             Safety Policy
           </h3>
 
-          <p>URL: {@x.safety_policy_as_url}</p>
+          <p>URL: <a href={@x.safety_policy_as_url}>{@x.safety_policy_as_url}</a></p>
           <p>Markdown: {@x.safety_policy_as_markdown}</p>
 
           <h3 class="h3">
             Socials Policy
           </h3>
 
-          <p>URL: {@x.socials_policy_as_url}</p>
+          <p>URL: <a href={@x.socials_policy_as_url}>{@x.socials_policy_as_url}</a></p>
           <p>Markdown: {@x.socials_policy_as_markdown}</p>
 
           <h3 class="h3">
             Staff Policy
           </h3>
 
-          <p>URL: {@x.staff_policy_as_url}</p>
+          <p>URL: <a href={@x.staff_policy_as_url}>{@x.staff_policy_as_url}</a></p>
           <p>Markdown: {@x.staff_policy_as_markdown}</p>
 
         </.section>
@@ -507,8 +456,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Deployment Frequency
           </h3>
 
-          <p>Actual Value: {@x.deployment_frequency_actual_value}</p>
-          <p>Target Value: {@x.deployment_frequency_target_value}</p>
+          <p>Actual Value: {@x.deployment_frequency_actual}</p>
+          <p>Target Value: {@x.deployment_frequency_expect}</p>
           <p>Ratio: {@x.deployment_frequency_ratio}</p>
           <p>Unit: {@x.deployment_frequency_unit}</p>
           <p>Description: {@x.deployment_frequency_description}</p>
@@ -517,8 +466,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Lead Time For Changes
           </h3>
 
-          <p>Actual Value: {@x.lead_time_for_changes_actual_value}</p>
-          <p>Target Value: {@x.lead_time_for_changes_target_value}</p>
+          <p>Actual Value: {@x.lead_time_for_changes_actual}</p>
+          <p>Target Value: {@x.lead_time_for_changes_expect}</p>
           <p>Unit: {@x.lead_time_for_changes_unit}</p>
           <p>Description: {@x.lead_time_for_changes_description}</p>
 
@@ -526,8 +475,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Change Failure Rate
           </h3>
 
-          <p>Actual Value: {@x.change_failure_rate_actual_value}</p>
-          <p>Target Value: {@x.change_failure_rate_target_value}</p>
+          <p>Actual Value: {@x.change_failure_rate_actual}</p>
+          <p>Target Value: {@x.change_failure_rate_expect}</p>
           <p>Unit: {@x.change_failure_rate_unit}</p>
           <p>Description: {@x.change_failure_rate_description}</p>
 
@@ -535,8 +484,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Mean Time To Recovery
           </h3>
 
-          <p>Actual Value: {@x.mean_time_to_recovery_actual_value}</p>
-          <p>Target Value: {@x.mean_time_to_recovery_target_value}</p>
+          <p>Actual Value: {@x.mean_time_to_recovery_actual}</p>
+          <p>Target Value: {@x.mean_time_to_recovery_expect}</p>
           <p>Unit: {@x.mean_time_to_recovery_unit}</p>
           <p>Description: {@x.mean_time_to_recovery_description}</p>
 
@@ -548,8 +497,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Maintainability Index
           </h3>
 
-          <p>Actual Value: {@x.maintainability_index_actual_value}</p>
-          <p>Target Value: {@x.maintainability_index_target_value}</p>
+          <p>Actual Value: {@x.maintainability_index_actual}</p>
+          <p>Target Value: {@x.maintainability_index_expect}</p>
           <p>Ratio: {@x.maintainability_index_ratio}</p>
           <p>Unit: {@x.maintainability_index_unit}</p>
           <p>Description: {@x.maintainability_index_description}</p>
@@ -558,8 +507,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Line Count
           </h3>
 
-          <p>Actual Value: {@x.line_count_actual_value}</p>
-          <p>Target Value: {@x.line_count_target_value}</p>
+          <p>Actual Value: {@x.line_count_actual}</p>
+          <p>Target Value: {@x.line_count_expect}</p>
           <p>Ratio: {@x.line_count_ratio}</p>
           <p>Unit: {@x.line_count_unit}</p>
           <p>Description: {@x.line_count_description}</p>
@@ -568,8 +517,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Test Automation Code Coverage
           </h3>
 
-          <p>Actual Value: {@x.test_automation_code_coverage_actual_value}</p>
-          <p>Target Value: {@x.test_automation_code_coverage_target_value}</p>
+          <p>Actual Value: {@x.test_automation_code_coverage_actual}</p>
+          <p>Target Value: {@x.test_automation_code_coverage_expect}</p>
           <p>Ratio: {@x.test_automation_code_coverage_ratio}</p>
           <p>Unit: {@x.test_automation_code_coverage_unit}</p>
           <p>Description: {@x.test_automation_code_coverage_description}</p>
@@ -578,8 +527,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Halstead Complexity Volume
           </h3>
 
-          <p>Actual Value: {@x.halstead_complexity_volume_actual_value}</p>
-          <p>Target Value: {@x.halstead_complexity_volume_target_value}</p>
+          <p>Actual Value: {@x.halstead_complexity_volume_actual}</p>
+          <p>Target Value: {@x.halstead_complexity_volume_expect}</p>
           <p>Ratio: {@x.halstead_complexity_volume_ratio}</p>
           <p>Unit: {@x.halstead_complexity_volume_unit}</p>
           <p>Description: {@x.halstead_complexity_volume_description}</p>
@@ -588,8 +537,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Halstead Complexity Difficulty
           </h3>
 
-          <p>Actual Value: {@x.halstead_complexity_difficulty_actual_value}</p>
-          <p>Target Value: {@x.halstead_complexity_difficulty_target_value}</p>
+          <p>Actual Value: {@x.halstead_complexity_difficulty_actual}</p>
+          <p>Target Value: {@x.halstead_complexity_difficulty_expect}</p>
           <p>Ratio: {@x.halstead_complexity_difficulty_ratio}</p>
           <p>Unit: {@x.halstead_complexity_difficulty_unit}</p>
           <p>Description: {@x.halstead_complexity_difficulty_description}</p>
@@ -598,8 +547,8 @@ defmodule NavatrackWeb.Topics.ShowLive do
             Halstead Complexity Effort
           </h3>
 
-          <p>Actual Value: {@x.halstead_complexity_effort_actual_value}</p>
-          <p>Target Value: {@x.halstead_complexity_effort_target_value}</p>
+          <p>Actual Value: {@x.halstead_complexity_effort_actual}</p>
+          <p>Target Value: {@x.halstead_complexity_effort_expect}</p>
           <p>Ratio: {@x.halstead_complexity_effort_ratio}</p>
           <p>Unit: {@x.halstead_complexity_effort_unit}</p>
           <p>Description: {@x.halstead_complexity_effort_description}</p>

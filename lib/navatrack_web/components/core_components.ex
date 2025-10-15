@@ -494,6 +494,114 @@ defmodule NavatrackWeb.CoreComponents do
     """
   end
 
+  @doc """
+  Render a show_live.ex section id="images" using our default conventions.
+  """
+
+  attr :x, :any, required: true
+
+  def show_live_section_images(assigns) do
+    ~H"""
+    <.section id="images" title="Images">
+
+      <h3 class="h3">
+        Avatar image 400x400
+      </h3>
+
+      <p>URL: <a href={@x.avatar_image_400x400_url}>{@x.avatar_image_400x400_url}</a></p>
+      <p>Alt: {@x.avatar_image_400x400_alt}</p>
+
+      <h3 class="h3">
+        Main image 1080x1080 square
+      </h3>
+
+      <p>URL: <a href={@x.main_image_1080x1080_url}>{@x.main_image_1080x1080_url}</a></p>
+      <p>Alt: {@x.main_image_1080x1080_alt}</p>
+
+      <h3 class="h3">
+        Main image 1920x1080 landscape
+      </h3>
+
+      <p>URL: <a href={@x.main_image_1920x1080_url}>{@x.main_image_1920x1080_url}</a></p>
+      <p>Alt: {@x.main_image_1920x1080_alt}</p>
+
+      <h3 class="h3">
+        Main image 1080x1920 portrait
+      </h3>
+
+      <p>URL: <a href={@x.main_image_1080x1920_url}>{@x.main_image_1080x1920_url}</a></p>
+      <p>Alt: {@x.main_image_1080x1920_alt}</p>
+
+    </.section>
+    """
+  end
+
+  @doc """
+  Render a show_live.ex section id="socials" using our default conventions.
+  """
+
+  attr :x, :any, required: true
+
+  def show_live_section_socials(assigns) do
+    ~H"""
+    <.section id="socials" title="Socials">
+      <p>Bluesky URL: <a href={@x.bluesky_as_url}>{@x.bluesky_as_url}</a></p>
+      <p>Codeberg URL: <a href={@x.codeberg_as_url}>{@x.codeberg_as_url}</a></p>
+      <p>GitHub URL: <a href={@x.github_as_url}>{@x.github_as_url}</a></p>
+      <p>Facebook URL: <a href={@x.facebook_as_url}>{@x.facebook_as_url}</a></p>
+      <p>Instagram URL: <a href={@x.instagram_as_url}>{@x.instagram_as_url}</a></p>
+      <p>LinkedIn URL: <a href={@x.linkedin_as_url}>{@x.linkedin_as_url}</a></p>
+      <p>ORCID URL: <a href={@x.orcid_as_url}>{@x.orcid_as_url}</a></p>
+      <p>TikTok URL: <a href={@x.tiktok_as_url}>{@x.tiktok_as_url}</a></p>
+      <p>Wikipedia URL: <a href={@x.wikipedia_as_url}>{@x.wikipedia_as_url}</a></p>
+      <p>YouTube URL: <a href={@x.youtube_as_url}>{@x.youtube_as_url}</a></p>
+    </.section>
+    """
+  end
+
+  @doc """
+  Render a show_live.ex section id="contact" using our default conventions.
+  """
+
+  attr :x, :any, required: true
+
+  def show_live_section_contact(assigns) do
+    ~H"""
+    <.section id="contact" title="Contact">
+      <p>🌐 Web: {@x.web}</p>
+      <p>📧 Email: {@x.email}</p>
+      <p>📱 Phone: {@x.phone}</p>
+      <p>💬 Chat: {@x.chat}</p>
+      <p>🗓️ Calendar: {@x.calendar}</p>
+      <p>📫 Postal: {@x.postal}</p>
+      <p>🖇️ RDF Type: {@x.rdf_type}</p>
+    </.section>
+    """
+  end
+
+  @doc """
+  Render a show_live.ex lede with id, metadata, name, etc. using our default conventions.
+  """
+
+  attr :x, :any, required: true
+
+  def show_live_lede(assigns) do
+    ~H"""
+    <ul>
+      <p>Id: {@x.id}</p>
+      <p>Created at: {@x.created_at}</p>
+      <p>Updated at: {@x.updated_at}</p>
+      <p>Deleted at: {@x.deleted_at}</p>
+      <p>Locale code: {@x.locale_code}</p>
+      <p>📛 Name: {@x.name}</p>
+      <p>🚦 Sign: {@x.sign}</p>
+      <p>📍 Status: {@x.status}</p>
+      <p>🏷️ Tags: {@x.tagging}</p>
+      <p>🗒️ Note: {@x.note}</p>
+    </ul>
+    """
+  end
+
   ## JS Commands
 
   def show(js \\ %JS{}, selector) do

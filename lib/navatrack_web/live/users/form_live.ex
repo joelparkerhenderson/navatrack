@@ -58,8 +58,12 @@ defmodule NavatrackWeb.Users.FormLive do
           autofocus
         />
         <.input
+          field={form[:sign]}
+          label="🚦 Sign"
+        />
+        <.input
           field={form[:status]}
-          label="🚦 Status"
+          label="📍 Status"
         />
         <.input
           field={form[:tagging]}
@@ -107,7 +111,7 @@ defmodule NavatrackWeb.Users.FormLive do
           />
         </.section>
 
-        <.section id="Social" title="Social">
+        <.section id="Socials" title="Socials">
           <.input
             field={form[:bluesky_as_url]}
             label="Bluesky URL"

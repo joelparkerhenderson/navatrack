@@ -35,16 +35,7 @@ defmodule NavatrackWeb.Traits.ShowLive do
         </:actions>
       </.header>
       <main>
-        <ul>
-          <li>Id: {@x.id}</li>
-          <li>Created at: {@x.created_at}</li>
-          <li>Updated at: {@x.updated_at}</li>
-          <li>Deleted at: {@x.deleted_at}</li>
-          <li>Locale code: {@x.locale_code}</li>
-          <li>📛 Name: {@x.name}</li>
-          <li>🚦 Status: {@x.status}</li>
-          <li>🏷️ Tags: {@x.tagging}</li>
-        </ul>
+        <.show_live_lede x={@x} />
         <.section id="about" title="About">
           <ul>
             <li>Summary: {@x.summary_as_markdown}</li>
@@ -52,45 +43,7 @@ defmodule NavatrackWeb.Traits.ShowLive do
           </ul>
         </.section>
 
-        <.section id="images" title="Images">
-
-          <h3 class="h3">
-            Avatar image 400x400
-          </h3>
-
-          <ul>
-            <li>URL: {@x.avatar_image_400x400_url}</li>
-            <li>Alt: {@x.avatar_image_400x400_alt}</li>
-          </ul>
-
-          <h3 class="h3">
-            Main image 1080x1080 square
-          </h3>
-
-          <ul>
-            <li>URL: {@x.main_image_1080x1080_url}</li>
-            <li>Alt: {@x.main_image_1080x1080_alt}</li>
-          </ul>
-
-          <h3 class="h3">
-            Main image 1920x1080 landscape
-          </h3>
-
-          <ul>
-            <li>URL: {@x.main_image_1920x1080_url}</li>
-            <li>Alt: {@x.main_image_1920x1080_alt}</li>
-          </ul>
-
-          <h3 class="h3">
-            Main image 1080x1920 portrait
-          </h3>
-
-          <ul>
-            <li>URL: {@x.main_image_1080x1920_url}</li>
-            <li>Alt: {@x.main_image_1080x1920_alt}</li>
-          </ul>
-
-        </.section>
+        <.show_live_section_images x={@x} />
 
       </main>
     </Layouts.app>

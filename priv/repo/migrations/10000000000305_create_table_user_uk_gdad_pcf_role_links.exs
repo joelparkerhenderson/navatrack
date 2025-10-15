@@ -19,7 +19,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserUkGdadPcfRoleLinks do
       tagging text
     );
     """
-
     execute """
     CREATE TRIGGER trigger_user_uk_gdad_pcf_role_links_updated_at
       BEFORE UPDATE ON user_uk_gdad_pcf_role_links

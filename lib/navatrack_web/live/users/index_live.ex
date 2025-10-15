@@ -39,7 +39,8 @@ defmodule NavatrackWeb.Users.IndexLive do
       <Cinder.Table.table theme={Cinder.Themes.Smart} resource={X}>
         <:col :let={x} field="id" label="➡️ Id" filter sort search><.link_show x={x} /></:col>
         <:col :let={x} field="name" label="📛 Name" sort search>{x.name}</:col>
-        <:col :let={x} field="status" label="🚦 Status" sort search>{x.status}</:col>
+        <:col :let={x} field="status" label="🚦 Sign" sort search>{x.status}</:col>
+        <:col :let={x} field="status" label="📍 Status" sort search>{x.status}</:col>
         <:col :let={x} field="tagging" label="🏷️ Tags" sort search>{x.tagging}</:col>
         <:col :let={x} field="web" label="🌐 Web" sort search>{x.web}</:col>
         <:col :let={x} field="email" label="📧 Email" sort search>{x.email}</:col>

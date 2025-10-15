@@ -19,7 +19,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserIloIsco2008Links do
       tagging text
     );
     """
-
     execute """
     CREATE TRIGGER trigger_user_ilo_isco_2008_links_updated_at
       BEFORE UPDATE ON user_ilo_isco_2008_links

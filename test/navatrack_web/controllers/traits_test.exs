@@ -9,8 +9,10 @@ defmodule NavatrackWeb.TraitsTest do
       |> Ash.Changeset.for_create(:create, %{
         locale_code: "en-US",
         name: "my-name",
+        sign: "○",
         status: "my-status",
         tagging: "my-tagging",
+        note: "my-note",
         summary_as_markdown: "summary-as-markdown",
         description_as_markdown: "description-as-markdown",
         avatar_image_400x400_url: "https://my-avatar-image-400x400-url",
@@ -42,7 +44,8 @@ defmodule NavatrackWeb.TraitsTest do
     assert response =~ "Traits"
     assert response =~ "➡️ Id"
     assert response =~ "📛 Name"
-    assert response =~ "🚦 Status"
+    assert response =~ "🚦 Sign"
+    assert response =~ "📍 Status"
     assert response =~ "🏷️ Tags"
   end
 
@@ -51,7 +54,8 @@ defmodule NavatrackWeb.TraitsTest do
     response = html_response(conn, 200)
     assert response =~ "Traits"
     assert response =~ "📛 Name"
-    assert response =~ "🚦 Status"
+    assert response =~ "🚦 Sign"
+    assert response =~ "📍 Status"
     assert response =~ "🏷️ Tags"
     assert response =~ "Summary"
     assert response =~ "Description"
@@ -75,7 +79,8 @@ defmodule NavatrackWeb.TraitsTest do
     # assert response =~ "Deleted at: #{x.deleted_at}"
     assert response =~ "Locale code: #{x.locale_code}"
     assert response =~ "📛 Name: #{x.name}"
-    assert response =~ "🚦 Status: #{x.status}"
+    assert response =~ "🚦 Sign: #{x.sign}"
+    assert response =~ "📍 Status: #{x.status}"
     assert response =~ "🏷️ Tags: #{x.tagging}"
 
     assert response =~ "About"
@@ -86,19 +91,19 @@ defmodule NavatrackWeb.TraitsTest do
     assert response =~ "Images"
 
     assert response =~ "Avatar image 400x400"
-    assert response =~ "URL: #{x.avatar_image_400x400_url}"
+    assert response =~ "URL: <a href=\"#{x.avatar_image_400x400_url}\">#{x.avatar_image_400x400_url}</a>"
     assert response =~ "Alt: #{x.avatar_image_400x400_alt}"
 
     assert response =~ "Main image 1080x1080 square"
-    assert response =~ "URL: #{x.main_image_1080x1080_url}"
+    assert response =~ "URL: <a href=\"#{x.main_image_1080x1080_url}\">#{x.main_image_1080x1080_url}</a>"
     assert response =~ "Alt: #{x.main_image_1080x1080_alt}"
 
     assert response =~ "Main image 1920x1080 landscape"
-    assert response =~ "URL: #{x.main_image_1920x1080_url}"
+    assert response =~ "URL: <a href=\"#{x.main_image_1920x1080_url}\">#{x.main_image_1920x1080_url}</a>"
     assert response =~ "Alt: #{x.main_image_1920x1080_alt}"
 
     assert response =~ "Main image 1080x1920 portrait"
-    assert response =~ "URL: #{x.main_image_1080x1920_url}"
+    assert response =~ "URL: <a href=\"#{x.main_image_1080x1920_url}\">#{x.main_image_1080x1920_url}</a>"
     assert response =~ "Alt: #{x.main_image_1080x1920_alt}"
   end
 

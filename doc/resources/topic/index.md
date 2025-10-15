@@ -24,16 +24,20 @@ mix ash.gen.resource Navatrack.Works.Topic \
   --default-actions create,read,update,destroy \
   --extend postgres \
   --uuid-primary-key id \
-  --attribute parent:id \
   --attribute name:string:required \
+  --attribute sign:string \
   --attribute status:string \
   --attribute tagging:string \
   --attribute note:string \
+  \
+  --attribute parent_id:id \
+  --attribute parent_order:integer \
   \
   --attribute web:string \
   --attribute email:string \
   --attribute phone:string \
   --attribute chat:string \
+  --attribute calendar:string \
   --attribute postal:string \
   --attribute rdf_type:string \
   \
@@ -56,13 +60,10 @@ mix ash.gen.resource Navatrack.Works.Topic \
   \
   --attribute avatar_image_400x400_url:string \
   --attribute avatar_image_400x400_alt:string \
-  \
   --attribute main_image_1080x1080_url:string \
   --attribute main_image_1080x1080_alt:string \
-  \
   --attribute main_image_1920x1080_url:string \
   --attribute main_image_1920x1080_alt:string \
-  \
   --attribute main_image_1080x1920_url:string \
   --attribute main_image_1080x1920_alt:string \
   \
@@ -96,39 +97,49 @@ mix ash.gen.resource Navatrack.Works.Topic \
   --attribute ways_of_working_as_markdown:string \
   --attribute objectives_and_key_results_as_markdown:string \
   --attribute key_performance_indicators_as_markdown:string \
-  \
   --attribute glossary_as_url:string \
   --attribute glossary_as_markdown:string \
-  \
-  --attribute six_pager_double_sider_as_url:string \
-  --attribute six_pager_double_sider_as_markdown:string \
-  \
-  --attribute swot_as_url:string \
-  --attribute swot_as_markdown:string \
-  \
-  --attribute steeple_as_url:string \
-  --attribute steeple_social_as_markdown:string \
-  --attribute steeple_technological_as_markdown:string \
-  --attribute steeple_economic_as_markdown:string \
-  --attribute steeple_political__as_markdown:string \
-  --attribute steeple_legal_as_markdown:string \
-  --attribute steeple_ethical_as_markdown:string \
-  \
-  --attribute porters_five_forces_as_url:string \
-  --attribute porters_five_forces_as_markdown:string \
-  \
   --attribute roles_and_responsibilities_as_url:string \
   --attribute roles_and_responsibilities_as_markdown:string \
-  \
   --attribute responsibility_assignment_matrix_as_url:string \
   --attribute responsibility_assignment_matrix_as_markdown:string \
   \
   --attribute gs1_digital_link:string \
   --attribute gs1_country_code:string \
   --attribute gs1_global_location_number:string \
-  \
   --attribute isic_v4_code:string \
   --attribute isic_v4_name:string \
+  --attribute six_pager_double_sider_as_url:string \
+  --attribute six_pager_double_sider_as_markdown:string \
+  \
+  --attribute swot_as_url:string \
+  --attribute swot_strengths_as_markdown:string \
+  --attribute swot_weaknesses_as_markdown:string \
+  --attribute swot_opportunities_as_markdown:string \
+  --attribute swot_threats_as_markdown:string \
+  \
+  --attribute sipoc_as_url:string \
+  --attribute sipoc_suppliers_as_markdown:string \
+  --attribute sipoc_inputs_as_markdown:string \
+  --attribute sipoc_processes_as_markdown:string \
+  --attribute sipoc_outputs_as_markdown:string \
+  --attribute sipoc_customers_as_markdown:string \
+  \
+  --attribute steeple_as_url:string \
+  --attribute steeple_social_as_markdown:string \
+  --attribute steeple_technological_as_markdown:string \
+  --attribute steeple_economic_as_markdown:string \
+  --attribute steeple_environmental_as_markdown:string \
+  --attribute steeple_political__as_markdown:string \
+  --attribute steeple_legal_as_markdown:string \
+  --attribute steeple_ethical_as_markdown:string \
+  \
+  --attribute porters_five_forces_as_url:string \
+  --attribute porters_five_forces_entrants_as_markdown:string \
+  --attribute porters_five_forces_substitutes_as_markdown:string \
+  --attribute porters_five_forces_customers_as_markdown:string \
+  --attribute porters_five_forces_suppliers_as_markdown:string \
+  --attribute porters_five_forces_competitors_as_markdown:string \
   \
   --attribute code_of_conduct_policy_as_url:string \
   --attribute code_of_conduct_policy_as_markdown:string \
@@ -140,6 +151,8 @@ mix ash.gen.resource Navatrack.Works.Topic \
   --attribute copyright_policy_as_markdown:string \
   --attribute corrections_policy_as_url:string \
   --attribute corrections_policy_as_markdown:string \
+  --attribute diversity_policy_as_url:string \
+  --attribute diversity_policy_as_markdown:string \
   --attribute equal_opportunity_policy_as_url:string \
   --attribute equal_opportunity_policy_as_markdown:string \
   --attribute ethics_policy_as_url:string \
@@ -210,30 +223,57 @@ mix ash.gen.resource Navatrack.Works.Topic \
   --attribute apache_echart_as_url:string \
   --attribute apache_echart_as_typescript:string \
   \
-  --attribute net_promoter_score_actual_value:decimal \
-  --attribute net_promoter_score_target_value:decimal \
-  --attribute net_promoter_score_unit:string \
-  --attribute net_promoter_score_description_as_markdown:string \
+  --attribute net_promoter_score_customer_perspective_actual:decimal \
+  --attribute net_promoter_score_customer_perspective_expect:decimal \
+  --attribute net_promoter_score_customer_perspective_ratio:decimal \
+  --attribute net_promoter_score_customer_perspective_unit:string \
+  --attribute net_promoter_score_customer_perspective_description_as_markdown:string \
   \
-  --attribute active_users_actual_value:integer \
-  --attribute active_users_target_value:integer \
+  --attribute net_promoter_score_user_perspective_actual:decimal \
+  --attribute net_promoter_score_user_perspective_expect:decimal \
+  --attribute net_promoter_score_user_perspective_ratio:decimal \
+  --attribute net_promoter_score_user_perspective_unit:string \
+  --attribute net_promoter_score_user_perspective_description_as_markdown:string \
+  \
+  --attribute net_promoter_score_worker_perspective_actual:decimal \
+  --attribute net_promoter_score_worker_perspective_expect:decimal \
+  --attribute net_promoter_score_worker_perspective_ratio:decimal \
+  --attribute net_promoter_score_worker_perspective_unit:string \
+  --attribute net_promoter_score_worker_perspective_description_as_markdown:string \
+  \
+  --attribute active_users_actual:decimal \
+  --attribute active_users_expect:decimal \
+  --attribute active_users_ratio:decimal \
   --attribute active_users_unit:string \
   --attribute active_users_description_as_markdown:string \
   \
-  --attribute uptime_percentage_actual_value:decimal \
-  --attribute uptime_percentage_target_value:decimal \
+  --attribute uptime_percentage_actual:decimal \
+  --attribute uptime_percentage_expect:decimal \
+  --attribute uptime_percentage_ratio:decimal \
   --attribute uptime_percentage_unit:string \
   --attribute uptime_percentage_description_as_markdown:string \
   \
-  --attribute burn_rate_net_cash_per_week_actual_value:integer \
-  --attribute burn_rate_net_cash_per_week_target_value:integer \
+  --attribute burn_rate_net_cash_per_week_actual:integer \
+  --attribute burn_rate_net_cash_per_week_expect:integer \
+  --attribute burn_rate_net_cash_per_week_ratio:integer \
   --attribute burn_rate_net_cash_per_week_unit:string \
   --attribute burn_rate_net_cash_per_week_description_as_markdown:string \
   \
-  --attribute burn_rate_hours_per_week_actual_value:integer \
-  --attribute burn_rate_hours_per_week_target_value:integer \
-  --attribute burn_rate_hours_per_week_unit:string \
-  --attribute burn_rate_hours_per_week_description_as_markdown:string \
+  --attribute burn_rate_net_hours_per_week_actual:integer \
+  --attribute burn_rate_net_hours_per_week_expect:integer \
+  --attribute burn_rate_net_hours_per_week_ratio:integer \
+  --attribute burn_rate_net_hours_per_week_unit:string \
+  --attribute burn_rate_net_hours_per_week_description_as_markdown:string \
+  \
+  --attribute earned_value_management_planned_value:decimal \
+  --attribute earned_value_management_earned_value:decimal \
+  --attribute earned_value_management_actual_cost:decimal \
+  --attribute earned_value_management_cost_variance:decimal \
+  --attribute earned_value_management_cost_variance_ratio:decimal \
+  --attribute earned_value_management_cost_performance_index:decimal \
+  --attribute earned_value_management_schedule_variance:decimal \
+  --attribute earned_value_management_schedule_variance_ratio:decimal \
+  --attribute earned_value_management_schedule_performance_index:decimal \
   \
   --attribute total_project_control_dipp:decimal \
   --attribute total_project_control_dipp_progress_index_ratio:decimal \
@@ -242,65 +282,65 @@ mix ash.gen.resource Navatrack.Works.Topic \
   --attribute total_project_control_expected_monetary_value:decimal \
   --attribute total_project_control_cost_estimate_to_complete:decimal \
   \
-  --attribute deployment_frequency_actual_value:decimal \
-  --attribute deployment_frequency_target_value:decimal \
+  --attribute deployment_frequency_actual:decimal \
+  --attribute deployment_frequency_expect:decimal \
+  --attribute deployment_frequency_ratio:decimal \
   --attribute deployment_frequency_unit:string \
   --attribute deployment_frequency_description_as_markdown:string \
   \
-  --attribute lead_time_for_changes_actual_value:decimal \
-  --attribute lead_time_for_changes_target_value:decimal \
+  --attribute lead_time_for_changes_actual:decimal \
+  --attribute lead_time_for_changes_expect:decimal \
+  --attribute lead_time_for_changes_ratio:decimal \
   --attribute lead_time_for_changes_unit:string \
   --attribute lead_time_for_changes_description_as_markdown:string \
   \
-  --attribute change_failure_rate_actual_value:decimal \
-  --attribute change_failure_rate_target_value:decimal \
+  --attribute change_failure_rate_actual:decimal \
+  --attribute change_failure_rate_expect:decimal \
+  --attribute change_failure_rate_ratio:decimal \
   --attribute change_failure_rate_unit:string \
   --attribute change_failure_rate_description_as_markdown:string \
   \
-  --attribute mean_time_to_recovery_actual_value:decimal \
-  --attribute mean_time_to_recovery_target_value:decimal \
+  --attribute mean_time_to_recovery_actual:decimal \
+  --attribute mean_time_to_recovery_expect:decimal \
+  --attribute mean_time_to_recovery_ratio:decimal \
   --attribute mean_time_to_recovery_unit:string \
   --attribute mean_time_to_recovery_description_as_markdown:string\
   \
-  --attribute maintainability_index_actual_value:decimal \
-  --attribute maintainability_index_target_value:decimal \
+  --attribute maintainability_index_actual:decimal \
+  --attribute maintainability_index_expect:decimal \
+  --attribute maintainability_index_ratio:decimal \
   --attribute maintainability_index_unit:string \
   --attribute maintainability_index_description_as_markdown:string \
   \
-  --attribute line_count_actual_value:decimal \
-  --attribute line_count_target_value:decimal \
+  --attribute line_count_actual:decimal \
+  --attribute line_count_expect:decimal \
+  --attribute line_count_ratio:decimal \
   --attribute line_count_unit:string \
   --attribute line_count_description_as_markdown:string \
   \
-  --attribute test_automation_code_coverage_actual_value:decimal \
-  --attribute test_automation_code_coverage_target_value:decimal \
+  --attribute test_automation_code_coverage_actual:decimal \
+  --attribute test_automation_code_coverage_expect:decimal \
+  --attribute test_automation_code_coverage_ratio:decimal \
   --attribute test_automation_code_coverage_unit:string \
   --attribute test_automation_code_coverage_description_as_markdown:string \
   \
-  --attribute halstead_complexity_volume_actual_value:decimal \
-  --attribute halstead_complexity_volume_target_value:decimal \
+  --attribute halstead_complexity_volume_actual:decimal \
+  --attribute halstead_complexity_volume_expect:decimal \
+  --attribute halstead_complexity_volume_ratio:decimal \
   --attribute halstead_complexity_volume_unit:string \
   --attribute halstead_complexity_volume_description_as_markdown:string \
   \
-  --attribute halstead_complexity_difficulty_actual_value:decimal \
-  --attribute halstead_complexity_difficulty_target_value:decimal \
+  --attribute halstead_complexity_difficulty_actual:decimal \
+  --attribute halstead_complexity_difficulty_expect:decimal \
+  --attribute halstead_complexity_difficulty_ratio:decimal \
   --attribute halstead_complexity_difficulty_unit:string \
   --attribute halstead_complexity_difficulty_description_as_markdown:string \
   \
-  --attribute halstead_complexity_effort_actual_value:decimal \
-  --attribute halstead_complexity_effort_target_value:decimal \
+  --attribute halstead_complexity_effort_actual:decimal \
+  --attribute halstead_complexity_effort_expect:decimal \
+  --attribute halstead_complexity_effort_ratio:decimal \
   --attribute halstead_complexity_effort_unit:string \
   --attribute halstead_complexity_effort_description_as_markdown:string \
-
-```
-
-Unused:
-
-```sh
-  --attribute location_iso_3166_1_alpha_2:string \
-  --attribute location_iso_3166_2:string \
-  --attribute location_latitude_as_decimal_degrees:decimal \
-  --attribute location_longitude_as_decimal_degrees:decimal \
 ```
 
 Migrate:
@@ -351,3 +391,10 @@ config :logger,
   level: :debug,
   truncate: :infinity
 ```
+
+You may want/need to add the relationship:
+
+```sh
+--relationship "belongs_to:parent:Navatrack.Works.Topic"
+```
+

@@ -58,8 +58,12 @@ defmodule NavatrackWeb.Topics.FormLive do
           autofocus
         />
         <.input
+          field={form[:sign]}
+          label="🚦 Sign"
+        />
+        <.input
           field={form[:status]}
-          label="🚦 Status"
+          label="📍 Status"
         />
         <.input
           field={form[:tagging]}
@@ -111,7 +115,7 @@ defmodule NavatrackWeb.Topics.FormLive do
           />
         </.section>
 
-        <.section id="Social" title="Social">
+        <.section id="Socials" title="Socials">
           <.input
             field={form[:bluesky_as_url]}
             label="Bluesky URL"
@@ -570,7 +574,7 @@ defmodule NavatrackWeb.Topics.FormLive do
           <.input
             field={form[:steeple_social_as_markdown]}
             type="textarea"
-            label="Social"
+            label="Socials"
             placeholder="Social considerations, cultural norms, lifestyle trends, health consciousness, age distribution, education levels, changing demographics"
           />
           <.input
@@ -761,6 +765,22 @@ defmodule NavatrackWeb.Topics.FormLive do
           />
           <.input
             field={form[:corrections_policy_as_markdown]}
+            label="Text"
+            type="textarea"
+          />
+
+          <h3 class="h3">
+            Diversity Policy
+          </h3>
+
+          <.input
+            field={form[:diversity_policy_as_url]}
+            type="url"
+            label="🔗 URL"
+            placeholder="https://example.com"
+          />
+          <.input
+            field={form[:diversity_policy_as_markdown]}
             label="Text"
             type="textarea"
           />
@@ -1168,11 +1188,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:net_promoter_score_customer_perspective_actual_value]}
+            field={form[:net_promoter_score_customer_perspective_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:net_promoter_score_customer_perspective_target_value]}
+            field={form[:net_promoter_score_customer_perspective_expect]}
             label="Target Value"
           />
           <.input
@@ -1190,11 +1210,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:net_promoter_score_user_perspective_actual_value]}
+            field={form[:net_promoter_score_user_perspective_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:net_promoter_score_user_perspective_target_value]}
+            field={form[:net_promoter_score_user_perspective_expect]}
             label="Target Value"
           />
           <.input
@@ -1212,11 +1232,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:net_promoter_score_worker_perspective_actual_value]}
+            field={form[:net_promoter_score_worker_perspective_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:net_promoter_score_worker_perspective_target_value]}
+            field={form[:net_promoter_score_worker_perspective_expect]}
             label="Target Value"
           />
           <.input
@@ -1237,11 +1257,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:active_users_actual_value]}
+            field={form[:active_users_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:active_users_target_value]}
+            field={form[:active_users_expect]}
             label="Target Value"
           />
           <.input
@@ -1259,11 +1279,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:uptime_percentage_actual_value]}
+            field={form[:uptime_percentage_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:uptime_percentage_target_value]}
+            field={form[:uptime_percentage_expect]}
             label="Target Value"
           />
           <.input
@@ -1284,11 +1304,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:burn_rate_net_cash_per_week_actual_value]}
+            field={form[:burn_rate_net_cash_per_week_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:burn_rate_net_cash_per_week_target_value]}
+            field={form[:burn_rate_net_cash_per_week_expect]}
             label="Target Value"
           />
           <.input
@@ -1306,19 +1326,19 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:burn_rate_hours_per_week_actual_value]}
+            field={form[:burn_rate_net_hours_per_week_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:burn_rate_hours_per_week_target_value]}
+            field={form[:burn_rate_net_hours_per_week_expect]}
             label="Target Value"
           />
           <.input
-            field={form[:burn_rate_hours_per_week_unit]}
+            field={form[:burn_rate_net_hours_per_week_unit]}
             label="Unit"
           />
           <.input
-            field={form[:burn_rate_hours_per_week_description]}
+            field={form[:burn_rate_net_hours_per_week_description]}
             type="textarea"
             label="Description"
           />
@@ -1373,11 +1393,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:deployment_frequency_actual_value]}
+            field={form[:deployment_frequency_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:deployment_frequency_target_value]}
+            field={form[:deployment_frequency_expect]}
             label="Target Value"
           />
           <.input
@@ -1395,11 +1415,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:lead_time_for_changes_actual_value]}
+            field={form[:lead_time_for_changes_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:lead_time_for_changes_target_value]}
+            field={form[:lead_time_for_changes_expect]}
             label="Target Value"
           />
           <.input
@@ -1417,11 +1437,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:change_failure_rate_actual_value]}
+            field={form[:change_failure_rate_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:change_failure_rate_target_value]}
+            field={form[:change_failure_rate_expect]}
             label="Target Value"
           />
           <.input
@@ -1438,11 +1458,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:mean_time_to_recovery_actual_value]}
+            field={form[:mean_time_to_recovery_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:mean_time_to_recovery_target_value]}
+            field={form[:mean_time_to_recovery_expect]}
             label="Target Value"
           />
           <.input
@@ -1462,11 +1482,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:maintainability_index_actual_value]}
+            field={form[:maintainability_index_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:maintainability_index_target_value]}
+            field={form[:maintainability_index_expect]}
             label="Target Value"
           />
           <.input
@@ -1484,11 +1504,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:line_count_actual_value]}
+            field={form[:line_count_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:line_count_target_value]}
+            field={form[:line_count_expect]}
             label="Target Value"
           />
           <.input
@@ -1505,11 +1525,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:test_automation_code_coverage_actual_value]}
+            field={form[:test_automation_code_coverage_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:test_automation_code_coverage_target_value]}
+            field={form[:test_automation_code_coverage_expect]}
             label="Target Value"
           />
           <.input
@@ -1527,11 +1547,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:halstead_complexity_volume_actual_value]}
+            field={form[:halstead_complexity_volume_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:halstead_complexity_volume_target_value]}
+            field={form[:halstead_complexity_volume_expect]}
             label="Target Value"
           />
           <.input
@@ -1549,11 +1569,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:halstead_complexity_difficulty_actual_value]}
+            field={form[:halstead_complexity_difficulty_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:halstead_complexity_difficulty_target_value]}
+            field={form[:halstead_complexity_difficulty_expect]}
             label="Target Value"
           />
           <.input
@@ -1571,11 +1591,11 @@ defmodule NavatrackWeb.Topics.FormLive do
           </h3>
 
           <.input
-            field={form[:halstead_complexity_effort_actual_value]}
+            field={form[:halstead_complexity_effort_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:halstead_complexity_effort_target_value]}
+            field={form[:halstead_complexity_effort_expect]}
             label="Target Value"
           />
           <.input
