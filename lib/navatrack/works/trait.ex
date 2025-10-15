@@ -23,6 +23,7 @@ defmodule Navatrack.Works.Trait do
       :deleted_at,
       :locale_code,
       :name,
+      :sign,
       :status,
       :tagging,
       :summary_as_markdown,
@@ -45,6 +46,7 @@ defmodule Navatrack.Works.Trait do
     attribute :deleted_at, :utc_datetime_usec
     attribute :locale_code, :string
     attribute :name, :string
+    attribute :sign, :string
     attribute :status, :string
     attribute :tagging, :string
     attribute :summary_as_markdown, :string

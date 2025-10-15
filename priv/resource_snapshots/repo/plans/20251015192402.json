@@ -3282,7 +3282,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "7A5FA1FF9F66E4F2D52DA6CD2D53EA8122216AC8C0CB90EF9EF7BCE98631764B",
+  "hash": "E6E8C6B57E11FE9F2DCF8EB58D96DAE6BF3E5825EFB355E564B7B4FB6E62E2F0",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -3291,5 +3291,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "groups"
+  "table": "plans"
 }

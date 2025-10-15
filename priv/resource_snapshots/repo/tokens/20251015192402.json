@@ -2,26 +2,38 @@
   "attributes": [
     {
       "allow_nil?": false,
-      "default": "fragment(\"gen_random_uuid()\")",
+      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "updated_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": false,
+      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "created_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
       "generated?": false,
       "precision": null,
       "primary_key?": true,
       "references": null,
       "scale": null,
       "size": null,
-      "source": "id",
-      "type": "uuid"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "locale_code",
+      "source": "jti",
       "type": "text"
     },
     {
@@ -33,7 +45,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "code",
+      "source": "subject",
       "type": "text"
     },
     {
@@ -45,8 +57,8 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "name",
-      "type": "text"
+      "source": "expires_at",
+      "type": "utc_datetime"
     },
     {
       "allow_nil?": false,
@@ -57,16 +69,28 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "definition_as_markdown",
+      "source": "purpose",
       "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "extra_data",
+      "type": "map"
     }
   ],
   "base_filter": null,
   "check_constraints": [],
   "custom_indexes": [],
   "custom_statements": [],
-  "has_create_action": false,
-  "hash": "049A0244960B172D77A79B1C6BA8EF04861963CAD287379BF77BD204E8C94688",
+  "has_create_action": true,
+  "hash": "DCC61DDED126F37AD7E0F42C7D6ABBCAB6CEB4BCF93A4BCB4927DE9387BF453A",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -75,5 +99,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "ilo_isco_2008s"
+  "table": "tokens"
 }

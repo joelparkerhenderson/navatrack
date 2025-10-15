@@ -1,10 +1,11 @@
 # To run this script:
 #
 # ```sh
-# mix run -r priv/repo/seeds/uk_gdad_pcf_roles.exs
+# mix run -r priv/repo/seeds/uk_gdad_pcf_skill/seeds.exs
 # ```
 
-File.stream!("priv/repo/seeds/uk_gdad_pcf_skills.csv")
+Path.join(__DIR__, "seeds.csv")
+|> File.stream!()
 |> CSV.decode!(headers: true, escape_max_lines: 200)
 |> Enum.each(fn row ->
   IO.inspect(row)

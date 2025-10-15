@@ -3282,7 +3282,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "846CA8B3B4EB729E47B0CE53AC4182D2DC7D3B50B61BDDA5601F027FDF644D74",
+  "hash": "20CC8A784B8042E04A06CB74EAE61DA5C6A6CD9F5C3F5E5E53B7FAB198AB1316",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -3291,5 +3291,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "tasks"
+  "table": "topics"
 }

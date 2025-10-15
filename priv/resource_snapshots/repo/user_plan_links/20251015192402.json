@@ -79,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_group_links_user_id_fkey",
+        "name": "user_plan_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -110,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_group_links_group_id_fkey",
+        "name": "user_plan_links_plan_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "groups"
+        "table": "plans"
       },
       "scale": null,
       "size": null,
-      "source": "group_id",
+      "source": "plan_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "2313AFCC79625E0D658AEB4D4B84A5E6E9A46EB54DC897C41899BD0F13D6685C",
+  "hash": "CAF26D3CD1DB2B39987A713ECEE0F746E84802A2A3C584E5870AE36579D4E143",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_group_links"
+  "table": "user_plan_links"
 }
