@@ -36,6 +36,10 @@ defmodule NavatrackWeb.Messages.ShowLive do
       </.header>
       <main>
         <.show_live_lede x={@x} />
+        <ul>
+          <li>From: {@x.writer_as_user_id}</li>
+          <li>To: {@x.reader_as_user_id}</li>
+        </ul>
       </main>
     </Layouts.app>
     """

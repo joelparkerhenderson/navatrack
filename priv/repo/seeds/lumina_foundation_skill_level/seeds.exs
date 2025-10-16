@@ -11,7 +11,7 @@ Path.join(__DIR__, "seeds.tsv")
   IO.inspect(row)
    [number, name, description] = String.split(row, "\t")
    Navatrack.Repo.insert!(%Navatrack.Codes.LuminaFoundationSkillLevel{
-     locale_code: "en-GB",
+     locale_code: "en-",
      number: String.to_integer(number),
      name: name,
      description: description,

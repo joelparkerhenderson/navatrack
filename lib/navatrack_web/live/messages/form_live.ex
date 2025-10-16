@@ -11,24 +11,34 @@ defmodule NavatrackWeb.Messages.FormLive do
   """
 
   def mount(%{"id" => id}, _session, socket) do
-    form = AshPhoenix.Form.for_create(X, :edit)
+    form = AshPhoenix.Form.for_action(X, :update, domain: Navatrack.Works)
+    users = Navatrack.Accounts.User |> Ash.read!()
+    user_options = Enum.map(users, fn user ->
+      {user.email, user.id}
+    end)
     x = Ash.get!(X, id)
 
     {:ok,
      assign(socket,
-       page_title: "Update #{X.title_case_singular()}",
+       page_title: "Edit #{X.title_case_singular()}",
        form: to_form(form),
+       user_options: user_options,
        x: x
      )}
   end
 
   def mount(_params, _session, socket) do
     form = AshPhoenix.Form.for_create(X, :create)
+    users = Navatrack.Accounts.User |> Ash.read!()
+    user_options = Enum.map(users, fn user ->
+      {user.email, user.id}
+    end)
 
     {:ok,
      assign(socket,
-       page_title: "Create #{X.title_case_singular()}",
-       form: to_form(form)
+       page_title: "New #{X.title_case_singular()}",
+       form: to_form(form),
+       user_options: user_options
      )}
   end
 
@@ -73,13 +83,21 @@ defmodule NavatrackWeb.Messages.FormLive do
           field={form[:note]}
           label="🗒️ Note"
         />
+
         <.input
-          field={form[:writer_as_user_id]}
-          label="Writer as user id"
+          field={@form[:writer_as_user_id]}
+          type="select"
+          label="Writer"
+          options={@user_options}
+          prompt="Select a writer"
         />
+
         <.input
-          field={form[:reader_as_user_id]}
-          label="Reader as user id"
+          field={@form[:reader_as_user_id]}
+          type="select"
+          label="Reader"
+          options={@user_options}
+          prompt="Select a reader"
         />
 
         <.button type="primary">Save</.button>

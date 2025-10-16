@@ -10,7 +10,7 @@ Path.join(__DIR__, "seeds.csv")
 |> Enum.each(fn row ->
   IO.inspect(row)
   Navatrack.Repo.insert!(%Navatrack.Codes.IloIsco2008{
-    locale_code: "en-GB",
+    locale_code: "en-",
     code: row["Code"],
     name: row["Name"],
     definition_as_markdown: row["Definition"],

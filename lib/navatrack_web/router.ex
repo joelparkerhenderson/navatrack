@@ -87,42 +87,42 @@ defmodule NavatrackWeb.Router do
         live "/events", Events.IndexLive
         live "/events/new", Events.FormLive, :new
         live "/events/:id", Events.ShowLive
-        live "/events/:id/edit", Events.FormLive, :edit
+        live "/events/:id/edit", Events.FormLive, :update
 
         live "/groups", Groups.IndexLive
         live "/groups/new", Groups.FormLive, :new
         live "/groups/:id", Groups.ShowLive
-        live "/groups/:id/edit", Groups.FormLive, :edit
+        live "/groups/:id/edit", Groups.FormLive, :update
 
         live "/messages", Messages.IndexLive
         live "/messages/new", Messages.FormLive, :new
         live "/messages/:id", Messages.ShowLive
-        live "/messages/:id/edit", Messages.FormLive, :edit
+        live "/messages/:id/edit", Messages.FormLive, :update
 
         live "/plans", Plans.IndexLive
         live "/plans/new", Plans.FormLive, :new
         live "/plans/:id", Plans.ShowLive
-        live "/plans/:id/edit", Plans.FormLive, :edit
+        live "/plans/:id/edit", Plans.FormLive, :update
 
         live "/tasks", Tasks.IndexLive
         live "/tasks/new", Tasks.FormLive, :new
         live "/tasks/:id", Tasks.ShowLive
-        live "/tasks/:id/edit", Tasks.FormLive, :edit
+        live "/tasks/:id/edit", Tasks.FormLive, :update
 
         live "/topics", Topics.IndexLive
         live "/topics/new", Topics.FormLive, :new
         live "/topics/:id", Topics.ShowLive
-        live "/topics/:id/edit", Topics.FormLive, :edit
+        live "/topics/:id/edit", Topics.FormLive, :update
 
         live "/traits", Traits.IndexLive
         live "/traits/new", Traits.FormLive, :new
         live "/traits/:id", Traits.ShowLive
-        live "/traits/:id/edit", Traits.FormLive, :edit
+        live "/traits/:id/edit", Traits.FormLive, :update
 
         live "/users", Users.IndexLive
         live "/users/new", Users.FormLive, :new
         live "/users/:id", Users.ShowLive
-        live "/users/:id/edit", Users.FormLive, :edit
+        live "/users/:id/edit", Users.FormLive, :update
 
         ### Read-Only Codes
 
@@ -143,42 +143,42 @@ defmodule NavatrackWeb.Router do
         live "/user_group_links", UserGroupLinks.IndexLive
         live "/user_group_links/new", UserGroupLinks.FormLive, :new
         live "/user_group_links/:id", UserGroupLinks.ShowLive
-        live "/user_group_links/:id/edit", UserGroupLinks.FormLive, :edit
+        live "/user_group_links/:id/edit", UserGroupLinks.FormLive, :update
 
         live "/user_plan_links", UserPlanLinks.IndexLive
         live "/user_plan_links/new", UserPlanLinks.FormLive, :new
         live "/user_plan_links/:id", UserPlanLinks.ShowLive
-        live "/user_plan_links/:id/edit", UserPlanLinks.FormLive, :edit
+        live "/user_plan_links/:id/edit", UserPlanLinks.FormLive, :update
 
         live "/user_topic_links", UserTopicLinks.IndexLive
         live "/user_topic_links/new", UserTopicLinks.FormLive, :new
         live "/user_topic_links/:id", UserTopicLinks.ShowLive
-        live "/user_topic_links/:id/edit", UserTopicLinks.FormLive, :edit
+        live "/user_topic_links/:id/edit", UserTopicLinks.FormLive, :update
 
         live "/user_trait_links", UserTraitLinks.IndexLive
         live "/user_trait_links/new", UserTraitLinks.FormLive, :new
         live "/user_trait_links/:id", UserTraitLinks.ShowLive
-        live "/user_trait_links/:id/edit", UserTraitLinks.FormLive, :edit
+        live "/user_trait_links/:id/edit", UserTraitLinks.FormLive, :update
 
         live "/user_ilo_isco_2008_links", UserIloIsco2008Links.IndexLive
         live "/user_ilo_isco_2008_links/new", UserIloIsco2008Links.FormLive, :new
         live "/user_ilo_isco_2008_links/:id", UserIloIsco2008Links.ShowLive
-        live "/user_ilo_isco_2008_links/:id/edit", UserIloIsco2008Links.FormLive, :edit
+        live "/user_ilo_isco_2008_links/:id/edit", UserIloIsco2008Links.FormLive, :update
 
         live "/user_lumina_foundation_skill_level_links", UserLuminaFoundationSkillLevelLinks.IndexLive
         live "/user_lumina_foundation_skill_level_links/new", UserLuminaFoundationSkillLevelLinks.FormLive, :new
         live "/user_lumina_foundation_skill_level_links/:id", UserLuminaFoundationSkillLevelLinks.ShowLive
-        live "/user_lumina_foundation_skill_level_links/:id/edit", UserLuminaFoundationSkillLevelLinks.FormLive, :edit
+        live "/user_lumina_foundation_skill_level_links/:id/edit", UserLuminaFoundationSkillLevelLinks.FormLive, :update
 
         live "/user_uk_gdad_pcf_role_links", UserUkGdadPcfRoleLinks.IndexLive
         live "/user_uk_gdad_pcf_role_links/new", UserUkGdadPcfRoleLinks.FormLive, :new
         live "/user_uk_gdad_pcf_role_links/:id", UserUkGdadPcfRoleLinks.ShowLive
-        live "/user_uk_gdad_pcf_role_links/:id/edit", UserUkGdadPcfRoleLinks.FormLive, :edit
+        live "/user_uk_gdad_pcf_role_links/:id/edit", UserUkGdadPcfRoleLinks.FormLive, :update
 
         live "/user_uk_gdad_pcf_skill_links", UserUkGdadPcfSkillLinks.IndexLive
         live "/user_uk_gdad_pcf_skill_links/new", UserUkGdadPcfSkillLinks.FormLive, :new
         live "/user_uk_gdad_pcf_skill_links/:id", UserUkGdadPcfSkillLinks.ShowLive
-        live "/user_uk_gdad_pcf_skill_links/:id/edit", UserUkGdadPcfSkillLinks.FormLive, :edit
+        live "/user_uk_gdad_pcf_skill_links/:id/edit", UserUkGdadPcfSkillLinks.FormLive, :update
 
       end
 

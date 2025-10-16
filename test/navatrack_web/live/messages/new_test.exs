@@ -25,6 +25,10 @@ defmodule NavatrackWeb.Messages.NewTest do
     assert response =~ "📍 Status"
     assert response =~ "🏷️ Tags"
     assert response =~ "🗒️ Note"
+
+    assert response =~ "From"
+    assert response =~ "To"
+
   end
 
 end

@@ -15,11 +15,6 @@ defmodule Navatrack.Works.Message do
   end
 
   actions do
-    defaults [:read, :destroy, create: [], update: []]
-  end
-
-
-  actions do
     defaults [:create, :read, :update, :destroy]
 
     default_accept [

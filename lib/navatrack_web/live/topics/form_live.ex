@@ -11,12 +11,12 @@ defmodule NavatrackWeb.Topics.FormLive do
   """
 
   def mount(%{"id" => id}, _session, socket) do
-    form = AshPhoenix.Form.for_create(X, :edit)
+    form = AshPhoenix.Form.for_action(X, :update, domain: Navatrack.Works)
     x = Ash.get!(X, id)
 
     {:ok,
      assign(socket,
-       page_title: "Update #{X.title_case_singular()}",
+       page_title: "Edit #{X.title_case_singular()}",
        form: to_form(form),
        x: x
      )}
@@ -27,7 +27,7 @@ defmodule NavatrackWeb.Topics.FormLive do
 
     {:ok,
      assign(socket,
-       page_title: "Create #{X.title_case_singular()}",
+       page_title: "New #{X.title_case_singular()}",
        form: to_form(form)
      )}
   end
