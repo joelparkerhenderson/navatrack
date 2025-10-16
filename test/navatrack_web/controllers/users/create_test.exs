@@ -4,6 +4,18 @@ defmodule NavatrackWeb.Users.CreateTest do
   use NavatrackWeb.AuthCase
   # alias Navatrack.Accounts.User, as: X
 
+  setup %{conn: conn} do
+    {:ok, user} = my_user()
+    {:ok, user} = my_sign_in(user)
+
+    conn =
+      conn
+      |> Phoenix.ConnTest.init_test_session(%{})
+      |> AshAuthentication.Plug.Helpers.store_in_session(user)
+
+    {:ok, conn: conn}
+  end
+
   test "create", %{conn: conn} do
     {:ok, lv, _html} = live(conn, ~p"/users/new")
 

@@ -94,10 +94,10 @@ defmodule NavatrackWeb.Router do
         live "/groups/:id", Groups.ShowLive
         live "/groups/:id/edit", Groups.FormLive, :edit
 
-        live "/users", Users.IndexLive
-        live "/users/new", Users.FormLive, :new
-        live "/users/:id", Users.ShowLive
-        live "/users/:id/edit", Users.FormLive, :edit
+        live "/messages", Messages.IndexLive
+        live "/messages/new", Messages.FormLive, :new
+        live "/messages/:id", Messages.ShowLive
+        live "/messages/:id/edit", Messages.FormLive, :edit
 
         live "/plans", Plans.IndexLive
         live "/plans/new", Plans.FormLive, :new
@@ -118,6 +118,11 @@ defmodule NavatrackWeb.Router do
         live "/traits/new", Traits.FormLive, :new
         live "/traits/:id", Traits.ShowLive
         live "/traits/:id/edit", Traits.FormLive, :edit
+
+        live "/users", Users.IndexLive
+        live "/users/new", Users.FormLive, :new
+        live "/users/:id", Users.ShowLive
+        live "/users/:id/edit", Users.FormLive, :edit
 
         ### Read-Only Codes
 

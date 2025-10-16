@@ -17,5 +17,22 @@ mix ash.gen.resource \
     --attribute level_4_description_as_markdown:string:required:public \
     --attribute roles_that_require_this_skill_as_markdown:string:required:public \
 
-mix ash.codegen create_uk_gdad_pcf_skill
+mix ash.codegen create_uk_gdad_pcf_skills
 mix ash.migrate
+
+
+touch priv/repo/migrations/00000000000000_create_uk_gdad_pcf_skills
+
+mkdir -p lib/navatrack_web/live/uk_gdad_pcf_skills
+touch lib/navatrack_web/live/uk_gdad_pcf_skills/index_live.ex
+touch lib/navatrack_web/live/uk_gdad_pcf_skills/show_live.ex
+
+mkdir -p test/navatrack_web/live/uk_gdad_pcf_skills
+touch test/navatrack_web/live/uk_gdad_pcf_skills/index_live.ex
+touch test/navatrack_web/live/uk_gdad_pcf_skills/show_live.ex
+
+cat << EOF
+Edit file lib/navatrack_web/router.ex to add live routes:
+live "/uk_gdad_pcf_skills", UkGdadPcfSkills.IndexLive
+live "/uk_gdad_pcf_skills/:id", UkGdadPcfSkills.ShowLive
+EOF

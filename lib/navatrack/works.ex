@@ -9,5 +9,6 @@ defmodule Navatrack.Works do
     resource Navatrack.Works.Task
     resource Navatrack.Works.Topic
     resource Navatrack.Works.Trait
+    resource Navatrack.Works.Message
   end
 end

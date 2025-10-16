@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
-    <.live_title default="Navatrack" suffix=" · Phoenix Framework">
+    <.live_title default="Navatrack" suffix="">
       {assigns[:page_title]}
     </.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/css/app.css"} />
@@ -34,7 +34,7 @@
     <div class="navbar bg-base-100 shadow-sm">
       <div class="navbar-start">
         <div class="dropdown">
-          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <div tabindex="0" role="button" class="btn btn-ghost mx-0 px-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"
@@ -45,53 +45,39 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h8m-8 6h16"
+                stroke-width="3"
+                d="M4 8h16M4 14h16M4 20h16" />
               />
             </svg>
           </div>
           <ul
             tabindex="0"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            class="menu dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
+            <li><a href="/">Home</a></li>
             <li><a href="/users">Users</a></li>
+            <li><a href="/groups">Groups</a></li>
             <li><a href="/topics">Topics</a></li>
             <li><a href="/traits">Traits</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/plans">Plans</a></li>
+            <li><a href="/tasks">Tasks</a></li>
             <li>
               <a>Helpers</a>
               <ul class="p-2">
                 <li><a href="/ilo_isco_2008s">ILO ISCO 2008s</a></li>
-                <li>
-                  <a href="/lumina_foundation_skill_levels">Lumina Foundation Skill Level</a>
-                </li>
+                <li><a href="/lumina_foundation_skill_levels">Lumina Foundation Skill Level</a></li>
+                <li><a href="/uk_gdad_pcf_roles">UK GDAD PCF Roles</a></li>
+                <li><a href="/uk_gdad_pcf_skills">UK GDAD PCF Skills</a></li>
               </ul>
             </li>
           </ul>
         </div>
-        <a class="btn btn-ghost text-xl">Navatrack</a>
+        <a class="btn btn-ghost mx-0 px-1 text-xl">Navatrack</a>
+        <a class="btn btn-ghost mx-0 px-1 text-xl">{assigns[:page_title]}</a>
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
-          <li><a href="/users">Users</a></li>
-          <li><a href="/groups">Groups</a></li>
-          <li><a href="/topics">Topics</a></li>
-          <li><a href="/traits">Traits</a></li>
-          <li><a href="/events">Events</a></li>
-          <li><a href="/plans">Plans</a></li>
-          <li><a href="/tasks">Tasks</a></li>
-          <li>
-            <details>
-              <summary>Helpers</summary>
-              <ul class="p-2">
-                <li><a href="/ilo_isco_2008s">ILO ISCO 2008s</a></li>
-                <li>
-                  <a href="/lumina_foundation_skill_levels">Lumina Foundation Skill Level</a>
-                </li>
-                <li><a href="/uk_gdad_pcf_roles">UK GDAD PCF Roles</a></li>
-                <li><a href="/uk_gdad_pcf_skills">UK GDAD PCF Skills</a></li>
-              </ul>
-            </details>
-          </li>
         </ul>
       </div>
       <div class="navbar-end">
@@ -124,6 +110,7 @@
         </div>
       </div>
     </div>
+
 
     {@inner_content}
   </body>
