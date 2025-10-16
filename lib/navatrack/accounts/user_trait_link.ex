@@ -6,10 +6,10 @@ defmodule Navatrack.Accounts.UserTraitLink do
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication]
 
-  def singular_snake_case(), do: "user_trait_link"
-  def plural_snake_case(), do: "user_trait_links"
-  def singular_title_case(), do: "User Trait Link"
-  def plural_title_case(), do: "User Trait Links"
+  def snake_case_singular(), do: "user_trait_link"
+  def snake_case_plural(), do: "user_trait_links"
+  def title_case_singular(), do: "User Trait Link"
+  def title_case_plural(), do: "User Trait Links"
 
   postgres do
     table "user_trait_links"

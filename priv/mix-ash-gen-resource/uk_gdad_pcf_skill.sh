@@ -20,16 +20,15 @@ mix ash.gen.resource \
 mix ash.codegen create_uk_gdad_pcf_skills
 mix ash.migrate
 
-
-touch priv/repo/migrations/00000000000000_create_uk_gdad_pcf_skills
+touch priv/repo/migrations/00000000000000_create_uk_gdad_pcf_skills.exs
 
 mkdir -p lib/navatrack_web/live/uk_gdad_pcf_skills
 touch lib/navatrack_web/live/uk_gdad_pcf_skills/index_live.ex
 touch lib/navatrack_web/live/uk_gdad_pcf_skills/show_live.ex
 
 mkdir -p test/navatrack_web/live/uk_gdad_pcf_skills
-touch test/navatrack_web/live/uk_gdad_pcf_skills/index_live.ex
-touch test/navatrack_web/live/uk_gdad_pcf_skills/show_live.ex
+touch test/navatrack_web/live/uk_gdad_pcf_skills/index_test.ex
+touch test/navatrack_web/live/uk_gdad_pcf_skills/show_test.ex
 
 cat << EOF
 Edit file lib/navatrack_web/router.ex to add live routes:

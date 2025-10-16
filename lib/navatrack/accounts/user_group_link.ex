@@ -6,10 +6,10 @@ defmodule Navatrack.Accounts.UserGroupLink do
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication]
 
-  def singular_snake_case(), do: "user_group_link"
-  def plural_snake_case(), do: "user_group_links"
-  def singular_title_case(), do: "User Group Link"
-  def plural_title_case(), do: "User Group Links"
+  def snake_case_singular(), do: "user_group_link"
+  def snake_case_plural(), do: "user_group_links"
+  def title_case_singular(), do: "User Group Link"
+  def title_case_plural(), do: "User Group Links"
 
   postgres do
     table "user_group_links"

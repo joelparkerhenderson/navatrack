@@ -268,7 +268,7 @@ mix ash.gen.resource \
 mix ash.codegen create_events
 mix ash.migrate
 
-touch priv/repo/migrations/00000000000000_create_events
+touch priv/repo/migrations/00000000000000_create_events.exs
 
 mkdir -p lib/navatrack_web/live/events
 touch lib/navatrack_web/live/events/form_live.ex
@@ -276,9 +276,9 @@ touch lib/navatrack_web/live/events/index_live.ex
 touch lib/navatrack_web/live/events/show_live.ex
 
 mkdir -p test/navatrack_web/live/events
-touch test/navatrack_web/live/events/form_live.ex
-touch test/navatrack_web/live/events/index_live.ex
-touch test/navatrack_web/live/events/show_live.ex
+touch test/navatrack_web/live/events/form_test.ex
+touch test/navatrack_web/live/events/index_test.ex
+touch test/navatrack_web/live/events/show_test.ex
 
 cat << EOF
 Edit file lib/navatrack_web/router.ex to add live routes:

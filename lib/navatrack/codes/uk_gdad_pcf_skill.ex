@@ -4,10 +4,10 @@ defmodule Navatrack.Codes.UkGdadPcfSkill do
     domain: Navatrack.Codes,
     data_layer: AshPostgres.DataLayer
 
-  def singular_snake_case(), do: "uk_gdad_pcf_skill"
-  def plural_snake_case(), do: "uk_gdad_pcf_skills"
-  def singular_title_case(), do: "UK GDAD PCF Skill"
-  def plural_title_case(), do: "UK GDAD PCF Skills"
+  def snake_case_singular(), do: "uk_gdad_pcf_skill"
+  def snake_case_plural(), do: "uk_gdad_pcf_skills"
+  def title_case_singular(), do: "UK GDAD PCF Skill"
+  def title_case_plural(), do: "UK GDAD PCF Skills"
 
   postgres do
     table "uk_gdad_pcf_skills"

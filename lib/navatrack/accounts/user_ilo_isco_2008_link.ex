@@ -6,10 +6,10 @@ defmodule Navatrack.Accounts.UserIloIsco2008Link do
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication]
 
-  def singular_snake_case(), do: "user_ilo_isco_2008_link"
-  def plural_snake_case(), do: "user_ilo_isco_2008_links"
-  def singular_title_case(), do: "User Lumina Foundation Skill Level Link"
-  def plural_title_case(), do: "User Lumina Foundation Skill Level Links"
+  def snake_case_singular(), do: "user_ilo_isco_2008_link"
+  def snake_case_plural(), do: "user_ilo_isco_2008_links"
+  def title_case_singular(), do: "User Lumina Foundation Skill Level Link"
+  def title_case_plural(), do: "User Lumina Foundation Skill Level Links"
 
   postgres do
     table "user_ilo_isco_2008_links"

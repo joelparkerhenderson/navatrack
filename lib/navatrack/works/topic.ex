@@ -4,10 +4,10 @@ defmodule Navatrack.Works.Topic do
     domain: Navatrack.Works,
     data_layer: AshPostgres.DataLayer
 
-  def singular_snake_case(), do: "topic"
-  def plural_snake_case(), do: "topics"
-  def singular_title_case(), do: "Topic"
-  def plural_title_case(), do: "Topics"
+  def snake_case_singular(), do: "topic"
+  def snake_case_plural(), do: "topics"
+  def title_case_singular(), do: "Topic"
+  def title_case_plural(), do: "Topics"
 
   postgres do
     table "topics"

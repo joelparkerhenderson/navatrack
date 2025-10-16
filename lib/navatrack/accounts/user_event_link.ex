@@ -6,10 +6,10 @@ defmodule Navatrack.Accounts.UserEventLink do
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication]
 
-  def singular_snake_case(), do: "user_event_link"
-  def plural_snake_case(), do: "user_event_links"
-  def singular_title_case(), do: "User Event Link"
-  def plural_title_case(), do: "User Event Links"
+  def snake_case_singular(), do: "user_event_link"
+  def snake_case_plural(), do: "user_event_links"
+  def title_case_singular(), do: "User Event Link"
+  def title_case_plural(), do: "User Event Links"
 
   postgres do
     table "user_event_links"

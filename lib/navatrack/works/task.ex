@@ -4,10 +4,10 @@ defmodule Navatrack.Works.Task do
     domain: Navatrack.Works,
     data_layer: AshPostgres.DataLayer
 
-  def singular_snake_case(), do: "task"
-  def plural_snake_case(), do: "tasks"
-  def singular_title_case(), do: "Task"
-  def plural_title_case(), do: "Tasks"
+  def snake_case_singular(), do: "task"
+  def snake_case_plural(), do: "tasks"
+  def title_case_singular(), do: "Task"
+  def title_case_plural(), do: "Tasks"
 
   postgres do
     table "tasks"

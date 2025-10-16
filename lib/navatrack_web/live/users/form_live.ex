@@ -16,7 +16,7 @@ defmodule NavatrackWeb.Users.FormLive do
 
     {:ok,
      assign(socket,
-       page_title: "Update #{X.singular_title_case()}",
+       page_title: "Update #{X.title_case_singular()}",
        form: to_form(form),
        x: x
      )}
@@ -27,7 +27,7 @@ defmodule NavatrackWeb.Users.FormLive do
 
     {:ok,
      assign(socket,
-       page_title: "Create #{X.singular_title_case()}",
+       page_title: "Create #{X.title_case_singular()}",
        form: to_form(form)
      )}
   end

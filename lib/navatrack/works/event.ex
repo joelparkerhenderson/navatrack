@@ -4,10 +4,10 @@ defmodule Navatrack.Works.Event do
     domain: Navatrack.Works,
     data_layer: AshPostgres.DataLayer
 
-  def singular_snake_case(), do: "event"
-  def plural_snake_case(), do: "events"
-  def singular_title_case(), do: "Event"
-  def plural_title_case(), do: "Events"
+  def snake_case_singular(), do: "event"
+  def snake_case_plural(), do: "events"
+  def title_case_singular(), do: "Event"
+  def title_case_plural(), do: "Events"
 
   postgres do
     table "events"

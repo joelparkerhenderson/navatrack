@@ -6,10 +6,10 @@ defmodule Navatrack.Accounts.UserUkGdadPcfRoleLink do
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication]
 
-  def singular_snake_case(), do: "user_uk_gdad_pcf_role_link"
-  def plural_snake_case(), do: "user_uk_gdad_pcf_role_links"
-  def singular_title_case(), do: "User UK GDAD PCF Role Link"
-  def plural_title_case(), do: "User UK GDAD PCF Role Links"
+  def snake_case_singular(), do: "user_uk_gdad_pcf_role_link"
+  def snake_case_plural(), do: "user_uk_gdad_pcf_role_links"
+  def title_case_singular(), do: "User UK GDAD PCF Role Link"
+  def title_case_plural(), do: "User UK GDAD PCF Role Links"
 
   postgres do
     table "user_uk_gdad_pcf_role_links"

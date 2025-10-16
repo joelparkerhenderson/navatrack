@@ -7,7 +7,7 @@ defmodule NavatrackWeb.UkGdadPcfRoles.IndexLive do
   def mount(_params, _session, socket) do
     socket =
       socket
-      |> assign(:page_title, X.plural_title_case())
+      |> assign(:page_title, X.title_case_plural())
 
     {:ok, socket}
   end
@@ -20,7 +20,7 @@ defmodule NavatrackWeb.UkGdadPcfRoles.IndexLive do
 
     {:noreply,
      socket
-     |> assign(:page_title, X.plural_title_case())
+     |> assign(:page_title, X.title_case_plural())
      |> assign(:xx, xx)}
   end
 

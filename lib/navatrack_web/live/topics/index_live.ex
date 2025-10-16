@@ -7,7 +7,7 @@ defmodule NavatrackWeb.Topics.IndexLive do
   def mount(_params, _session, socket) do
     socket =
       socket
-      |> assign(:page_title, X.plural_title_case())
+      |> assign(:page_title, X.title_case_plural())
 
     {:ok, socket}
   end
@@ -20,7 +20,7 @@ defmodule NavatrackWeb.Topics.IndexLive do
 
     {:noreply,
      socket
-     |> assign(:page_title, X.plural_title_case())
+     |> assign(:page_title, X.title_case_plural())
      |> assign(:xx, xx)}
   end
 
@@ -30,7 +30,7 @@ defmodule NavatrackWeb.Topics.IndexLive do
       <.header>
         {@page_title}
         <:actions>
-          <.button navigate={Path.join(["/", X.plural_snake_case(), "new"])}>
+          <.button navigate={Path.join(["/", X.snake_case_plural(), "new"])}>
             New
           </.button>
         </:actions>

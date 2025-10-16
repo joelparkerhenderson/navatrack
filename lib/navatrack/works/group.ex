@@ -4,10 +4,10 @@ defmodule Navatrack.Works.Group do
     domain: Navatrack.Works,
     data_layer: AshPostgres.DataLayer
 
-  def singular_snake_case(), do: "group"
-  def plural_snake_case(), do: "groups"
-  def singular_title_case(), do: "Group"
-  def plural_title_case(), do: "Groups"
+  def snake_case_singular(), do: "group"
+  def snake_case_plural(), do: "groups"
+  def title_case_singular(), do: "Group"
+  def title_case_plural(), do: "Groups"
 
   postgres do
     table "groups"

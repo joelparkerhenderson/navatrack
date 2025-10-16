@@ -15,15 +15,15 @@ mix ash.gen.resource \
 mix ash.codegen create_ilo_isco_2008s
 mix ash.migrate
 
-touch priv/repo/migrations/00000000000000_create_ilo_isco_2008s
+touch priv/repo/migrations/00000000000000_create_ilo_isco_2008s.exs
 
 mkdir -p lib/navatrack_web/live/ilo_isco_2008s
 touch lib/navatrack_web/live/ilo_isco_2008s/index_live.ex
 touch lib/navatrack_web/live/ilo_isco_2008s/show_live.ex
 
 mkdir -p test/navatrack_web/live/ilo_isco_2008s
-touch test/navatrack_web/live/ilo_isco_2008s/index_live.ex
-touch test/navatrack_web/live/ilo_isco_2008s/show_live.ex
+touch test/navatrack_web/live/ilo_isco_2008s/index_test.ex
+touch test/navatrack_web/live/ilo_isco_2008s/show_test.ex
 
 cat << EOF
 Edit file lib/navatrack_web/router.ex to add live routes:

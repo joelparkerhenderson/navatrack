@@ -268,7 +268,7 @@ mix ash.gen.resource \
 mix ash.codegen create_tasks
 mix ash.migrate
 
-touch priv/repo/migrations/00000000000000_create_tasks
+touch priv/repo/migrations/00000000000000_create_tasks.exs
 
 mkdir -p lib/navatrack_web/live/tasks
 touch lib/navatrack_web/live/tasks/form_live.ex
@@ -276,9 +276,9 @@ touch lib/navatrack_web/live/tasks/index_live.ex
 touch lib/navatrack_web/live/tasks/show_live.ex
 
 mkdir -p test/navatrack_web/live/tasks
-touch test/navatrack_web/live/tasks/form_live.ex
-touch test/navatrack_web/live/tasks/index_live.ex
-touch test/navatrack_web/live/tasks/show_live.ex
+touch test/navatrack_web/live/tasks/form_test.ex
+touch test/navatrack_web/live/tasks/index_test.ex
+touch test/navatrack_web/live/tasks/show_test.ex
 
 cat << EOF
 Edit file lib/navatrack_web/router.ex to add live routes:

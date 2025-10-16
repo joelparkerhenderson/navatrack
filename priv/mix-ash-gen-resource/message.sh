@@ -19,7 +19,7 @@ mix ash.gen.resource \
 mix ash.codegen create_messages
 mix ash.migrate
 
-touch priv/repo/migrations/00000000000000_create_messages
+touch priv/repo/migrations/00000000000000_create_messages.exs
 
 mkdir -p lib/navatrack_web/live/messages
 touch lib/navatrack_web/live/messages/form_live.ex
@@ -27,9 +27,9 @@ touch lib/navatrack_web/live/messages/index_live.ex
 touch lib/navatrack_web/live/messages/show_live.ex
 
 mkdir -p test/navatrack_web/live/messages
-touch test/navatrack_web/live/messages/form_live.ex
-touch test/navatrack_web/live/messages/index_live.ex
-touch test/navatrack_web/live/messages/show_live.ex
+touch test/navatrack_web/live/messages/form_test.ex
+touch test/navatrack_web/live/messages/index_test.ex
+touch test/navatrack_web/live/messages/show_test.ex
 
 cat << EOF
 Edit file lib/navatrack_web/router.ex to add live routes:

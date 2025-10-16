@@ -4,10 +4,10 @@ defmodule Navatrack.Codes.LuminaFoundationSkillLevel do
     domain: Navatrack.Codes,
     data_layer: AshPostgres.DataLayer
 
-  def singular_snake_case(), do: "lumina_foundation_skill_level"
-  def plural_snake_case(), do: "lumina_foundation_skill_levels"
-  def singular_title_case(), do: "Lumina Foundation Skill Level"
-  def plural_title_case(), do: "Lumina Foundation Skill Levels"
+  def snake_case_singular(), do: "lumina_foundation_skill_level"
+  def snake_case_plural(), do: "lumina_foundation_skill_levels"
+  def title_case_singular(), do: "Lumina Foundation Skill Level"
+  def title_case_plural(), do: "Lumina Foundation Skill Levels"
 
   postgres do
     table "lumina_foundation_skill_levels"

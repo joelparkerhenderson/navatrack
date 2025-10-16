@@ -6,10 +6,10 @@ defmodule Navatrack.Accounts.UserTopicLink do
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication]
 
-  def singular_snake_case(), do: "user_topic_link"
-  def plural_snake_case(), do: "user_topic_links"
-  def singular_title_case(), do: "User Topic Link"
-  def plural_title_case(), do: "User Topic Links"
+  def snake_case_singular(), do: "user_topic_link"
+  def snake_case_plural(), do: "user_topic_links"
+  def title_case_singular(), do: "User Topic Link"
+  def title_case_plural(), do: "User Topic Links"
 
   postgres do
     table "user_topic_links"

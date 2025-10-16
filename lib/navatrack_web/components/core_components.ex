@@ -432,7 +432,7 @@ defmodule NavatrackWeb.CoreComponents do
   """
 
   def path_index(resource_module) do
-    Path.join(["/", resource_module.plural_snake_case()])
+    Path.join(["/", resource_module.snake_case_plural()])
   end
 
   @doc """
@@ -448,7 +448,7 @@ defmodule NavatrackWeb.CoreComponents do
   """
 
   def path_show(resource_instance) do
-    Path.join(["/", resource_instance.__struct__.plural_snake_case(), resource_instance.id])
+    Path.join(["/", resource_instance.__struct__.snake_case_plural(), resource_instance.id])
   end
 
   @doc """

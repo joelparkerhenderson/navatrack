@@ -6,10 +6,10 @@ defmodule Navatrack.Accounts.UserTaskLink do
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication]
 
-  def singular_snake_case(), do: "user_task_link"
-  def plural_snake_case(), do: "user_task_links"
-  def singular_title_case(), do: "User Task Link"
-  def plural_title_case(), do: "User Task Links"
+  def snake_case_singular(), do: "user_task_link"
+  def snake_case_plural(), do: "user_task_links"
+  def title_case_singular(), do: "User Task Link"
+  def title_case_plural(), do: "User Task Links"
 
   postgres do
     table "user_task_links"

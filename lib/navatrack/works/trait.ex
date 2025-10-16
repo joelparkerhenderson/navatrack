@@ -4,10 +4,10 @@ defmodule Navatrack.Works.Trait do
     domain: Navatrack.Works,
     data_layer: AshPostgres.DataLayer
 
-  def singular_snake_case(), do: "trait"
-  def plural_snake_case(), do: "traits"
-  def singular_title_case(), do: "Trait"
-  def plural_title_case(), do: "Traits"
+  def snake_case_singular(), do: "trait"
+  def snake_case_plural(), do: "traits"
+  def title_case_singular(), do: "Trait"
+  def title_case_plural(), do: "Traits"
 
   postgres do
     table "traits"

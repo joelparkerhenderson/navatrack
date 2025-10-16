@@ -15,15 +15,15 @@ mix ash.gen.resource \
 mix ash.codegen create_lumina_foundation_skill_level
 mix ash.migrate
 
-touch priv/repo/migrations/00000000000000_create_lumina_foundation_skill_level
+touch priv/repo/migrations/00000000000000_create_lumina_foundation_skill_levels.exs
 
 mkdir -p lib/navatrack_web/live/lumina_foundation_skill_level
 touch lib/navatrack_web/live/lumina_foundation_skill_level/index_live.ex
 touch lib/navatrack_web/live/lumina_foundation_skill_level/show_live.ex
 
 mkdir -p test/navatrack_web/live/lumina_foundation_skill_level
-touch test/navatrack_web/live/lumina_foundation_skill_level/index_live.ex
-touch test/navatrack_web/live/lumina_foundation_skill_level/show_live.ex
+touch test/navatrack_web/live/lumina_foundation_skill_level/index_test.ex
+touch test/navatrack_web/live/lumina_foundation_skill_level/show_test.ex
 
 cat << EOF
 Edit file lib/navatrack_web/router.ex to add live routes:

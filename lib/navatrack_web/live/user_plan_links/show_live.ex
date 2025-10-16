@@ -29,7 +29,7 @@ defmodule NavatrackWeb.UserPlanLinks.ShowLive do
           >
             Delete
           </.button>
-          <.button navigate={Path.join(["/", X.plural_snake_case(), @x.id, "edit"])}>
+          <.button navigate={Path.join(["/", X.snake_case_plural(), @x.id, "edit"])}>
             Edit
           </.button>
         </:actions>

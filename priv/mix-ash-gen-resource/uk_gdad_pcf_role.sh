@@ -16,7 +16,7 @@ mix ash.gen.resource \
     --attribute level_description_as_markdown:string:required:public \
     --attribute senior_civil_service_flag:boolean:required:public \
 
-mix ash.codegen create_uk_gdad_pcf_roles
+mix ash.codegen create_uk_gdad_pcf_roles.exs
 mix ash.migrate
 
 touch priv/repo/migrations/00000000000000_create_uk_gdad_pcf_roles
@@ -26,8 +26,8 @@ touch lib/navatrack_web/live/uk_gdad_pcf_roles/index_live.ex
 touch lib/navatrack_web/live/uk_gdad_pcf_roles/show_live.ex
 
 mkdir -p test/navatrack_web/live/uk_gdad_pcf_roles
-touch test/navatrack_web/live/uk_gdad_pcf_roles/index_live.ex
-touch test/navatrack_web/live/uk_gdad_pcf_roles/show_live.ex
+touch test/navatrack_web/live/uk_gdad_pcf_roles/index_test.ex
+touch test/navatrack_web/live/uk_gdad_pcf_roles/show_test.ex
 
 cat << EOF
 Edit file lib/navatrack_web/router.ex to add live routes:

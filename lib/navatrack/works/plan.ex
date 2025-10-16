@@ -4,10 +4,10 @@ defmodule Navatrack.Works.Plan do
     domain: Navatrack.Works,
     data_layer: AshPostgres.DataLayer
 
-  def singular_snake_case(), do: "plan"
-  def plural_snake_case(), do: "plans"
-  def singular_title_case(), do: "Plan"
-  def plural_title_case(), do: "Plans"
+  def snake_case_singular(), do: "plan"
+  def snake_case_plural(), do: "plans"
+  def title_case_singular(), do: "Plan"
+  def title_case_plural(), do: "Plans"
 
   postgres do
     table "plans"

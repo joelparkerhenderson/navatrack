@@ -7,10 +7,10 @@ defmodule Navatrack.Accounts.UserPlanLink do
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication]
 
-  def singular_snake_case(), do: "user_plan_link"
-  def plural_snake_case(), do: "user_plan_links"
-  def singular_title_case(), do: "User Plan Link"
-  def plural_title_case(), do: "User Plan Links"
+  def snake_case_singular(), do: "user_plan_link"
+  def snake_case_plural(), do: "user_plan_links"
+  def title_case_singular(), do: "User Plan Link"
+  def title_case_plural(), do: "User Plan Links"
 
   postgres do
     table "user_plan_links"

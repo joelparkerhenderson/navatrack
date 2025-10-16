@@ -6,10 +6,10 @@ defmodule Navatrack.Accounts.UserLuminaFoundationSkillLevelLink do
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication]
 
-  def singular_snake_case(), do: "user_lumina_foundation_skill_level_link"
-  def plural_snake_case(), do: "user_lumina_foundation_skill_level_links"
-  def singular_title_case(), do: "User Lumina Foundation Skill Level Link"
-  def plural_title_case(), do: "User Lumina Foundation Skill Level Links"
+  def snake_case_singular(), do: "user_lumina_foundation_skill_level_link"
+  def snake_case_plural(), do: "user_lumina_foundation_skill_level_links"
+  def title_case_singular(), do: "User Lumina Foundation Skill Level Link"
+  def title_case_plural(), do: "User Lumina Foundation Skill Level Links"
 
   postgres do
     table "user_lumina_foundation_skill_level_links"
