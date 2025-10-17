@@ -32,7 +32,7 @@ defmodule NavatrackWeb.Messages.CreateTest do
       {:error, {:live_redirect, %{to: path}}} ->
         assert path == "/messages"
       html when is_binary(html) ->
-        assert html =~ "Message"
+        assert html =~ "📛"
       other ->
         flunk("Unexpected result: #{inspect(other)}")
     end

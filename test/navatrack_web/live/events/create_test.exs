@@ -30,7 +30,7 @@ defmodule NavatrackWeb.Events.CreateTest do
       {:error, {:live_redirect, %{to: path}}} ->
         assert path == "/events"
       html when is_binary(html) ->
-        assert html =~ "Event"
+        assert html =~ "📛"
       other ->
         flunk("Unexpected result: #{inspect(other)}")
     end

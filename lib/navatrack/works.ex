@@ -10,5 +10,6 @@ defmodule Navatrack.Works do
     resource Navatrack.Works.Topic
     resource Navatrack.Works.Trait
     resource Navatrack.Works.Message
+    resource Navatrack.Works.MultiRaterFeedbackMessage
   end
 end

@@ -30,7 +30,7 @@ defmodule NavatrackWeb.Topics.CreateTest do
       {:error, {:live_redirect, %{to: path}}} ->
         assert path == "/topics"
       html when is_binary(html) ->
-        assert html =~ "Topic"
+        assert html =~ "📛"
       other ->
         flunk("Unexpected result: #{inspect(other)}")
     end

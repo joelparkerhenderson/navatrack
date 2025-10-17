@@ -1,6 +1,6 @@
-defmodule NavatrackWeb.Messages.FormLive do
+defmodule NavatrackWeb.MultiRaterFeedbackMessages.FormLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Works.Message, as: X
+  alias Navatrack.Works.MultiRaterFeedbackMessage, as: X
 
   require Logger
 
@@ -103,6 +103,31 @@ defmodule NavatrackWeb.Messages.FormLive do
           prompt="To"
         />
 
+        <.input
+          field={form[:strength]}
+          label="What is the person's key strength?"
+        />
+        <.input
+          field={form[:start]}
+          label="What should the person start doing in order to be effective?"
+        />
+        <.input
+          field={form[:stop]}
+          label="What should the person stop doing in order to be effective?"
+        />
+        <.input
+          field={form[:continue]}
+          label="What should the person continue doing in order to be effective?"
+        />
+        <.input
+          field={form[:change]}
+          label="What should the person change doing in order to be effective?"
+        />
+        <.input
+          field={form[:advice]}
+          label="What more advice can help them?"
+        />
+
         <.button type="primary">Save</.button>
       </.form>
     </Layouts.app>
@@ -136,7 +161,7 @@ defmodule NavatrackWeb.Messages.FormLive do
     IO.inspect(form_data, label: "form_data")
 
     changeset =
-      Navatrack.Works.Message
+      Navatrack.Works.MultiRaterFeedbackMessage
       |> Ash.Changeset.for_create(:create, form_data)
 
     IO.inspect(changeset.attributes, label: "Changeset attributes")

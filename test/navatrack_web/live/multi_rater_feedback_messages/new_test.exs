@@ -1,8 +1,8 @@
-defmodule NavatrackWeb.Messages.NewTest do
+defmodule NavatrackWeb.MultiRaterFeedbackMessages.NewTest do
   # import Phoenix.LiveViewTest
   use NavatrackWeb.ConnCase
   use NavatrackWeb.AuthCase
-  # alias Navatrack.Works.Message, as: X
+  # alias Navatrack.Works.MultiRaterFeedbackMessage, as: X
 
   setup %{conn: conn} do
     {:ok, user} = my_user()
@@ -16,10 +16,9 @@ defmodule NavatrackWeb.Messages.NewTest do
   end
 
   test "new", %{conn: conn} do
-    conn = get(conn, ~p"/messages/new")
+    conn = get(conn, ~p"/multi_rater_feedback_messages/new")
     response = html_response(conn, 200)
 
-    assert response =~ "Message"
     assert response =~ "📛 Name"
     assert response =~ "🚦 Sign"
     assert response =~ "📍 Status"
@@ -27,6 +26,12 @@ defmodule NavatrackWeb.Messages.NewTest do
     assert response =~ "🗒️ Note"
     assert response =~ "From"
     assert response =~ "To"
+    assert response =~ "What is the person&#39;s key strength?"
+    assert response =~ "What should the person start doing in order to be effective?"
+    assert response =~ "What should the person stop doing in order to be effective?"
+    assert response =~ "What should the person continue doing in order to be effective?"
+    assert response =~ "What should the person change doing in order to be effective?"
+    assert response =~ "What more advice can help them?"
   end
 
 end

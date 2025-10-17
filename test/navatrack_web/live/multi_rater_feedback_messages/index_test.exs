@@ -1,8 +1,8 @@
-defmodule NavatrackWeb.Messages.NewTest do
+defmodule NavatrackWeb.MultiRaterFeedbackMessages.IndexTest do
   # import Phoenix.LiveViewTest
   use NavatrackWeb.ConnCase
   use NavatrackWeb.AuthCase
-  # alias Navatrack.Works.Message, as: X
+  # alias Navatrack.Works.MultiRaterFeedbackMessage, as: X
 
   setup %{conn: conn} do
     {:ok, user} = my_user()
@@ -15,18 +15,15 @@ defmodule NavatrackWeb.Messages.NewTest do
     {:ok, conn: conn}
   end
 
-  test "new", %{conn: conn} do
-    conn = get(conn, ~p"/messages/new")
+  test "index", %{conn: conn} do
+    conn = get(conn, ~p"/multi_rater_feedback_messages")
     response = html_response(conn, 200)
 
-    assert response =~ "Message"
+    assert response =~ "➡️ Id"
     assert response =~ "📛 Name"
     assert response =~ "🚦 Sign"
     assert response =~ "📍 Status"
     assert response =~ "🏷️ Tags"
-    assert response =~ "🗒️ Note"
-    assert response =~ "From"
-    assert response =~ "To"
   end
 
 end

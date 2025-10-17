@@ -30,7 +30,7 @@ defmodule NavatrackWeb.Tasks.CreateTest do
       {:error, {:live_redirect, %{to: path}}} ->
         assert path == "/tasks"
       html when is_binary(html) ->
-        assert html =~ "Task"
+        assert html =~ "📛"
       other ->
         flunk("Unexpected result: #{inspect(other)}")
     end

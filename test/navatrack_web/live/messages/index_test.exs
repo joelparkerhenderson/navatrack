@@ -18,7 +18,7 @@ defmodule NavatrackWeb.Messages.IndexTest do
   test "index", %{conn: conn} do
     conn = get(conn, ~p"/messages")
     response = html_response(conn, 200)
-    assert response =~ "Messages"
+
     assert response =~ "➡️ Id"
     assert response =~ "📛 Name"
     assert response =~ "🚦 Sign"

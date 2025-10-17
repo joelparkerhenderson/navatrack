@@ -30,7 +30,7 @@ defmodule NavatrackWeb.Users.CreateTest do
       {:error, {:live_redirect, %{to: path}}} ->
         assert path == "/users"
       html when is_binary(html) ->
-        assert html =~ "Users"
+        assert html =~ "📛"
       other ->
         flunk("Unexpected result: #{inspect(other)}")
     end

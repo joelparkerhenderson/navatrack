@@ -1,13 +1,12 @@
-defmodule NavatrackWeb.Plans.CreateTest do
+defmodule NavatrackWeb.MultiRaterFeedbackMessages.CreateTest do
   import Phoenix.LiveViewTest
   use NavatrackWeb.ConnCase
   use NavatrackWeb.AuthCase
-  # alias Navatrack.Works.Plan, as: X
+  # alias Navatrack.Works.MultiRaterFeedbackMessage, as: X
 
   setup %{conn: conn} do
     {:ok, user} = my_user()
     {:ok, user} = my_sign_in(user)
-
     conn =
       conn
       |> Phoenix.ConnTest.init_test_session(%{})
@@ -17,23 +16,25 @@ defmodule NavatrackWeb.Plans.CreateTest do
   end
 
   test "create", %{conn: conn} do
-    {:ok, lv, _html} = live(conn, ~p"/plans/new")
+    {:ok, lv, _html} = live(conn, ~p"/multi_rater_feedback_messages/new")
+    {:ok, user} = my_user()
 
     result =
       lv
       |> form("#x_form", %{
-        "form[name]" => "alfa"
+        "form[name]" => "alfa",
+        "form[writer_as_user_id]" => user.id,
+        "form[reader_as_user_id]" => user.id,
       })
       |> render_submit()
 
     case result do
       {:error, {:live_redirect, %{to: path}}} ->
-        assert path == "/plans"
+        assert path == "/multi_rater_feedback_messages"
       html when is_binary(html) ->
         assert html =~ "📛"
       other ->
         flunk("Unexpected result: #{inspect(other)}")
     end
   end
-
 end

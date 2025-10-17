@@ -29,7 +29,7 @@ defmodule NavatrackWeb.Traits.CreateTest do
       {:error, {:live_redirect, %{to: path}}} ->
         assert path == "/traits"
       html when is_binary(html) ->
-        assert html =~ "Traits"
+        assert html =~ "📛"
       other ->
         flunk("Unexpected result: #{inspect(other)}")
     end

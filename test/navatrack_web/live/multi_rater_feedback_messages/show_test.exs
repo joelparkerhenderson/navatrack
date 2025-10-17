@@ -1,8 +1,8 @@
-defmodule NavatrackWeb.Messages.ShowTest do
+defmodule NavatrackWeb.MultiRaterFeedbackMessages.ShowTest do
   # import Phoenix.LiveViewTest
   use NavatrackWeb.ConnCase
   use NavatrackWeb.AuthCase
-  alias Navatrack.Works.Message, as: X
+  alias Navatrack.Works.MultiRaterFeedbackMessage, as: X
 
   defp x! do
     {:ok, user} = my_user()
@@ -16,6 +16,12 @@ defmodule NavatrackWeb.Messages.ShowTest do
         note: "my-note",
         writer_as_user_id: user.id,
         reader_as_user_id: user.id,
+        strength: "my-strength",
+        start: "my-start",
+        stop: "my-stop",
+        continue: "my-continue",
+        change: "my-change",
+        advice: "my-advice"
       })
     |> Ash.create!()
   end
@@ -33,7 +39,7 @@ defmodule NavatrackWeb.Messages.ShowTest do
 
   test "show", %{conn: conn} do
     x = x!()
-    conn = get(conn, ~p"/messages/#{x.id}")
+    conn = get(conn, ~p"/multi_rater_feedback_messages/#{x.id}")
     response = html_response(conn, 200)
 
     assert response =~ "Id: #{x.id}"
@@ -45,9 +51,15 @@ defmodule NavatrackWeb.Messages.ShowTest do
     assert response =~ "🚦 Sign: #{x.sign}"
     assert response =~ "📍 Status: #{x.status}"
     assert response =~ "🏷️ Tags: #{x.tagging}"
-    assert response =~ "🗒️ Note: #{x.note}"
     assert response =~ "From: #{x.writer_as_user_id}"
     assert response =~ "To: #{x.reader_as_user_id}"
+    assert response =~ "What is the person&#39;s key strength? #{x.strength}"
+    assert response =~ "What should the person start doing in order to be effective? #{x.start}"
+    assert response =~ "What should the person stop doing in order to be effective? #{x.stop}"
+    assert response =~ "What should the person continue doing in order to be effective? #{x.continue}"
+    assert response =~ "What should the person change doing in order to be effective? #{x.change}"
+    assert response =~ "What more advice can help them? #{x.advice}"
+
   end
 
 end

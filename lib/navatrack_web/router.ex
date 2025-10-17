@@ -99,6 +99,11 @@ defmodule NavatrackWeb.Router do
         live "/messages/:id", Messages.ShowLive
         live "/messages/:id/edit", Messages.FormLive, :update
 
+        live "/multi_rater_feedback_messages", MultiRaterFeedbackMessages.IndexLive
+        live "/multi_rater_feedback_messages/new", MultiRaterFeedbackMessages.FormLive, :new
+        live "/multi_rater_feedback_messages/:id", MultiRaterFeedbackMessages.ShowLive
+        live "/multi_rater_feedback_messages/:id/edit", MultiRaterFeedbackMessages.FormLive, :update
+
         live "/plans", Plans.IndexLive
         live "/plans/new", Plans.FormLive, :new
         live "/plans/:id", Plans.ShowLive

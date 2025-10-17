@@ -30,7 +30,7 @@ defmodule NavatrackWeb.Groups.CreateTest do
       {:error, {:live_redirect, %{to: path}}} ->
         assert path == "/groups"
       html when is_binary(html) ->
-        assert html =~ "Group"
+        assert html =~ "📛"
       other ->
         flunk("Unexpected result: #{inspect(other)}")
     end

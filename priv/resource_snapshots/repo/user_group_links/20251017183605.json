@@ -61,71 +61,11 @@
       "type": "text"
     },
     {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "name",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "sign",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "status",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "tagging",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "note",
-      "type": "text"
-    },
-    {
       "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": false,
+      "primary_key?": true,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -139,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "messages_writer_as_user_id_fkey",
+        "name": "user_group_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -148,7 +88,7 @@
       },
       "scale": null,
       "size": null,
-      "source": "writer_as_user_id",
+      "source": "user_id",
       "type": "uuid"
     },
     {
@@ -156,7 +96,7 @@
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": false,
+      "primary_key?": true,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -170,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "messages_reader_as_user_id_fkey",
+        "name": "user_group_links_group_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "users"
+        "table": "groups"
       },
       "scale": null,
       "size": null,
-      "source": "reader_as_user_id",
+      "source": "group_id",
       "type": "uuid"
     }
   ],
@@ -188,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "6E74D8BDC1063ABD445F695227B54630202EB754F50FBA60E3E56F449DD1BD42",
+  "hash": "EB0C4C5B8FDF4564FE271C0105BAE4A195495A4782E2F8405CEAF19D82A65436",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -197,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "messages"
+  "table": "user_group_links"
 }

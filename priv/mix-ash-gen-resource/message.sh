@@ -13,8 +13,8 @@ mix ash.gen.resource \
     --attribute tagging:string \
     --attribute note:string \
     \
-    --relationship belongs_to:writer:Navatrack.Accounts.User \
-    --relationship belongs_to:reader:Navatrack.Accounts.User \
+    --relationship belongs_to:writer_as_user_id:Navatrack.Accounts.User \
+    --relationship belongs_to:reader_as_user_id:Navatrack.Accounts.User \
 
 mix ash.codegen create_messages
 mix ash.migrate

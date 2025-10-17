@@ -2,66 +2,6 @@
   "attributes": [
     {
       "allow_nil?": false,
-      "default": "fragment(\"gen_random_uuid()\")",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": true,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "id",
-      "type": "uuid"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "created_at",
-      "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "updated_at",
-      "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "deleted_at",
-      "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "locale_code",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -79,7 +19,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_event_links_user_id_fkey",
+        "name": "user_ilo_isco_2008_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -110,16 +50,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_event_links_event_id_fkey",
+        "name": "user_ilo_isco_2008_links_ilo_isco_2008_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "events"
+        "table": "ilo_isco_2008s"
       },
       "scale": null,
       "size": null,
-      "source": "event_id",
+      "source": "ilo_isco_2008_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +68,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "6C735338D5F1441E3AD5812F29B0AA32C894EE13E62D30A8809BCC1B020B3592",
+  "hash": "83FB1A3853ED2762C7FEF45FF58AE40AD6FA0FD52A1ED5F3190B074202BCEDE1",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +77,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_event_links"
+  "table": "user_ilo_isco_2008_links"
 }
