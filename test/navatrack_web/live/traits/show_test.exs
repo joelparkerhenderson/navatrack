@@ -5,26 +5,7 @@ defmodule NavatrackWeb.Traits.ShowTest do
   alias Navatrack.Works.Trait, as: X
 
   defp x! do
-    X
-      |> Ash.Changeset.for_create(:create, %{
-        locale_code: "en-US",
-        name: "my-name",
-        sign: "○",
-        status: "my-status",
-        tagging: "my-tagging",
-        note: "my-note",
-        summary_as_markdown: "summary-as-markdown",
-        description_as_markdown: "description-as-markdown",
-        avatar_image_400x400_url: "https://my-avatar-image-400x400-url",
-        avatar_image_400x400_alt: "my-avatar-image-400x400-alt",
-        main_image_1080x1080_url: "https://my-main-image-1080x1080-url",
-        main_image_1080x1080_alt: "my-main-image-1080x1080-alt",
-        main_image_1920x1080_url: "https://my-main-image-1920x1080-url",
-        main_image_1920x1080_alt: "my-main-image-1920x1080-alt",
-        main_image_1080x1920_url: "https://my-main-image-1080x1920-url",
-        main_image_1080x1920_alt: "my-main-image-1080x1920-alt",
-      })
-    |> Ash.create!()
+    X |> Ash.Changeset.for_create(:create, X.fake) |> Ash.create!()
   end
 
   setup %{conn: conn} do

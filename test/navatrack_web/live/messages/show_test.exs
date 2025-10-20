@@ -6,18 +6,7 @@ defmodule NavatrackWeb.Messages.ShowTest do
 
   defp x! do
     {:ok, user} = my_user()
-    X
-      |> Ash.Changeset.for_create(:create, %{
-        locale_code: "en-US",
-        name: "my-name",
-        sign: "○",
-        status: "my-status",
-        tagging: "my-tagging",
-        note: "my-note",
-        writer_as_user_id: user.id,
-        reader_as_user_id: user.id,
-      })
-    |> Ash.create!()
+    X |> Ash.Changeset.for_create(:create, X.fake(user.id, user.id)) |> Ash.create!()
   end
 
   setup %{conn: conn} do
