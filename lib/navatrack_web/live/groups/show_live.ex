@@ -191,24 +191,6 @@ defmodule NavatrackWeb.Groups.ShowLive do
 
         </.section>
 
-        <.section id="arc42" title="Arc42">
-
-          <p>URL: <a href={@x.arc42_as_url}>{@x.arc42_as_url}</a></p>
-          <p>01: Introduction and Goals: {@x.arc42_01_introduction_and_goals_as_markdown}</p>
-          <p>02: Constraints: {@x.arc42_02_constraints_as_markdown}</p>
-          <p>03: Context and Scope: {@x.arc42_03_context_and_scope_as_markdown}</p>
-          <p>04: Solution Strategy: {@x.arc42_04_solution_strategy_as_markdown}</p>
-          <p>05: Building Block View: {@x.arc42_05_building_block_view_as_markdown}</p>
-          <p>06: Runtime View: {@x.arc42_06_runtime_view_as_markdown}</p>
-          <p>07: Deployment View: {@x.arc42_07_deployment_view_as_markdown}</p>
-          <p>08: Crosscutting Concepts: {@x.arc42_08_crosscutting_concepts_as_markdown}</p>
-          <p>09: Architectural Decisions: {@x.arc42_09_architectural_decisions_as_markdown}</p>
-          <p>10: Quality Requirements: {@x.arc42_10_quality_requirements_as_markdown}</p>
-          <p>11: Risks and Technical Debt: {@x.arc42_11_risks_and_technical_debt_as_markdown}</p>
-          <p>12: Glossary: {@x.arc42_12_glossary_as_markdown}</p>
-
-        </.section>
-
         <.section id="explain" title="Explain">
           <p>Explain Stakeholders: {@x.explain_stakeholders_as_markdown}</p>
           <p>Explain History: {@x.explain_history_as_markdown}</p>
@@ -224,25 +206,6 @@ defmodule NavatrackWeb.Groups.ShowLive do
           <p>Explain Financial: {@x.explain_financial_as_markdown}</p>
           <p>Explain Service Level Agreement (SLA): {@x.explain_service_level_agreement_as_markdown}</p>
           <p>Explain Disaster Recovery (DR): {@x.explain_disaster_recovery_as_markdown}</p>
-        </.section>
-
-        <.section id="system_quality_attributes" title="System Quality Attributes (SQA)">
-          <p>Availability: {@x.quality_availability_as_markdown}</p>
-          <p>Certifiability: {@x.quality_certifiability_as_markdown}</p>
-          <p>Compatibility: {@x.quality_compatibility_as_markdown}</p>
-          <p>Efficiency: {@x.quality_efficiency_as_markdown}</p>
-          <p>Governability: {@x.quality_governability_as_markdown}</p>
-          <p>Maintainability: {@x.quality_maintainability_as_markdown}</p>
-          <p>Observability: {@x.quality_observability_as_markdown}</p>
-          <p>Operability: {@x.quality_operability_as_markdown}</p>
-          <p>Recoverability: {@x.quality_recoverability_as_markdown}</p>
-          <p>Scalability: {@x.quality_scalability_as_markdown}</p>
-          <p>Security: {@x.quality_security_as_markdown}</p>
-          <p>Suitability: {@x.quality_suitability_as_markdown}</p>
-          <p>Testability: {@x.quality_testability_as_markdown}</p>
-          <p>Transferability: {@x.quality_transferability_as_markdown}</p>
-          <p>Translatability: {@x.quality_translatability_as_markdown}</p>
-          <p>Warrantability: {@x.quality_warrantability_as_markdown}</p>
         </.section>
 
         <.section id="net_promoter_score" title="Net Promoter Score (NPS)">
@@ -287,58 +250,6 @@ defmodule NavatrackWeb.Groups.ShowLive do
           <p>Unit: {@x.active_users_unit}</p>
           <p>Description: {@x.active_users_description}</p>
 
-          <h3 class="h3">
-            Uptime Percentage
-          </h3>
-
-          <p>Actual Value: {@x.uptime_percentage_actual}</p>
-          <p>Target Value: {@x.uptime_percentage_expect}</p>
-          <p>Unit: {@x.uptime_percentage_unit}</p>
-          <p>Description: {@x.uptime_percentage_description}</p>
-
-        </.section>
-
-        <.section id="burn_rate" title="Burn Rate">
-
-          <h3 class="h3">
-            Net Cash Per Week
-          </h3>
-
-          <p>Actual Value: {@x.burn_rate_net_cash_per_week_actual}</p>
-          <p>Target Value: {@x.burn_rate_net_cash_per_week_expect}</p>
-          <p>Unit: {@x.burn_rate_net_cash_per_week_unit}</p>
-          <p>Description: {@x.burn_rate_net_cash_per_week_description}</p>
-
-          <h3 class="h3">
-            Net Hours Per Week
-          </h3>
-
-          <p>Actual Value: {@x.burn_rate_net_hours_per_week_actual}</p>
-          <p>Target Value: {@x.burn_rate_net_hours_per_week_expect}</p>
-          <p>Unit: {@x.burn_rate_net_hours_per_week_unit}</p>
-          <p>Description: {@x.burn_rate_net_hours_per_week_description}</p>
-
-        </.section>
-
-        <.section id="earned_value_management" title="Earned Value Management (EVM)">
-          <p>Planned Value (PV): {@x.earned_value_management_planned_value}</p>
-          <p>Earned Value (EV): {@x.earned_value_management_earned_value}</p>
-          <p>Actual Cost (AC): {@x.earned_value_management_actual_cost}</p>
-          <p>Cost Variance: {@x.earned_value_management_cost_variance}</p>
-          <p>Cost Variance Ratio: {@x.earned_value_management_cost_variance_ratio}</p>
-          <p>Cost Performance Index: {@x.earned_value_management_cost_performance_index}</p>
-          <p>Schedule Variance: {@x.earned_value_management_schedule_variance}</p>
-          <p>Schedule Variance Ratio: {@x.earned_value_management_schedule_variance_ratio}</p>
-          <p>Schedule Performance Index: {@x.earned_value_management_schedule_performance_index}</p>
-        </.section>
-
-        <.section id="total_project_control" title="Total Project Control (TPC)">
-          <p>DIPP: {@x.total_project_control_dipp}</p>
-          <p>Progress Index (ratio): {@x.total_project_control_dipp_progress_index_ratio}</p>
-          <p>Progress Index (numerator): {@x.total_project_control_dipp_progress_index_numerator}</p>
-          <p>Progress Index (denominator): {@x.total_project_control_dipp_progress_index_denominator}</p>
-          <p>Expected Monetary Value: {@x.total_project_control_expected_monetary_value}</p>
-          <p>Cost Estimate To Complete: {@x.total_project_control_cost_estimate_to_complete}</p>
         </.section>
 
         <.section id="policies" title="Policies">
@@ -447,111 +358,6 @@ defmodule NavatrackWeb.Groups.ShowLive do
 
           <p>URL: <a href={@x.staff_policy_as_url}>{@x.staff_policy_as_url}</a></p>
           <p>Markdown: {@x.staff_policy_as_markdown}</p>
-
-        </.section>
-
-        <.section id="dora_metrics" title="DORA Metrics">
-
-          <h3 class="h3">
-            Deployment Frequency
-          </h3>
-
-          <p>Actual Value: {@x.deployment_frequency_actual}</p>
-          <p>Target Value: {@x.deployment_frequency_expect}</p>
-          <p>Ratio: {@x.deployment_frequency_ratio}</p>
-          <p>Unit: {@x.deployment_frequency_unit}</p>
-          <p>Description: {@x.deployment_frequency_description}</p>
-
-          <h3 class="h3">
-            Lead Time For Changes
-          </h3>
-
-          <p>Actual Value: {@x.lead_time_for_changes_actual}</p>
-          <p>Target Value: {@x.lead_time_for_changes_expect}</p>
-          <p>Unit: {@x.lead_time_for_changes_unit}</p>
-          <p>Description: {@x.lead_time_for_changes_description}</p>
-
-          <h3 class="h3">
-            Change Failure Rate
-          </h3>
-
-          <p>Actual Value: {@x.change_failure_rate_actual}</p>
-          <p>Target Value: {@x.change_failure_rate_expect}</p>
-          <p>Unit: {@x.change_failure_rate_unit}</p>
-          <p>Description: {@x.change_failure_rate_description}</p>
-
-          <h3 class="h3">
-            Mean Time To Recovery
-          </h3>
-
-          <p>Actual Value: {@x.mean_time_to_recovery_actual}</p>
-          <p>Target Value: {@x.mean_time_to_recovery_expect}</p>
-          <p>Unit: {@x.mean_time_to_recovery_unit}</p>
-          <p>Description: {@x.mean_time_to_recovery_description}</p>
-
-        </.section>
-
-        <.section id="code_metrics" title="Code Metrics">
-
-          <h3 class="h3">
-            Maintainability Index
-          </h3>
-
-          <p>Actual Value: {@x.maintainability_index_actual}</p>
-          <p>Target Value: {@x.maintainability_index_expect}</p>
-          <p>Ratio: {@x.maintainability_index_ratio}</p>
-          <p>Unit: {@x.maintainability_index_unit}</p>
-          <p>Description: {@x.maintainability_index_description}</p>
-
-          <h3 class="h3">
-            Line Count
-          </h3>
-
-          <p>Actual Value: {@x.line_count_actual}</p>
-          <p>Target Value: {@x.line_count_expect}</p>
-          <p>Ratio: {@x.line_count_ratio}</p>
-          <p>Unit: {@x.line_count_unit}</p>
-          <p>Description: {@x.line_count_description}</p>
-
-          <h3 class="h3">
-            Test Automation Code Coverage
-          </h3>
-
-          <p>Actual Value: {@x.test_automation_code_coverage_actual}</p>
-          <p>Target Value: {@x.test_automation_code_coverage_expect}</p>
-          <p>Ratio: {@x.test_automation_code_coverage_ratio}</p>
-          <p>Unit: {@x.test_automation_code_coverage_unit}</p>
-          <p>Description: {@x.test_automation_code_coverage_description}</p>
-
-          <h3 class="h3">
-            Halstead Complexity Volume
-          </h3>
-
-          <p>Actual Value: {@x.halstead_complexity_volume_actual}</p>
-          <p>Target Value: {@x.halstead_complexity_volume_expect}</p>
-          <p>Ratio: {@x.halstead_complexity_volume_ratio}</p>
-          <p>Unit: {@x.halstead_complexity_volume_unit}</p>
-          <p>Description: {@x.halstead_complexity_volume_description}</p>
-
-          <h3 class="h3">
-            Halstead Complexity Difficulty
-          </h3>
-
-          <p>Actual Value: {@x.halstead_complexity_difficulty_actual}</p>
-          <p>Target Value: {@x.halstead_complexity_difficulty_expect}</p>
-          <p>Ratio: {@x.halstead_complexity_difficulty_ratio}</p>
-          <p>Unit: {@x.halstead_complexity_difficulty_unit}</p>
-          <p>Description: {@x.halstead_complexity_difficulty_description}</p>
-
-          <h3 class="h3">
-            Halstead Complexity Effort
-          </h3>
-
-          <p>Actual Value: {@x.halstead_complexity_effort_actual}</p>
-          <p>Target Value: {@x.halstead_complexity_effort_expect}</p>
-          <p>Ratio: {@x.halstead_complexity_effort_ratio}</p>
-          <p>Unit: {@x.halstead_complexity_effort_unit}</p>
-          <p>Description: {@x.halstead_complexity_effort_description}</p>
 
         </.section>
 
