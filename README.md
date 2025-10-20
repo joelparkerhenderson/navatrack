@@ -27,7 +27,7 @@ mix cinder.install
 - backpex: admin dashboards
 - mdex: convert from markdown into HTML etc.
 - recase: convert from title case into kebab case etc.
- 
+
 ## Authentication
 
 Create a user with authentication magic link:
