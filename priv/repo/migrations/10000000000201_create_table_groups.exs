@@ -14,13 +14,15 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
+      parent_id uuid CONSTRAINT parent_id_fk REFERENCES groups (id),
+      parent_order int CONSTRAINT parent_order_check CHECK (parent_order >= 0),
       --- card
       name text,
       sign text CONSTRAINT sign_check CHECK (LENGTH(sign) = 1),
       status text,
       tagging text,
       note text,
-      ---
+      --- contact
       web text CONSTRAINT web_check CHECK (web ~* '^https://'),
       email text CONSTRAINT email_check CHECK (email ~*  '.@.'),
       phone text,
@@ -159,20 +161,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
       socials_policy_as_markdown text,
       staff_policy_as_url text CONSTRAINT staff_policy_as_url_check CHECK (staff_policy_as_url ~* '^https://'),
       staff_policy_as_markdown text,
-      --- arc42
-      arc42_as_url text CONSTRAINT arc42_as_url_check CHECK (arc42_as_url ~* '^https://'),
-      arc42_01_introduction_and_goals_as_markdown text,
-      arc42_02_constraints_as_markdown text,
-      arc42_03_context_and_scope_as_markdown text,
-      arc42_04_solution_strategy_as_markdown text,
-      arc42_05_building_block_view_as_markdown text,
-      arc42_06_runtime_view_as_markdown text,
-      arc42_07_deployment_view_as_markdown text,
-      arc42_08_crosscutting_concepts_as_markdown text,
-      arc42_09_architectural_decisions_as_markdown text,
-      arc42_10_quality_requirements_as_markdown text,
-      arc42_11_risks_and_technical_debt_as_markdown text,
-      arc42_12_glossary_as_markdown text,
       --- explain
       explain_stakeholders_as_markdown text,
       explain_history_as_markdown text,
@@ -188,23 +176,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
       explain_financial_as_markdown text,
       explain_service_level_agreement_as_markdown text,
       explain_disaster_recovery_as_markdown text,
-      --- quality
-      quality_availability_as_markdown text,
-      quality_certifiability_as_markdown text,
-      quality_compatibility_as_markdown text,
-      quality_efficiency_as_markdown text,
-      quality_governability_as_markdown text,
-      quality_maintainability_as_markdown text,
-      quality_observability_as_markdown text,
-      quality_operability_as_markdown text,
-      quality_recoverability_as_markdown text,
-      quality_scalability_as_markdown text,
-      quality_security_as_markdown text,
-      quality_suitability_as_markdown text,
-      quality_testability_as_markdown text,
-      quality_transferability_as_markdown text,
-      quality_translatability_as_markdown text,
-      quality_warrantability_as_markdown text,
       -- apache_echart
       apache_echart_as_url text CONSTRAINT apache_echart_as_url_check CHECK (apache_echart_as_url ~* '^https://'),
       apache_echart_as_typescript text,
@@ -229,101 +200,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
       active_users_expect numeric(7,2),
       active_users_ratio numeric(7,2) GENERATED ALWAYS AS (active_users_actual / active_users_expect) STORED,
       active_users_unit text,
-      active_users_description text,
-      --- uptime_percentage
-      uptime_percentage_actual numeric(7,5),
-      uptime_percentage_expect numeric(7,5),
-      uptime_percentage_ratio numeric(7,2) GENERATED ALWAYS AS (uptime_percentage_actual / uptime_percentage_expect) STORED,
-      uptime_percentage_unit text,
-      uptime_percentage_description text,
-      --- burn_rate
-      burn_rate_net_cash_per_week_actual numeric(7,2),
-      burn_rate_net_cash_per_week_expect numeric(7,2),
-      burn_rate_net_cash_per_week_ratio numeric(7,2) GENERATED ALWAYS AS (burn_rate_net_cash_per_week_actual / burn_rate_net_cash_per_week_expect) STORED,
-      burn_rate_net_cash_per_week_unit text,
-      burn_rate_net_cash_per_week_description text,
-      burn_rate_net_hours_per_week_actual numeric(7,2),
-      burn_rate_net_hours_per_week_expect numeric(7,2),
-      burn_rate_net_hours_per_week_ratio numeric(7,2) GENERATED ALWAYS AS (burn_rate_net_hours_per_week_actual / burn_rate_net_hours_per_week_expect) STORED,
-      burn_rate_net_hours_per_week_unit text,
-      burn_rate_net_hours_per_week_description text,
-      --- earned_value_management
-      earned_value_management_planned_value numeric(7,2),
-      earned_value_management_earned_value numeric(7,2),
-      earned_value_management_actual_cost numeric(7,2),
-      earned_value_management_cost_variance numeric(7,2) GENERATED ALWAYS AS (earned_value_management_earned_value - earned_value_management_actual_cost) STORED,
-      earned_value_management_cost_variance_ratio numeric(7,2) GENERATED ALWAYS AS ((earned_value_management_earned_value - earned_value_management_actual_cost) / earned_value_management_earned_value) STORED,
-      earned_value_management_cost_performance_index numeric(7,2) GENERATED ALWAYS AS (earned_value_management_earned_value / earned_value_management_actual_cost) STORED,
-      earned_value_management_schedule_variance numeric(7,2) GENERATED ALWAYS AS (earned_value_management_earned_value - earned_value_management_planned_value) STORED,
-      earned_value_management_schedule_variance_ratio numeric(7,2) GENERATED ALWAYS AS ((earned_value_management_earned_value - earned_value_management_planned_value) / earned_value_management_planned_value) STORED,
-      earned_value_management_schedule_performance_index numeric(7,2) GENERATED ALWAYS AS (earned_value_management_earned_value / earned_value_management_planned_value) STORED,
-      --- total_project_control
-      total_project_control_dipp numeric(7,2),
-      total_project_control_dipp_progress_index_ratio numeric(7,2) GENERATED ALWAYS AS (total_project_control_dipp_progress_index_numerator / total_project_control_dipp_progress_index_denominator) STORED,
-      total_project_control_dipp_progress_index_numerator numeric(7,2),
-      total_project_control_dipp_progress_index_denominator numeric(7,2),
-      total_project_control_expected_monetary_value numeric(7,2),
-      total_project_control_cost_estimate_to_complete numeric(7,2),
-      --- deployment_frequency
-      deployment_frequency_actual numeric(7,2),
-      deployment_frequency_expect numeric(7,2),
-      deployment_frequency_ratio numeric(7,2) GENERATED ALWAYS AS (deployment_frequency_actual / deployment_frequency_expect) STORED,
-      deployment_frequency_unit text,
-      deployment_frequency_description text,
-      --- lead_time_for_changes
-      lead_time_for_changes_actual numeric(7,2),
-      lead_time_for_changes_expect numeric(7,2),
-      lead_time_for_changes_ratio numeric(7,2) GENERATED ALWAYS AS (lead_time_for_changes_actual / lead_time_for_changes_expect) STORED,
-      lead_time_for_changes_unit text,
-      lead_time_for_changes_description text,
-      --- change_failure_rate
-      change_failure_rate_actual numeric(7,2),
-      change_failure_rate_expect numeric(7,2),
-      change_failure_rate_ratio numeric(7,2) GENERATED ALWAYS AS (change_failure_rate_actual / change_failure_rate_expect) STORED,
-      change_failure_rate_unit text,
-      change_failure_rate_description text,
-      --- mean_time_to_recovery
-      mean_time_to_recovery_actual numeric(7,2),
-      mean_time_to_recovery_expect numeric(7,2),
-      mean_time_to_recovery_ratio numeric(7,2) GENERATED ALWAYS AS (mean_time_to_recovery_actual / mean_time_to_recovery_expect) STORED,
-      mean_time_to_recovery_unit text,
-      mean_time_to_recovery_description text,
-      --- maintainability_index
-      maintainability_index_actual numeric(7,2),
-      maintainability_index_expect numeric(7,2),
-      maintainability_index_ratio numeric(7,2) GENERATED ALWAYS AS (maintainability_index_actual / maintainability_index_expect) STORED,
-      maintainability_index_unit text,
-      maintainability_index_description text,
-      --- line_count
-      line_count_actual numeric(7,2),
-      line_count_expect numeric(7,2),
-      line_count_ratio numeric(7,2) GENERATED ALWAYS AS (line_count_actual / line_count_expect) STORED,
-      line_count_unit text,
-      line_count_description text,
-      --- test_automation_code_coverage
-      test_automation_code_coverage_actual numeric(7,2),
-      test_automation_code_coverage_expect numeric(7,2),
-      test_automation_code_coverage_ratio numeric(7,2) GENERATED ALWAYS AS (test_automation_code_coverage_actual / test_automation_code_coverage_expect) STORED,
-      test_automation_code_coverage_unit text,
-      test_automation_code_coverage_description text,
-      --- halstead_complexity_volume
-      halstead_complexity_volume_actual numeric(7,2),
-      halstead_complexity_volume_expect numeric(7,2),
-      halstead_complexity_volume_ratio numeric(7,2) GENERATED ALWAYS AS (halstead_complexity_volume_actual / halstead_complexity_volume_expect) STORED,
-      halstead_complexity_volume_unit text,
-      halstead_complexity_volume_description text,
-      --- halstead_complexity_difficulty
-      halstead_complexity_difficulty_actual numeric(7,2),
-      halstead_complexity_difficulty_expect numeric(7,2),
-      halstead_complexity_difficulty_ratio numeric(7,2) GENERATED ALWAYS AS (halstead_complexity_difficulty_actual / halstead_complexity_difficulty_expect) STORED,
-      halstead_complexity_difficulty_unit text,
-      halstead_complexity_difficulty_description text,
-      --- halstead_complexity_effort
-      halstead_complexity_effort_actual numeric(7,2),
-      halstead_complexity_effort_expect numeric(7,2),
-      halstead_complexity_effort_ratio numeric(7,2) GENERATED ALWAYS AS (halstead_complexity_effort_actual / halstead_complexity_effort_expect) STORED,
-      halstead_complexity_effort_unit text,
-      halstead_complexity_effort_description text
+      active_users_description text
     );
     """
 
@@ -370,6 +247,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
   end
 
   def down do
+    execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
+    execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
     execute "DROP CONSTRAINT IF EXISTS sign_check;"
     execute "DROP CONSTRAINT IF EXISTS web_check;"
     execute "DROP CONSTRAINT IF EXISTS email_check;"
@@ -425,7 +304,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
     execute "DROP CONSTRAINT IF EXISTS socials_policy_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS staff_policy_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS sipoc_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS arc42_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS apache_echart_as_url_check;"
     execute "DROP TRIGGER IF EXISTS trigger_groups_updated_at;"
     execute "DROP INDEX IF EXISTS groups_locale_code_index;"

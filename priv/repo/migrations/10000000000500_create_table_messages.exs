@@ -14,6 +14,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableMessages do
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
+      parent_id uuid CONSTRAINT parent_id_fk REFERENCES messages (id),
+      parent_order int CONSTRAINT parent_order_check CHECK (parent_order >= 0),
       --- card
       name text,
       sign text CONSTRAINT sign_check CHECK (LENGTH(sign) = 1),
@@ -59,6 +61,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableMessages do
   end
 
   def down do
+    execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
+    execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
     execute "DROP CONSTRAINT IF EXISTS writer_as_user_id_fk;"
     execute "DROP CONSTRAINT IF EXISTS reader_as_user_id_fk;"
     execute "DROP TRIGGER IF EXISTS trigger_messages_updated_at;"

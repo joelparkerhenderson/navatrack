@@ -13,12 +13,15 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
+      parent_id uuid CONSTRAINT parent_id_fk REFERENCES traits (id),
+      parent_order int CONSTRAINT parent_order_check CHECK (parent_order >= 0),
+      --- card
       name text,
       sign text CONSTRAINT sign_check CHECK (LENGTH(sign) = 1),
       status text,
       tagging text,
       note text,
-      ---
+      --- content
       summary_as_markdown text,
       description_as_markdown text,
       -- images
@@ -69,6 +72,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
   end
 
   def down do
+    execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
+    execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
     execute "DROP CONSTRAINT IF EXISTS sign_check;"
     execute "DROP CONSTRAINT IF EXISTS avatar_image_400x400_url_check;"
     execute "DROP CONSTRAINT IF EXISTS main_image_1080x1080_url_check;"

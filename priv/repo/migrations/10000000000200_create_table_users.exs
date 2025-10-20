@@ -14,13 +14,15 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
+      parent_id uuid CONSTRAINT parent_id_fk REFERENCES users (id),
+      parent_order int CONSTRAINT parent_order_check CHECK (parent_order >= 0),
       --- card
       name text,
       sign text CONSTRAINT sign_check CHECK (LENGTH(sign) = 1),
       status text,
       tagging text,
       note text,
-      -- contact
+      --- contact
       web text CONSTRAINT web_check CHECK (web ~* '^https://'),
       email text CONSTRAINT email_check CHECK (email ~*  '.@.'),
       phone text,
@@ -127,6 +129,8 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
   end
 
   def down do
+    execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
+    execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
     execute "DROP CONSTRAINT IF EXISTS sign_check;"
     execute "DROP CONSTRAINT IF EXISTS web_check;"
     execute "DROP CONSTRAINT IF EXISTS email_check;"
