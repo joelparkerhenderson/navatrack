@@ -66,6 +66,49 @@
       "generated?": false,
       "precision": null,
       "primary_key?": false,
+      "references": {
+        "deferrable": false,
+        "destination_attribute": "id",
+        "destination_attribute_default": null,
+        "destination_attribute_generated": null,
+        "index?": false,
+        "match_type": null,
+        "match_with": null,
+        "multitenancy": {
+          "attribute": null,
+          "global": null,
+          "strategy": null
+        },
+        "name": "multi_rater_feedback_messages_parent_id_fkey",
+        "on_delete": null,
+        "on_update": null,
+        "primary_key?": true,
+        "schema": "public",
+        "table": "multi_rater_feedback_messages"
+      },
+      "scale": null,
+      "size": null,
+      "source": "parent_id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "parent_order",
+      "type": "bigint"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
       "references": null,
       "scale": null,
       "size": null,
@@ -260,7 +303,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "5CDE47CEC577D2FABCF719AA7FE5683E528B34920020DDBFE78C2F03CF1F78BD",
+  "hash": "C5DCF4417773F742AB4D657B101D34AEB44D2045C833E717DED96DD5EE5A16FD",
   "identities": [],
   "multitenancy": {
     "attribute": null,

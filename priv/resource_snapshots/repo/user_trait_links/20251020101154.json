@@ -2,6 +2,66 @@
   "attributes": [
     {
       "allow_nil?": false,
+      "default": "fragment(\"gen_random_uuid()\")",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": true,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "created_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "updated_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "deleted_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "locale_code",
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -19,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_ilo_isco_2008_links_user_id_fkey",
+        "name": "user_trait_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -50,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_ilo_isco_2008_links_ilo_isco_2008_id_fkey",
+        "name": "user_trait_links_trait_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "ilo_isco_2008s"
+        "table": "traits"
       },
       "scale": null,
       "size": null,
-      "source": "ilo_isco_2008_id",
+      "source": "trait_id",
       "type": "uuid"
     }
   ],
@@ -68,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "83FB1A3853ED2762C7FEF45FF58AE40AD6FA0FD52A1ED5F3190B074202BCEDE1",
+  "hash": "6131C6360D93569591C37152CF07FCDC9423478D1B91F7992AA6D385C60E2971",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -77,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_ilo_isco_2008_links"
+  "table": "user_trait_links"
 }

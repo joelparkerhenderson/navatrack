@@ -79,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_event_links_user_id_fkey",
+        "name": "user_topic_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -110,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_event_links_event_id_fkey",
+        "name": "user_topic_links_topic_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "events"
+        "table": "topics"
       },
       "scale": null,
       "size": null,
-      "source": "event_id",
+      "source": "topic_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "0A3362689D38FA46A1F8E560FC67AC3DBE99E96C43BCD3575FB6A75913CD3001",
+  "hash": "EE48F7F5904F69A27BF01F3484D8FE98D7EC7B6019501CB0CCE4C846FE109B98",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_event_links"
+  "table": "user_topic_links"
 }

@@ -66,6 +66,49 @@
       "generated?": false,
       "precision": null,
       "primary_key?": false,
+      "references": {
+        "deferrable": false,
+        "destination_attribute": "id",
+        "destination_attribute_default": null,
+        "destination_attribute_generated": null,
+        "index?": false,
+        "match_type": null,
+        "match_with": null,
+        "multitenancy": {
+          "attribute": null,
+          "global": null,
+          "strategy": null
+        },
+        "name": "events_parent_id_fkey",
+        "on_delete": null,
+        "on_update": null,
+        "primary_key?": true,
+        "schema": "public",
+        "table": "events"
+      },
+      "scale": null,
+      "size": null,
+      "source": "parent_id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "parent_order",
+      "type": "bigint"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
       "references": null,
       "scale": null,
       "size": null,
@@ -2535,7 +2578,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -2547,7 +2590,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -2559,7 +2602,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -2571,7 +2614,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -2583,7 +2626,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -2595,7 +2638,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -2619,7 +2662,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -2703,7 +2746,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -2763,7 +2806,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -2823,7 +2866,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -2883,7 +2926,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -2943,7 +2986,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -3003,7 +3046,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -3063,7 +3106,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -3123,7 +3166,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -3183,7 +3226,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -3243,7 +3286,7 @@
     {
       "allow_nil?": true,
       "default": "nil",
-      "generated?": false,
+      "generated?": true,
       "precision": null,
       "primary_key?": false,
       "references": null,
@@ -3282,7 +3325,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "6253B5CF6DF60A7AF1CB6DFBCE08BF188F251D695F13A385DB17332B75D8A70D",
+  "hash": "9219E7334CF94DDAFF6343F5824009B78B39CF259A171DC9882B2A667686296E",
   "identities": [],
   "multitenancy": {
     "attribute": null,
