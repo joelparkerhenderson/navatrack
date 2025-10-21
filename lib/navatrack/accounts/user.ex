@@ -4,7 +4,14 @@ defmodule Navatrack.Accounts.User do
     domain: Navatrack.Accounts,
     data_layer: AshPostgres.DataLayer,
     authorizers: [Ash.Policy.Authorizer],
-    extensions: [AshAuthentication]
+    extensions: [
+      AshAuthentication,
+      AshAdmin.Resource
+    ]
+
+  admin do
+    actor? true
+  end
 
   def snake_case_singular(), do: "user"
   def snake_case_plural(), do: "users"

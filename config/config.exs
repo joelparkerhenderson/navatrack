@@ -83,11 +83,7 @@ config :spark,
 config :navatrack,
   ecto_repos: [Navatrack.Repo],
   generators: [timestamp_type: :utc_datetime],
-  ash_domains: [
-    Navatrack.Accounts,
-    Navatrack.Codes,
-    Navatrack.Works
-  ]
+  ash_domains: [Navatrack.Accounts, Navatrack.Codes, Navatrack.Works]
 
 # Configures the endpoint
 config :navatrack, NavatrackWeb.Endpoint,

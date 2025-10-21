@@ -1,10 +1,21 @@
 defmodule Navatrack.Accounts do
   use Ash.Domain,
-    otp_app: :navatrack
+    otp_app: :navatrack,
+    extensions: [AshAdmin.Domain]
+
+  # AshAdmin
+  admin do
+    show? true
+  end
 
   resources do
     resource Navatrack.Accounts.Token
     resource Navatrack.Accounts.User
+    # Access
+    resource Navatrack.Accounts.AccessAssignment
+    resource Navatrack.Accounts.AccessAttribute
+    resource Navatrack.Accounts.AccessPermission
+    resource Navatrack.Accounts.AccessOperation
     # Links from different domains
     resource Navatrack.Codes.IloIsco2008
     resource Navatrack.Codes.LuminaFoundationSkillLevel
@@ -26,5 +37,7 @@ defmodule Navatrack.Accounts do
     resource Navatrack.Accounts.UserTaskLink
     resource Navatrack.Accounts.UserTopicLink
     resource Navatrack.Accounts.UserTraitLink
+    resource Navatrack.Accounts.AccessPermission
+    resource Navatrack.Accounts.AccessAssignment
   end
 end

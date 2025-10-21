@@ -42,6 +42,21 @@ defmodule NavatrackWeb.Groups.IndexLive do
         <:col :let={x} field="status" label="🚦 Sign" sort search>{x.status}</:col>
         <:col :let={x} field="status" label="📍 Status" sort search>{x.status}</:col>
         <:col :let={x} field="tagging" label="🏷️ Tags" sort search>{x.tagging}</:col>
+        <:col :let={x} field="web" label="🌍" sort search>
+          <%= if x.web do %>
+            <.link navigate={x.web}>🌍</.link>
+          <% end %>
+        </:col>
+        <:col :let={x} field="email" label="📧" sort search>
+          <%= if x.email do %>
+            <.link navigate="mailto:#{x.email}">📧</.link>
+          <% end %>
+        </:col>
+        <:col :let={x} field="phone" label="📱" sort search>
+          <%= if x.phone do %>
+            <.link navigate="tel:#{x.phone}">📱</.link>
+          <% end %>
+        </:col>
         <:col
           :let={x}
           field="net_promoter_score_customer_perspective_actual"

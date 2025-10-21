@@ -52,16 +52,8 @@ defmodule Navatrack.Accounts.AccessAssignment do
   def fake(map \\ %{}) do
     Map.merge(
       %{
-        ### meta
-        locale_code: "en-US",
-        ### card
-        name: "my-name",
-        sign: "○",
-        status: "my-status",
-        tagging: "my-tagging",
-        note: "my-note",
         user_id: nil,
-        access_attribute_id: nil,
+        access_attribute_id: nil
       },
       map
     )

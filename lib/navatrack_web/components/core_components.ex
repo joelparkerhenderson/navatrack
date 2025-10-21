@@ -602,6 +602,38 @@ defmodule NavatrackWeb.CoreComponents do
     """
   end
 
+  @doc """
+  Render a form_live.ex lede with id, metadata, name, etc. using our default conventions.
+  """
+
+  attr :form, :any, required: true
+
+  def form_live_lede(assigns) do
+    ~H"""
+    <.input
+      field={@form[:name]}
+      label="📛 Name"
+      autofocus
+    />
+    <.input
+      field={@form[:sign]}
+      label="🚦 Sign"
+    />
+    <.input
+      field={@form[:status]}
+      label="📍 Status"
+    />
+    <.input
+      field={@form[:tagging]}
+      label="🏷️ Tags"
+    />
+    <.input
+      field={@form[:note]}
+      label="🗒️ Note"
+    />
+    """
+  end
+
   ## JS Commands
 
   def show(js \\ %JS{}, selector) do

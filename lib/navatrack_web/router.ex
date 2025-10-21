@@ -82,6 +82,28 @@ defmodule NavatrackWeb.Router do
     ash_authentication_live_session :authentication_required,
       on_mount: {NavatrackWeb.LiveUserAuth, :live_user_required} do
 
+        ### Access
+
+        live "/access_assignments", AccessAssignments.IndexLive
+        live "/access_assignments/new", AccessAssignments.FormLive, :new
+        live "/access_assignments/:id", AccessAssignments.ShowLive
+        live "/access_assignments/:id/edit", AccessAssignments.FormLive, :edit
+
+        live "/access_attributes", AccessAttributes.IndexLive
+        live "/access_attributes/new", AccessAttributes.FormLive, :new
+        live "/access_attributes/:id", AccessAttributes.ShowLive
+        live "/access_attributes/:id/edit", AccessAttributes.FormLive, :edit
+
+        live "/access_permissions", AccessPermissions.IndexLive
+        live "/access_permissions/new", AccessPermissions.FormLive, :new
+        live "/access_permissions/:id", AccessPermissions.ShowLive
+        live "/access_permissions/:id/edit", AccessPermissions.FormLive, :edit
+
+        live "/access_operations", AccessOperations.IndexLive
+        live "/access_operations/new", AccessOperations.FormLive, :new
+        live "/access_operations/:id", AccessOperations.ShowLive
+        live "/access_operations/:id/edit", AccessOperations.FormLive, :edit
+
         ### Core Resources
 
         live "/events", Events.IndexLive
