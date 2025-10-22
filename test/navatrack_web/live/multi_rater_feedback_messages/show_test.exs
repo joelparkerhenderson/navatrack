@@ -4,11 +4,6 @@ defmodule NavatrackWeb.MultiRaterFeedbackMessages.ShowTest do
   use NavatrackWeb.AuthCase
   alias Navatrack.Works.MultiRaterFeedbackMessage, as: X
 
-  defp x! do
-    {:ok, user} = my_user()
-    X |> Ash.Changeset.for_create(:create, X.fake(user.id, user.id)) |> Ash.create!()
-  end
-
   setup %{conn: conn} do
     {:ok, user} = my_user()
     {:ok, user} = my_sign_in(user)
@@ -21,7 +16,7 @@ defmodule NavatrackWeb.MultiRaterFeedbackMessages.ShowTest do
   end
 
   test "show", %{conn: conn} do
-    x = x!()
+    x = X.fab!
     conn = get(conn, ~p"/multi_rater_feedback_messages/#{x.id}")
     response = html_response(conn, 200)
 

@@ -57,12 +57,6 @@ defmodule NavatrackWeb.Tasks.IndexLive do
         <:col :let={x} field="burn_rate_net_cash_per_week_actual" label="🔥 Burn" sort search>
           {x.burn_rate_net_cash_per_week_actual}
         </:col>
-        <:col :let={x} field="deployment_frequency_actual" label="⛵️ Ship" sort search>
-          {x.deployment_frequency_actual}
-        </:col>
-        <:col :let={x} field="maintainability_index_unit" label="🛠️ Code" sort search>
-          {x.maintainability_index_unit}
-        </:col>
         <:col :let={x} field="home_emoji_url" label="🏠" sort search>
           <%= if x.home_emoji_url do %>
             <.link navigate={x.home_emoji_url}>🏠</.link>

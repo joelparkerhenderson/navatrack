@@ -66,7 +66,6 @@ defmodule NavatrackWeb.AccessAssignments.FormLive do
   """
 
   def handle_event("updater", _params, socket) do
-    IO.inspect("handle_event updater")
     {:noreply, socket}
   end
 
@@ -82,7 +81,6 @@ defmodule NavatrackWeb.AccessAssignments.FormLive do
 
   def handle_event("save", %{"form" => form_data}, socket) do
     # form_data = convert_tags_param(form_data)
-    IO.inspect(form_data, label: "form_data")
 
     changeset =
       Navatrack.Accounts.AccessAssignment

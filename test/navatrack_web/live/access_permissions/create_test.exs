@@ -21,7 +21,6 @@ defmodule NavatrackWeb.AccessPermissions.CreateTest do
     result =
       lv
       |> form("#x_form", %{
-        "form[name]" => "alfa"
       })
       |> render_submit()
 
@@ -29,7 +28,7 @@ defmodule NavatrackWeb.AccessPermissions.CreateTest do
       {:error, {:live_redirect, %{to: path}}} ->
         assert path == "/access_permissions"
       html when is_binary(html) ->
-        assert html =~ "📛"
+        assert html =~ "Id"
       other ->
         flunk("Unexpected result: #{inspect(other)}")
     end

@@ -4,10 +4,6 @@ defmodule NavatrackWeb.Topics.ShowTest do
   use NavatrackWeb.AuthCase
   alias Navatrack.Works.Topic, as: X
 
-  defp x! do
-    X |> Ash.Changeset.for_create(:create, X.fake) |> Ash.create!()
-  end
-
   setup %{conn: conn} do
     {:ok, user} = my_user()
     {:ok, user} = my_sign_in(user)
@@ -21,7 +17,7 @@ defmodule NavatrackWeb.Topics.ShowTest do
   end
 
   test "show", %{conn: conn} do
-    x = x!()
+    x = X.fab!
     conn = get(conn, ~p"/topics/#{x.id}")
     response = html_response(conn, 200)
 
@@ -359,77 +355,6 @@ defmodule NavatrackWeb.Topics.ShowTest do
     assert response =~ "Progress Index (denominator): #{x.total_project_control_dipp_progress_index_denominator}"
     assert response =~ "Expected Monetary Value: #{x.total_project_control_expected_monetary_value}"
     assert response =~ "Cost Estimate To Complete: #{x.total_project_control_cost_estimate_to_complete}"
-
-    assert response =~ "Deployment Frequency"
-    assert response =~ "Actual Value: #{x.deployment_frequency_actual}"
-    assert response =~ "Target Value: #{x.deployment_frequency_expect}"
-    assert response =~ "Ratio: #{x.deployment_frequency_ratio}"
-    assert response =~ "Unit: #{x.deployment_frequency_unit}"
-    assert response =~ "Description: #{x.deployment_frequency_description}"
-
-    assert response =~ "Lead Time For Changes"
-    assert response =~ "Actual Value: #{x.lead_time_for_changes_actual}"
-    assert response =~ "Target Value: #{x.lead_time_for_changes_expect}"
-    assert response =~ "Ratio: #{x.lead_time_for_changes_ratio}"
-    assert response =~ "Unit: #{x.lead_time_for_changes_unit}"
-    assert response =~ "Description: #{x.lead_time_for_changes_description}"
-
-    assert response =~ "Change Failure Rate"
-    assert response =~ "Actual Value: #{x.change_failure_rate_actual}"
-    assert response =~ "Target Value: #{x.change_failure_rate_expect}"
-    assert response =~ "Ratio: #{x.change_failure_rate_ratio}"
-    assert response =~ "Unit: #{x.change_failure_rate_unit}"
-    assert response =~ "Description: #{x.change_failure_rate_description}"
-
-    assert response =~ "Mean Time To Recovery"
-    assert response =~ "Actual Value: #{x.mean_time_to_recovery_actual}"
-    assert response =~ "Target Value: #{x.mean_time_to_recovery_expect}"
-    assert response =~ "Ratio: #{x.mean_time_to_recovery_ratio}"
-    assert response =~ "Unit: #{x.mean_time_to_recovery_unit}"
-    assert response =~ "Description: #{x.mean_time_to_recovery_description}"
-
-    assert response =~ "Maintainability Index"
-    assert response =~ "Actual Value: #{x.maintainability_index_actual}"
-    assert response =~ "Target Value: #{x.maintainability_index_expect}"
-    assert response =~ "Ratio: #{x.maintainability_index_ratio}"
-    assert response =~ "Unit: #{x.maintainability_index_unit}"
-    assert response =~ "Description: #{x.maintainability_index_description}"
-
-    assert response =~ "Line Count"
-    assert response =~ "Actual Value: #{x.line_count_actual}"
-    assert response =~ "Target Value: #{x.line_count_expect}"
-    assert response =~ "Ratio: #{x.line_count_ratio}"
-    assert response =~ "Unit: #{x.line_count_unit}"
-    assert response =~ "Description: #{x.line_count_description}"
-
-    assert response =~ "Test Automation Code Coverage"
-    assert response =~ "Actual Value: #{x.test_automation_code_coverage_actual}"
-    assert response =~ "Target Value: #{x.test_automation_code_coverage_expect}"
-    assert response =~ "Ratio: #{x.test_automation_code_coverage_ratio}"
-    assert response =~ "Unit: #{x.test_automation_code_coverage_unit}"
-    assert response =~ "Description: #{x.test_automation_code_coverage_description}"
-
-    assert response =~ "Halstead Complexity Volume"
-
-    assert response =~ "Volume"
-    assert response =~ "Actual Value: #{x.halstead_complexity_volume_actual}"
-    assert response =~ "Target Value: #{x.halstead_complexity_volume_expect}"
-    assert response =~ "Unit: #{x.halstead_complexity_volume_unit}"
-    assert response =~ "Description: #{x.halstead_complexity_volume_description}"
-
-    assert response =~ "Difficulty"
-    assert response =~ "Actual Value: #{x.halstead_complexity_difficulty_actual}"
-    assert response =~ "Target Value: #{x.halstead_complexity_difficulty_expect}"
-    assert response =~ "Ratio: #{x.halstead_complexity_difficulty_ratio}"
-    assert response =~ "Unit: #{x.halstead_complexity_difficulty_unit}"
-    assert response =~ "Description: #{x.halstead_complexity_difficulty_description}"
-
-    assert response =~ "Effort"
-    assert response =~ "Actual Value: #{x.halstead_complexity_effort_actual}"
-    assert response =~ "Target Value: #{x.halstead_complexity_effort_expect}"
-    assert response =~ "Ratio: #{x.halstead_complexity_effort_ratio}"
-    assert response =~ "Unit: #{x.halstead_complexity_effort_unit}"
-    assert response =~ "Description: #{x.halstead_complexity_effort_description}"
 
   end
 

@@ -222,14 +222,6 @@ defmodule NavatrackWeb.Tasks.NewTest do
     assert response =~ "Expected Monetary Value"
     assert response =~ "Cost Estimate To Complete"
 
-    assert response =~ "DORA Metrics"
-    assert response =~ "Code Metrics"
-    assert response =~ "Maintainability Index"
-    assert response =~ "Line Count"
-    assert response =~ "Test Automation Code Coverage"
-    assert response =~ "Halstead Complexity Volume"
-    assert response =~ "Halstead Complexity Difficulty"
-    assert response =~ "Halstead Complexity Effort"
   end
 
 end

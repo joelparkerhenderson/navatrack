@@ -4,10 +4,6 @@ defmodule NavatrackWeb.Traits.ShowTest do
   use NavatrackWeb.AuthCase
   alias Navatrack.Works.Trait, as: X
 
-  defp x! do
-    X |> Ash.Changeset.for_create(:create, X.fake) |> Ash.create!()
-  end
-
   setup %{conn: conn} do
     {:ok, user} = my_user()
     {:ok, user} = my_sign_in(user)
@@ -20,7 +16,7 @@ defmodule NavatrackWeb.Traits.ShowTest do
   end
 
   test "show", %{conn: conn} do
-    x = x!()
+    x = X.fab!
     conn = get(conn, ~p"/traits/#{x.id}")
     response = html_response(conn, 200)
 
