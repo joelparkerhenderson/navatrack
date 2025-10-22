@@ -265,67 +265,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableTopics do
       total_project_control_dipp_progress_index_numerator numeric(7,2),
       total_project_control_dipp_progress_index_denominator numeric(7,2),
       total_project_control_expected_monetary_value numeric(7,2),
-      total_project_control_cost_estimate_to_complete numeric(7,2),
-      --- deployment_frequency
-      deployment_frequency_actual numeric(7,2),
-      deployment_frequency_expect numeric(7,2),
-      deployment_frequency_ratio numeric(7,2) GENERATED ALWAYS AS (deployment_frequency_actual / deployment_frequency_expect) STORED,
-      deployment_frequency_unit text,
-      deployment_frequency_description text,
-      --- lead_time_for_changes
-      lead_time_for_changes_actual numeric(7,2),
-      lead_time_for_changes_expect numeric(7,2),
-      lead_time_for_changes_ratio numeric(7,2) GENERATED ALWAYS AS (lead_time_for_changes_actual / lead_time_for_changes_expect) STORED,
-      lead_time_for_changes_unit text,
-      lead_time_for_changes_description text,
-      --- change_failure_rate
-      change_failure_rate_actual numeric(7,2),
-      change_failure_rate_expect numeric(7,2),
-      change_failure_rate_ratio numeric(7,2) GENERATED ALWAYS AS (change_failure_rate_actual / change_failure_rate_expect) STORED,
-      change_failure_rate_unit text,
-      change_failure_rate_description text,
-      --- mean_time_to_recovery
-      mean_time_to_recovery_actual numeric(7,2),
-      mean_time_to_recovery_expect numeric(7,2),
-      mean_time_to_recovery_ratio numeric(7,2) GENERATED ALWAYS AS (mean_time_to_recovery_actual / mean_time_to_recovery_expect) STORED,
-      mean_time_to_recovery_unit text,
-      mean_time_to_recovery_description text,
-      --- maintainability_index
-      maintainability_index_actual numeric(7,2),
-      maintainability_index_expect numeric(7,2),
-      maintainability_index_ratio numeric(7,2) GENERATED ALWAYS AS (maintainability_index_actual / maintainability_index_expect) STORED,
-      maintainability_index_unit text,
-      maintainability_index_description text,
-      --- line_count
-      line_count_actual numeric(7,2),
-      line_count_expect numeric(7,2),
-      line_count_ratio numeric(7,2) GENERATED ALWAYS AS (line_count_actual / line_count_expect) STORED,
-      line_count_unit text,
-      line_count_description text,
-      --- test_automation_code_coverage
-      test_automation_code_coverage_actual numeric(7,2),
-      test_automation_code_coverage_expect numeric(7,2),
-      test_automation_code_coverage_ratio numeric(7,2) GENERATED ALWAYS AS (test_automation_code_coverage_actual / test_automation_code_coverage_expect) STORED,
-      test_automation_code_coverage_unit text,
-      test_automation_code_coverage_description text,
-      --- halstead_complexity_volume
-      halstead_complexity_volume_actual numeric(7,2),
-      halstead_complexity_volume_expect numeric(7,2),
-      halstead_complexity_volume_ratio numeric(7,2) GENERATED ALWAYS AS (halstead_complexity_volume_actual / halstead_complexity_volume_expect) STORED,
-      halstead_complexity_volume_unit text,
-      halstead_complexity_volume_description text,
-      --- halstead_complexity_difficulty
-      halstead_complexity_difficulty_actual numeric(7,2),
-      halstead_complexity_difficulty_expect numeric(7,2),
-      halstead_complexity_difficulty_ratio numeric(7,2) GENERATED ALWAYS AS (halstead_complexity_difficulty_actual / halstead_complexity_difficulty_expect) STORED,
-      halstead_complexity_difficulty_unit text,
-      halstead_complexity_difficulty_description text,
-      --- halstead_complexity_effort
-      halstead_complexity_effort_actual numeric(7,2),
-      halstead_complexity_effort_expect numeric(7,2),
-      halstead_complexity_effort_ratio numeric(7,2) GENERATED ALWAYS AS (halstead_complexity_effort_actual / halstead_complexity_effort_expect) STORED,
-      halstead_complexity_effort_unit text,
-      halstead_complexity_effort_description text
+      total_project_control_cost_estimate_to_complete numeric(7,2)
     );
     """
 
