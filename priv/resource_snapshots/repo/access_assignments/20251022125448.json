@@ -61,11 +61,35 @@
       "type": "text"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "parent_id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "parent_order",
+      "type": "bigint"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -79,7 +103,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_plan_links_user_id_fkey",
+        "name": "access_assignments_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -92,11 +116,11 @@
       "type": "uuid"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -110,16 +134,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_plan_links_plan_id_fkey",
+        "name": "access_assignments_access_attribute_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "plans"
+        "table": "access_attributes"
       },
       "scale": null,
       "size": null,
-      "source": "plan_id",
+      "source": "access_attribute_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +152,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "2FD1B11379C8CDF5B3BB33B6E6C9CF4DBB1A9A595A911EC10AE13E234CF4C490",
+  "hash": "0869DA708BD83338D68679E10350F0F1BA087216381BAE272BB3B2DAA4117574",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +161,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_plan_links"
+  "table": "access_assignments"
 }

@@ -79,12 +79,12 @@
           "global": null,
           "strategy": null
         },
-        "name": "events_parent_id_fkey",
+        "name": "plans_parent_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "events"
+        "table": "plans"
       },
       "scale": null,
       "size": null,
@@ -3325,7 +3325,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "466DA584A404A9DB34CD426CFAF316238C114D600BEC0D78371B9CA7643A67A9",
+  "hash": "6AC6F9B69654518CF4608B64819F02A13A3984CEAF4A72EC95C84DF3E00F5FE3",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -3334,5 +3334,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "events"
+  "table": "plans"
 }

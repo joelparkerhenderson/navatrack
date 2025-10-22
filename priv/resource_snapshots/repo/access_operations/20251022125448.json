@@ -150,7 +150,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "F9B77DF17B962608DF0A95576F07A00023763EB240E64255A459E6BFE89CBF2C",
+  "hash": "AB00C8A4BE8C83831752270159631FD155C329D28E3294547E536F1018DD0E64",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -159,5 +159,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "access_attributes"
+  "table": "access_operations"
 }

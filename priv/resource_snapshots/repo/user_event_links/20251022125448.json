@@ -79,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_task_links_user_id_fkey",
+        "name": "user_event_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -110,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_task_links_task_id_fkey",
+        "name": "user_event_links_event_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "tasks"
+        "table": "events"
       },
       "scale": null,
       "size": null,
-      "source": "task_id",
+      "source": "event_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "36F612A1D3FF0846C8670E38C0FB65834C3F45E6EEDF45A89B889559DC6549D7",
+  "hash": "0A3362689D38FA46A1F8E560FC67AC3DBE99E96C43BCD3575FB6A75913CD3001",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_task_links"
+  "table": "user_event_links"
 }

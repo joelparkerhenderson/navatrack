@@ -79,12 +79,12 @@
           "global": null,
           "strategy": null
         },
-        "name": "multi_rater_feedback_messages_parent_id_fkey",
+        "name": "messages_parent_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "multi_rater_feedback_messages"
+        "table": "messages"
       },
       "scale": null,
       "size": null,
@@ -182,7 +182,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "multi_rater_feedback_messages_writer_as_user_id_fkey",
+        "name": "messages_writer_as_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -213,7 +213,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "multi_rater_feedback_messages_reader_as_user_id_fkey",
+        "name": "messages_reader_as_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -224,78 +224,6 @@
       "size": null,
       "source": "reader_as_user_id",
       "type": "uuid"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "strength",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "start",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "stop",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "continue",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "change",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "advice",
-      "type": "text"
     }
   ],
   "base_filter": null,
@@ -303,7 +231,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "19CBDFEAC438AB7F6AE1F8618649C67B408C30B69499BF50F372A37E325765F5",
+  "hash": "3880328A272E6D6618511DEB31F9F1A561D4AAB6670E1A1233F00B5677E66ED3",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -312,5 +240,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "multi_rater_feedback_messages"
+  "table": "messages"
 }

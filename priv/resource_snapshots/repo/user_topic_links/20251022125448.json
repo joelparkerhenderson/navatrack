@@ -18,6 +18,54 @@
       "generated?": false,
       "precision": null,
       "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "created_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "updated_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "deleted_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "locale_code",
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": true,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -31,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "access_assignments_user_id_fkey",
+        "name": "user_topic_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -44,11 +92,11 @@
       "type": "uuid"
     },
     {
-      "allow_nil?": true,
+      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": false,
+      "primary_key?": true,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -62,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "access_assignments_access_attribute_id_fkey",
+        "name": "user_topic_links_topic_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "access_attributes"
+        "table": "topics"
       },
       "scale": null,
       "size": null,
-      "source": "access_attribute_id",
+      "source": "topic_id",
       "type": "uuid"
     }
   ],
@@ -80,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "63AE7B1D4AB7BB3AED8FD96B0DACF7C39E5FD92B9A33318CF93F4AFF95DE32C7",
+  "hash": "466F8D09E40E95D71FDDBA29D34909F03DA07E89708F08C777DA58ED0A0B8C8B",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -89,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "access_assignments"
+  "table": "user_topic_links"
 }

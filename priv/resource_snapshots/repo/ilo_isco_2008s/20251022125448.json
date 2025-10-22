@@ -33,8 +33,8 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "number",
-      "type": "bigint"
+      "source": "code",
+      "type": "text"
     },
     {
       "allow_nil?": false,
@@ -57,7 +57,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "description",
+      "source": "definition_as_markdown",
       "type": "text"
     }
   ],
@@ -66,7 +66,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": false,
-  "hash": "22D6B049C77F4B1201A083BEC25A85C95AC616472D36433B58CAACB407744548",
+  "hash": "049A0244960B172D77A79B1C6BA8EF04861963CAD287379BF77BD204E8C94688",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -75,5 +75,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "lumina_foundation_skill_levels"
+  "table": "ilo_isco_2008s"
 }
