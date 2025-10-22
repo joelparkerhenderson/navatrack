@@ -1,6 +1,11 @@
 defmodule Navatrack.Codes do
   use Ash.Domain,
-    otp_app: :navatrack
+    otp_app: :navatrack,
+    extensions: [AshAdmin.Domain]
+
+  admin do
+    show? true
+  end
 
   resources do
     resource Navatrack.Codes.IloIsco2008
