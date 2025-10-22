@@ -24,7 +24,7 @@ defmodule NavatrackWeb.UserTopicLinks.ShowLive do
         {@page_title}
         <:actions>
           <.button
-            data-confirm={"Are you sure you want to delete #{@x.name}?"}
+            data-confirm={"Are you sure you want to delete?"}
             phx-click={"delete-#{@x.id}"}
           >
             Delete

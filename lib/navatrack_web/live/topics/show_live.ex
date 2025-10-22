@@ -24,7 +24,7 @@ defmodule NavatrackWeb.Topics.ShowLive do
         {@page_title}
         <:actions>
           <.button
-            data-confirm={"Are you sure you want to delete #{@x.name}?"}
+            data-confirm={"Are you sure you want to delete?"}
             phx-click={"delete-#{@x.id}"}
           >
             Delete
@@ -447,111 +447,6 @@ defmodule NavatrackWeb.Topics.ShowLive do
 
           <p>URL: <a href={@x.staff_policy_as_url}>{@x.staff_policy_as_url}</a></p>
           <p>Markdown: {@x.staff_policy_as_markdown}</p>
-
-        </.section>
-
-        <.section id="dora_metrics" title="DORA Metrics">
-
-          <h3 class="h3">
-            Deployment Frequency
-          </h3>
-
-          <p>Actual Value: {@x.deployment_frequency_actual}</p>
-          <p>Target Value: {@x.deployment_frequency_expect}</p>
-          <p>Ratio: {@x.deployment_frequency_ratio}</p>
-          <p>Unit: {@x.deployment_frequency_unit}</p>
-          <p>Description: {@x.deployment_frequency_description}</p>
-
-          <h3 class="h3">
-            Lead Time For Changes
-          </h3>
-
-          <p>Actual Value: {@x.lead_time_for_changes_actual}</p>
-          <p>Target Value: {@x.lead_time_for_changes_expect}</p>
-          <p>Unit: {@x.lead_time_for_changes_unit}</p>
-          <p>Description: {@x.lead_time_for_changes_description}</p>
-
-          <h3 class="h3">
-            Change Failure Rate
-          </h3>
-
-          <p>Actual Value: {@x.change_failure_rate_actual}</p>
-          <p>Target Value: {@x.change_failure_rate_expect}</p>
-          <p>Unit: {@x.change_failure_rate_unit}</p>
-          <p>Description: {@x.change_failure_rate_description}</p>
-
-          <h3 class="h3">
-            Mean Time To Recovery
-          </h3>
-
-          <p>Actual Value: {@x.mean_time_to_recovery_actual}</p>
-          <p>Target Value: {@x.mean_time_to_recovery_expect}</p>
-          <p>Unit: {@x.mean_time_to_recovery_unit}</p>
-          <p>Description: {@x.mean_time_to_recovery_description}</p>
-
-        </.section>
-
-        <.section id="code_metrics" title="Code Metrics">
-
-          <h3 class="h3">
-            Maintainability Index
-          </h3>
-
-          <p>Actual Value: {@x.maintainability_index_actual}</p>
-          <p>Target Value: {@x.maintainability_index_expect}</p>
-          <p>Ratio: {@x.maintainability_index_ratio}</p>
-          <p>Unit: {@x.maintainability_index_unit}</p>
-          <p>Description: {@x.maintainability_index_description}</p>
-
-          <h3 class="h3">
-            Line Count
-          </h3>
-
-          <p>Actual Value: {@x.line_count_actual}</p>
-          <p>Target Value: {@x.line_count_expect}</p>
-          <p>Ratio: {@x.line_count_ratio}</p>
-          <p>Unit: {@x.line_count_unit}</p>
-          <p>Description: {@x.line_count_description}</p>
-
-          <h3 class="h3">
-            Test Automation Code Coverage
-          </h3>
-
-          <p>Actual Value: {@x.test_automation_code_coverage_actual}</p>
-          <p>Target Value: {@x.test_automation_code_coverage_expect}</p>
-          <p>Ratio: {@x.test_automation_code_coverage_ratio}</p>
-          <p>Unit: {@x.test_automation_code_coverage_unit}</p>
-          <p>Description: {@x.test_automation_code_coverage_description}</p>
-
-          <h3 class="h3">
-            Halstead Complexity Volume
-          </h3>
-
-          <p>Actual Value: {@x.halstead_complexity_volume_actual}</p>
-          <p>Target Value: {@x.halstead_complexity_volume_expect}</p>
-          <p>Ratio: {@x.halstead_complexity_volume_ratio}</p>
-          <p>Unit: {@x.halstead_complexity_volume_unit}</p>
-          <p>Description: {@x.halstead_complexity_volume_description}</p>
-
-          <h3 class="h3">
-            Halstead Complexity Difficulty
-          </h3>
-
-          <p>Actual Value: {@x.halstead_complexity_difficulty_actual}</p>
-          <p>Target Value: {@x.halstead_complexity_difficulty_expect}</p>
-          <p>Ratio: {@x.halstead_complexity_difficulty_ratio}</p>
-          <p>Unit: {@x.halstead_complexity_difficulty_unit}</p>
-          <p>Description: {@x.halstead_complexity_difficulty_description}</p>
-
-          <h3 class="h3">
-            Halstead Complexity Effort
-          </h3>
-
-          <p>Actual Value: {@x.halstead_complexity_effort_actual}</p>
-          <p>Target Value: {@x.halstead_complexity_effort_expect}</p>
-          <p>Ratio: {@x.halstead_complexity_effort_ratio}</p>
-          <p>Unit: {@x.halstead_complexity_effort_unit}</p>
-          <p>Description: {@x.halstead_complexity_effort_description}</p>
 
         </.section>
 

@@ -24,7 +24,7 @@ defmodule NavatrackWeb.UserTraitLinks.ShowLive do
         {@page_title}
         <:actions>
           <.button
-            data-confirm={"Are you sure you want to delete #{@x.name}?"}
+            data-confirm={"Are you sure you want to delete?"}
             phx-click={"delete-#{@x.id}"}
           >
             Delete
@@ -50,7 +50,7 @@ defmodule NavatrackWeb.UserTraitLinks.ShowLive do
          |> push_navigate(to: path_index(X))}
 
       {:error, error} ->
-        Logger.warning("Delete failed for trait '#{id}':
+        Logger.warning("Delete failed for #{X} #{id}:
           #{inspect(error)}")
 
         {:noreply,

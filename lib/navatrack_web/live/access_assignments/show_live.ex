@@ -13,7 +13,7 @@ defmodule NavatrackWeb.AccessAssignments.ShowLive do
 
     {:noreply,
      socket
-     |> assign(:page_title, x.name)
+     |> assign(:page_title, "#{X} #{id}")
      |> assign(:x, x)}
   end
 
@@ -24,7 +24,7 @@ defmodule NavatrackWeb.AccessAssignments.ShowLive do
         {@page_title}
         <:actions>
           <.button
-            data-confirm={"Are you sure you want to delete #{@x.name}?"}
+            data-confirm={"Are you sure you want to delete?"}
             phx-click={"delete-#{@x.id}"}
           >
             Delete
@@ -36,14 +36,9 @@ defmodule NavatrackWeb.AccessAssignments.ShowLive do
       </.header>
       <main>
         <ul>
-          <li>
-            <strong>User Id:</strong>
-            <%= @x.user_id %>
-          </li>
-          <li>
-            <strong>Access Attribute Id:</strong>
-            <%= @x.access_attribute_id %>
-          </li>
+          <li>Id: <%= @x.id %></li>
+          <li>User Id: <%= @x.user_id %></li>
+          <li>Access Attribute Id: <%= @x.access_attribute_id %></li>
         </ul>
       </main>
     </Layouts.app>
@@ -59,7 +54,7 @@ defmodule NavatrackWeb.AccessAssignments.ShowLive do
          |> push_navigate(to: path_index(X))}
 
       {:error, error} ->
-        Logger.warning("Delete failed for trait '#{id}':
+        Logger.warning("Delete failed for #{X} #{id}:
           #{inspect(error)}")
 
         {:noreply,
