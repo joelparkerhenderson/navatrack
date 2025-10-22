@@ -55,12 +55,14 @@ defmodule Navatrack.Accounts.AccessAttribute do
     has_many :access_permissions, Navatrack.Accounts.AccessPermission
   end
 
-  def fake(map \\ %{}) do
+  def fab!(map \\ %{}) do
+    __MODULE__ |> Ash.Changeset.for_create(:create, __MODULE__.fab_map(map)) |> Ash.create!()
+  end
+
+  def fab_map(map \\ %{}) do
     Map.merge(
       %{
-        ### meta
         locale_code: "en-US",
-        ### card
         name: "my-name",
         sign: "○",
         status: "my-status",

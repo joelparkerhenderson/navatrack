@@ -41,4 +41,18 @@ defmodule Navatrack.Codes.IloIsco2008 do
       public? true
     end
   end
+
+  def fab!(map \\ %{}) do
+    __MODULE__ |> Ash.Changeset.for_create(:create, __MODULE__.fab_map(map)) |> Ash.create!()
+  end
+
+  def fab_map(map \\ %{}) do
+    Map.merge(
+      %{
+        locale_code: "en-US",
+      },
+      map
+    )
+  end
+
 end

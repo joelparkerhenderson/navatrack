@@ -49,12 +49,17 @@ defmodule Navatrack.Accounts.AccessAssignment do
     belongs_to :access_attribute, Navatrack.Accounts.AccessAttribute
   end
 
-  def fake(map \\ %{}) do
+  def fab!(map \\ %{}) do
+    map = Map.put_new_lazy(map, :user_id, fn -> Navatrack.Accounts.User.fab!().id end)
+    map = Map.put_new_lazy(map, :access_attribute_id, fn -> Navatrack.Accounts.AccessAttribute.fab!().id end)
+    x = __MODULE__ |> Ash.Changeset.for_create(:create, __MODULE__.fab_map(map)) |> Ash.create!()
+    IO.inspect(x)
+    x
+  end
+
+  def fab_map(map \\ %{}) do
     Map.merge(
-      %{
-        user_id: nil,
-        access_attribute_id: nil
-      },
+      %{},
       map
     )
   end
