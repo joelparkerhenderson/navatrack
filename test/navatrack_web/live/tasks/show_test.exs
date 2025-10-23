@@ -56,7 +56,7 @@ defmodule NavatrackWeb.Tasks.ShowTest do
     assert response =~ "Location"
     assert response =~ "Country code ISO 3166-1 Alpha 2: #{x.location_iso_3166_1_alpha_2}"
     assert response =~ "Subcountry code ISO 3166-2: #{x.location_iso_3166_2}"
-    assert response =~ "location_postal_code: #{x.location_postal_code}"
+    assert response =~ "Postal code: #{x.location_postal_code}"
     assert response =~ "Latitude: #{x.location_latitude_as_decimal_degrees}"
     assert response =~ "Longitude: #{x.location_longitude_as_decimal_degrees}"
 

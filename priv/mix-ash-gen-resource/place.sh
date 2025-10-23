@@ -2,18 +2,18 @@
 set -euf
 
 mix ash.gen.resource \
-    MyApp.Basics.Place \
+    Navatrack.Works.Place \
     --conflicts replace \
     --default-actions create,read,update,destroy \
     --extend postgres \
     --uuid-primary-key id \
-    --attribute name:string:required \
+    --attribute name:string \
     --attribute sign:string \
     --attribute status:string \
     --attribute tagging:string \
     --attribute note:string \
     \
-    --attribute parent_id:id \
+    --attribute parent_id:uuid \
     --attribute parent_order:integer \
     \
     --attribute web:string \
@@ -40,6 +40,12 @@ mix ash.gen.resource \
     --attribute location_postal_code:string \
     --attribute location_latitude_as_decimal_degrees:decimal \
     --attribute location_longitude_as_decimal_degrees:decimal \
+    --attribute location_altitude_agl_as_meters:decimal \
+    --attribute location_altitude_msl_as_meters:decimal \
+    --attribute location_elevation_agl_as_meters:decimal \
+    --attribute location_elevation_msl_as_meters:decimal \
+    --attribute location_what3words:string \
+    --attribute location_whatfreewords:string \
     \
     --attribute avatar_image_400x400_url:string \
     --attribute avatar_image_400x400_alt:string \
@@ -54,19 +60,20 @@ mix ash.codegen create_places
 mix ash.migrate
 
 touch priv/repo/migrations/00000000000000_create_places.exs
+touch lib/navatrack/works/place.ex
 
-mkdir -p lib/my_app_web/live/places
-touch lib/my_app_web/live/places/form_live.ex
-touch lib/my_app_web/live/places/index_live.ex
-touch lib/my_app_web/live/places/show_live.ex
+mkdir -p lib/navatrack_web/live/places
+touch lib/navatrack_web/live/places/form_live.ex
+touch lib/navatrack_web/live/places/index_live.ex
+touch lib/navatrack_web/live/places/show_live.ex
 
-mkdir -p test/my_app_web/live/places
-touch test/my_app_web/live/places/form_live.ex
-touch test/my_app_web/live/places/index_live.ex
-touch test/my_app_web/live/places/show_live.ex
+mkdir -p test/navatrack_web/live/places
+touch test/navatrack_web/live/places/form_test.ex
+touch test/navatrack_web/live/places/index_test.ex
+touch test/navatrack_web/live/places/show_test.ex
 
 cat << EOF
-Edit file lib/my_app_web/router.ex to add live routes:
+Edit file lib/navatrack_web/router.ex to add live routes:
 live "/places", Places.IndexLive
 live "/places/new", Places.FormLive, :new
 live "/places/:id", Places.ShowLive
@@ -74,7 +81,7 @@ live "/places/:id/edit", Places.FormLive, :edit
 EOF
 ### Extra ###
 #
-# Edit file lib/my_app/basics/place.ex
+# Edit file lib/navatrack/basics/place.ex
 #
 # Find this section:
 #
@@ -84,7 +91,7 @@ EOF
 #
 # Add this:
 #
-#     index[:{attribute.id}]#     index[:{attribute.id}]#     index[:{attribute.id}]#     index[:{attribute.id}]#     index[:{attribute.id}]#     index[:{attribute.id}]#     index[:{attribute.id}]#     index[:{attribute.id}]#     index[:{attribute.id}]#     index[:{attribute.id}]#     index[:{attribute.id}]#     index[:{attribute.id}]#
+#     index[:{attribute.id}]
 #
 # Change the attributes created_at and updated_at to:
 #

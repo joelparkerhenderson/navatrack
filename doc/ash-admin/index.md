@@ -12,7 +12,7 @@ use Ash.Domain,
 And this:
 
 ```elixir
-# AshAdmin    
+# AshAdmin
 admin do
   show? true
 end
