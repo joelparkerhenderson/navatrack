@@ -328,6 +328,18 @@
       "references": null,
       "scale": null,
       "size": null,
+      "source": "mastodon_as_url",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
       "source": "orcid_as_url",
       "type": "text"
     },
@@ -2725,7 +2737,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "3654721C6982129174E3523E7DC54D1565977D57BD24092F74A6008E054BECBA",
+  "hash": "B1903A0C9BA77F9A27365B35FE6CF45BDE253283CC7D7BB6E288EA90B895B4E5",
   "identities": [],
   "multitenancy": {
     "attribute": null,

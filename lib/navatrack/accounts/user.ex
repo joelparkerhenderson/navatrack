@@ -127,6 +127,7 @@ defmodule Navatrack.Accounts.User do
       :github_as_url,
       :instagram_as_url,
       :linkedin_as_url,
+      :mastodon_as_url,
       :orcid_as_url,
       :tiktok_as_url,
       :wikipedia_as_url,
@@ -238,6 +239,7 @@ defmodule Navatrack.Accounts.User do
     attribute :github_as_url, :string
     attribute :instagram_as_url, :string
     attribute :linkedin_as_url, :string
+    attribute :mastodon_as_url, :string
     attribute :orcid_as_url, :string
     attribute :tiktok_as_url, :string
     attribute :wikipedia_as_url, :string
@@ -368,6 +370,7 @@ defmodule Navatrack.Accounts.User do
         github_as_url: "https://github.com/in/my-handle",
         instagram_as_url: "https://instagram.com/my-handle",
         linkedin_as_url: "https://linkedin.com/in/my-handle",
+        mastodon_as_url: "https://mastodon.social/@my-handle",
         orcid_as_url: "https://orcid.org/my-handle",
         tiktok_as_url: "https://tiktok.com/my-handle",
         wikipedia_as_url: "https://wikipedia.org/my-handle",

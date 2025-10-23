@@ -33,7 +33,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "family",
+      "source": "code",
       "type": "text"
     },
     {
@@ -57,56 +57,8 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "url",
+      "source": "definition_as_markdown",
       "type": "text"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "description_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "level_name",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "level_description_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "senior_civil_service_flag",
-      "type": "boolean"
     }
   ],
   "base_filter": null,
@@ -114,7 +66,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": false,
-  "hash": "1CBF48A584A3F62B2CCC98B5EED645AF2F6FE253F6D579BB8DCAC71912537CA7",
+  "hash": "1BDE8F4C0E909332AE9967EAC424C086C2A2E6C8F571FB1079B09B0B276F03B0",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -123,5 +75,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "uk_gdad_pcf_roles"
+  "table": "ilo_isco_2008s"
 }

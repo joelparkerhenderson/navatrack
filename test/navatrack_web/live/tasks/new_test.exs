@@ -42,6 +42,7 @@ defmodule NavatrackWeb.Tasks.NewTest do
     assert response =~ "GitHub URL"
     assert response =~ "Instagram URL"
     assert response =~ "LinkedIn URL"
+    assert response =~ "Mastodon URL"
     assert response =~ "ORCID URL"
     assert response =~ "TikTok URL"
     assert response =~ "Wikipedia URL"

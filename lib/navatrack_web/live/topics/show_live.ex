@@ -49,7 +49,7 @@ defmodule NavatrackWeb.Topics.ShowLive do
         <.section id="location" title="Location">
           <p>Country code ISO 3166-1 Alpha 2: {@x.location_iso_3166_1_alpha_2}</p>
           <p>Subcountry code ISO 3166-2: {@x.location_iso_3166_2}</p>
-          <p>location_postal_code: {@x.location_postal_code}</p>
+          <p>Postal code: {@x.location_postal_code}</p>
           <p>Latitude: {@x.location_latitude_as_decimal_degrees}</p>
           <p>Longitude: {@x.location_longitude_as_decimal_degrees}</p>
         </.section>

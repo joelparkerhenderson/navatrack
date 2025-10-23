@@ -551,6 +551,7 @@ defmodule NavatrackWeb.CoreComponents do
       <p>Facebook URL: <a href={@x.facebook_as_url}>{@x.facebook_as_url}</a></p>
       <p>Instagram URL: <a href={@x.instagram_as_url}>{@x.instagram_as_url}</a></p>
       <p>LinkedIn URL: <a href={@x.linkedin_as_url}>{@x.linkedin_as_url}</a></p>
+      <p>Mastodon URL: <a href={@x.mastodon_as_url}>{@x.mastodon_as_url}</a></p>
       <p>ORCID URL: <a href={@x.orcid_as_url}>{@x.orcid_as_url}</a></p>
       <p>TikTok URL: <a href={@x.tiktok_as_url}>{@x.tiktok_as_url}</a></p>
       <p>Wikipedia URL: <a href={@x.wikipedia_as_url}>{@x.wikipedia_as_url}</a></p>

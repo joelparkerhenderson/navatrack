@@ -149,6 +149,12 @@ defmodule NavatrackWeb.Users.FormLive do
             placeholder="https://linkedin.com/in/example"
           />
           <.input
+            field={form[:mastodon_as_url]}
+            label="Mastodon URL"
+            type="url"
+            placeholder="https://mastodon.social/@xample"
+          />
+          <.input
             field={form[:orcid_as_url]}
             label="ORCID URL"
             type="url"

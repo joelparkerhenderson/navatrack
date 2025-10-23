@@ -15,16 +15,71 @@ defmodule Navatrack.Works.Place do
   end
 
   actions do
-    defaults [:read, :destroy, create: [], update: []]
+    defaults [:read, :destroy, :create, :update]
+    default_accept [
+      ### meta
+      :created_at,
+      :updated_at,
+      :deleted_at,
+      :locale_code,
+      :parent_id,
+      :parent_order,
+      ### card
+      :name,
+      :sign,
+      :status,
+      :tagging,
+      :note,
+      ### contact
+      :web,
+      :email,
+      :phone,
+      :chat,
+      :calendar,
+      :postal,
+      :rdf_type,
+      ### social
+      :bluesky_as_url,
+      :codeberg_as_url,
+      :facebook_as_url,
+      :github_as_url,
+      :instagram_as_url,
+      :linkedin_as_url,
+      :mastodon_as_url,
+      :orcid_as_url,
+      :tiktok_as_url,
+      :wikipedia_as_url,
+      :youtube_as_url,
+      ### location
+      :location_iso_3166_1_alpha_2,
+      :location_iso_3166_2,
+      :location_postal_code,
+      :location_latitude_as_decimal_degrees,
+      :location_longitude_as_decimal_degrees,
+      :location_altitude_agl_as_meters,
+      :location_altitude_msl_as_meters,
+      :location_elevation_agl_as_meters,
+      :location_elevation_msl_as_meters,
+      ### images
+      :avatar_image_400x400_url,
+      :avatar_image_400x400_alt,
+      :main_image_1080x1080_url,
+      :main_image_1080x1080_alt,
+      :main_image_1920x1080_url,
+      :main_image_1920x1080_alt,
+      :main_image_1080x1920_url,
+      :main_image_1080x1920_alt,
+    ]
   end
 
   attributes do
+    ### meta
     uuid_primary_key :id
-
-    attribute :name, :string do
-      allow_nil? false
-    end
-
+    attribute :created_at, :utc_datetime_usec
+    attribute :updated_at, :utc_datetime_usec
+    attribute :deleted_at, :utc_datetime_usec
+    attribute :locale_code, :string
+    attribute :name, :string
     attribute :sign, :string
     attribute :status, :string
     attribute :tagging, :string
@@ -44,6 +99,7 @@ defmodule Navatrack.Works.Place do
     attribute :github_as_url, :string
     attribute :instagram_as_url, :string
     attribute :linkedin_as_url, :string
+    attribute :mastodon_as_url, :string
     attribute :orcid_as_url, :string
     attribute :tiktok_as_url, :string
     attribute :wikipedia_as_url, :string
@@ -105,6 +161,7 @@ defmodule Navatrack.Works.Place do
         github_as_url: "https://github.com/in/my-handle",
         instagram_as_url: "https://instagram.com/my-handle",
         linkedin_as_url: "https://linkedin.com/in/my-handle",
+        mastodon_as_url: "https://mastodon.social/@my-handle",
         orcid_as_url: "https://orcid.org/my-handle",
         tiktok_as_url: "https://tiktok.com/my-handle",
         wikipedia_as_url: "https://wikipedia.org/my-handle",

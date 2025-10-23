@@ -37,6 +37,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableTopics do
       github_as_url text CONSTRAINT github_as_url_check CHECK (github_as_url ~* '^https://github\.com/'),
       instagram_as_url text CONSTRAINT instagram_as_url_check CHECK (instagram_as_url ~* '^https://instagram\.com/'),
       linkedin_as_url text CONSTRAINT linkedin_as_url_check CHECK (linkedin_as_url ~* '^https://linkedin\.com/'),
+      mastodon_as_url text CONSTRAINT mastodon_as_url_check CHECK (mastodon_as_url ~* '^https://'),
       orcid_as_url text CONSTRAINT orcid_as_url_check CHECK (orcid_as_url ~* '^https://orcid\.org/'),
       tiktok_as_url text CONSTRAINT tiktok_as_url_check CHECK (tiktok_as_url ~* '^https://tiktok\.com/'),
       wikipedia_as_url text CONSTRAINT wikipedia_uri_check CHECK (wikipedia_as_url ~* '^https://wikipedia\.org/'),
@@ -323,6 +324,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableTopics do
     execute "DROP CONSTRAINT IF EXISTS github_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS instagram_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS linkedin_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS mastodon_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS orcid_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS tiktok_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS wikipedia_as_url_check;"
