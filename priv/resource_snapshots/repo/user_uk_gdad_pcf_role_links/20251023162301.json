@@ -66,30 +66,6 @@
       "generated?": false,
       "precision": null,
       "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "parent_id",
-      "type": "uuid"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "parent_order",
-      "type": "bigint"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -103,16 +79,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "access_permissions_access_attribute_id_fkey",
+        "name": "user_uk_gdad_pcf_role_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "access_attributes"
+        "table": "users"
       },
       "scale": null,
       "size": null,
-      "source": "access_attribute_id",
+      "source": "user_id",
       "type": "uuid"
     },
     {
@@ -134,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "access_permissions_access_operation_id_fkey",
+        "name": "user_uk_gdad_pcf_role_links_uk_gdad_pcf_role_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "access_operations"
+        "table": "uk_gdad_pcf_roles"
       },
       "scale": null,
       "size": null,
-      "source": "access_operation_id",
+      "source": "uk_gdad_pcf_role_id",
       "type": "uuid"
     }
   ],
@@ -152,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "41C3D9596AA569200ADEDBD44C0714F92BE519D662B9DDB06EABD2697AC68454",
+  "hash": "997C5F470B5927D773D79A073B26E2236F6BB1B8B38155048B245BD1373C4211",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -161,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "access_permissions"
+  "table": "user_uk_gdad_pcf_role_links"
 }

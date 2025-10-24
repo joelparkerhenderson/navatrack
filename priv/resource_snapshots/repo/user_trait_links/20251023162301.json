@@ -61,11 +61,11 @@
       "type": "text"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -92,11 +92,11 @@
       "type": "uuid"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -128,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "811DC93324EBD9DCA6DCE8C180E582BBD8AC95E9D3BCB2EA63001673C1AAB573",
+  "hash": "20C83FA1C8011B078B5E1E4A0010657DCABB64E407CAB7D798735E4DC1AF3331",
   "identities": [],
   "multitenancy": {
     "attribute": null,

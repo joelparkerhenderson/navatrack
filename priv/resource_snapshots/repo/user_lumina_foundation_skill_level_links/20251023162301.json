@@ -66,10 +66,29 @@
       "generated?": false,
       "precision": null,
       "primary_key?": false,
-      "references": null,
+      "references": {
+        "deferrable": false,
+        "destination_attribute": "id",
+        "destination_attribute_default": null,
+        "destination_attribute_generated": null,
+        "index?": false,
+        "match_type": null,
+        "match_with": null,
+        "multitenancy": {
+          "attribute": null,
+          "global": null,
+          "strategy": null
+        },
+        "name": "user_lumina_foundation_skill_level_links_user_id_fkey",
+        "on_delete": null,
+        "on_update": null,
+        "primary_key?": true,
+        "schema": "public",
+        "table": "users"
+      },
       "scale": null,
       "size": null,
-      "source": "parent_id",
+      "source": "user_id",
       "type": "uuid"
     },
     {
@@ -78,71 +97,30 @@
       "generated?": false,
       "precision": null,
       "primary_key?": false,
-      "references": null,
+      "references": {
+        "deferrable": false,
+        "destination_attribute": "id",
+        "destination_attribute_default": null,
+        "destination_attribute_generated": null,
+        "index?": false,
+        "match_type": null,
+        "match_with": null,
+        "multitenancy": {
+          "attribute": null,
+          "global": null,
+          "strategy": null
+        },
+        "name": "user_lumina_foundation_skill_level_links_lumina_foundation_skill_level_id_fkey",
+        "on_delete": null,
+        "on_update": null,
+        "primary_key?": true,
+        "schema": "public",
+        "table": "lumina_foundation_skill_levels"
+      },
       "scale": null,
       "size": null,
-      "source": "parent_order",
-      "type": "bigint"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "name",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "sign",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "status",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "tagging",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "note",
-      "type": "text"
+      "source": "lumina_foundation_skill_level_id",
+      "type": "uuid"
     }
   ],
   "base_filter": null,
@@ -150,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "4DF55149562FBBB41A0D8CB572F8B7D2359CC5D22880049ED667C42AD057BAFF",
+  "hash": "9E5DF566368EDDE7882A44450B545AEC674D626EADAD319C206B9CED6A301216",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -159,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "access_operations"
+  "table": "user_lumina_foundation_skill_level_links"
 }

@@ -61,11 +61,35 @@
       "type": "text"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "parent_id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "parent_order",
+      "type": "bigint"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -79,7 +103,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_topic_links_user_id_fkey",
+        "name": "access_assignments_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -92,11 +116,11 @@
       "type": "uuid"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -110,16 +134,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_topic_links_topic_id_fkey",
+        "name": "access_assignments_access_attribute_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "topics"
+        "table": "access_attributes"
       },
       "scale": null,
       "size": null,
-      "source": "topic_id",
+      "source": "access_attribute_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +152,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "D306511D2E842368041098B8CDF14BE6AB9E9A2AD698230BE23738498B3AF346",
+  "hash": "876DF1046ABAE2C41AE6EFA5A88DC6305C575659B17FEF2788CC95B2510EB1C4",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +161,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_topic_links"
+  "table": "access_assignments"
 }

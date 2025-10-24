@@ -79,12 +79,12 @@
           "global": null,
           "strategy": null
         },
-        "name": "multi_rater_feedback_messages_parent_id_fkey",
+        "name": "traits_parent_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "multi_rater_feedback_messages"
+        "table": "traits"
       },
       "scale": null,
       "size": null,
@@ -164,68 +164,6 @@
       "type": "text"
     },
     {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": {
-        "deferrable": false,
-        "destination_attribute": "id",
-        "destination_attribute_default": null,
-        "destination_attribute_generated": null,
-        "index?": false,
-        "match_type": null,
-        "match_with": null,
-        "multitenancy": {
-          "attribute": null,
-          "global": null,
-          "strategy": null
-        },
-        "name": "multi_rater_feedback_messages_writer_as_user_id_fkey",
-        "on_delete": null,
-        "on_update": null,
-        "primary_key?": true,
-        "schema": "public",
-        "table": "users"
-      },
-      "scale": null,
-      "size": null,
-      "source": "writer_as_user_id",
-      "type": "uuid"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": {
-        "deferrable": false,
-        "destination_attribute": "id",
-        "destination_attribute_default": null,
-        "destination_attribute_generated": null,
-        "index?": false,
-        "match_type": null,
-        "match_with": null,
-        "multitenancy": {
-          "attribute": null,
-          "global": null,
-          "strategy": null
-        },
-        "name": "multi_rater_feedback_messages_reader_as_user_id_fkey",
-        "on_delete": null,
-        "on_update": null,
-        "primary_key?": true,
-        "schema": "public",
-        "table": "users"
-      },
-      "scale": null,
-      "size": null,
-      "source": "reader_as_user_id",
-      "type": "uuid"
-    },
-    {
       "allow_nil?": true,
       "default": "nil",
       "generated?": false,
@@ -234,7 +172,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "strength",
+      "source": "summary_as_markdown",
       "type": "text"
     },
     {
@@ -246,7 +184,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "start",
+      "source": "description_as_markdown",
       "type": "text"
     },
     {
@@ -258,7 +196,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "stop",
+      "source": "avatar_image_400x400_url",
       "type": "text"
     },
     {
@@ -270,7 +208,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "continue",
+      "source": "avatar_image_400x400_alt",
       "type": "text"
     },
     {
@@ -282,7 +220,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "change",
+      "source": "main_image_1080x1080_url",
       "type": "text"
     },
     {
@@ -294,7 +232,55 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "advice",
+      "source": "main_image_1080x1080_alt",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "main_image_1920x1080_url",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "main_image_1920x1080_alt",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "main_image_1080x1920_url",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "main_image_1080x1920_alt",
       "type": "text"
     }
   ],
@@ -303,7 +289,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "A64AE7B375117CC64365B0D4F29835B7FB21485F16A4B6A32938E60E824D32FC",
+  "hash": "6E6D8FAAD7AA801C4C3E5A6B4279406AC5637356BA7709E19E14F8C908D8F6B3",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -312,5 +298,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "multi_rater_feedback_messages"
+  "table": "traits"
 }

@@ -61,42 +61,35 @@
       "type": "text"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
-      "references": {
-        "deferrable": false,
-        "destination_attribute": "id",
-        "destination_attribute_default": null,
-        "destination_attribute_generated": null,
-        "index?": false,
-        "match_type": null,
-        "match_with": null,
-        "multitenancy": {
-          "attribute": null,
-          "global": null,
-          "strategy": null
-        },
-        "name": "user_group_links_user_id_fkey",
-        "on_delete": null,
-        "on_update": null,
-        "primary_key?": true,
-        "schema": "public",
-        "table": "users"
-      },
+      "primary_key?": false,
+      "references": null,
       "scale": null,
       "size": null,
-      "source": "user_id",
+      "source": "parent_id",
       "type": "uuid"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "parent_order",
+      "type": "bigint"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -110,16 +103,47 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_group_links_group_id_fkey",
+        "name": "access_permissions_access_attribute_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "groups"
+        "table": "access_attributes"
       },
       "scale": null,
       "size": null,
-      "source": "group_id",
+      "source": "access_attribute_id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": {
+        "deferrable": false,
+        "destination_attribute": "id",
+        "destination_attribute_default": null,
+        "destination_attribute_generated": null,
+        "index?": false,
+        "match_type": null,
+        "match_with": null,
+        "multitenancy": {
+          "attribute": null,
+          "global": null,
+          "strategy": null
+        },
+        "name": "access_permissions_access_operation_id_fkey",
+        "on_delete": null,
+        "on_update": null,
+        "primary_key?": true,
+        "schema": "public",
+        "table": "access_operations"
+      },
+      "scale": null,
+      "size": null,
+      "source": "access_operation_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +152,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "05649E559DD75C31B32055352E59EF2814443693BD3402414C40FBF08F80D9C2",
+  "hash": "63175D008B90FFFDC1C86C20564757A11196648C6618B5E378FEFAE7EB4313E1",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +161,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_group_links"
+  "table": "access_permissions"
 }

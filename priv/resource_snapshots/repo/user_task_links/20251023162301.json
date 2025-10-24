@@ -79,92 +79,20 @@
           "global": null,
           "strategy": null
         },
-        "name": "messages_parent_id_fkey",
+        "name": "user_task_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "messages"
+        "table": "users"
       },
       "scale": null,
       "size": null,
-      "source": "parent_id",
+      "source": "user_id",
       "type": "uuid"
     },
     {
       "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "parent_order",
-      "type": "bigint"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "name",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "sign",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "status",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "tagging",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "note",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -182,47 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "messages_writer_as_user_id_fkey",
+        "name": "user_task_links_task_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "users"
+        "table": "tasks"
       },
       "scale": null,
       "size": null,
-      "source": "writer_as_user_id",
-      "type": "uuid"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": {
-        "deferrable": false,
-        "destination_attribute": "id",
-        "destination_attribute_default": null,
-        "destination_attribute_generated": null,
-        "index?": false,
-        "match_type": null,
-        "match_with": null,
-        "multitenancy": {
-          "attribute": null,
-          "global": null,
-          "strategy": null
-        },
-        "name": "messages_reader_as_user_id_fkey",
-        "on_delete": null,
-        "on_update": null,
-        "primary_key?": true,
-        "schema": "public",
-        "table": "users"
-      },
-      "scale": null,
-      "size": null,
-      "source": "reader_as_user_id",
+      "source": "task_id",
       "type": "uuid"
     }
   ],
@@ -231,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "18A745F74EBEE6EF6DB6552E1DE20D3497A647FFE2D002FBAFA58DD3EF984CE2",
+  "hash": "B36AABEF7282BD2827BE320AD81935A7930B8820B37A998B9D4326CD4065CCBF",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -240,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "messages"
+  "table": "user_task_links"
 }

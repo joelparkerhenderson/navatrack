@@ -2,10 +2,70 @@
   "attributes": [
     {
       "allow_nil?": false,
-      "default": "nil",
+      "default": "fragment(\"gen_random_uuid()\")",
       "generated?": false,
       "precision": null,
       "primary_key?": true,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "created_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "updated_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "deleted_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "locale_code",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -19,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_lumina_foundation_skill_level_links_user_id_fkey",
+        "name": "user_group_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -32,11 +92,11 @@
       "type": "uuid"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -50,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_lumina_foundation_skill_level_links_lumina_foundation_skill_level_id_fkey",
+        "name": "user_group_links_group_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "lumina_foundation_skill_levels"
+        "table": "groups"
       },
       "scale": null,
       "size": null,
-      "source": "lumina_foundation_skill_level_id",
+      "source": "group_id",
       "type": "uuid"
     }
   ],
@@ -68,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "4E6205974F1123219750DA0D76211F0B7A8BD4C62D40F2CA1445D3920227F351",
+  "hash": "95A1B885A3C217B6C29807BA1134B2F7CBA90159F5F0C0F63CB19C86FEB6C496",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -77,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_lumina_foundation_skill_level_links"
+  "table": "user_group_links"
 }

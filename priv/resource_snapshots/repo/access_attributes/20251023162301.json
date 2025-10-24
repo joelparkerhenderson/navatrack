@@ -13,7 +13,43 @@
       "type": "uuid"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "created_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "updated_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "deleted_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -25,7 +61,31 @@
       "type": "text"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "parent_id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "parent_order",
+      "type": "bigint"
+    },
+    {
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -37,7 +97,7 @@
       "type": "text"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -45,11 +105,11 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "url",
+      "source": "sign",
       "type": "text"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -57,11 +117,11 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "description",
+      "source": "status",
       "type": "text"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -69,11 +129,11 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "level_1_description_as_markdown",
+      "source": "tagging",
       "type": "text"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -81,43 +141,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "level_2_description_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "level_3_description_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "level_4_description_as_markdown",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "roles_that_require_this_skill_as_markdown",
+      "source": "note",
       "type": "text"
     }
   ],
@@ -125,8 +149,8 @@
   "check_constraints": [],
   "custom_indexes": [],
   "custom_statements": [],
-  "has_create_action": false,
-  "hash": "5F1473B8AEDD7A8EF1D327DFD775D879C21123C403E7BC02960208F3B667EAFD",
+  "has_create_action": true,
+  "hash": "47D72AB1FBCCAB8A79059CC56A303CF1ACA7E6E6A898A68CAFEE40F29C4A7951",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -135,5 +159,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "uk_gdad_pcf_skills"
+  "table": "access_attributes"
 }

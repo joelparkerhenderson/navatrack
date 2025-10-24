@@ -2,10 +2,70 @@
   "attributes": [
     {
       "allow_nil?": false,
-      "default": "nil",
+      "default": "fragment(\"gen_random_uuid()\")",
       "generated?": false,
       "precision": null,
       "primary_key?": true,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "created_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "updated_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "deleted_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "locale_code",
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -19,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_uk_gdad_pcf_skill_links_user_id_fkey",
+        "name": "user_event_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -32,11 +92,11 @@
       "type": "uuid"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -50,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_uk_gdad_pcf_skill_links_uk_gdad_pcf_skill_id_fkey",
+        "name": "user_event_links_event_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "uk_gdad_pcf_skills"
+        "table": "events"
       },
       "scale": null,
       "size": null,
-      "source": "uk_gdad_pcf_skill_id",
+      "source": "event_id",
       "type": "uuid"
     }
   ],
@@ -68,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "41386EB289969D288BF9064E6830E24CA187103C2AF3C91E871E2C8EFF0FF86B",
+  "hash": "7A1185A28BAEB4031D8C858F9DD2E0977730522FF82409C45F84CF4ACF0F8F1A",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -77,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_uk_gdad_pcf_skill_links"
+  "table": "user_event_links"
 }

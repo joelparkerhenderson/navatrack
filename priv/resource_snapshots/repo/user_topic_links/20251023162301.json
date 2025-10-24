@@ -61,11 +61,11 @@
       "type": "text"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -79,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_plan_links_user_id_fkey",
+        "name": "user_topic_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -92,11 +92,11 @@
       "type": "uuid"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -110,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_plan_links_plan_id_fkey",
+        "name": "user_topic_links_topic_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "plans"
+        "table": "topics"
       },
       "scale": null,
       "size": null,
-      "source": "plan_id",
+      "source": "topic_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "7F7F7A8D04110EEE5F2D9262ED4434B9B42C4B3787618CAE33B524645A0052AD",
+  "hash": "F4F4884D664AABFD3850336CE76096A52861ED1D163F9AE41E73A9A5BF470CD8",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_plan_links"
+  "table": "user_topic_links"
 }

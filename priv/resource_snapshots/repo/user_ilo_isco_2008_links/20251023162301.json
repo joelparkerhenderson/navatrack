@@ -61,11 +61,11 @@
       "type": "text"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -79,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_event_links_user_id_fkey",
+        "name": "user_ilo_isco_2008_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -92,11 +92,11 @@
       "type": "uuid"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
-      "primary_key?": true,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -110,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_event_links_event_id_fkey",
+        "name": "user_ilo_isco_2008_links_ilo_isco_2008_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "events"
+        "table": "ilo_isco_2008s"
       },
       "scale": null,
       "size": null,
-      "source": "event_id",
+      "source": "ilo_isco_2008_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "7365703F77154C0AB6E4C92B8B4E6AFECA2CFDBE5633CF3DE6592A9DC4EA8091",
+  "hash": "D5C493F5D4F687678266403B8905AEF6E12CCD5A528C00BE45A0CF3CB7665A30",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_event_links"
+  "table": "user_ilo_isco_2008_links"
 }
