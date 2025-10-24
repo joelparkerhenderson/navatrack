@@ -22,6 +22,9 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       status text,
       tagging text,
       note text,
+      -- ai
+      ai_agent_instructions_as_url text CONSTRAINT ai_agent_instructions_as_url CHECK (ai_agent_instructions_as_url ~* '^https://'),
+      ai_agent_instructions_as_markdown text,
       --- contact
       web text CONSTRAINT web_check CHECK (web ~* '^https://'),
       email text CONSTRAINT email_check CHECK (email ~*  '.@.'),
@@ -62,9 +65,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       vision_statement text,
       mission_statement text,
       values_statement text,
-      -- ai
-      ai_agent_instructions_as_url text CONSTRAINT ai_agent_instructions_as_url CHECK (ai_agent_instructions_as_url ~* '^https://'),
-      ai_agent_instructions_as_markdown text,
       --- workable
       email_distribution_list text,
       daisyui_timeline_html text,
@@ -104,16 +104,47 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       ON users
       USING GIN ((
         sign
-          || ' ' ||
-        name
-          || ' ' ||
-        status
-          || ' ' ||
-        tagging
-          || ' ' ||
-        note
-          || ' ' ||
-        ai_agent_instructions_as_markdown
+          || ' ' || name
+          || ' ' || status
+          || ' ' || tagging
+          || ' ' || note
+          || ' ' || ai_agent_instructions_as_markdown
+          || ' ' || web
+          || ' ' || email
+          || ' ' || phone
+          || ' ' || chat
+          || ' ' || calendar
+          || ' ' || postal
+          || ' ' || rdf_type
+          || ' ' || bluesky_as_url
+          || ' ' || codeberg_as_url
+          || ' ' || github_as_url
+          || ' ' || instagram_as_url
+          || ' ' || linkedin_as_url
+          || ' ' || mastodon_as_url
+          || ' ' || orcid_as_url
+          || ' ' || tiktok_as_url
+          || ' ' || wikipedia_as_url
+          || ' ' || youtube_as_url
+          || ' ' || purpose_statement
+          || ' ' || vision_statement
+          || ' ' || mission_statement
+          || ' ' || values_statement
+          || ' ' || org_mode
+          || ' ' || task_list_as_markdown
+          || ' ' || ways_of_working_as_markdown
+          || ' ' || objectives_and_key_results_as_markdown
+          || ' ' || key_performance_indicators_as_markdown
+          || ' ' || work_profile_resume_as_markdown
+          || ' ' || work_profile_curriculum_vitae_as_markdown
+          || ' ' || work_role_name
+          || ' ' || work_role_level
+          || ' ' || work_role_description_as_markdown
+          || ' ' || work_role_professional_development_plan_as_markdown
+          || ' ' || work_role_onet_soc_2019_code
+          || ' ' || work_role_uk_civil_service_grade_abbreviation
+          || ' ' || work_role_uk_soc_2020_code
+          || ' ' || work_role_uk_gdad_pcf_url
       ) gin_trgm_ops);
     """
     execute "CREATE INDEX users_created_at_index ON users (created_at);"
@@ -133,6 +164,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
     execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
     execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
     execute "DROP CONSTRAINT IF EXISTS sign_check;"
+    execute "DROP CONSTRAINT IF EXISTS ai_agent_instructions_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS web_check;"
     execute "DROP CONSTRAINT IF EXISTS email_check;"
     execute "DROP CONSTRAINT IF EXISTS bluesky_as_url_check;"
@@ -153,7 +185,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
     execute "DROP CONSTRAINT IF EXISTS main_image_1080x1080_url_check;"
     execute "DROP CONSTRAINT IF EXISTS main_image_1920x1080_url_check;"
     execute "DROP CONSTRAINT IF EXISTS main_image_1080x1920_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS ai_agent_instructions_url_check;"
     execute "DROP CONSTRAINT IF EXISTS work_profile_resume_as_pdf_url_check;"
     execute "DROP CONSTRAINT IF EXISTS work_profile_curriculum_vitae_as_pdf_url_check;"
     execute "DROP TRIGGER IF EXISTS trigger_users_updated_at;"

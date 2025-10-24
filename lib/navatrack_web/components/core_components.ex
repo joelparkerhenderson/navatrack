@@ -561,14 +561,14 @@ defmodule NavatrackWeb.CoreComponents do
   end
 
   @doc """
-  Render a show_live.ex section id="contact" using our default conventions.
+  Render a show_live.ex section id="contacts" using our default conventions.
   """
 
   attr :x, :any, required: true
 
   def show_live_section_contact(assigns) do
     ~H"""
-    <.section id="contact" title="Contact">
+    <.section id="contacts" title="Contacts">
       <p>🌐 Web: {@x.web}</p>
       <p>📧 Email: {@x.email}</p>
       <p>📱 Phone: {@x.phone}</p>

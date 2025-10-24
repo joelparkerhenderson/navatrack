@@ -1,7 +1,7 @@
 defmodule UkGdadPcfSkillTest do
   alias Navatrack.Codes.UkGdadPcfSkill, as: X
   use ExUnit.Case
-  import Ecto.Query
+  # import Ecto.Query
 
   setup do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Navatrack.Repo)
@@ -9,11 +9,8 @@ defmodule UkGdadPcfSkillTest do
     :ok
   end
 
-  test "random" do
-    Navatrack.Repo.one(
-      from l in X,
-        order_by: fragment("RANDOM()"),
-        limit: 1
-    )
+  test "one" do
+    X.one()
   end
+
 end

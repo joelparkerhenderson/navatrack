@@ -27,7 +27,7 @@ defmodule NavatrackWeb.Plans.NewTest do
     assert response =~ "🏷️ Tags"
     assert response =~ "🗒️ Note"
 
-    assert response =~ "Contact"
+    assert response =~ "Contacts"
     assert response =~ "🌐 Web"
     assert response =~ "📧 Email"
     assert response =~ "📱 Phone"
@@ -118,6 +118,12 @@ defmodule NavatrackWeb.Plans.NewTest do
     assert response =~ "Weaknesses"
     assert response =~ "Opportunities"
     assert response =~ "Threats"
+
+    assert response =~ "RAID: Risks Assumptions Issues Dependencies"
+    assert response =~ "Risks"
+    assert response =~ "Assumptions"
+    assert response =~ "Issues"
+    assert response =~ "Dependencies"
 
     assert response =~ "STEEPLE: Social Technological Economic Environmental Political Legal Ethical"
     assert response =~ "Socials"

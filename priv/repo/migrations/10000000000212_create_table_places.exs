@@ -22,6 +22,9 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlaces do
       status text,
       tagging text,
       note text,
+      -- ai
+      ai_agent_instructions_as_url text CONSTRAINT ai_agent_instructions_as_url CHECK (ai_agent_instructions_as_url ~* '^https://'),
+      ai_agent_instructions_as_markdown text,
       --- contact
       web text CONSTRAINT web_check CHECK (web ~* '^https://'),
       email text CONSTRAINT email_check CHECK (email ~*  '.@.'),
@@ -77,14 +80,28 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlaces do
     CREATE INDEX places_index_gto
       ON places USING GIN ((
         sign
-          || ' ' ||
-        name
-          || ' ' ||
-        status
-          || ' ' ||
-        tagging
-          || ' ' ||
-        note
+          || ' ' || name
+          || ' ' || status
+          || ' ' || tagging
+          || ' ' || note
+          || ' ' || ai_agent_instructions_as_markdown
+          || ' ' || web
+          || ' ' || email
+          || ' ' || phone
+          || ' ' || chat
+          || ' ' || calendar
+          || ' ' || postal
+          || ' ' || rdf_type
+          || ' ' || bluesky_as_url
+          || ' ' || codeberg_as_url
+          || ' ' || github_as_url
+          || ' ' || instagram_as_url
+          || ' ' || linkedin_as_url
+          || ' ' || mastodon_as_url
+          || ' ' || orcid_as_url
+          || ' ' || tiktok_as_url
+          || ' ' || wikipedia_as_url
+          || ' ' || youtube_as_url
     ) gin_trgm_ops);
     """
     execute "CREATE INDEX places_created_at_index ON places (created_at);"
@@ -110,6 +127,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlaces do
     execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
     execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
     execute "DROP CONSTRAINT IF EXISTS sign_check;"
+    execute "DROP CONSTRAINT IF EXISTS ai_agent_instructions_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS web_check;"
     execute "DROP CONSTRAINT IF EXISTS email_check;"
     execute "DROP CONSTRAINT IF EXISTS bluesky_as_url_check;"

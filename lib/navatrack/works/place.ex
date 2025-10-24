@@ -60,6 +60,8 @@ defmodule Navatrack.Works.Place do
       :location_altitude_msl_as_meters,
       :location_elevation_agl_as_meters,
       :location_elevation_msl_as_meters,
+      :location_what3words,
+      :location_whatfreewords,
       ### images
       :avatar_image_400x400_url,
       :avatar_image_400x400_alt,

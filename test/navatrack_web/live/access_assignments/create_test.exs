@@ -2,7 +2,7 @@ defmodule NavatrackWeb.AccessAssignments.CreateTest do
   import Phoenix.LiveViewTest
   use NavatrackWeb.ConnCase
   use NavatrackWeb.AuthCase
-  # alias Navatrack.Accounts.AccessAssignment, as: X
+  alias Navatrack.Accounts.AccessAssignment, as: X
 
   setup %{conn: conn} do
     {:ok, user} = my_user()
@@ -17,10 +17,13 @@ defmodule NavatrackWeb.AccessAssignments.CreateTest do
 
   test "create", %{conn: conn} do
     {:ok, lv, _html} = live(conn, ~p"/access_assignments/new")
+    x = X.fab!
 
     result =
       lv
       |> form("#x_form", %{
+        "form[user_id]": x.user_id,
+        "form[access_attribute_id]": x.access_attribute_id,
       })
       |> render_submit()
 

@@ -22,6 +22,9 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
       status text,
       tagging text,
       note text,
+      -- ai
+      ai_agent_instructions_as_url text CONSTRAINT ai_agent_instructions_as_url CHECK (ai_agent_instructions_as_url ~* '^https://'),
+      ai_agent_instructions_as_markdown text,
       --- contact
       web text CONSTRAINT web_check CHECK (web ~* '^https://'),
       email text CONSTRAINT email_check CHECK (email ~*  '.@.'),
@@ -62,9 +65,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
       vision_statement text,
       mission_statement text,
       values_statement text,
-      -- ai
-      ai_agent_instructions_as_url text CONSTRAINT ai_agent_instructions_as_url CHECK (ai_agent_instructions_as_url ~* '^https://'),
-      ai_agent_instructions_as_markdown text,
       --- emoji
       home_emoji_url text CONSTRAINT home_emoji_url_check CHECK (home_emoji_url ~* '^https://'),
       bellhop_bell_emoji_url text CONSTRAINT bellhop_bell_emoji_url_check CHECK (bellhop_bell_emoji_url ~* '^https://'),
@@ -216,16 +216,28 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
     CREATE INDEX groups_index_gto
       ON groups USING GIN ((
         sign
-          || ' ' ||
-        name
-          || ' ' ||
-        status
-          || ' ' ||
-        tagging
-          || ' ' ||
-        note
-          || ' ' ||
-        ai_agent_instructions_as_markdown
+          || ' ' || name
+          || ' ' || status
+          || ' ' || tagging
+          || ' ' || note
+          || ' ' || ai_agent_instructions_as_markdown
+          || ' ' || web
+          || ' ' || email
+          || ' ' || phone
+          || ' ' || chat
+          || ' ' || calendar
+          || ' ' || postal
+          || ' ' || rdf_type
+          || ' ' || bluesky_as_url
+          || ' ' || codeberg_as_url
+          || ' ' || github_as_url
+          || ' ' || instagram_as_url
+          || ' ' || linkedin_as_url
+          || ' ' || mastodon_as_url
+          || ' ' || orcid_as_url
+          || ' ' || tiktok_as_url
+          || ' ' || wikipedia_as_url
+          || ' ' || youtube_as_url
     ) gin_trgm_ops);
     """
     execute "CREATE INDEX groups_created_at_index ON groups (created_at);"
@@ -251,6 +263,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
     execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
     execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
     execute "DROP CONSTRAINT IF EXISTS sign_check;"
+    execute "DROP CONSTRAINT IF EXISTS ai_agent_instructions_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS web_check;"
     execute "DROP CONSTRAINT IF EXISTS email_check;"
     execute "DROP CONSTRAINT IF EXISTS bluesky_as_url_check;"
@@ -268,7 +281,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
     execute "DROP CONSTRAINT IF EXISTS main_image_1080x1080_url_check;"
     execute "DROP CONSTRAINT IF EXISTS main_image_1920x1080_url_check;"
     execute "DROP CONSTRAINT IF EXISTS main_image_1080x1920_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS ai_agent_instructions_url_check;"
     execute "DROP CONSTRAINT IF EXISTS home_emoji_url_check;"
     execute "DROP CONSTRAINT IF EXISTS bellhop_bell_emoji_url_check;"
     execute "DROP CONSTRAINT IF EXISTS target_emoji_url_check;"

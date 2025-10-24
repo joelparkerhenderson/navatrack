@@ -98,6 +98,13 @@ defmodule NavatrackWeb.Plans.ShowTest do
     assert response =~ "Opportunities: #{x.swot_opportunities_as_markdown}"
     assert response =~ "Threats: #{x.swot_threats_as_markdown}"
 
+    assert response =~ "RAID: Risks Assumptions Issues Dependencies"
+    assert response =~ "URL: <a href=\"#{x.raid_as_url}\">#{x.raid_as_url}</a>"
+    assert response =~ "Risks: #{x.raid_risks_as_markdown}"
+    assert response =~ "Assumptions: #{x.raid_assumptions_as_markdown}"
+    assert response =~ "Issues: #{x.raid_issues_as_markdown}"
+    assert response =~ "Dependencies: #{x.raid_dependencies_as_markdown}"
+
     assert response =~ "Porter&#39;s Five Forces"
     assert response =~ "URL: <a href=\"#{x.porters_five_forces_as_url}\">#{x.porters_five_forces_as_url}</a>"
     assert response =~ "Threat Of Entrants: #{x.porters_five_forces_entrants_as_markdown}"

@@ -132,6 +132,16 @@ defmodule NavatrackWeb.Plans.ShowLive do
 
         </.section>
 
+        <.section id="raid" title="RAID: Risks Assumptions Issues Dependencies">
+
+          <p>URL: <a href={@x.raid_as_url}>{@x.raid_as_url}</a></p>
+          <p>Risks: {@x.raid_risks_as_markdown}</p>
+          <p>Assumptions: {@x.raid_assumptions_as_markdown}</p>
+          <p>Issues: {@x.raid_issues_as_markdown}</p>
+          <p>Dependencies: {@x.raid_dependencies_as_markdown}</p>
+
+        </.section>
+
         <.section id="sipoc" title="SIPOC: Suppliers Inputs Processes Outputs Customers">
           <p>URL: <a href={@x.sipoc_as_url}>{@x.sipoc_as_url}</a></p>
           <p>Suppliers: {@x.sipoc_suppliers_as_markdown}</p>

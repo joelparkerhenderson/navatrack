@@ -10,26 +10,8 @@ defmodule UserTaskLinkTest do
     :ok
   end
 
-  test "create" do
-    user =
-      Navatrack.Accounts.User
-      |> Ash.Changeset.for_create(:create, %{
-        name: "alfa bravo"
-      })
-      |> Ash.create!()
-
-    task =
-      Navatrack.Works.Task
-      |> Ash.Changeset.for_create(:create, %{
-        name: "alfa bravo"
-      })
-      |> Ash.create!()
-
-    {:ok, _x} =
-      X
-      |> Ash.Changeset.for_create(:create, %{})
-      |> Ash.Changeset.manage_relationship(:user, user, type: :append_and_remove)
-      |> Ash.Changeset.manage_relationship(:task, task, type: :append_and_remove)
-      |> Ash.create(authorize?: false)
+  test "fab!" do
+    X.fab!()
   end
+
 end

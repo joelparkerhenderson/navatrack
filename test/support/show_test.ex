@@ -25,7 +25,7 @@ defmodule NavatrackWeb.ShowTest do
       end
 
       def assert_contacts(response, x) do
-        assert response =~ "Contact"
+        assert response =~ "Contacts"
         assert response =~ "🌐 Web: #{x.web}"
         assert response =~ "📧 Email: #{x.email}"
         assert response =~ "📱 Phone: #{x.phone}"

@@ -10,12 +10,8 @@ defmodule MessageTest do
     :ok
   end
 
-  test "create" do
-    {:ok, _x} =
-      X
-      |> Ash.Changeset.for_create(:create, %{
-        name: "alfa bravo"
-      })
-      |> Ash.create()
+  test "fab!" do
+    X.fab!
   end
+
 end

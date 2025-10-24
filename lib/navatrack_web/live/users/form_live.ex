@@ -74,7 +74,7 @@ defmodule NavatrackWeb.Users.FormLive do
           label="🗒️ Note"
         />
 
-        <.section id="contact" title="Contact">
+        <.section id="contacts" title="Contacts">
           <.input
             field={form[:web]}
             type="url"

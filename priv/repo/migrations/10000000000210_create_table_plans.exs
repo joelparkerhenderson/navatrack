@@ -22,6 +22,9 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
       status text,
       tagging text,
       note text,
+      -- ai
+      ai_agent_instructions_as_url text CONSTRAINT ai_agent_instructions_as_url CHECK (ai_agent_instructions_as_url ~* '^https://'),
+      ai_agent_instructions_as_markdown text,
       --- contact
       web text CONSTRAINT web_check CHECK (web ~* '^https://'),
       email text CONSTRAINT email_check CHECK (email ~*  '.@.'),
@@ -62,9 +65,6 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
       vision_statement text,
       mission_statement text,
       values_statement text,
-      -- ai
-      ai_agent_instructions_as_url text CONSTRAINT ai_agent_instructions_as_url CHECK (ai_agent_instructions_as_url ~* '^https://'),
-      ai_agent_instructions_as_markdown text,
       --- emoji
       home_emoji_url text CONSTRAINT home_emoji_url_check CHECK (home_emoji_url ~* '^https://'),
       bellhop_bell_emoji_url text CONSTRAINT bellhop_bell_emoji_url_check CHECK (bellhop_bell_emoji_url ~* '^https://'),
@@ -108,6 +108,12 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
       swot_weaknesses_as_markdown text,
       swot_opportunities_as_markdown text,
       swot_threats_as_markdown text,
+      -- raid
+      raid_as_url text CONSTRAINT raid_as_url_check CHECK (raid_as_url ~* '^https://'),
+      raid_risks_as_markdown text,
+      raid_assumptions_as_markdown text,
+      raid_issues_as_markdown text,
+      raid_dependencies_as_markdown text,
       --- sipoc
       sipoc_as_url text CONSTRAINT sipoc_as_url_check CHECK (sipoc_as_url ~* '^https://'),
       sipoc_suppliers_as_markdown text,
@@ -341,16 +347,28 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
     CREATE INDEX plans_index_gto
       ON plans USING GIN ((
         sign
-          || ' ' ||
-        name
-          || ' ' ||
-        status
-          || ' ' ||
-        tagging
-          || ' ' ||
-        note
-          || ' ' ||
-        ai_agent_instructions_as_markdown
+          || ' ' || name
+          || ' ' || status
+          || ' ' || tagging
+          || ' ' || note
+          || ' ' || ai_agent_instructions_as_markdown
+          || ' ' || web
+          || ' ' || email
+          || ' ' || phone
+          || ' ' || chat
+          || ' ' || calendar
+          || ' ' || postal
+          || ' ' || rdf_type
+          || ' ' || bluesky_as_url
+          || ' ' || codeberg_as_url
+          || ' ' || github_as_url
+          || ' ' || instagram_as_url
+          || ' ' || linkedin_as_url
+          || ' ' || mastodon_as_url
+          || ' ' || orcid_as_url
+          || ' ' || tiktok_as_url
+          || ' ' || wikipedia_as_url
+          || ' ' || youtube_as_url
     ) gin_trgm_ops);
     """
     execute "CREATE INDEX plans_created_at_index ON plans (created_at);"
@@ -376,6 +394,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
     execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
     execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
     execute "DROP CONSTRAINT IF EXISTS sign_check;"
+    execute "DROP CONSTRAINT IF EXISTS ai_agent_instructions_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS web_check;"
     execute "DROP CONSTRAINT IF EXISTS email_check;"
     execute "DROP CONSTRAINT IF EXISTS bluesky_as_url_check;"
@@ -393,7 +412,6 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
     execute "DROP CONSTRAINT IF EXISTS main_image_1080x1080_url_check;"
     execute "DROP CONSTRAINT IF EXISTS main_image_1920x1080_url_check;"
     execute "DROP CONSTRAINT IF EXISTS main_image_1080x1920_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS ai_agent_instructions_url_check;"
     execute "DROP CONSTRAINT IF EXISTS home_emoji_url_check;"
     execute "DROP CONSTRAINT IF EXISTS bellhop_bell_emoji_url_check;"
     execute "DROP CONSTRAINT IF EXISTS target_emoji_url_check;"
@@ -411,6 +429,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
     execute "DROP CONSTRAINT IF EXISTS glossary_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS six_pager_double_sider_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS swot_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS raid_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS porters_five_forces_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS steeple_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS roles_and_responsibilities_as_url_check;"

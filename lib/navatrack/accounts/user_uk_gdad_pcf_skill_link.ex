@@ -17,14 +17,47 @@ defmodule Navatrack.Accounts.UserUkGdadPcfSkillLink do
   end
 
   actions do
-    defaults [:read, :destroy, create: :*, update: :*]
+    defaults [:read, :destroy, :create, :update]
+    default_accept [
+      :created_at,
+      :updated_at,
+      :deleted_at,
+      :locale_code,
+      :user_id,
+      :uk_gdad_pcf_skill_id,
+    ]
+  end
+
+  attributes do
+    uuid_primary_key :id
+    attribute :created_at, :utc_datetime_usec
+    attribute :updated_at, :utc_datetime_usec
+    attribute :deleted_at, :utc_datetime_usec
+    attribute :locale_code, :string
+    attribute :user_id, :uuid
+    attribute :uk_gdad_pcf_skill_id, :uuid
   end
 
   relationships do
     belongs_to :user, Navatrack.Accounts.User, primary_key?: true, allow_nil?: false
-
-    belongs_to :uk_gdad_pcf_skill, Navatrack.Codes.UkGdadPcfSkill,
-      primary_key?: true,
-      allow_nil?: false
+    belongs_to :uk_gdad_pcf_skill, Navatrack.Codes.UkGdadPcfSkill, primary_key?: true, allow_nil?: false
   end
+
+  # TODO tighten
+  policies do
+    policy always() do
+      authorize_if always()
+    end
+  end
+
+  def fab!(map \\ %{}) do
+    map = Map.put_new_lazy(map, :user_id, fn -> Navatrack.Accounts.User.fab!().id end)
+    map = Map.put_new_lazy(map, :uk_gdad_pcf_skill_id, fn -> Navatrack.Codes.UkGdadPcfSkill.one().id end)
+    __MODULE__ |> Ash.Changeset.for_create(:create, __MODULE__.fab_map(map)) |> Ash.create!()
+  end
+
+  def fab_map(map \\ %{}) do
+    Map.merge(%{}, map)
+  end
+
 end

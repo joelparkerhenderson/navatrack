@@ -38,13 +38,8 @@ defmodule NavatrackWeb.Places.ShowLive do
 
         <.show_live_lede x={@x} />
         <.show_live_section_contact x={@x} />
-
-        <.section id="charts" title="Chart">
-          <p>URL: <a href={@x.apache_echart_as_url}>{@x.apache_echart_as_url}</a></p>
-          <p>TypeScript: {@x.apache_echart_as_typescript}</p>
-        </.section>
-
         <.show_live_section_socials x={@x} />
+        <.show_live_section_images x={@x} />
 
         <.section id="location" title="Location">
           <p>Country code ISO 3166-1 Alpha 2: {@x.location_iso_3166_1_alpha_2}</p>
@@ -52,10 +47,12 @@ defmodule NavatrackWeb.Places.ShowLive do
           <p>Postal code: {@x.location_postal_code}</p>
           <p>Latitude: {@x.location_latitude_as_decimal_degrees}</p>
           <p>Longitude: {@x.location_longitude_as_decimal_degrees}</p>
-          <p>Altitude Above Ground Level: {@x.location_altitude_agl_as_meters}</p>
-          <p>Altitude Mean Sea Level: {@x.location_altitude_msl_as_meters}</p>
-          <p>Elevation Above Ground Level: {@x.location_elevation_agl_as_meters}</p>
-          <p>Elevation Mean Sea Level: {@x.location_elevation_msl_as_meters}</p>
+          <p>Altitude above ground level as meters: {@x.location_altitude_agl_as_meters}</p>
+          <p>Altitude mean sea level as meters: {@x.location_altitude_msl_as_meters}</p>
+          <p>Elevation above ground level as meters: {@x.location_elevation_agl_as_meters}</p>
+          <p>Elevation mean sea level as meters: {@x.location_elevation_msl_as_meters}</p>
+          <p>What3Words.com: {@x.location_what3words}</p>
+          <p>WhatFreeWords.org: {@x.location_whatfreewords}</p>
         </.section>
 
       </main>

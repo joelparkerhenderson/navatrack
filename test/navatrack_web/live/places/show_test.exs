@@ -32,7 +32,7 @@ defmodule NavatrackWeb.Places.ShowTest do
     assert response =~ "📍 Status: #{x.status}"
     assert response =~ "🏷️ Tags: #{x.tagging}"
 
-    assert response =~ "Contact"
+    assert response =~ "Contacts"
     assert response =~ "🌐 Web: #{x.web}"
     assert response =~ "📧 Email: #{x.email}"
     assert response =~ "📱 Phone: #{x.phone}"
@@ -81,7 +81,7 @@ defmodule NavatrackWeb.Places.ShowTest do
     assert response =~ "URL: <a href=\"#{x.main_image_1920x1080_url}\">#{x.main_image_1920x1080_url}</a>"
     assert response =~ "Alt: #{x.main_image_1920x1080_alt}"
 
-    assert response =~ "Main image 1080x1920 porplace"
+    assert response =~ "Main image 1080x1920 portrait"
     assert response =~ "URL: <a href=\"#{x.main_image_1080x1920_url}\">#{x.main_image_1080x1920_url}</a>"
     assert response =~ "Alt: #{x.main_image_1080x1920_alt}"
   end

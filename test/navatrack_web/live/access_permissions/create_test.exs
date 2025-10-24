@@ -2,7 +2,7 @@ defmodule NavatrackWeb.AccessPermissions.CreateTest do
   import Phoenix.LiveViewTest
   use NavatrackWeb.ConnCase
   use NavatrackWeb.AuthCase
-  # alias Navatrack.Accounts.AccessPermission, as: X
+  alias Navatrack.Accounts.AccessPermission, as: X
 
   setup %{conn: conn} do
     {:ok, user} = my_user()
@@ -17,10 +17,13 @@ defmodule NavatrackWeb.AccessPermissions.CreateTest do
 
   test "create", %{conn: conn} do
     {:ok, lv, _html} = live(conn, ~p"/access_permissions/new")
+    x = X.fab!
 
     result =
       lv
       |> form("#x_form", %{
+        "form[access_attribute_id]": x.access_attribute_id,
+        "form[access_operation_id]": x.access_operation_id,
       })
       |> render_submit()
 

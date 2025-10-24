@@ -32,7 +32,7 @@ defmodule NavatrackWeb.Groups.ShowTest do
     assert response =~ "🏷️ Tags: #{x.tagging}"
     assert response =~ "🗒️ Note: #{x.note}"
 
-    assert response =~ "Contact"
+    assert response =~ "Contacts"
     assert response =~ "🌐 Web: #{x.web}"
     assert response =~ "📧 Email: #{x.email}"
     assert response =~ "📱 Phone: #{x.phone}"

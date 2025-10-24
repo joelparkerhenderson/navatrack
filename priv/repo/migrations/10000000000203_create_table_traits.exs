@@ -21,6 +21,9 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
       status text,
       tagging text,
       note text,
+      -- ai
+      ai_agent_instructions_as_url text CONSTRAINT ai_agent_instructions_as_url CHECK (ai_agent_instructions_as_url ~* '^https://'),
+      ai_agent_instructions_as_markdown text,
       --- content
       summary_as_markdown text,
       description_as_markdown text,
@@ -47,18 +50,13 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
     CREATE INDEX traits_index_gto
       ON traits USING GIN ((
         sign
-          || ' ' ||
-        name
-          || ' ' ||
-        status
-          || ' ' ||
-        tagging
-          || ' ' ||
-        note
-          || ' ' ||
-        summary_as_markdown
-          || ' ' ||
-        description_as_markdown
+          || ' ' || name
+          || ' ' || status
+          || ' ' || tagging
+          || ' ' || note
+          || ' ' || ai_agent_instructions_as_markdown
+          || ' ' || summary_as_markdown
+          || ' ' || description_as_markdown
       ) gin_trgm_ops);
     """
     execute "CREATE INDEX traits_created_at_index ON traits (created_at);"
@@ -75,6 +73,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
     execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
     execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
     execute "DROP CONSTRAINT IF EXISTS sign_check;"
+    execute "DROP CONSTRAINT IF EXISTS ai_agent_instructions_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS avatar_image_400x400_url_check;"
     execute "DROP CONSTRAINT IF EXISTS main_image_1080x1080_url_check;"
     execute "DROP CONSTRAINT IF EXISTS main_image_1920x1080_url_check;"

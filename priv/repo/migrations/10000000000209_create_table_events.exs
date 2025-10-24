@@ -281,16 +281,28 @@ defmodule Navatrack.Repo.Migrations.CreateTableEvents do
     CREATE INDEX events_index_gto
       ON events USING GIN ((
         sign
-          || ' ' ||
-        name
-          || ' ' ||
-        status
-          || ' ' ||
-        tagging
-          || ' ' ||
-        note
-          || ' ' ||
-        ai_agent_instructions_as_markdown
+          || ' ' || name
+          || ' ' || status
+          || ' ' || tagging
+          || ' ' || note
+          || ' ' || ai_agent_instructions_as_markdown
+          || ' ' || web
+          || ' ' || email
+          || ' ' || phone
+          || ' ' || chat
+          || ' ' || calendar
+          || ' ' || postal
+          || ' ' || rdf_type
+          || ' ' || bluesky_as_url
+          || ' ' || codeberg_as_url
+          || ' ' || github_as_url
+          || ' ' || instagram_as_url
+          || ' ' || linkedin_as_url
+          || ' ' || mastodon_as_url
+          || ' ' || orcid_as_url
+          || ' ' || tiktok_as_url
+          || ' ' || wikipedia_as_url
+          || ' ' || youtube_as_url
     ) gin_trgm_ops);
     """
     execute "CREATE INDEX events_created_at_index ON events (created_at);"
@@ -316,6 +328,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableEvents do
     execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
     execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
     execute "DROP CONSTRAINT IF EXISTS sign_check;"
+    execute "DROP CONSTRAINT IF EXISTS ai_agent_instructions_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS web_check;"
     execute "DROP CONSTRAINT IF EXISTS email_check;"
     execute "DROP CONSTRAINT IF EXISTS bluesky_as_url_check;"
@@ -333,7 +346,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableEvents do
     execute "DROP CONSTRAINT IF EXISTS main_image_1080x1080_url_check;"
     execute "DROP CONSTRAINT IF EXISTS main_image_1920x1080_url_check;"
     execute "DROP CONSTRAINT IF EXISTS main_image_1080x1920_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS ai_agent_instructions_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS ai_agent_instructions_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS home_emoji_url_check;"
     execute "DROP CONSTRAINT IF EXISTS bellhop_bell_emoji_url_check;"
     execute "DROP CONSTRAINT IF EXISTS target_emoji_url_check;"

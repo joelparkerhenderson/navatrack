@@ -26,7 +26,7 @@ defmodule NavatrackWeb.Tasks.NewTest do
     assert response =~ "🏷️ Tags"
     assert response =~ "🗒️ Note"
 
-    assert response =~ "Contact"
+    assert response =~ "Contacts"
     assert response =~ "🌐 Web"
     assert response =~ "📧 Email"
     assert response =~ "📱 Phone"

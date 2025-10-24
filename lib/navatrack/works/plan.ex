@@ -117,6 +117,12 @@ defmodule Navatrack.Works.Plan do
       :swot_weaknesses_as_markdown,
       :swot_opportunities_as_markdown,
       :swot_threats_as_markdown,
+      ### raid
+      :raid_as_url,
+      :raid_risks_as_markdown,
+      :raid_assumptions_as_markdown,
+      :raid_issues_as_markdown,
+      :raid_dependencies_as_markdown,
       ### sipoc
       :sipoc_as_url,
       :sipoc_suppliers_as_markdown,
@@ -430,6 +436,12 @@ defmodule Navatrack.Works.Plan do
     attribute :swot_weaknesses_as_markdown, :string
     attribute :swot_opportunities_as_markdown, :string
     attribute :swot_threats_as_markdown, :string
+    ### raid
+    attribute :raid_as_url, :string
+    attribute :raid_risks_as_markdown, :string
+    attribute :raid_assumptions_as_markdown, :string
+    attribute :raid_issues_as_markdown, :string
+    attribute :raid_dependencies_as_markdown, :string
     ### sipoc
     attribute :sipoc_as_url, :string
     attribute :sipoc_suppliers_as_markdown, :string
@@ -753,6 +765,12 @@ defmodule Navatrack.Works.Plan do
         swot_weaknesses_as_markdown: "my-swot-weaknesses-as-markdown",
         swot_opportunities_as_markdown: "my-swot-opportunities-as-markdown",
         swot_threats_as_markdown: "my-swot-opportunities-as-markdown",
+        ### raid
+        raid_as_url: "https://my-raid-as-url",
+        raid_risks_as_markdown: "my-raid-risks-as-markdown",
+        raid_assumptions_as_markdown: "my-raid-assumptions-as-markdown",
+        raid_issues_as_markdown: "my-raid-issues-as-markdown",
+        raid_dependencies_as_markdown: "my-raid-dependencies-as-markdown",
         ### sipoc
         sipoc_as_url: "https://my-sipoc-as-url",
         sipoc_suppliers_as_markdown: "my-sipoc-suppliers-as-markdown",

@@ -26,7 +26,7 @@ defmodule NavatrackWeb.Places.NewTest do
     assert response =~ "🏷️ Tags"
     assert response =~ "🗒️ Note"
 
-    assert response =~ "Contact"
+    assert response =~ "Contacts"
     assert response =~ "🌐 Web"
     assert response =~ "📧 Email"
     assert response =~ "📱 Phone"
@@ -72,7 +72,7 @@ defmodule NavatrackWeb.Places.NewTest do
     assert response =~ "Avatar image 400x400"
     assert response =~ "Main image 1080x1080 square"
     assert response =~ "Main image 1920x1080 landscape"
-    assert response =~ "Main image 1080x1920 porplace"
+    assert response =~ "Main image 1080x1920 portrait"
 
   end
 

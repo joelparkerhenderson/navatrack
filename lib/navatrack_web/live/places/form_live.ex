@@ -1,6 +1,6 @@
 defmodule NavatrackWeb.Places.FormLive do
   use NavatrackWeb, :live_view
-  alias Navatrack.Works.Plan, as: X
+  alias Navatrack.Works.Place, as: X
 
   require Logger
 
@@ -74,7 +74,7 @@ defmodule NavatrackWeb.Places.FormLive do
           label="🗒️ Note"
         />
 
-        <.section id="contact" title="Contact">
+        <.section id="contacts" title="Contacts">
 
           <.input
             field={form[:web]}
@@ -210,21 +210,36 @@ defmodule NavatrackWeb.Places.FormLive do
             label="Longitude"
             placeholder="122.3936"
           />
-        </.section>
-
-        <.section id="charts" title="Chart">
-
           <.input
-            field={form[:apache_echart_as_url]}
-            type="url"
-            label="🔗 URL"
-            placeholder="https://example.com"
+            field={form[:location_altitude_agl_as_meters]}
+            label="Altitude above ground level as meters"
+            placeholder="0"
           />
           <.input
-            field={form[:apache_echart_as_typescript]}
-            label="TypeScript"
+            field={form[:location_altitude_msl_as_meters]}
+            label="Altitude mean sea level as meters"
+            placeholder="0"
           />
-
+          <.input
+            field={form[:location_elevation_agl_as_meters]}
+            label="Elevation above ground level as meters"
+            placeholder="0"
+          />
+          <.input
+            field={form[:location_elevation_msl_as_meters]}
+            label="Elevation mean sea level as meters"
+            placeholder="0"
+          />
+          <.input
+            field={form[:location_what3words]}
+            label="What3Words.com"
+            placeholder="alfa.bravo.charlie"
+          />
+          <.input
+            field={form[:location_whatfreewords]}
+            label="WhatFreeWords.org"
+            placeholder="alfa.bravo.charlie"
+          />
         </.section>
 
         <.section id="images" title="Images">

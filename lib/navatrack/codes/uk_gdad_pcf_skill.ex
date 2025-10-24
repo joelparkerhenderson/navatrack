@@ -3,6 +3,7 @@ defmodule Navatrack.Codes.UkGdadPcfSkill do
     otp_app: :navatrack,
     domain: Navatrack.Codes,
     data_layer: AshPostgres.DataLayer
+  use One
 
   def snake_case_singular(), do: "uk_gdad_pcf_skill"
   def snake_case_plural(), do: "uk_gdad_pcf_skills"
@@ -66,19 +67,6 @@ defmodule Navatrack.Codes.UkGdadPcfSkill do
       public? true
     end
 
-  end
-
-  def fab!(map \\ %{}) do
-    __MODULE__ |> Ash.Changeset.for_create(:create, __MODULE__.fab_map(map)) |> Ash.create!()
-  end
-
-  def fab_map(map \\ %{}) do
-    Map.merge(
-      %{
-        locale_code: "en-US",
-      },
-      map
-    )
   end
 
 end

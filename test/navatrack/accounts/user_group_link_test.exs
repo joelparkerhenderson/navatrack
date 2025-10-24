@@ -10,26 +10,8 @@ defmodule UserGroupLinkTest do
     :ok
   end
 
-  test "create" do
-    user =
-      Navatrack.Accounts.User
-      |> Ash.Changeset.for_create(:create, %{
-        name: "alfa bravo"
-      })
-      |> Ash.create!()
-
-    group =
-      Navatrack.Works.Group
-      |> Ash.Changeset.for_create(:create, %{
-        name: "alfa bravo"
-      })
-      |> Ash.create!()
-
-    {:ok, _x} =
-      X
-      |> Ash.Changeset.for_create(:create, %{})
-      |> Ash.Changeset.manage_relationship(:user, user, type: :append_and_remove)
-      |> Ash.Changeset.manage_relationship(:group, group, type: :append_and_remove)
-      |> Ash.create(authorize?: false)
+  test "fab!" do
+    X.fab!()
   end
+
 end

@@ -74,7 +74,7 @@ defmodule NavatrackWeb.Plans.FormLive do
           label="🗒️ Note"
         />
 
-        <.section id="contact" title="Contact">
+        <.section id="contacts" title="Contacts">
 
           <.input
             field={form[:web]}
@@ -525,6 +525,40 @@ defmodule NavatrackWeb.Plans.FormLive do
             field={form[:swot_threats_as_markdown]}
             type="textarea"
             label="Threats"
+            placeholder=""
+          />
+        </.section>
+
+        <.section id="raid" title="RAID: Risks Assumptions Issues Dependencies">
+
+          <.input
+            field={form[:raid_as_url]}
+            type="url"
+            label="🔗 URL"
+            placeholder="https://example.com"
+          />
+          <.input
+            field={form[:raid_risks_as_markdown]}
+            type="textarea"
+            label="Risks"
+            placeholder=""
+          />
+          <.input
+            field={form[:raid_assumptions_as_markdown]}
+            type="textarea"
+            label="Assumptions"
+            placeholder=""
+          />
+          <.input
+            field={form[:raid_issues_as_markdown]}
+            type="textarea"
+            label="Issues"
+            placeholder=""
+          />
+          <.input
+            field={form[:raid_dependencies_as_markdown]}
+            type="textarea"
+            label="Dependencies"
             placeholder=""
           />
         </.section>
