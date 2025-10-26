@@ -131,6 +131,19 @@ defmodule NavatrackWeb.Plans.NewTest do
     assert response =~ "Confidence"
     assert response =~ "Effort"
 
+    assert response =~ "ROPE: Realistic Optimistic Pessimistic Equilibristic"
+    assert response =~ "Realistic"
+    assert response =~ "Optimistic"
+    assert response =~ "Pessimistic"
+    assert response =~ "Equilibristic"
+
+    assert response =~ "SIPOC: Suppliers Inputs Processes Outputs Customers"
+    assert response =~ "Suppliers"
+    assert response =~ "Inputs"
+    assert response =~ "Process"
+    assert response =~ "Outputs"
+    assert response =~ "Customers"
+
     assert response =~ "STEEPLE: Social Technological Economic Environmental Political Legal Ethical"
     assert response =~ "Socials"
     assert response =~ "Technological"

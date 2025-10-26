@@ -142,13 +142,23 @@ defmodule NavatrackWeb.Plans.ShowLive do
 
         </.section>
 
-        <.section id="swot" title="RICE: Reach Impact Confidence Effort">
+        <.section id="rice" title="RICE: Reach Impact Confidence Effort">
 
           <p>URL: <a href={@x.rice_as_url}>{@x.rice_as_url}</a></p>
           <p>Reach: {@x.rice_reach_as_markdown}</p>
           <p>Impact: {@x.rice_impact_as_markdown}</p>
           <p>Confidence: {@x.rice_confidence_as_markdown}</p>
           <p>Effort: {@x.rice_effort_as_markdown}</p>
+
+        </.section>
+
+        <.section id="rope" title="ROPE: Realistic Optimistic Pessimistic Equilibristic">
+
+          <p>URL: <a href={@x.rope_as_url}>{@x.rope_as_url}</a></p>
+          <p>Realistic: {@x.rope_realistic_as_markdown}</p>
+          <p>Optimistic: {@x.rope_optimistic_as_markdown}</p>
+          <p>Pessimistic: {@x.rope_pessimistic_as_markdown}</p>
+          <p>Equilibristic: {@x.rope_equilibristic_as_markdown}</p>
 
         </.section>
 

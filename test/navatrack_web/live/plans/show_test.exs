@@ -112,6 +112,13 @@ defmodule NavatrackWeb.Plans.ShowTest do
     assert response =~ "Confidence: #{x.rice_confidence_as_markdown}"
     assert response =~ "Effort: #{x.rice_effort_as_markdown}"
 
+    assert response =~ "ROPE: Realistic Optimistic Pessimistic Equilibristic"
+    assert response =~ "URL: <a href=\"#{x.rope_as_url}\">#{x.rope_as_url}</a>"
+    assert response =~ "Realistic: #{x.rope_realistic_as_markdown}"
+    assert response =~ "Optimistic: #{x.rope_optimistic_as_markdown}"
+    assert response =~ "Pessimistic: #{x.rope_pessimistic_as_markdown}"
+    assert response =~ "Equilibristic: #{x.rope_equilibristic_as_markdown}"
+
     assert response =~ "Porter&#39;s Five Forces"
     assert response =~ "URL: <a href=\"#{x.porters_five_forces_as_url}\">#{x.porters_five_forces_as_url}</a>"
     assert response =~ "Threat Of Entrants: #{x.porters_five_forces_entrants_as_markdown}"

@@ -66,6 +66,30 @@
       "generated?": false,
       "precision": null,
       "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "parent_id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "parent_order",
+      "type": "bigint"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -79,7 +103,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_ilo_isco_2008_links_user_id_fkey",
+        "name": "access_assignments_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -110,16 +134,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_ilo_isco_2008_links_ilo_isco_2008_id_fkey",
+        "name": "access_assignments_access_attribute_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "ilo_isco_2008s"
+        "table": "access_attributes"
       },
       "scale": null,
       "size": null,
-      "source": "ilo_isco_2008_id",
+      "source": "access_attribute_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +152,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "D95DB8D7E8320DB722A2C9B4A01504462C71BC5AD096E280696ED870D0942D52",
+  "hash": "D75999982CEA369BE94810D4586F7A0902A361A3F4A72C3F3717CFC6A9EE8F25",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +161,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_ilo_isco_2008_links"
+  "table": "access_assignments"
 }

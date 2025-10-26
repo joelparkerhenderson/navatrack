@@ -79,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_task_links_user_id_fkey",
+        "name": "user_ilo_isco_2008_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -110,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_task_links_task_id_fkey",
+        "name": "user_ilo_isco_2008_links_ilo_isco_2008_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "tasks"
+        "table": "ilo_isco_2008s"
       },
       "scale": null,
       "size": null,
-      "source": "task_id",
+      "source": "ilo_isco_2008_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "8DD75E266364D0B5497EF7DF0532E8064CFFD0038AF270EB57A8F1C61D4FACA2",
+  "hash": "6C489A062A3683970780FCF8D6D190DF8B6A8617609260F7FC37B06BC3E43979",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_task_links"
+  "table": "user_ilo_isco_2008_links"
 }

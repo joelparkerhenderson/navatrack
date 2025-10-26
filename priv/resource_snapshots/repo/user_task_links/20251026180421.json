@@ -66,30 +66,6 @@
       "generated?": false,
       "precision": null,
       "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "parent_id",
-      "type": "uuid"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "parent_order",
-      "type": "bigint"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -103,16 +79,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "access_permissions_access_attribute_id_fkey",
+        "name": "user_task_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "access_attributes"
+        "table": "users"
       },
       "scale": null,
       "size": null,
-      "source": "access_attribute_id",
+      "source": "user_id",
       "type": "uuid"
     },
     {
@@ -134,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "access_permissions_access_operation_id_fkey",
+        "name": "user_task_links_task_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "access_operations"
+        "table": "tasks"
       },
       "scale": null,
       "size": null,
-      "source": "access_operation_id",
+      "source": "task_id",
       "type": "uuid"
     }
   ],
@@ -152,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "1DA593613391D12CB109B2E2FA274E50F271805965451E9A8502E5074465AF3E",
+  "hash": "BA84E386A8ACB4B4D914D40F8B6A5D26A4675330A64BA83BD2F6C8D036C3F423",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -161,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "access_permissions"
+  "table": "user_task_links"
 }

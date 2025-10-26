@@ -129,6 +129,12 @@ defmodule Navatrack.Works.Plan do
       :rice_impact_as_markdown,
       :rice_confidence_as_markdown,
       :rice_effort_as_markdown,
+      ### rope
+      :rope_as_url,
+      :rope_realistic_as_markdown,
+      :rope_optimistic_as_markdown,
+      :rope_pessimistic_as_markdown,
+      :rope_equilibristic_as_markdown,
       ### sipoc
       :sipoc_as_url,
       :sipoc_suppliers_as_markdown,
@@ -454,6 +460,12 @@ defmodule Navatrack.Works.Plan do
     attribute :rice_impact_as_markdown, :string
     attribute :rice_confidence_as_markdown, :string
     attribute :rice_effort_as_markdown, :string
+    ### rope
+    attribute :rope_as_url, :string
+    attribute :rope_realistic_as_markdown, :string
+    attribute :rope_optimistic_as_markdown, :string
+    attribute :rope_pessimistic_as_markdown, :string
+    attribute :rope_equilibristic_as_markdown, :string
     ### sipoc
     attribute :sipoc_as_url, :string
     attribute :sipoc_suppliers_as_markdown, :string
@@ -789,6 +801,12 @@ defmodule Navatrack.Works.Plan do
         rice_impact_as_markdown: "my-rice-impact",
         rice_confidence_as_markdown: "my-rice-confidence",
         rice_effort_as_markdown: "my-rice-effort",
+        ### rope
+        rope_as_url: "https://my-rope-as-url",
+        rope_realistic_as_markdown: "my-rope-realistic-as-markdown",
+        rope_optimistic_as_markdown: "my-rope-optimistic-as-markdown",
+        rope_pessimistic_as_markdown: "my-rope-pessimistic-as-markdown",
+        rope_equilibristic_as_markdown: "my-rope-equilibristic-as-markdown",
         ### sipoc
         sipoc_as_url: "https://my-sipoc-as-url",
         sipoc_suppliers_as_markdown: "my-sipoc-suppliers-as-markdown",

@@ -66,26 +66,7 @@
       "generated?": false,
       "precision": null,
       "primary_key?": false,
-      "references": {
-        "deferrable": false,
-        "destination_attribute": "id",
-        "destination_attribute_default": null,
-        "destination_attribute_generated": null,
-        "index?": false,
-        "match_type": null,
-        "match_with": null,
-        "multitenancy": {
-          "attribute": null,
-          "global": null,
-          "strategy": null
-        },
-        "name": "messages_parent_id_fkey",
-        "on_delete": null,
-        "on_update": null,
-        "primary_key?": true,
-        "schema": "public",
-        "table": "messages"
-      },
+      "references": null,
       "scale": null,
       "size": null,
       "source": "parent_id",
@@ -109,66 +90,6 @@
       "generated?": false,
       "precision": null,
       "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "name",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "sign",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "status",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "tagging",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "note",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -182,20 +103,20 @@
           "global": null,
           "strategy": null
         },
-        "name": "messages_writer_as_user_id_fkey",
+        "name": "access_permissions_access_attribute_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "users"
+        "table": "access_attributes"
       },
       "scale": null,
       "size": null,
-      "source": "writer_as_user_id",
+      "source": "access_attribute_id",
       "type": "uuid"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -213,16 +134,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "messages_reader_as_user_id_fkey",
+        "name": "access_permissions_access_operation_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "users"
+        "table": "access_operations"
       },
       "scale": null,
       "size": null,
-      "source": "reader_as_user_id",
+      "source": "access_operation_id",
       "type": "uuid"
     }
   ],
@@ -231,7 +152,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "4B67987E84E9A34ABBF35216C002711CABF7AA94E8CA655FC604528368131A53",
+  "hash": "65BDD034F7F22BD3A95EB7F5B5E9A14FA33EC12999CCBA3722B4ECAD2E9EB22B",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -240,5 +161,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "messages"
+  "table": "access_permissions"
 }

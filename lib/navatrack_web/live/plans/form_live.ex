@@ -595,6 +595,41 @@ defmodule NavatrackWeb.Plans.FormLive do
             label="Effort"
             placeholder=""
           />
+
+        </.section>
+
+        <.section id="rope" title="ROPE: Realistic Optimistic Pessimistic Equilibristic">
+
+          <.input
+            field={form[:rope_as_url]}
+            type="url"
+            label="🔗 URL"
+            placeholder="https://example.com"
+          />
+          <.input
+            field={form[:rope_realistic_as_markdown]}
+            type="textarea"
+            label="Realistic"
+            placeholder=""
+          />
+          <.input
+            field={form[:rope_optimistic_as_markdown]}
+            type="textarea"
+            label="Optimistic"
+            placeholder=""
+          />
+          <.input
+            field={form[:rope_pessimistic_as_markdown]}
+            type="textarea"
+            label="Pessimistic"
+            placeholder=""
+          />
+          <.input
+            field={form[:rope_equilibristic_as_markdown]}
+            type="textarea"
+            label="Equilibristic"
+            placeholder=""
+          />
         </.section>
 
         <.section id="sipoc" title="SIPOC: Suppliers Inputs Processes Outputs Customers">

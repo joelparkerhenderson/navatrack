@@ -120,6 +120,12 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
       raid_assumptions_as_markdown text,
       raid_issues_as_markdown text,
       raid_dependencies_as_markdown text,
+      -- rope
+      rope_as_url text CONSTRAINT rope_as_url_check CHECK (rope_as_url ~* '^https://'),
+      rope_realistic_as_markdown text,
+      rope_optimistic_as_markdown text,
+      rope_pessimistic_as_markdown text,
+      rope_equilibristic_as_markdown text,
       --- sipoc
       sipoc_as_url text CONSTRAINT sipoc_as_url_check CHECK (sipoc_as_url ~* '^https://'),
       sipoc_suppliers_as_markdown text,
@@ -387,6 +393,10 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
           || ' ' || raid_assumptions_as_markdown
           || ' ' || raid_issues_as_markdown
           || ' ' || raid_dependencies_as_markdown
+          || ' ' || rope_realistic_as_markdown
+          || ' ' || rope_optimistic_as_markdown
+          || ' ' || rope_pessimistic_as_markdown
+          || ' ' || rope_equilibristic_as_markdown
           || ' ' || sipoc_suppliers_as_markdown
           || ' ' || sipoc_inputs_as_markdown
           || ' ' || sipoc_processes_as_markdown
@@ -523,6 +533,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
     execute "DROP CONSTRAINT IF EXISTS swot_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS rice_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS raid_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS rope_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS porters_five_forces_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS steeple_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS roles_and_responsibilities_as_url_check;"

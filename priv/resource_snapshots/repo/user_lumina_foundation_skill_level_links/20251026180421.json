@@ -79,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_topic_links_user_id_fkey",
+        "name": "user_lumina_foundation_skill_level_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -110,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_topic_links_topic_id_fkey",
+        "name": "user_lumina_foundation_skill_level_links_lumina_foundation_skill_level_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "topics"
+        "table": "lumina_foundation_skill_levels"
       },
       "scale": null,
       "size": null,
-      "source": "topic_id",
+      "source": "lumina_foundation_skill_level_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "3DF033FF365EA21DEA0157B645929772A663B09BD0FB19731CC6C05B844AE42F",
+  "hash": "0E4DB09AD9D2B1795CA4FA539293EFE4A04841F1F2386F9510FAF882E4E1578E",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_topic_links"
+  "table": "user_lumina_foundation_skill_level_links"
 }
