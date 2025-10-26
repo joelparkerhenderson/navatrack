@@ -108,6 +108,12 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
       swot_weaknesses_as_markdown text,
       swot_opportunities_as_markdown text,
       swot_threats_as_markdown text,
+      -- rice
+      rice_as_url text CONSTRAINT rice_as_url_check CHECK (rice_as_url ~* '^https://'),
+      rice_reach_as_markdown text,
+      rice_impact_as_markdown text,
+      rice_confidence_as_markdown text,
+      rice_effort_as_markdown text,
       -- raid
       raid_as_url text CONSTRAINT raid_as_url_check CHECK (raid_as_url ~* '^https://'),
       raid_risks_as_markdown text,
@@ -369,6 +375,92 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
           || ' ' || tiktok_as_url
           || ' ' || wikipedia_as_url
           || ' ' || youtube_as_url
+          || ' ' || swot_strengths_as_markdown
+          || ' ' || swot_weaknesses_as_markdown
+          || ' ' || swot_opportunities_as_markdown
+          || ' ' || swot_threats_as_markdown
+          || ' ' || rice_reach_as_markdown
+          || ' ' || rice_impact_as_markdown
+          || ' ' || rice_confidence_as_markdown
+          || ' ' || rice_effort_as_markdown
+          || ' ' || raid_risks_as_markdown
+          || ' ' || raid_assumptions_as_markdown
+          || ' ' || raid_issues_as_markdown
+          || ' ' || raid_dependencies_as_markdown
+          || ' ' || sipoc_suppliers_as_markdown
+          || ' ' || sipoc_inputs_as_markdown
+          || ' ' || sipoc_processes_as_markdown
+          || ' ' || sipoc_outputs_as_markdown
+          || ' ' || sipoc_customers_as_markdown
+          || ' ' || steeple_social_as_markdown
+          || ' ' || steeple_technological_as_markdown
+          || ' ' || steeple_economic_as_markdown
+          || ' ' || steeple_environmental_as_markdown
+          || ' ' || steeple_political_as_markdown
+          || ' ' || steeple_legal_as_markdown
+          || ' ' || steeple_ethical_as_markdown
+          || ' ' || porters_five_forces_entrants_as_markdown
+          || ' ' || porters_five_forces_substitutes_as_markdown
+          || ' ' || porters_five_forces_customers_as_markdown
+          || ' ' || porters_five_forces_suppliers_as_markdown
+          || ' ' || porters_five_forces_competitors_as_markdown
+          || ' ' || code_of_conduct_policy_as_markdown
+          || ' ' || coordinated_disclosure_policy_as_markdown
+          || ' ' || copyright_policy_as_markdown
+          || ' ' || corrections_policy_as_markdown
+          || ' ' || diversity_policy_as_markdown
+          || ' ' || equal_opportunity_policy_as_markdown
+          || ' ' || ethics_policy_as_markdown
+          || ' ' || legal_policy_as_markdown
+          || ' ' || license_policy_as_markdown
+          || ' ' || open_source_policy_as_markdown
+          || ' ' || privacy_policy_as_markdown
+          || ' ' || safety_policy_as_markdown
+          || ' ' || security_policy_as_markdown
+          || ' ' || socials_policy_as_markdown
+          || ' ' || staff_policy_as_markdown
+          || ' ' || arc42_01_introduction_and_goals_as_markdown
+          || ' ' || arc42_02_constraints_as_markdown
+          || ' ' || arc42_03_context_and_scope_as_markdown
+          || ' ' || arc42_04_solution_strategy_as_markdown
+          || ' ' || arc42_05_building_block_view_as_markdown
+          || ' ' || arc42_06_runtime_view_as_markdown
+          || ' ' || arc42_07_deployment_view_as_markdown
+          || ' ' || arc42_08_crosscutting_concepts_as_markdown
+          || ' ' || arc42_09_architectural_decisions_as_markdown
+          || ' ' || arc42_10_quality_requirements_as_markdown
+          || ' ' || arc42_11_risks_and_technical_debt_as_markdown
+          || ' ' || arc42_12_glossary_as_markdown
+          || ' ' || explain_stakeholders_as_markdown
+          || ' ' || explain_history_as_markdown
+          || ' ' || explain_authentication_as_markdown
+          || ' ' || explain_authorization_as_markdown
+          || ' ' || explain_use_cases_as_markdown
+          || ' ' || explain_demographics_as_markdown
+          || ' ' || explain_ui_as_markdown
+          || ' ' || explain_api_as_markdown
+          || ' ' || explain_data_as_markdown
+          || ' ' || explain_mobile_as_markdown
+          || ' ' || explain_legal_as_markdown
+          || ' ' || explain_financial_as_markdown
+          || ' ' || explain_service_level_agreement_as_markdown
+          || ' ' || explain_disaster_recovery_as_markdown
+          || ' ' || quality_availability_as_markdown
+          || ' ' || quality_certifiability_as_markdown
+          || ' ' || quality_compatibility_as_markdown
+          || ' ' || quality_efficiency_as_markdown
+          || ' ' || quality_governability_as_markdown
+          || ' ' || quality_maintainability_as_markdown
+          || ' ' || quality_observability_as_markdown
+          || ' ' || quality_operability_as_markdown
+          || ' ' || quality_recoverability_as_markdown
+          || ' ' || quality_scalability_as_markdown
+          || ' ' || quality_security_as_markdown
+          || ' ' || quality_suitability_as_markdown
+          || ' ' || quality_testability_as_markdown
+          || ' ' || quality_transferability_as_markdown
+          || ' ' || quality_translatability_as_markdown
+          || ' ' || quality_warrantability_as_markdown
     ) gin_trgm_ops);
     """
     execute "CREATE INDEX plans_created_at_index ON plans (created_at);"
@@ -429,6 +521,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
     execute "DROP CONSTRAINT IF EXISTS glossary_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS six_pager_double_sider_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS swot_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS rice_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS raid_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS porters_five_forces_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS steeple_as_url_check;"

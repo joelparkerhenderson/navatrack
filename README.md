@@ -232,6 +232,7 @@ Tagging ideas for users:
 - consultant
 - consumer
 - customer
+- director
 - editor
 - employee
 - endorser
@@ -243,6 +244,7 @@ Tagging ideas for users:
 - investee
 - partner
 - producer
+- proofer
 - reviewer
 - signatory
 - sponsor
@@ -270,6 +272,7 @@ Tagging ideas for topics about groups:
 - party
 - practice
 - squad
+- subdivision
 - team
 - tribe
 - union
@@ -277,8 +280,13 @@ Tagging ideas for topics about groups:
 
 Tagging ideas for topics about working:
 
+- aim
+- analysis
 - deliverable
+- experiment
+- goal
 - initiative
+- investigation
 - milestone
 - offering
 - outcome

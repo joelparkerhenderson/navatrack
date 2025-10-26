@@ -123,6 +123,12 @@ defmodule Navatrack.Works.Plan do
       :raid_assumptions_as_markdown,
       :raid_issues_as_markdown,
       :raid_dependencies_as_markdown,
+      ### rice
+      :rice_as_url,
+      :rice_reach_as_markdown,
+      :rice_impact_as_markdown,
+      :rice_confidence_as_markdown,
+      :rice_effort_as_markdown,
       ### sipoc
       :sipoc_as_url,
       :sipoc_suppliers_as_markdown,
@@ -442,6 +448,12 @@ defmodule Navatrack.Works.Plan do
     attribute :raid_assumptions_as_markdown, :string
     attribute :raid_issues_as_markdown, :string
     attribute :raid_dependencies_as_markdown, :string
+    ### rice
+    attribute :rice_as_url, :string
+    attribute :rice_reach_as_markdown, :string
+    attribute :rice_impact_as_markdown, :string
+    attribute :rice_confidence_as_markdown, :string
+    attribute :rice_effort_as_markdown, :string
     ### sipoc
     attribute :sipoc_as_url, :string
     attribute :sipoc_suppliers_as_markdown, :string
@@ -771,6 +783,12 @@ defmodule Navatrack.Works.Plan do
         raid_assumptions_as_markdown: "my-raid-assumptions-as-markdown",
         raid_issues_as_markdown: "my-raid-issues-as-markdown",
         raid_dependencies_as_markdown: "my-raid-dependencies-as-markdown",
+        ### rice
+        rice_as_url: "https://my-rice-as-url",
+        rice_reach_as_markdown: "my-rice-reach",
+        rice_impact_as_markdown: "my-rice-impact",
+        rice_confidence_as_markdown: "my-rice-confidence",
+        rice_effort_as_markdown: "my-rice-effort",
         ### sipoc
         sipoc_as_url: "https://my-sipoc-as-url",
         sipoc_suppliers_as_markdown: "my-sipoc-suppliers-as-markdown",

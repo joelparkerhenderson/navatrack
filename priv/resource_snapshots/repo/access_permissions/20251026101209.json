@@ -66,6 +66,30 @@
       "generated?": false,
       "precision": null,
       "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "parent_id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "parent_order",
+      "type": "bigint"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -79,16 +103,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_lumina_foundation_skill_level_links_user_id_fkey",
+        "name": "access_permissions_access_attribute_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "users"
+        "table": "access_attributes"
       },
       "scale": null,
       "size": null,
-      "source": "user_id",
+      "source": "access_attribute_id",
       "type": "uuid"
     },
     {
@@ -110,16 +134,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_lumina_foundation_skill_level_links_lumina_foundation_skill_level_id_fkey",
+        "name": "access_permissions_access_operation_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "lumina_foundation_skill_levels"
+        "table": "access_operations"
       },
       "scale": null,
       "size": null,
-      "source": "lumina_foundation_skill_level_id",
+      "source": "access_operation_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +152,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "9E5DF566368EDDE7882A44450B545AEC674D626EADAD319C206B9CED6A301216",
+  "hash": "1DA593613391D12CB109B2E2FA274E50F271805965451E9A8502E5074465AF3E",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +161,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_lumina_foundation_skill_level_links"
+  "table": "access_permissions"
 }

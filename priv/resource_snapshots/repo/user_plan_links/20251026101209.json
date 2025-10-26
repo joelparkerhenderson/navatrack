@@ -66,30 +66,6 @@
       "generated?": false,
       "precision": null,
       "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "parent_id",
-      "type": "uuid"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "parent_order",
-      "type": "bigint"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
       "references": {
         "deferrable": false,
         "destination_attribute": "id",
@@ -103,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "access_assignments_user_id_fkey",
+        "name": "user_plan_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -134,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "access_assignments_access_attribute_id_fkey",
+        "name": "user_plan_links_plan_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "access_attributes"
+        "table": "plans"
       },
       "scale": null,
       "size": null,
-      "source": "access_attribute_id",
+      "source": "plan_id",
       "type": "uuid"
     }
   ],
@@ -152,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "876DF1046ABAE2C41AE6EFA5A88DC6305C575659B17FEF2788CC95B2510EB1C4",
+  "hash": "3CB971F7EAC22FD09F745ABE88F4DDDCC8941F97F91A7F1E59AFAD95A3F41304",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -161,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "access_assignments"
+  "table": "user_plan_links"
 }

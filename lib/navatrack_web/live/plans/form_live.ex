@@ -563,6 +563,40 @@ defmodule NavatrackWeb.Plans.FormLive do
           />
         </.section>
 
+        <.section id="rice" title="RICE: Reach Impact Confidence Effort">
+
+          <.input
+            field={form[:rice_as_url]}
+            type="url"
+            label="🔗 URL"
+            placeholder="https://example.com"
+          />
+          <.input
+            field={form[:rice_reach_as_markdown]}
+            type="textarea"
+            label="Reach"
+            placeholder=""
+          />
+          <.input
+            field={form[:rice_impact_as_markdown]}
+            type="textarea"
+            label="Impact"
+            placeholder=""
+          />
+          <.input
+            field={form[:rice_confidence_as_markdown]}
+            type="textarea"
+            label="Confidence"
+            placeholder=""
+          />
+          <.input
+            field={form[:rice_effort_as_markdown]}
+            type="textarea"
+            label="Effort"
+            placeholder=""
+          />
+        </.section>
+
         <.section id="sipoc" title="SIPOC: Suppliers Inputs Processes Outputs Customers">
 
           <.input

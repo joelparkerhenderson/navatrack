@@ -79,12 +79,12 @@
           "global": null,
           "strategy": null
         },
-        "name": "tasks_parent_id_fkey",
+        "name": "topics_parent_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "tasks"
+        "table": "topics"
       },
       "scale": null,
       "size": null,
@@ -2737,7 +2737,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "F4D05332ABC07C47369C346F5CAB46BA48CDF8E29C8BAE48D70D46130E410C5F",
+  "hash": "151CB93705D841F58E752B64C3B5350C8B38F86B8FD033A92788A1583AC6FAAB",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -2746,5 +2746,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "tasks"
+  "table": "topics"
 }

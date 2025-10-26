@@ -125,6 +125,12 @@ defmodule NavatrackWeb.Plans.NewTest do
     assert response =~ "Issues"
     assert response =~ "Dependencies"
 
+    assert response =~ "RICE: Reach Impact Confidence Effort"
+    assert response =~ "Reach"
+    assert response =~ "Impact"
+    assert response =~ "Confidence"
+    assert response =~ "Effort"
+
     assert response =~ "STEEPLE: Social Technological Economic Environmental Political Legal Ethical"
     assert response =~ "Socials"
     assert response =~ "Technological"

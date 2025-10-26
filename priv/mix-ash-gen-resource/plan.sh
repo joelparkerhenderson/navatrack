@@ -101,6 +101,18 @@ mix ash.gen.resource \
     --attribute swot_opportunities_as_markdown:string \
     --attribute swot_threats_as_markdown:string \
     \
+    --attribute raid_as_url:string \
+    --attribute raid_risks_as_markdown:string \
+    --attribute raid_assumptions_as_markdown:string \
+    --attribute raid_issues_as_markdown:string \
+    --attribute raid_dependencies_as_markdown:string \
+    \
+    --attribute rice_as_url:string \
+    --attribute rice_reach_as_markdown:string \
+    --attribute rice_impact_as_markdown:string \
+    --attribute rice_confidence_as_markdown:string \
+    --attribute rice_effort_as_markdown:string \
+    \
     --attribute sipoc_as_url:string \
     --attribute sipoc_suppliers_as_markdown:string \
     --attribute sipoc_inputs_as_markdown:string \

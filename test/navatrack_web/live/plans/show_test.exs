@@ -105,6 +105,13 @@ defmodule NavatrackWeb.Plans.ShowTest do
     assert response =~ "Issues: #{x.raid_issues_as_markdown}"
     assert response =~ "Dependencies: #{x.raid_dependencies_as_markdown}"
 
+    assert response =~ "RICE: Reach Impact Confidence Effort"
+    assert response =~ "URL: <a href=\"#{x.rice_as_url}\">#{x.rice_as_url}</a>"
+    assert response =~ "Reach: #{x.rice_reach_as_markdown}"
+    assert response =~ "Impact: #{x.rice_impact_as_markdown}"
+    assert response =~ "Confidence: #{x.rice_confidence_as_markdown}"
+    assert response =~ "Effort: #{x.rice_effort_as_markdown}"
+
     assert response =~ "Porter&#39;s Five Forces"
     assert response =~ "URL: <a href=\"#{x.porters_five_forces_as_url}\">#{x.porters_five_forces_as_url}</a>"
     assert response =~ "Threat Of Entrants: #{x.porters_five_forces_entrants_as_markdown}"

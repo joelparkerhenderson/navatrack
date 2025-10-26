@@ -79,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_uk_gdad_pcf_skill_links_user_id_fkey",
+        "name": "user_topic_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -110,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_uk_gdad_pcf_skill_links_uk_gdad_pcf_skill_id_fkey",
+        "name": "user_topic_links_topic_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "uk_gdad_pcf_skills"
+        "table": "topics"
       },
       "scale": null,
       "size": null,
-      "source": "uk_gdad_pcf_skill_id",
+      "source": "topic_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "E28296E90072DCC5DB2CFF61CD600FF5241FCAD92CA969DF220B02BF950262FD",
+  "hash": "3DF033FF365EA21DEA0157B645929772A663B09BD0FB19731CC6C05B844AE42F",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_uk_gdad_pcf_skill_links"
+  "table": "user_topic_links"
 }

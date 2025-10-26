@@ -142,6 +142,16 @@ defmodule NavatrackWeb.Plans.ShowLive do
 
         </.section>
 
+        <.section id="swot" title="RICE: Reach Impact Confidence Effort">
+
+          <p>URL: <a href={@x.rice_as_url}>{@x.rice_as_url}</a></p>
+          <p>Reach: {@x.rice_reach_as_markdown}</p>
+          <p>Impact: {@x.rice_impact_as_markdown}</p>
+          <p>Confidence: {@x.rice_confidence_as_markdown}</p>
+          <p>Effort: {@x.rice_effort_as_markdown}</p>
+
+        </.section>
+
         <.section id="sipoc" title="SIPOC: Suppliers Inputs Processes Outputs Customers">
           <p>URL: <a href={@x.sipoc_as_url}>{@x.sipoc_as_url}</a></p>
           <p>Suppliers: {@x.sipoc_suppliers_as_markdown}</p>

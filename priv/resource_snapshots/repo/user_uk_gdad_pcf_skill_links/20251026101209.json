@@ -79,7 +79,7 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_trait_links_user_id_fkey",
+        "name": "user_uk_gdad_pcf_skill_links_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -110,16 +110,16 @@
           "global": null,
           "strategy": null
         },
-        "name": "user_trait_links_trait_id_fkey",
+        "name": "user_uk_gdad_pcf_skill_links_uk_gdad_pcf_skill_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "traits"
+        "table": "uk_gdad_pcf_skills"
       },
       "scale": null,
       "size": null,
-      "source": "trait_id",
+      "source": "uk_gdad_pcf_skill_id",
       "type": "uuid"
     }
   ],
@@ -128,7 +128,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "20C83FA1C8011B078B5E1E4A0010657DCABB64E407CAB7D798735E4DC1AF3331",
+  "hash": "60485B117EAD1D2FFD386357440CB40601F508A70FF3A0BE6C4352CEEA831C41",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -137,5 +137,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "user_trait_links"
+  "table": "user_uk_gdad_pcf_skill_links"
 }

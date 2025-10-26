@@ -79,12 +79,12 @@
           "global": null,
           "strategy": null
         },
-        "name": "topics_parent_id_fkey",
+        "name": "events_parent_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "topics"
+        "table": "events"
       },
       "scale": null,
       "size": null,
@@ -2737,7 +2737,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "1DC25DDBAC5C048997032E8AD3698B55174BB407232D053AD5371C0B3EDDE914",
+  "hash": "A323DF07AF4B2C7BBFEF005744D70562C54E5D6E74E904EDB395F89EC616C485",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -2746,5 +2746,5 @@
   },
   "repo": "Elixir.Navatrack.Repo",
   "schema": null,
-  "table": "topics"
+  "table": "events"
 }
