@@ -292,7 +292,7 @@ Tagging ideas for topics about working:
 - outcome
 - output
 - package
-- plan
+- aim
 - practice
 - process
 - proof

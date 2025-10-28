@@ -33,7 +33,7 @@ defmodule Navatrack.Accounts do
     # Links into Works domain
     resource Navatrack.Accounts.UserEventLink
     resource Navatrack.Accounts.UserGroupLink
-    resource Navatrack.Accounts.UserPlanLink
+    resource Navatrack.Accounts.UserAimLink
     resource Navatrack.Accounts.UserTaskLink
     resource Navatrack.Accounts.UserTopicLink
     resource Navatrack.Accounts.UserTraitLink

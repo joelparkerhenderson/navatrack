@@ -131,10 +131,10 @@ defmodule NavatrackWeb.Router do
         live "/places/:id", Places.ShowLive
         live "/places/:id/edit", Places.FormLive, :update
 
-        live "/plans", Plans.IndexLive
-        live "/plans/new", Plans.FormLive, :new
-        live "/plans/:id", Plans.ShowLive
-        live "/plans/:id/edit", Plans.FormLive, :update
+        live "/aims", Aims.IndexLive
+        live "/aims/new", Aims.FormLive, :new
+        live "/aims/:id", Aims.ShowLive
+        live "/aims/:id/edit", Aims.FormLive, :update
 
         live "/tasks", Tasks.IndexLive
         live "/tasks/new", Tasks.FormLive, :new
@@ -177,10 +177,10 @@ defmodule NavatrackWeb.Router do
         live "/user_group_links/:id", UserGroupLinks.ShowLive
         live "/user_group_links/:id/edit", UserGroupLinks.FormLive, :update
 
-        live "/user_plan_links", UserPlanLinks.IndexLive
-        live "/user_plan_links/new", UserPlanLinks.FormLive, :new
-        live "/user_plan_links/:id", UserPlanLinks.ShowLive
-        live "/user_plan_links/:id/edit", UserPlanLinks.FormLive, :update
+        live "/user_aim_links", UserAimLinks.IndexLive
+        live "/user_aim_links/new", UserAimLinks.FormLive, :new
+        live "/user_aim_links/:id", UserAimLinks.ShowLive
+        live "/user_aim_links/:id/edit", UserAimLinks.FormLive, :update
 
         live "/user_topic_links", UserTopicLinks.IndexLive
         live "/user_topic_links/new", UserTopicLinks.FormLive, :new

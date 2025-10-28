@@ -386,7 +386,7 @@ defmodule NavatrackWeb.Users.FormLive do
           <.input
             field={form[:work_role_professional_development_plan_as_markdown]}
             type="textarea"
-            label="Professional Development Plan"
+            label="Professional Development Aim"
           />
 
           <h3 class="h3">

@@ -2,7 +2,7 @@
 
 We like to create fabricators (a.k.a. fabs) for various test data.
 
-Our preferred way to create fabricators for this project is to define functions in each Ash resource, such as User and Plan.
+Our preferred way to create fabricators for this project is to define functions in each Ash resource, such as User and Aim.
 
 The functions are:
 

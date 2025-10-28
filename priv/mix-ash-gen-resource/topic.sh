@@ -2,7 +2,7 @@
 set -euf
 
 mix ash.gen.resource \
-    Navatrack.Works.Plan \
+    Navatrack.Works.Aim \
     --conflicts replace \
     --default-actions create,read,update,destroy \
     --extend postgres \

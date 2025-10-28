@@ -69,7 +69,7 @@ defmodule NavatrackWeb.Places.ShowLive do
          |> push_navigate(to: path_index(X))}
 
       {:error, error} ->
-        Logger.warning("Delete failed for plan '#{id}':
+        Logger.warning("Delete failed for aim '#{id}':
           #{inspect(error)}")
 
         {:noreply,

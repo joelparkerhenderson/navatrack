@@ -85,7 +85,7 @@ defmodule NavatrackWeb.Users.ShowLive do
           <p>Stop date: {@x.work_role_stop_date}</p>
           <p>Level: {@x.work_role_level}</p>
           <p>Description as markdown: {@x.work_role_description_as_markdown}</p>
-          <p>Professional development plan as markdown: {@x.work_role_professional_development_plan_as_markdown}</p>
+          <p>Professional development aim as markdown: {@x.work_role_professional_development_plan_as_markdown}</p>
           <p>Onet SOC 2019 code: {@x.work_role_onet_soc_2019_code}</p>
           <p>UK Civil Service Grade abbreviation: {@x.work_role_uk_civil_service_grade_abbreviation}</p>
           <p>UK SOC 2020 code: {@x.work_role_uk_soc_2020_code}</p>

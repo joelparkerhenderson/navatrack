@@ -417,7 +417,7 @@ defmodule Navatrack.Accounts.User do
         work_role_stop_date: Date.from_iso8601!("1970-01-01"),
         work_role_level: "my-work-role-level",
         work_role_description_as_markdown: "my-work-role-description-as-markdown",
-        work_role_professional_development_plan_as_markdown: "my-work-role-professional-development-plan-as-markdown",
+        work_role_professional_development_plan_as_markdown: "my-work-role-professional-development-aim-as-markdown",
         work_role_onet_soc_2019_code: "my-work-role-onet-soc-2019-code",
         work_role_uk_civil_service_grade_abbreviation: "my-work-role-uk-civil-service-grade-abbreviation",
         work_role_uk_soc_2020_code: "my-work-role-uk-soc-2020-code",

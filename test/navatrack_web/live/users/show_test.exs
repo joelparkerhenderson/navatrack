@@ -116,7 +116,7 @@ defmodule NavatrackWeb.Users.ShowTest do
     assert response =~ "Stop date: #{x.work_role_stop_date}"
     assert response =~ "Level: #{x.work_role_level}"
     assert response =~ "Description as markdown: #{x.work_role_description_as_markdown}"
-    assert response =~ "Professional development plan as markdown: #{x.work_role_professional_development_plan_as_markdown}"
+    assert response =~ "Professional development aim as markdown: #{x.work_role_professional_development_plan_as_markdown}"
     assert response =~ "Onet SOC 2019 code: #{x.work_role_onet_soc_2019_code}"
     assert response =~ "UK Civil Service Grade abbreviation: #{x.work_role_uk_civil_service_grade_abbreviation}"
     assert response =~ "UK SOC 2020 code: #{x.work_role_uk_soc_2020_code}"

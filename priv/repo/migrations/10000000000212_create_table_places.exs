@@ -1,6 +1,6 @@
 defmodule Navatrack.Repo.Migrations.CreateTablePlaces do
   @moduledoc """
-  Create table plans.
+  Create table aims.
   """
 
   use Ecto.Migration

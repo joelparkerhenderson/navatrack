@@ -87,7 +87,7 @@ defmodule NavatrackWeb.Users.NewTest do
     assert response =~ "Role Name/Title/etc."
     assert response =~ "Role Level/Grade/etc."
     assert response =~ "Description"
-    assert response =~ "Professional Development Plan"
+    assert response =~ "Professional Development Aim"
     assert response =~ "Dates"
     assert response =~ "Start Date"
     assert response =~ "Stop Date"
