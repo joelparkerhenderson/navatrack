@@ -13,11 +13,11 @@ defmodule Navatrack.Repo.Migrations.CreateTableAssignments do
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
-      parent_id uuid CONSTRAINT parent_id_fk REFERENCES access_assignments (id),
-      parent_order int CONSTRAINT parent_order_check CHECK (parent_order >= 0),
+      parent_id uuid CONSTRAINT access_assignments_parent_id_fk REFERENCES access_assignments (id),
+      parent_order int CONSTRAINT access_assignments_parent_order_check CHECK (parent_order >= 0),
       --- link
-      user_id uuid NOT NULL CONSTRAINT user_id_fk REFERENCES users (id),
-      access_attribute_id uuid NOT NULL CONSTRAINT access_attribute_id_fk REFERENCES access_attributes (id)
+      user_id uuid NOT NULL CONSTRAINT access_assignments_user_id_fk REFERENCES users (id),
+      access_attribute_id uuid NOT NULL CONSTRAINT access_assignments_access_attribute_id_fk REFERENCES access_attributes (id)
     );
     """
 
@@ -37,10 +37,10 @@ defmodule Navatrack.Repo.Migrations.CreateTableAssignments do
   end
 
   def down do
-    execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
-    execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
-    execute "DROP CONSTRAINT IF EXISTS user_id_fk;"
-    execute "DROP CONSTRAINT IF EXISTS access_attribute_id_fk;"
+    execute "DROP CONSTRAINT IF EXISTS access_assignments_parent_id_fk;"
+    execute "DROP CONSTRAINT IF EXISTS access_assignments_parent_order_check;"
+    execute "DROP CONSTRAINT IF EXISTS access_assignments_user_id_fk;"
+    execute "DROP CONSTRAINT IF EXISTS access_assignments_access_attribute_id_fk;"
     execute "DROP TRIGGER IF EXISTS trigger_access_assignments_updated_at;"
     execute "DROP INDEX IF EXISTS access_assignments_index_gto;"
     execute "DROP INDEX IF EXISTS access_assignments_created_at_index;"

@@ -14,51 +14,51 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
-      parent_id uuid CONSTRAINT parent_id_fk REFERENCES users (id),
-      parent_order int CONSTRAINT parent_order_check CHECK (parent_order >= 0),
+      parent_id uuid CONSTRAINT users_parent_id_fk REFERENCES users (id),
+      parent_order int CONSTRAINT users_users_parent_order_check CHECK (parent_order >= 0),
       --- card
       name text,
-      sign text CONSTRAINT sign_check CHECK (LENGTH(sign) = 1),
+      sign text CONSTRAINT users_sign_check CHECK (LENGTH(sign) = 1),
       status text,
       tagging text,
       note text,
       -- ai
-      ai_agent_instructions_as_url text CONSTRAINT ai_agent_instructions_as_url CHECK (ai_agent_instructions_as_url ~* '^https://'),
+      ai_agent_instructions_as_url text CONSTRAINT users_ai_agent_instructions_as_url CHECK (ai_agent_instructions_as_url ~* '^https://'),
       ai_agent_instructions_as_markdown text,
       --- contact
-      web text CONSTRAINT web_check CHECK (web ~* '^https://'),
-      email text CONSTRAINT email_check CHECK (email ~*  '.@.'),
+      web text CONSTRAINT users_web_check CHECK (web ~* '^https://'),
+      email text CONSTRAINT users_email_check CHECK (email ~*  '.@.'),
       phone text,
       chat text,
       calendar text,
       postal text,
       rdf_type text,
       --- social
-      bluesky_as_url text CONSTRAINT bluesky_as_url_check CHECK (bluesky_as_url ~* '^https://bsky\.app/'),
-      codeberg_as_url text CONSTRAINT codeberg_as_url_check CHECK (codeberg_as_url ~* '^https://codeberg\.org/'),
-      facebook_as_url text CONSTRAINT facebook_as_url_check CHECK (facebook_as_url ~* '^https://facebook\.com/'),
-      github_as_url text CONSTRAINT github_as_url_check CHECK (github_as_url ~* '^https://github\.com/'),
-      instagram_as_url text CONSTRAINT instagram_as_url_check CHECK (instagram_as_url ~* '^https://instagram\.com/'),
-      linkedin_as_url text CONSTRAINT linkedin_as_url_check CHECK (linkedin_as_url ~* '^https://linkedin\.com/'),
-      mastodon_as_url text CONSTRAINT mastodon_as_url_check CHECK (mastodon_as_url ~* '^https://'),
-      orcid_as_url text CONSTRAINT orcid_as_url_check CHECK (orcid_as_url ~* '^https://orcid\.org/'),
-      tiktok_as_url text CONSTRAINT tiktok_as_url_check CHECK (tiktok_as_url ~* '^https://tiktok\.com/'),
-      wikipedia_as_url text CONSTRAINT wikipedia_uri_check CHECK (wikipedia_as_url ~* '^https://wikipedia\.org/'),
-      youtube_as_url text CONSTRAINT youtube_as_url_check CHECK (youtube_as_url ~* '^https://youtube\.com/'),
+      bluesky_as_url text CONSTRAINT users_bluesky_as_url_check CHECK (bluesky_as_url ~* '^https://bsky\.app/'),
+      codeberg_as_url text CONSTRAINT users_codeberg_as_url_check CHECK (codeberg_as_url ~* '^https://codeberg\.org/'),
+      facebook_as_url text CONSTRAINT users_facebook_as_url_check CHECK (facebook_as_url ~* '^https://facebook\.com/'),
+      github_as_url text CONSTRAINT users_github_as_url_check CHECK (github_as_url ~* '^https://github\.com/'),
+      instagram_as_url text CONSTRAINT users_instagram_as_url_check CHECK (instagram_as_url ~* '^https://instagram\.com/'),
+      linkedin_as_url text CONSTRAINT users_linkedin_as_url_check CHECK (linkedin_as_url ~* '^https://linkedin\.com/'),
+      mastodon_as_url text CONSTRAINT users_mastodon_as_url_check CHECK (mastodon_as_url ~* '^https://'),
+      orcid_as_url text CONSTRAINT users_orcid_as_url_check CHECK (orcid_as_url ~* '^https://orcid\.org/'),
+      tiktok_as_url text CONSTRAINT users_tiktok_as_url_check CHECK (tiktok_as_url ~* '^https://tiktok\.com/'),
+      wikipedia_as_url text CONSTRAINT users_wikipedia_uri_check CHECK (wikipedia_as_url ~* '^https://wikipedia\.org/'),
+      youtube_as_url text CONSTRAINT users_youtube_as_url_check CHECK (youtube_as_url ~* '^https://youtube\.com/'),
       --- location
-      location_iso_3166_1_alpha_2 char(2) CONSTRAINT location_iso_3166_1_alpha_2_check CHECK (location_iso_3166_1_alpha_2 ~* '^[a-z][a-z]$'),
+      location_iso_3166_1_alpha_2 char(2) CONSTRAINT users_location_iso_3166_1_alpha_2_check CHECK (location_iso_3166_1_alpha_2 ~* '^[a-z][a-z]$'),
       location_iso_3166_2 text,
       location_postal_code text,
-      location_latitude_as_decimal_degrees numeric(9, 7) CONSTRAINT location_latitude_as_decimal_degrees_check CHECK (location_latitude_as_decimal_degrees BETWEEN -90.0 AND 90.0),
-      location_longitude_as_decimal_degrees numeric(10, 7) CONSTRAINT location_longitude_as_decimal_degrees_check CHECK (location_longitude_as_decimal_degrees BETWEEN -180.0 AND 180.0),
+      location_latitude_as_decimal_degrees numeric(9, 7) CONSTRAINT users_location_latitude_as_decimal_degrees_check CHECK (location_latitude_as_decimal_degrees BETWEEN -90.0 AND 90.0),
+      location_longitude_as_decimal_degrees numeric(10, 7) CONSTRAINT users_location_longitude_as_decimal_degrees_check CHECK (location_longitude_as_decimal_degrees BETWEEN -180.0 AND 180.0),
       --- images
-      avatar_image_400x400_url text CONSTRAINT avatar_image_400x400_url_check CHECK (avatar_image_400x400_url ~* '^https://'),
+      avatar_image_400x400_url text CONSTRAINT users_avatar_image_400x400_url_check CHECK (avatar_image_400x400_url ~* '^https://'),
       avatar_image_400x400_alt text,
-      main_image_1080x1080_url text CONSTRAINT main_image_1080x1080_url_check CHECK (main_image_1080x1080_url ~* '^https://'),
+      main_image_1080x1080_url text CONSTRAINT users_main_image_1080x1080_url_check CHECK (main_image_1080x1080_url ~* '^https://'),
       main_image_1080x1080_alt text,
-      main_image_1920x1080_url text CONSTRAINT main_image_1920x1080_url_check CHECK (main_image_1920x1080_url ~* '^https://'),
+      main_image_1920x1080_url text CONSTRAINT users_main_image_1920x1080_url_check CHECK (main_image_1920x1080_url ~* '^https://'),
       main_image_1920x1080_alt text,
-      main_image_1080x1920_url text CONSTRAINT main_image_1080x1920_url_check CHECK (main_image_1080x1920_url ~* '^https://'),
+      main_image_1080x1920_url text CONSTRAINT users_main_image_1080x1920_url_check CHECK (main_image_1080x1920_url ~* '^https://'),
       main_image_1080x1920_alt text,
       --- statements
       purpose_statement text,
@@ -74,9 +74,9 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       objectives_and_key_results_as_markdown text,
       key_performance_indicators_as_markdown text,
       --- work profile
-      work_profile_resume_as_pdf_url text CONSTRAINT work_profile_resume_as_pdf_url_check CHECK (work_profile_resume_as_pdf_url ~* '^https://'),
+      work_profile_resume_as_pdf_url text CONSTRAINT users_work_profile_resume_as_pdf_url_check CHECK (work_profile_resume_as_pdf_url ~* '^https://'),
       work_profile_resume_as_markdown text,
-      work_profile_curriculum_vitae_as_pdf_url text CONSTRAINT work_profile_curriculum_vitae_as_pdf_url_check CHECK (work_profile_curriculum_vitae_as_pdf_url ~* '^https://'),
+      work_profile_curriculum_vitae_as_pdf_url text CONSTRAINT users_work_profile_curriculum_vitae_as_pdf_url_check CHECK (work_profile_curriculum_vitae_as_pdf_url ~* '^https://'),
       work_profile_curriculum_vitae_as_markdown text,
       --- work role
       work_role_name text,
@@ -161,32 +161,32 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
   end
 
   def down do
-    execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
-    execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
-    execute "DROP CONSTRAINT IF EXISTS sign_check;"
-    execute "DROP CONSTRAINT IF EXISTS ai_agent_instructions_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS web_check;"
-    execute "DROP CONSTRAINT IF EXISTS email_check;"
-    execute "DROP CONSTRAINT IF EXISTS bluesky_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS codeberg_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS facebook_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS github_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS instagram_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS linkedin_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS mastodon_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS orcid_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS tiktok_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS wikipedia_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS youtube_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS location_iso_3166_1_alpha_2_check;"
-    execute "DROP CONSTRAINT IF EXISTS location_latitude_as_decimal_degrees_check;"
-    execute "DROP CONSTRAINT IF EXISTS location_longitude_as_decimal_degrees_check;"
-    execute "DROP CONSTRAINT IF EXISTS avatar_image_400x400_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS main_image_1080x1080_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS main_image_1920x1080_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS main_image_1080x1920_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS work_profile_resume_as_pdf_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS work_profile_curriculum_vitae_as_pdf_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_parent_id_fk;"
+    execute "DROP CONSTRAINT IF EXISTS users_parent_order_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_sign_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_ai_agent_instructions_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_web_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_email_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_bluesky_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_codeberg_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_facebook_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_github_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_instagram_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_linkedin_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_mastodon_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_orcid_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_tiktok_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_wikipedia_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_youtube_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_location_iso_3166_1_alpha_2_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_location_latitude_as_decimal_degrees_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_location_longitude_as_decimal_degrees_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_avatar_image_400x400_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_main_image_1080x1080_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_main_image_1920x1080_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_main_image_1080x1920_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_work_profile_resume_as_pdf_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS users_work_profile_curriculum_vitae_as_pdf_url_check;"
     execute "DROP TRIGGER IF EXISTS trigger_users_updated_at;"
     execute "DROP INDEX IF EXISTS users_index_gto;"
     execute "DROP INDEX IF EXISTS users_created_at_index;"

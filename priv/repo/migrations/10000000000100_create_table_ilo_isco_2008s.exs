@@ -10,7 +10,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableIloIsco2008s do
     CREATE TABLE ilo_isco_2008s (
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       locale_code text not null,
-      code text not null CONSTRAINT code_check CHECK (code ~* '^[0-9]*$' AND char_length(code) <= 4),
+      code text not null CONSTRAINT ilo_isco_2008s_code_check CHECK (code ~* '^[0-9]*$' AND char_length(code) <= 4),
       name text not null,
       definition_as_markdown text not null
     );
@@ -35,6 +35,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableIloIsco2008s do
   end
 
   def down do
+    execute "DROP CONSTRAINT IF EXISTS ilo_isco_2008s_code_check;"
     execute "DROP INDEX IF EXISTS ilo_isco_2008s_index_gto;"
     execute "DROP INDEX IF EXISTS ilo_isco_2008s_locale_code_index;"
     execute "DROP INDEX IF EXISTS ilo_isco_2008s_code_index;"

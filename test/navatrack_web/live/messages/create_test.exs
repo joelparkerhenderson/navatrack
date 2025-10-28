@@ -16,15 +16,16 @@ defmodule NavatrackWeb.Messages.CreateTest do
   end
 
   test "create", %{conn: conn} do
+    from_user = Navatrack.Accounts.User.fab!
+    to_user = Navatrack.Accounts.User.fab!
     {:ok, lv, _html} = live(conn, ~p"/messages/new")
-    {:ok, user} = my_user()
 
     result =
       lv
       |> form("#x_form", %{
         "form[name]" => "alfa",
-        "form[writer_as_user_id]" => user.id,
-        "form[reader_as_user_id]" => user.id,
+        "form[from_user_id]" => from_user.id,
+        "form[to_user_id]" => to_user.id,
       })
       |> render_submit()
 

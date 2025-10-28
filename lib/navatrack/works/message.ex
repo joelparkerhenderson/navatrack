@@ -32,8 +32,8 @@ defmodule Navatrack.Works.Message do
       :tagging,
       :note,
       ### relationships
-      :writer_as_user_id,
-      :reader_as_user_id
+      :from_user_id,
+      :to_user_id
     ]
   end
 
@@ -53,27 +53,27 @@ defmodule Navatrack.Works.Message do
     attribute :tagging, :string
     attribute :note, :string
     ### relationships
-    attribute :writer_as_user_id, :uuid, allow_nil?: false
-    attribute :reader_as_user_id, :uuid, allow_nil?: false
+    attribute :from_user_id, :uuid, allow_nil?: false
+    attribute :to_user_id, :uuid, allow_nil?: false
   end
 
   relationships do
 
     belongs_to :parent, __MODULE__, allow_nil?: true
 
-    belongs_to :writer, Navatrack.Accounts.User do
-      source_attribute :writer_as_user_id
+    belongs_to :from, Navatrack.Accounts.User do
+      source_attribute :from_user_id
     end
 
-    belongs_to :reader, Navatrack.Accounts.User do
-      source_attribute :reader_as_user_id
+    belongs_to :to, Navatrack.Accounts.User do
+      source_attribute :to_user_id
     end
 
   end
 
   def fab!(map \\ %{}) do
-    map = Map.put_new_lazy(map, :writer_as_user_id, fn -> Navatrack.Accounts.User.fab!().id end)
-    map = Map.put_new_lazy(map, :reader_as_user_id, fn -> Navatrack.Accounts.User.fab!().id end)
+    map = Map.put_new_lazy(map, :from_user_id, fn -> Navatrack.Accounts.User.fab!().id end)
+    map = Map.put_new_lazy(map, :to_user_id, fn -> Navatrack.Accounts.User.fab!().id end)
     __MODULE__ |> Ash.Changeset.for_create(:create, __MODULE__.fab_map(map)) |> Ash.create!()
   end
 
@@ -91,8 +91,8 @@ defmodule Navatrack.Works.Message do
         tagging: "my-tagging",
         note: "my-note",
         ### relationships
-        writer_as_user_id: nil,
-        reader_as_user_id: nil,
+        from_user_id: nil,
+        to_user_id: nil,
       },
       map
     )

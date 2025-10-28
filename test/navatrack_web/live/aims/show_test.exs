@@ -2,7 +2,7 @@ defmodule NavatrackWeb.Aims.ShowTest do
   # import Phoenix.LiveViewTest
   use NavatrackWeb.ConnCase
   use NavatrackWeb.AuthCase
-  use NavatrackWeb.ShowTest
+  use NavatrackWeb.ShowCase
   alias Navatrack.Works.Aim, as: X
 
   setup %{conn: conn} do

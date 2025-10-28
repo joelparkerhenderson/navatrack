@@ -30,8 +30,8 @@ defmodule NavatrackWeb.Messages.ShowTest do
     assert response =~ "📍 Status: #{x.status}"
     assert response =~ "🏷️ Tags: #{x.tagging}"
     assert response =~ "🗒️ Note: #{x.note}"
-    assert response =~ "From: #{x.writer_as_user_id}"
-    assert response =~ "To: #{x.reader_as_user_id}"
+    assert response =~ "From: #{x.from_user_id}"
+    assert response =~ "To: #{x.to_user_id}"
   end
 
 end

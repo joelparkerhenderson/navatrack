@@ -16,8 +16,8 @@ defmodule NavatrackWeb.AccessPermissions.CreateTest do
   end
 
   test "create", %{conn: conn} do
-    {:ok, lv, _html} = live(conn, ~p"/access_permissions/new")
     x = X.fab!
+    {:ok, lv, _html} = live(conn, ~p"/access_permissions/new")
 
     result =
       lv

@@ -437,7 +437,6 @@ defmodule NavatrackWeb.Users.FormLive do
   """
 
   def handle_event("updater", _params, socket) do
-    IO.inspect("handle_event updater")
     {:noreply, socket}
   end
 
@@ -461,18 +460,6 @@ defmodule NavatrackWeb.Users.FormLive do
          |> push_navigate(to: path_index(X))}
 
       {:error, form} ->
-        # Print all errors
-        IO.inspect(form.errors, label: "Form errors")
-
-        # Print Ash built-in error formatting
-        IO.inspect(AshPhoenix.Form.errors(form), label: "Changeset errors")
-
-        # Print the full form for debugging
-        IO.inspect(form, label: "Full form")
-
-        IO.inspect(form.source.params, label: "form.source.params (before processing)")
-        IO.inspect(form.params, label: "form.params (after processing)")
-
         {:noreply,
          socket
          |> put_flash(:error, "Save failed.")

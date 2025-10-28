@@ -11,7 +11,7 @@ defmodule Navatrack.Repo.Migrations.CreateUkGdadPcfSkill do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       locale_code text not null,
       name text not null,
-      url text not null,
+      url text not null CONSTRAINT uk_gdad_pcf_roles_url_check CHECK (url ~* '^https://'),
       description text not null,
       level_1_description_as_markdown text not null,
       level_2_description_as_markdown text not null,
@@ -46,6 +46,7 @@ defmodule Navatrack.Repo.Migrations.CreateUkGdadPcfSkill do
   end
 
   def down do
+    execute "DROP CONSTRAINT IF EXISTS uk_gdad_pcf_roles_url_check;"
     execute "DROP INDEX IF EXISTS uk_gdad_pcf_skills_index_gto"
     execute "DROP INDEX IF EXISTS uk_gdad_pcf_skills_locale_code_index;"
     execute "DROP INDEX IF EXISTS uk_gdad_pcf_skills_name_index;"

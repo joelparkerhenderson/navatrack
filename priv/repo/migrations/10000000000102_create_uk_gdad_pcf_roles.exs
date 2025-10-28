@@ -12,7 +12,7 @@ defmodule Navatrack.Repo.Migrations.CreateUkGdadPcfRole do
       locale_code text not null,
       family text not null,
       name text not null,
-      url text not null,
+      url text not null CONSTRAINT uk_gdad_pcf_roles_url_check CHECK (url ~* '^https://'),
       description_as_markdown text not null,
       level_name text not null,
       level_description_as_markdown text not null,
@@ -45,6 +45,7 @@ defmodule Navatrack.Repo.Migrations.CreateUkGdadPcfRole do
   end
 
   def down do
+    execute "DROP CONSTRAINT IF EXISTS uk_gdad_pcf_roles_url_check;"
     execute "DROP INDEX IF EXISTS uk_gdad_pcf_roles_index_gto;"
     execute "DROP INDEX IF EXISTS uk_gdad_pcf_roles_locale_code_index;"
     execute "DROP INDEX IF EXISTS uk_gdad_pcf_roles_family_index;"

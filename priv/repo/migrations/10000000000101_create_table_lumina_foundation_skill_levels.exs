@@ -10,7 +10,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableLuminaFoundationSkillLevels do
     CREATE TABLE lumina_foundation_skill_levels (
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       locale_code text not null,
-      number smallint not null CONSTRAINT number_check CHECK (number BETWEEN 1 AND 8),
+      number smallint not null CONSTRAINT lumina_foundation_skill_levels_number_check CHECK (number BETWEEN 1 AND 8),
       name text not null,
       description text not null
     );
@@ -34,6 +34,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableLuminaFoundationSkillLevels do
   end
 
   def down do
+    execute "DROP CONSTRAINT IF EXISTS lumina_foundation_skill_levels_number_check;"
     execute "DROP INDEX IF EXISTS lumina_foundation_skill_levels_index_gto;"
     execute "DROP INDEX IF EXISTS lumina_foundation_skill_levels_locale_code_index;"
     execute "DROP INDEX IF EXISTS lumina_foundation_skill_levels_number_index;"

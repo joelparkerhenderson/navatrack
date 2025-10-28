@@ -13,28 +13,28 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
-      parent_id uuid CONSTRAINT parent_id_fk REFERENCES traits (id),
-      parent_order int CONSTRAINT parent_order_check CHECK (parent_order >= 0),
+      parent_id uuid CONSTRAINT traits_parent_id_fk REFERENCES traits (id),
+      parent_order int CONSTRAINT traits_parent_order_check CHECK (parent_order >= 0),
       --- card
       name text,
-      sign text CONSTRAINT sign_check CHECK (LENGTH(sign) = 1),
+      sign text CONSTRAINT traits_sign_check CHECK (LENGTH(sign) = 1),
       status text,
       tagging text,
       note text,
       -- ai
-      ai_agent_instructions_as_url text CONSTRAINT ai_agent_instructions_as_url CHECK (ai_agent_instructions_as_url ~* '^https://'),
+      ai_agent_instructions_as_url text CONSTRAINT traits_ai_agent_instructions_as_url CHECK (ai_agent_instructions_as_url ~* '^https://'),
       ai_agent_instructions_as_markdown text,
       --- content
       summary_as_markdown text,
       description_as_markdown text,
       -- images
-      avatar_image_400x400_url text CONSTRAINT avatar_image_400x400_url_check CHECK (avatar_image_400x400_url ~* '^https://'),
+      avatar_image_400x400_url text CONSTRAINT traits_avatar_image_400x400_url_check CHECK (avatar_image_400x400_url ~* '^https://'),
       avatar_image_400x400_alt text,
-      main_image_1080x1080_url text CONSTRAINT main_image_1080x1080_url_check CHECK (main_image_1080x1080_url ~* '^https://'),
+      main_image_1080x1080_url text CONSTRAINT traits_main_image_1080x1080_url_check CHECK (main_image_1080x1080_url ~* '^https://'),
       main_image_1080x1080_alt text,
-      main_image_1920x1080_url text CONSTRAINT main_image_1920x1080_url_check CHECK (main_image_1920x1080_url ~* '^https://'),
+      main_image_1920x1080_url text CONSTRAINT traits_main_image_1920x1080_url_check CHECK (main_image_1920x1080_url ~* '^https://'),
       main_image_1920x1080_alt text,
-      main_image_1080x1920_url text CONSTRAINT main_image_1080x1920_url_check CHECK (main_image_1080x1920_url ~* '^https://'),
+      main_image_1080x1920_url text CONSTRAINT traits_main_image_1080x1920_url_check CHECK (main_image_1080x1920_url ~* '^https://'),
       main_image_1080x1920_alt text
     );
     """
@@ -70,14 +70,14 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
   end
 
   def down do
-    execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
-    execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
-    execute "DROP CONSTRAINT IF EXISTS sign_check;"
-    execute "DROP CONSTRAINT IF EXISTS ai_agent_instructions_as_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS avatar_image_400x400_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS main_image_1080x1080_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS main_image_1920x1080_url_check;"
-    execute "DROP CONSTRAINT IF EXISTS main_image_1080x1920_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS traits_parent_id_fk;"
+    execute "DROP CONSTRAINT IF EXISTS traits_parent_order_check;"
+    execute "DROP CONSTRAINT IF EXISTS traits_sign_check;"
+    execute "DROP CONSTRAINT IF EXISTS traits_ai_agent_instructions_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS traits_avatar_image_400x400_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS traits_main_image_1080x1080_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS traits_main_image_1920x1080_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS traits_main_image_1080x1920_url_check;"
     execute "DROP TRIGGER IF EXISTS trigger_traits_updated_at;"
     execute "DROP INDEX IF EXISTS traits_index_gto;"
     execute "DROP INDEX IF EXISTS traits_created_at_index;"

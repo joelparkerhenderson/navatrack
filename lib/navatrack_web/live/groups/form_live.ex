@@ -1158,7 +1158,6 @@ defmodule NavatrackWeb.Groups.FormLive do
   """
 
   def handle_event("updater", _params, socket) do
-    IO.inspect("handle_event updater")
     {:noreply, socket}
   end
 
@@ -1173,7 +1172,6 @@ defmodule NavatrackWeb.Groups.FormLive do
   end
 
   def handle_event("save", %{"form" => form_data}, socket) do
-    IO.inspect(form_data, label: "form_data")
     # form_data = convert_tags_param(form_data)
     case AshPhoenix.Form.submit(socket.assigns.form, params: form_data) do
       {:ok, _x} ->
@@ -1183,18 +1181,6 @@ defmodule NavatrackWeb.Groups.FormLive do
          |> push_navigate(to: path_index(X))}
 
       {:error, form} ->
-        # Print all errors
-        IO.inspect(form.errors, label: "Form errors")
-
-        # Print Ash built-in error formatting
-        IO.inspect(AshPhoenix.Form.errors(form), label: "Changeset errors")
-
-        # Print the full form for debugging
-        IO.inspect(form, label: "Full form")
-
-        IO.inspect(form.source.params, label: "form.source.params (before processing)")
-        IO.inspect(form.params, label: "form.params (after processing)")
-
         {:noreply,
          socket
          |> put_flash(:error, "Save failed.")

@@ -7,7 +7,7 @@
 # and uses AshAuthentication with a default setup of user email address.
 # Modify this example as you wish for your own needs and settings.
 #
-# I appreciate contructive feedback and advice on how to improve this.
+# I appreciate contructive user_review and advice on how to improve this.
 # And I'm happy to answer questions. Email joel@joelparkerhenderson.com.
 #
 # This file is /test/my_app_web/controllers/items_test.exs

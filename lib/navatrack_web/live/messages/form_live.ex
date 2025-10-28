@@ -88,17 +88,17 @@ defmodule NavatrackWeb.Messages.FormLive do
         />
 
         <.input
-          field={@form[:writer_as_user_id]}
+          field={@form[:from_user_id]}
           type="select"
-          label="Writer"
+          label="From"
           options={@user_options}
           prompt="From"
         />
 
         <.input
-          field={@form[:reader_as_user_id]}
+          field={@form[:to_user_id]}
           type="select"
-          label="Reader"
+          label="To"
           options={@user_options}
           prompt="To"
         />
@@ -117,7 +117,6 @@ defmodule NavatrackWeb.Messages.FormLive do
   """
 
   def handle_event("updater", _params, socket) do
-    IO.inspect("handle_event updater")
     {:noreply, socket}
   end
 
@@ -133,15 +132,6 @@ defmodule NavatrackWeb.Messages.FormLive do
 
   def handle_event("save", %{"form" => form_data}, socket) do
     # form_data = convert_tags_param(form_data)
-    IO.inspect(form_data, label: "form_data")
-
-    changeset =
-      Navatrack.Works.Message
-      |> Ash.Changeset.for_create(:create, form_data)
-
-    IO.inspect(changeset.attributes, label: "Changeset attributes")
-    IO.inspect(changeset.errors, label: "Changeset errors")
-
     case AshPhoenix.Form.submit(socket.assigns.form, params: form_data) do
       {:ok, _x} ->
         {:noreply,
@@ -150,18 +140,6 @@ defmodule NavatrackWeb.Messages.FormLive do
          |> push_navigate(to: path_index(X))}
 
       {:error, form} ->
-        # Print all errors
-        IO.inspect(form.errors, label: "Form errors")
-
-        # Print Ash built-in error formatting
-        IO.inspect(AshPhoenix.Form.errors(form), label: "Changeset errors")
-
-        # Print the full form for debugging
-        IO.inspect(form, label: "Full form")
-
-        IO.inspect(form.source.params, label: "form.source.params (before processing)")
-        IO.inspect(form.params, label: "form.params (after processing)")
-
         {:noreply,
          socket
          |> put_flash(:error, "Save failed.")

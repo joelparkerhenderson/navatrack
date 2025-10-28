@@ -13,11 +13,11 @@ defmodule Navatrack.Repo.Migrations.CreateTablePermissions do
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
-      parent_id uuid CONSTRAINT parent_id_fk REFERENCES access_permissions (id),
-      parent_order int CONSTRAINT parent_order_check CHECK (parent_order >= 0),
+      parent_id uuid CONSTRAINT access_permissions_parent_id_fk REFERENCES access_permissions (id),
+      parent_order int CONSTRAINT access_permissions_parent_order_check CHECK (parent_order >= 0),
       --- link
-      access_attribute_id uuid NOT NULL CONSTRAINT access_attribute_id_fk REFERENCES access_attributes (id),
-      access_operation_id uuid NOT NULL CONSTRAINT access_operation_id_fk REFERENCES access_operations (id)
+      access_attribute_id uuid NOT NULL CONSTRAINT access_permissions_access_attribute_id_fk REFERENCES access_attributes (id),
+      access_operation_id uuid NOT NULL CONSTRAINT access_permissions_access_operation_id_fk REFERENCES access_operations (id)
     );
     """
 
@@ -37,10 +37,10 @@ defmodule Navatrack.Repo.Migrations.CreateTablePermissions do
   end
 
   def down do
-    execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
-    execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
-    execute "DROP CONSTRAINT IF EXISTS access_attribute_id_fk;"
-    execute "DROP CONSTRAINT IF EXISTS access_operation_id_fk;"
+    execute "DROP CONSTRAINT IF EXISTS access_permissions_parent_id_fk;"
+    execute "DROP CONSTRAINT IF EXISTS access_permissions_parent_order_check;"
+    execute "DROP CONSTRAINT IF EXISTS access_permissions_access_attribute_id_fk;"
+    execute "DROP CONSTRAINT IF EXISTS access_permissions_access_operation_id_fk;"
     execute "DROP TRIGGER IF EXISTS trigger_access_permissions_updated_at;"
     execute "DROP INDEX IF EXISTS access_permissions_index_gto;"
     execute "DROP INDEX IF EXISTS access_permissions_created_at_index;"

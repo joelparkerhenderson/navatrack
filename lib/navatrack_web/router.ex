@@ -106,10 +106,20 @@ defmodule NavatrackWeb.Router do
 
         ### Core Resources
 
+        live "/aims", Aims.IndexLive
+        live "/aims/new", Aims.FormLive, :new
+        live "/aims/:id", Aims.ShowLive
+        live "/aims/:id/edit", Aims.FormLive, :update
+
         live "/events", Events.IndexLive
         live "/events/new", Events.FormLive, :new
         live "/events/:id", Events.ShowLive
         live "/events/:id/edit", Events.FormLive, :update
+
+        live "/event_reviews", EventReviews.IndexLive
+        live "/event_reviews/new", EventReviews.FormLive, :new
+        live "/event_reviews/:id", EventReviews.ShowLive
+        live "/event_reviews/:id/edit", EventReviews.FormLive, :update
 
         live "/groups", Groups.IndexLive
         live "/groups/new", Groups.FormLive, :new
@@ -121,20 +131,15 @@ defmodule NavatrackWeb.Router do
         live "/messages/:id", Messages.ShowLive
         live "/messages/:id/edit", Messages.FormLive, :update
 
-        live "/multi_rater_feedback_messages", MultiRaterFeedbackMessages.IndexLive
-        live "/multi_rater_feedback_messages/new", MultiRaterFeedbackMessages.FormLive, :new
-        live "/multi_rater_feedback_messages/:id", MultiRaterFeedbackMessages.ShowLive
-        live "/multi_rater_feedback_messages/:id/edit", MultiRaterFeedbackMessages.FormLive, :update
-
         live "/places", Places.IndexLive
         live "/places/new", Places.FormLive, :new
         live "/places/:id", Places.ShowLive
         live "/places/:id/edit", Places.FormLive, :update
 
-        live "/aims", Aims.IndexLive
-        live "/aims/new", Aims.FormLive, :new
-        live "/aims/:id", Aims.ShowLive
-        live "/aims/:id/edit", Aims.FormLive, :update
+        live "/place_reviews", PlaceReviews.IndexLive
+        live "/place_reviews/new", PlaceReviews.FormLive, :new
+        live "/place_reviews/:id", PlaceReviews.ShowLive
+        live "/place_reviews/:id/edit", PlaceReviews.FormLive, :update
 
         live "/tasks", Tasks.IndexLive
         live "/tasks/new", Tasks.FormLive, :new
@@ -155,6 +160,11 @@ defmodule NavatrackWeb.Router do
         live "/users/new", Users.FormLive, :new
         live "/users/:id", Users.ShowLive
         live "/users/:id/edit", Users.FormLive, :update
+
+        live "/user_reviews", UserReviews.IndexLive
+        live "/user_reviews/new", UserReviews.FormLive, :new
+        live "/user_reviews/:id", UserReviews.ShowLive
+        live "/user_reviews/:id/edit", UserReviews.FormLive, :update
 
         ### Read-Only Codes
 

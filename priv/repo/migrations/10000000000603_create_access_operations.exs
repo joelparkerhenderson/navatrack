@@ -13,11 +13,11 @@ defmodule Navatrack.Repo.Migrations.CreateTableAccessOperations do
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       deleted_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
-      parent_id uuid CONSTRAINT parent_id_fk REFERENCES access_operations (id),
-      parent_order int CONSTRAINT parent_order_check CHECK (parent_order >= 0),
+      parent_id uuid CONSTRAINT access_operations_parent_id_fk REFERENCES access_operations (id),
+      parent_order int CONSTRAINT access_operations_parent_order_check CHECK (parent_order >= 0),
       --- card
       name text,
-      sign text CONSTRAINT sign_check CHECK (LENGTH(sign) = 1),
+      sign text CONSTRAINT access_operations_sign_check CHECK (LENGTH(sign) = 1),
       status text,
       tagging text,
       note text
@@ -56,9 +56,9 @@ defmodule Navatrack.Repo.Migrations.CreateTableAccessOperations do
   end
 
   def down do
-    execute "DROP CONSTRAINT IF EXISTS parent_id_fk;"
-    execute "DROP CONSTRAINT IF EXISTS parent_order_check;"
-    execute "DROP CONSTRAINT IF EXISTS sign_check;"
+    execute "DROP CONSTRAINT IF EXISTS access_operations_parent_id_fk;"
+    execute "DROP CONSTRAINT IF EXISTS access_operations_parent_order_check;"
+    execute "DROP CONSTRAINT IF EXISTS access_operations_sign_check;"
     execute "DROP TRIGGER IF EXISTS trigger_access_operations_updated_at;"
     execute "DROP INDEX IF EXISTS access_operations_index_gto;"
     execute "DROP INDEX IF EXISTS access_operations_created_at_index;"
