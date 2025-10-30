@@ -122,6 +122,17 @@ defmodule NavatrackWeb.Aims.ShowLive do
 
         </.section>
 
+        <.section id="smart" title="SMART: Specific Measurable Achievable Relevant Timely">
+
+          <p>URL: <a href={@x.smart_as_url}>{@x.smart_as_url}</a></p>
+          <p>Specific: {@x.smart_specific_as_markdown}</p>
+          <p>Measurable: {@x.smart_measurable_as_markdown}</p>
+          <p>Achievable: {@x.smart_achievable_as_markdown}</p>
+          <p>Relevant: {@x.smart_relevant_as_markdown}</p>
+          <p>Timely: {@x.smart_timely_as_markdown}</p>
+
+        </.section>
+
         <.section id="swot" title="SWOT: Strengths Weaknesses Opportunities Threats">
 
           <p>URL: <a href={@x.swot_as_url}>{@x.swot_as_url}</a></p>
