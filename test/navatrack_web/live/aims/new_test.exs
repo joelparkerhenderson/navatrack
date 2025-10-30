@@ -113,6 +113,13 @@ defmodule NavatrackWeb.Aims.NewTest do
     assert response =~ "URL"
     assert response =~ "Text"
 
+    assert response =~ "SMART: Specific Measurable Achievable Relevant Timely"
+    assert response =~ "Specific"
+    assert response =~ "Measurable"
+    assert response =~ "Achievable"
+    assert response =~ "Relevant"
+    assert response =~ "Timely"
+
     assert response =~ "SWOT: Strengths Weaknesses Opportunities Threats"
     assert response =~ "Strengths"
     assert response =~ "Weaknesses"

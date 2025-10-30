@@ -16,7 +16,7 @@ defmodule Navatrack.Codes.UkGdadPcfRole do
   end
 
   actions do
-    defaults [:read]
+    defaults [:read, create: :*]
   end
 
   attributes do
@@ -27,7 +27,7 @@ defmodule Navatrack.Codes.UkGdadPcfRole do
       public? true
     end
 
-    attribute :family, :string do
+    attribute :uk_gdad_pcf_role_family_id, :uuid do
       allow_nil? false
       public? true
     end
@@ -47,19 +47,13 @@ defmodule Navatrack.Codes.UkGdadPcfRole do
       public? true
     end
 
-    attribute :level_name, :string do
-      allow_nil? false
-      public? true
-    end
-
-    attribute :level_description_as_markdown, :string do
-      allow_nil? false
-      public? true
-    end
-
     attribute :senior_civil_service_flag, :boolean do
       allow_nil? false
       public? true
+    end
+
+    relationships do
+      belongs_to :uk_gdad_pcf_role_family, Navatrack.Codes.UkGdadPcfRoleFamily
     end
 
   end

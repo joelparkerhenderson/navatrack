@@ -174,8 +174,14 @@ defmodule NavatrackWeb.Router do
         live "/lumina_foundation_skill_levels", LuminaFoundationSkillLevels.IndexLive
         live "/lumina_foundation_skill_levels/:id", LuminaFoundationSkillLevels.ShowLive
 
+        live "/uk_gdad_pcf_role_families", UkGdadPcfRoleFamilies.IndexLive
+        live "/uk_gdad_pcf_role_families/:id", UkGdadPcfRoleFamilies.ShowLive
+
         live "/uk_gdad_pcf_roles", UkGdadPcfRoles.IndexLive
         live "/uk_gdad_pcf_roles/:id", UkGdadPcfRoles.ShowLive
+
+        live "/uk_gdad_pcf_role_levels", UkGdadPcfRoleLevels.IndexLive
+        live "/uk_gdad_pcf_role_levels/:id", UkGdadPcfRoleLevels.ShowLive
 
         live "/uk_gdad_pcf_skills", UkGdadPcfSkills.IndexLive
         live "/uk_gdad_pcf_skills/:id", UkGdadPcfSkills.ShowLive

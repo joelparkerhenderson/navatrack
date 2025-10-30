@@ -91,6 +91,14 @@ defmodule NavatrackWeb.Aims.ShowTest do
     assert response =~ "URL: <a href=\"#{x.six_pager_double_sider_as_url}\">#{x.six_pager_double_sider_as_url}</a>"
     assert response =~ "Markdown: #{x.six_pager_double_sider_as_markdown}"
 
+    assert response =~ "SMART: Specific Measurable Achievable Relevant Timely"
+    assert response =~ "URL: <a href=\"#{x.smart_as_url}\">#{x.smart_as_url}</a>"
+    assert response =~ "Specific: #{x.smart_specific_as_markdown}"
+    assert response =~ "Measurable: #{x.smart_measurable_as_markdown}"
+    assert response =~ "Achievable: #{x.smart_achievable_as_markdown}"
+    assert response =~ "Relevant: #{x.smart_relevant_as_markdown}"
+    assert response =~ "Timely: #{x.smart_timely_as_markdown}"
+
     assert response =~ "SWOT: Strengths Weaknesses Opportunities Threats"
     assert response =~ "URL: <a href=\"#{x.swot_as_url}\">#{x.swot_as_url}</a>"
     assert response =~ "Strengths: #{x.swot_strengths_as_markdown}"

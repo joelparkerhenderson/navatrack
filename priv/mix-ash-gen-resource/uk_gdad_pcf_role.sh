@@ -8,12 +8,10 @@ mix ash.gen.resource \
     --extend postgres \
     --uuid-primary-key id \
     --attribute locale_code:string:required:public \
-    --attribute family:string:required:public \
+    --relationship belongs_to:uk_gdad_pcf_role_family:Navatrack.Codes.UkGdadPcfRoleFamily \
     --attribute name:string:required:public \
     --attribute url:string:required:public \
     --attribute description_as_markdown:string:required:public \
-    --attribute level_name:string:required:public \
-    --attribute level_description_as_markdown:string:required:public \
     --attribute senior_civil_service_flag:boolean:required:public \
 
 mix ash.codegen create_uk_gdad_pcf_roles.exs

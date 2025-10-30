@@ -27,12 +27,9 @@ defmodule NavatrackWeb.UkGdadPcfRoles.ShowLive do
         <ul>
           <li>Id: {@x.id}</li>
           <li>Locale: {@x.locale_code}</li>
-          <li>Family: {@x.family}</li>
           <li>Name: {@x.name}</li>
           <li>URL: {@x.url}</li>
           <li>Description as Markdown: {@x.description_as_markdown}</li>
-          <li>Level Name:: {@x.level_name}</li>
-          <li>Level Description as Markdown: {@x.level_description_as_markdown}</li>
           <li>Senior Civil Service Flag: {@x.senior_civil_service_flag}</li>
         </ul>
       </main>

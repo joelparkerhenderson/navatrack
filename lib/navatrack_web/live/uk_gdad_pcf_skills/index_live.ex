@@ -34,7 +34,7 @@ defmodule NavatrackWeb.UkGdadPcfSkills.IndexLive do
       <Cinder.Table.table theme={Cinder.Themes.Smart} resource={X}>
         <:col :let={x} field="id" label="➡️ Id" filter sort search><.link_show x={x} /></:col>
         <:col :let={x} field="name" label="📛 Name" sort search>{x.name}</:col>
-        <:col :let={x} field="name" label="🔗 URL" sort search><a href={x.url}>{x.url}</a></:col>
+        <:col :let={x} field="url" label="🔗 URL" sort search><a href={x.url}>{x.url}</a></:col>
       </Cinder.Table.table>
     </Layouts.app>
     """

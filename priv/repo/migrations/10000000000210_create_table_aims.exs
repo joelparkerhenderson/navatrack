@@ -102,6 +102,13 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
       gs1_global_location_number text,
       isic_v4_code text,
       isic_v4_name text,
+      -- smarter
+      smart_as_url text CONSTRAINT aims_smart_as_url_check CHECK (smart_as_url ~* '^https://'),
+      smart_specific_as_markdown text,
+      smart_measurable_as_markdown text,
+      smart_achievable_as_markdown text,
+      smart_relevant_as_markdown text,
+      smart_timely_as_markdown text,
       -- swot
       swot_as_url text CONSTRAINT aims_swot_as_url_check CHECK (swot_as_url ~* '^https://'),
       swot_strengths_as_markdown text,
@@ -530,6 +537,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
     execute "DROP CONSTRAINT IF EXISTS aims_lady_beetle_emoji_url_check;"
     execute "DROP CONSTRAINT IF EXISTS aims_glossary_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS aims_six_pager_double_sider_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS aims_smart_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS aims_swot_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS aims_rice_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS aims_raid_as_url_check;"

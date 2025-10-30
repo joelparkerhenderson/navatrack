@@ -111,6 +111,13 @@ defmodule Navatrack.Works.Aim do
       :isic_v4_name,
       :six_pager_double_sider_as_url,
       :six_pager_double_sider_as_markdown,
+      ### smart
+      :smart_as_url,
+      :smart_specific_as_markdown,
+      :smart_measurable_as_markdown,
+      :smart_achievable_as_markdown,
+      :smart_relevant_as_markdown,
+      :smart_timely_as_markdown,
       ### swot
       :swot_as_url,
       :swot_strengths_as_markdown,
@@ -442,6 +449,13 @@ defmodule Navatrack.Works.Aim do
     attribute :isic_v4_name, :string
     attribute :six_pager_double_sider_as_url, :string
     attribute :six_pager_double_sider_as_markdown, :string
+    ### smart
+    attribute :smart_as_url, :string
+    attribute :smart_specific_as_markdown, :string
+    attribute :smart_measurable_as_markdown, :string
+    attribute :smart_achievable_as_markdown, :string
+    attribute :smart_relevant_as_markdown, :string
+    attribute :smart_timely_as_markdown, :string
     ### swot
     attribute :swot_as_url, :string
     attribute :swot_strengths_as_markdown, :string
@@ -783,6 +797,13 @@ defmodule Navatrack.Works.Aim do
         isic_v4_name: "my-isic-v4-name",
         six_pager_double_sider_as_url: "https://my-six_pager-double-sider-as-url",
         six_pager_double_sider_as_markdown: "my-six-pager-double-sider-as-markdown",
+        ### smart
+        smart_as_url: "https://my-smart-as-url",
+        smart_specific_as_markdown: "my-smart-specific-as-markdown",
+        smart_measurable_as_markdown: "my-smart-measurable-as-markdown",
+        smart_achievable_as_markdown: "my-smart-achievable-as-markdown",
+        smart_relevant_as_markdown: "my-smart-relevant-as-markdown",
+        smart_timely_as_markdown: "my-smart-timely-as-markdown",
         ### swot
         swot_as_url: "https://my-swot-as-url",
         swot_strengths_as_markdown: "my-swot-strengths-as-markdown",

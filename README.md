@@ -257,6 +257,7 @@ Tagging ideas for topics about groups:
 
 - association
 - chapter
+- cohort
 - committee
 - community
 - company

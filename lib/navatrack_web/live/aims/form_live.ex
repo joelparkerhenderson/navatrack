@@ -495,6 +495,46 @@ defmodule NavatrackWeb.Aims.FormLive do
 
         </.section>
 
+        <.section id="smart" title="SMART: Specific Measurable Achievable Relevant Timely">
+
+          <.input
+            field={form[:smart_as_url]}
+            type="url"
+            label="🔗 URL"
+            placeholder="https://example.com"
+          />
+          <.input
+            field={form[:smart_specific_as_markdown]}
+            type="textarea"
+            label="Specific"
+            placeholder="Scope: What is in scope versus out of scope?\nFunctionality: What are the inputs, processes, and outputs?\nResults: What are any objectives, outcomes, impacts?"
+          />
+          <.input
+            field={form[:smart_as_markdown]}
+            type="textarea"
+            label="Measurable"
+            placeholder="What metrics are being used and why?\nWhat are any leading indicators and lagging indicators?\nHow do stakeholders access the metrics?"
+          />
+          <.input
+            field={form[:smart_achievable_as_markdown]}
+            type="textarea"
+            label="Achievable"
+            placeholder="Who wll achieve this? List any roles, responsibilities, participants, etc.\nWhat resources are needed for inputs, dependencies, materials, etc.?\nWhat are the challenges, risks, assumptions, constraints, etc.?"
+          />
+          <.input
+            field={form[:smart_relevant_as_markdown]}
+            type="textarea"
+            label="Relevant"
+            placeholder="Summarize the context, connections, etc.?\nHow does this relate to the participants, roles, and goals?\nHow does this interrelate with other work?"
+          />
+          <.input
+            field={form[:smart_timely_as_markdown]}
+            type="textarea"
+            label="Timely"
+            placeholder="When is this happening?\nWhy is the timing important?\nWhere can participants see a timeline, or calendar, or schedule, etc.?"
+          />
+        </.section>
+
         <.section id="swot" title="SWOT: Strengths Weaknesses Opportunities Threats">
 
           <.input

@@ -8,7 +8,6 @@ Path.join(__DIR__, "seeds.csv")
 |> File.stream!()
 |> CSV.decode!(headers: true, escape_max_lines: 200)
 |> Enum.each(fn row ->
-  IO.inspect(row)
   Navatrack.Repo.insert!(%Navatrack.Codes.IloIsco2008{
     locale_code: "en-",
     code: row["Code"],
