@@ -168,11 +168,20 @@ defmodule NavatrackWeb.Router do
 
         ### Read-Only Codes
 
+        live "/currencies", Currencies.IndexLive
+        live "/currencies/:id", Currencies.ShowLive
+
         live "/ilo_isco_2008s", IloIsco2008s.IndexLive
         live "/ilo_isco_2008s/:id", IloIsco2008s.ShowLive
 
         live "/lumina_foundation_skill_levels", LuminaFoundationSkillLevels.IndexLive
         live "/lumina_foundation_skill_levels/:id", LuminaFoundationSkillLevels.ShowLive
+
+        live "/measurement_systems", MeasurementSystems.IndexLive
+        live "/measurement_systems/:id", MeasurementSystems.ShowLive
+
+        live "/measurement_units", MeasurementUnits.IndexLive
+        live "/measurement_units/:id", MeasurementUnits.ShowLive
 
         live "/uk_gdad_pcf_role_families", UkGdadPcfRoleFamilies.IndexLive
         live "/uk_gdad_pcf_role_families/:id", UkGdadPcfRoleFamilies.ShowLive

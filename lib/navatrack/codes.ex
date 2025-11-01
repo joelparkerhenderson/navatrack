@@ -9,8 +9,11 @@ defmodule Navatrack.Codes do
   end
 
   resources do
+    resource Navatrack.Codes.Currency
     resource Navatrack.Codes.IloIsco2008
     resource Navatrack.Codes.LuminaFoundationSkillLevel
+    resource Navatrack.Codes.MeasurementSystem
+    resource Navatrack.Codes.MeasurementUnit
     resource Navatrack.Codes.UkGdadPcfRole
     resource Navatrack.Codes.UkGdadPcfRoleFamily
     resource Navatrack.Codes.UkGdadPcfRoleLevel

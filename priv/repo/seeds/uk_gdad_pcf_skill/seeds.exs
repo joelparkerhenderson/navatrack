@@ -4,12 +4,14 @@
 # mix run -r priv/repo/seeds/uk_gdad_pcf_skill/seeds.exs
 # ```
 
+alias Navatrack.Codes.UkGdadPcfSkill, as: X
+
 Path.join(__DIR__, "seeds.csv")
 |> File.stream!()
 |> CSV.decode!(headers: true, escape_max_lines: 200)
 |> Enum.each(fn row ->
   IO.inspect(row)
-  Navatrack.Repo.insert!(%Navatrack.Codes.UkGdadPcfSkill{
+  Navatrack.Repo.insert!(%X{
     locale_code: "en-GB",
     name: row["Skill Name"],
     url: "https://ddat-capability-framework.service.gov.uk/skills#" <> Recase.to_kebab(row["Skill Name"]),

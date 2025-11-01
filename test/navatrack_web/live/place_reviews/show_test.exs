@@ -23,7 +23,7 @@ defmodule NavatrackWeb.PlaceReviews.ShowTest do
     assert response =~ "Id: #{x.id}"
     # assert response =~ "Created at: #{x.created_at}"
     # assert response =~ "Updated at: #{x.updated_at}"
-    # assert response =~ "Deleted at: #{x.retired_at}"
+    # assert response =~ "Retired at: #{x.retired_at}"
     assert response =~ "Locale code: #{x.locale_code}"
     assert response =~ "📛 Name: #{x.name}"
     assert response =~ "🚦 Sign: #{x.sign}"
