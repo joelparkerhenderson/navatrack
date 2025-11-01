@@ -21,7 +21,7 @@ defmodule Navatrack.Works.Group do
       ### meta
       :created_at,
       :updated_at,
-      :deleted_at,
+      :retired_at,
       :locale_code,
       :parent_id,
       :parent_order,
@@ -219,7 +219,7 @@ defmodule Navatrack.Works.Group do
     uuid_primary_key :id
     attribute :created_at, :utc_datetime_usec
     attribute :updated_at, :utc_datetime_usec
-    attribute :deleted_at, :utc_datetime_usec
+    attribute :retired_at, :utc_datetime_usec
     attribute :locale_code, :string
     attribute :parent_id, :uuid
     attribute :parent_order, :integer

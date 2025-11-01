@@ -11,7 +11,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableAssignments do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
+      retired_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       parent_id uuid CONSTRAINT access_assignments_parent_id_fk REFERENCES access_assignments (id),
       parent_order int CONSTRAINT access_assignments_parent_order_check CHECK (parent_order >= 0),
@@ -30,7 +30,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableAssignments do
 
     execute "CREATE INDEX access_assignments_created_at_index ON access_assignments (created_at);"
     execute "CREATE INDEX access_assignments_updated_at_index ON access_assignments (updated_at);"
-    execute "CREATE INDEX access_assignments_deleted_at_index ON access_assignments (deleted_at);"
+    execute "CREATE INDEX access_assignments_retired_at_index ON access_assignments (retired_at);"
     execute "CREATE INDEX access_assignments_locale_code_index ON access_assignments (locale_code);"
     execute "CREATE INDEX access_assignments_user_id_index ON access_assignments (user_id);"
     execute "CREATE INDEX access_assignments_access_attribute_id_index ON access_assignments (access_attribute_id);"
@@ -45,7 +45,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableAssignments do
     execute "DROP INDEX IF EXISTS access_assignments_index_gto;"
     execute "DROP INDEX IF EXISTS access_assignments_created_at_index;"
     execute "DROP INDEX IF EXISTS access_assignments_updated_at_index;"
-    execute "DROP INDEX IF EXISTS access_assignments_deleted_at_index;"
+    execute "DROP INDEX IF EXISTS access_assignments_retired_at_index;"
     execute "DROP INDEX IF EXISTS access_assignments_locale_code_index;"
     execute "DROP INDEX IF EXISTS access_assignments_user_id_index;"
     execute "DROP INDEX IF EXISTS access_assignments_access_attribute_id_index;"

@@ -592,7 +592,7 @@ defmodule NavatrackWeb.CoreComponents do
       <p>Id: {@x.id}</p>
       <p>Created at: {@x.created_at}</p>
       <p>Updated at: {@x.updated_at}</p>
-      <p>Deleted at: {@x.deleted_at}</p>
+      <p>Deleted at: {@x.retired_at}</p>
       <p>Locale code: {@x.locale_code}</p>
       <p>📛 Name: {@x.name}</p>
       <p>🚦 Sign: {@x.sign}</p>

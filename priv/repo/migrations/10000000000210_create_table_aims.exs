@@ -12,7 +12,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
+      retired_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       parent_id uuid CONSTRAINT aims_parent_id_fk REFERENCES aims (id),
       parent_order int CONSTRAINT aims_parent_order_check CHECK (parent_order >= 0),
@@ -156,7 +156,15 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
       porters_five_forces_customers_as_markdown text,
       porters_five_forces_suppliers_as_markdown text,
       porters_five_forces_competitors_as_markdown text,
-      --- Policies
+      --- invest
+      invest_as_url text CONSTRAINT aims_invest_as_url_check CHECK (invest_as_url ~* '^https://'),
+      invest_independent_as_markdown text,
+      invest_negotiable_as_markdown text,
+      invest_valuable_as_markdown text,
+      invest_estimable_as_markdown text,
+      invest_small_as_markdown text,
+      invest_testable_as_markdown text,
+      --- policies
       code_of_conduct_policy_as_url text CONSTRAINT aims_code_of_conduct_policy_as_url_check CHECK (code_of_conduct_policy_as_url ~* '^https://'),
       code_of_conduct_policy_as_markdown text,
       coordinated_disclosure_policy_as_url text CONSTRAINT aims_coordinated_disclosure_policy_as_url_check CHECK (coordinated_disclosure_policy_as_url ~* '^https://'),
@@ -421,6 +429,12 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
           || ' ' || porters_five_forces_customers_as_markdown
           || ' ' || porters_five_forces_suppliers_as_markdown
           || ' ' || porters_five_forces_competitors_as_markdown
+          || ' ' || invest_independent_as_markdown
+          || ' ' || invest_negotiable_as_markdown
+          || ' ' || invest_valuable_as_markdown
+          || ' ' || invest_estimable_as_markdown
+          || ' ' || invest_small_as_markdown
+          || ' ' || invest_testable_as_markdown
           || ' ' || code_of_conduct_policy_as_markdown
           || ' ' || coordinated_disclosure_policy_as_markdown
           || ' ' || copyright_policy_as_markdown
@@ -482,7 +496,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
     """
     execute "CREATE INDEX plans_created_at_index ON aims (created_at);"
     execute "CREATE INDEX plans_updated_at_index ON aims (updated_at);"
-    execute "CREATE INDEX plans_deleted_at_index ON aims (deleted_at);"
+    execute "CREATE INDEX plans_retired_at_index ON aims (retired_at);"
     execute "CREATE INDEX plans_locale_code_index ON aims (locale_code);"
     execute "CREATE INDEX plans_name_index ON aims (name);"
     execute "CREATE INDEX plans_name_index_tpo ON aims (name text_pattern_ops);"
@@ -543,6 +557,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
     execute "DROP CONSTRAINT IF EXISTS aims_raid_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS aims_rope_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS aims_porters_five_forces_as_url_check;"
+    execute "DROP CONSTRAINT IF EXISTS aims_invest_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS aims_steeple_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS aims_roles_and_responsibilities_as_url_check;"
     execute "DROP CONSTRAINT IF EXISTS aims_responsibility_assignment_matrix_as_url_check;"
@@ -568,7 +583,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlans do
     execute "DROP INDEX IF EXISTS plans_locale_code_index;"
     execute "DROP INDEX IF EXISTS plans_created_at_index;"
     execute "DROP INDEX IF EXISTS plans_updated_at_index;"
-    execute "DROP INDEX IF EXISTS plans_deleted_at_index;"
+    execute "DROP INDEX IF EXISTS plans_retired_at_index;"
     execute "DROP INDEX IF EXISTS plans_name_index;"
     execute "DROP INDEX IF EXISTS plans_name_index_tpo;"
     execute "DROP INDEX IF EXISTS plans_tagging_index;"

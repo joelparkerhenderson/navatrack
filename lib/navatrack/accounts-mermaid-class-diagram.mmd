@@ -22,20 +22,20 @@ classDiagram
         UUID id
         log_out_everywhere(Struct user)
         destroy()
-        update(UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec deleted_at, String sign, ...)
+        update(UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec retired_at, String sign, ...)
         read()
-        create(UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec deleted_at, String sign, ...)
+        create(UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec retired_at, String sign, ...)
         get_by_subject(String subject)
         get_by_email(String email)
-        sign_in_with_magic_link(String token, UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec deleted_at, ...)
+        sign_in_with_magic_link(String token, UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec retired_at, ...)
         request_magic_link(String email)
     }
     class Group {
         UUID id
         destroy()
-        update(UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec deleted_at, String sign, ...)
+        update(UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec retired_at, String sign, ...)
         read()
-        create(UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec deleted_at, String sign, ...)
+        create(UtcDatetimeUsec created_at, UtcDatetimeUsec updated_at, UtcDatetimeUsec retired_at, String sign, ...)
     }
 
 

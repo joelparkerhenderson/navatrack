@@ -11,7 +11,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePermissions do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
+      retired_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       parent_id uuid CONSTRAINT access_permissions_parent_id_fk REFERENCES access_permissions (id),
       parent_order int CONSTRAINT access_permissions_parent_order_check CHECK (parent_order >= 0),
@@ -30,7 +30,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePermissions do
 
     execute "CREATE INDEX access_permissions_created_at_index ON access_permissions (created_at);"
     execute "CREATE INDEX access_permissions_updated_at_index ON access_permissions (updated_at);"
-    execute "CREATE INDEX access_permissions_deleted_at_index ON access_permissions (deleted_at);"
+    execute "CREATE INDEX access_permissions_retired_at_index ON access_permissions (retired_at);"
     execute "CREATE INDEX access_permissions_locale_code_index ON access_permissions (locale_code);"
     execute "CREATE INDEX access_permissions_access_attribute_id_index ON access_permissions (access_attribute_id);"
     execute "CREATE INDEX access_permissions_access_operation_id_index ON access_permissions (access_operation_id);"
@@ -45,7 +45,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePermissions do
     execute "DROP INDEX IF EXISTS access_permissions_index_gto;"
     execute "DROP INDEX IF EXISTS access_permissions_created_at_index;"
     execute "DROP INDEX IF EXISTS access_permissions_updated_at_index;"
-    execute "DROP INDEX IF EXISTS access_permissions_deleted_at_index;"
+    execute "DROP INDEX IF EXISTS access_permissions_retired_at_index;"
     execute "DROP INDEX IF EXISTS access_permissions_locale_code_index;"
     execute "DROP INDEX IF EXISTS access_permissions_access_attribute_id_index;"
     execute "DROP INDEX IF EXISTS access_permissions_access_operation_id_index;"

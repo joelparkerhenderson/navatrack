@@ -21,7 +21,7 @@ defmodule Navatrack.Accounts.UserLuminaFoundationSkillLevelLink do
     default_accept [
       :created_at,
       :updated_at,
-      :deleted_at,
+      :retired_at,
       :locale_code,
       :user_id,
       :lumina_foundation_skill_level_id,
@@ -32,7 +32,7 @@ defmodule Navatrack.Accounts.UserLuminaFoundationSkillLevelLink do
     uuid_primary_key :id
     attribute :created_at, :utc_datetime_usec
     attribute :updated_at, :utc_datetime_usec
-    attribute :deleted_at, :utc_datetime_usec
+    attribute :retired_at, :utc_datetime_usec
     attribute :locale_code, :string
     attribute :user_id, :uuid
     attribute :lumina_foundation_skill_level_id, :uuid

@@ -21,7 +21,7 @@ defmodule Navatrack.Works.Aim do
       ### meta
       :created_at,
       :updated_at,
-      :deleted_at,
+      :retired_at,
       :locale_code,
       :parent_id,
       :parent_order,
@@ -165,6 +165,14 @@ defmodule Navatrack.Works.Aim do
       :porters_five_forces_customers_as_markdown,
       :porters_five_forces_suppliers_as_markdown,
       :porters_five_forces_competitors_as_markdown,
+      ### invest
+      :invest_as_url,
+      :invest_independent_as_markdown,
+      :invest_negotiable_as_markdown,
+      :invest_valuable_as_markdown,
+      :invest_estimable_as_markdown,
+      :invest_small_as_markdown,
+      :invest_testable_as_markdown,
       ### policy
       :code_of_conduct_policy_as_url,
       :code_of_conduct_policy_as_markdown,
@@ -359,7 +367,7 @@ defmodule Navatrack.Works.Aim do
     uuid_primary_key :id
     attribute :created_at, :utc_datetime_usec
     attribute :updated_at, :utc_datetime_usec
-    attribute :deleted_at, :utc_datetime_usec
+    attribute :retired_at, :utc_datetime_usec
     attribute :locale_code, :string
     attribute :parent_id, :uuid
     attribute :parent_order, :integer
@@ -503,6 +511,14 @@ defmodule Navatrack.Works.Aim do
     attribute :porters_five_forces_customers_as_markdown, :string
     attribute :porters_five_forces_suppliers_as_markdown, :string
     attribute :porters_five_forces_competitors_as_markdown, :string
+    ### invest
+    attribute :invest_as_url, :string
+    attribute :invest_independent_as_markdown, :string
+    attribute :invest_negotiable_as_markdown, :string
+    attribute :invest_valuable_as_markdown, :string
+    attribute :invest_estimable_as_markdown, :string
+    attribute :invest_small_as_markdown, :string
+    attribute :invest_testable_as_markdown, :string
     ### policy
     attribute :code_of_conduct_policy_as_url, :string
     attribute :code_of_conduct_policy_as_markdown, :string
@@ -855,6 +871,14 @@ defmodule Navatrack.Works.Aim do
         porters_five_forces_customers_as_markdown: "my-porters-five-forces-customers-as-markdown",
         porters_five_forces_suppliers_as_markdown: "my-porters-five-forces-suppliers-as-markdown",
         porters_five_forces_competitors_as_markdown: "my-porters-five-forces-competitors-as-markdown",
+        ### invest
+        invest_as_url: "https://my-invest-as-url",
+        invest_independent_as_markdown: "my-invest-independent-as-markdown",
+        invest_negotiable_as_markdown: "my-invest-negotiable-as-markdown",
+        invest_valuable_as_markdown: "my-invest-valuable-as-markdown",
+        invest_estimable_as_markdown: "my-invest-estimable-as-markdown",
+        invest_small_as_markdown: "my-invest-small-as-markdown",
+        invest_testable_as_markdown: "my-invest-testable-as-markdown",
         ### policy
         code_of_conduct_policy_as_url: "https://my-code-of-conduct-url",
         code_of_conduct_policy_as_markdown: "my-code-of-conduct-as-markdown",

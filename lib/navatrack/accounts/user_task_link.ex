@@ -22,7 +22,7 @@ defmodule Navatrack.Accounts.UserTaskLink do
     default_accept [
       :created_at,
       :updated_at,
-      :deleted_at,
+      :retired_at,
       :locale_code,
       :user_id,
       :task_id,
@@ -33,7 +33,7 @@ defmodule Navatrack.Accounts.UserTaskLink do
     uuid_primary_key :id
     attribute :created_at, :utc_datetime_usec
     attribute :updated_at, :utc_datetime_usec
-    attribute :deleted_at, :utc_datetime_usec
+    attribute :retired_at, :utc_datetime_usec
     attribute :locale_code, :string
     attribute :user_id, :uuid
     attribute :task_id, :uuid

@@ -12,7 +12,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableMessages do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
+      retired_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       parent_id uuid CONSTRAINT messages_parent_id_fk REFERENCES messages (id),
       parent_order int CONSTRAINT messages_parent_order_check CHECK (parent_order >= 0),
@@ -52,7 +52,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableMessages do
     """
     execute "CREATE INDEX messages_created_at_index ON messages (created_at);"
     execute "CREATE INDEX messages_updated_at_index ON messages (updated_at);"
-    execute "CREATE INDEX messages_deleted_at_index ON messages (deleted_at);"
+    execute "CREATE INDEX messages_retired_at_index ON messages (retired_at);"
     execute "CREATE INDEX messages_locale_code_index ON messages (locale_code);"
     execute "CREATE INDEX messages_name_index ON messages (name);"
     execute "CREATE INDEX messages_name_index_tpo ON messages (name text_pattern_ops);"
@@ -69,7 +69,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableMessages do
     execute "DROP INDEX IF EXISTS messages_index_gto;"
     execute "DROP INDEX IF EXISTS messages_created_at_index;"
     execute "DROP INDEX IF EXISTS messages_updated_at_index;"
-    execute "DROP INDEX IF EXISTS messages_deleted_at_index;"
+    execute "DROP INDEX IF EXISTS messages_retired_at_index;"
     execute "DROP INDEX IF EXISTS messages_locale_code_index;"
     execute "DROP INDEX IF EXISTS messages_name_index;"
     execute "DROP INDEX IF EXISTS messages_name_index_tpo;"

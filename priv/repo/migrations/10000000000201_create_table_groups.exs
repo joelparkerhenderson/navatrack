@@ -12,7 +12,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
+      retired_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       parent_id uuid CONSTRAINT groups_parent_id_fk REFERENCES groups (id),
       parent_order int CONSTRAINT groups_parent_order_check CHECK (parent_order >= 0),
@@ -242,7 +242,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
     """
     execute "CREATE INDEX groups_created_at_index ON groups (created_at);"
     execute "CREATE INDEX groups_updated_at_index ON groups (updated_at);"
-    execute "CREATE INDEX groups_deleted_at_index ON groups (deleted_at);"
+    execute "CREATE INDEX groups_retired_at_index ON groups (retired_at);"
     execute "CREATE INDEX groups_locale_code_index ON groups (locale_code);"
     execute "CREATE INDEX groups_name_index ON groups (name);"
     execute "CREATE INDEX groups_name_index_tpo ON groups (name text_pattern_ops);"
@@ -323,7 +323,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableGroups do
     execute "DROP INDEX IF EXISTS groups_locale_code_index;"
     execute "DROP INDEX IF EXISTS groups_created_at_index;"
     execute "DROP INDEX IF EXISTS groups_updated_at_index;"
-    execute "DROP INDEX IF EXISTS groups_deleted_at_index;"
+    execute "DROP INDEX IF EXISTS groups_retired_at_index;"
     execute "DROP INDEX IF EXISTS groups_name_index;"
     execute "DROP INDEX IF EXISTS groups_name_index_tpo;"
     execute "DROP INDEX IF EXISTS groups_tagging_index;"

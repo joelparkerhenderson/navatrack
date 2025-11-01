@@ -11,7 +11,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserGroupLinks do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
+      retired_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       user_id uuid REFERENCES users(id) ON DELETE SET NULL,
       group_id uuid REFERENCES groups(id) ON DELETE SET NULL,
@@ -27,7 +27,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserGroupLinks do
     """
     execute "CREATE INDEX user_group_links_created_at_index ON user_group_links (created_at);"
     execute "CREATE INDEX user_group_links_updated_at_index ON user_group_links (updated_at);"
-    execute "CREATE INDEX user_group_links_deleted_at_index ON user_group_links (deleted_at);"
+    execute "CREATE INDEX user_group_links_retired_at_index ON user_group_links (retired_at);"
     execute "CREATE INDEX user_group_links_locale_code_index ON user_group_links (locale_code);"
     execute "CREATE INDEX user_group_links_user_id_index ON user_group_links (user_id);"
     execute "CREATE INDEX user_group_links_group_id_index ON user_group_links (group_id);"
@@ -38,7 +38,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserGroupLinks do
     execute "DROP INDEX IF EXISTS user_group_links_locale_code_index;"
     execute "DROP INDEX IF EXISTS user_group_links_created_at_index;"
     execute "DROP INDEX IF EXISTS user_group_links_updated_at_index;"
-    execute "DROP INDEX IF EXISTS user_group_links_deleted_at_index;"
+    execute "DROP INDEX IF EXISTS user_group_links_retired_at_index;"
     execute "DROP INDEX IF EXISTS user_group_links_user_id_index;"
     execute "DROP INDEX IF EXISTS user_group_links_group_id_index"
     execute "DROP TABLE IF EXISTS user_group_links;"

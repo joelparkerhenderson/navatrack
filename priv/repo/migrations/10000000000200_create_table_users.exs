@@ -12,7 +12,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
+      retired_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       parent_id uuid CONSTRAINT users_parent_id_fk REFERENCES users (id),
       parent_order int CONSTRAINT users_users_parent_order_check CHECK (parent_order >= 0),
@@ -149,7 +149,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
     """
     execute "CREATE INDEX users_created_at_index ON users (created_at);"
     execute "CREATE INDEX users_updated_at_index ON users (updated_at);"
-    execute "CREATE INDEX users_deleted_at_index ON users (deleted_at);"
+    execute "CREATE INDEX users_retired_at_index ON users (retired_at);"
     execute "CREATE INDEX users_locale_code_index ON users (locale_code);"
     execute "CREATE INDEX users_name_index ON users (name);"
     execute "CREATE INDEX users_name_index_tpo ON users (name text_pattern_ops);"
@@ -191,7 +191,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUsers do
     execute "DROP INDEX IF EXISTS users_index_gto;"
     execute "DROP INDEX IF EXISTS users_created_at_index;"
     execute "DROP INDEX IF EXISTS users_updated_at_index;"
-    execute "DROP INDEX IF EXISTS users_deleted_at_index;"
+    execute "DROP INDEX IF EXISTS users_retired_at_index;"
     execute "DROP INDEX IF EXISTS users_locale_code_index;"
     execute "DROP INDEX IF EXISTS users_name_index;"
     execute "DROP INDEX IF EXISTS users_name_index_tpo;"

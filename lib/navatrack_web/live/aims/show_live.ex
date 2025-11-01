@@ -207,6 +207,18 @@ defmodule NavatrackWeb.Aims.ShowLive do
 
         </.section>
 
+        <.section id="invest" title="INVEST: Independent Negotiable Valuable Estimable Small Testable">
+
+          <p>URL: <a href={@x.invest_as_url}>{@x.invest_as_url}</a></p>
+          <p>Independent: {@x.invest_independent_as_markdown}</p>
+          <p>Negotiable: {@x.invest_negotiable_as_markdown}</p>
+          <p>Valuable: {@x.invest_valuable_as_markdown}</p>
+          <p>Estimable: {@x.invest_estimable_as_markdown}</p>
+          <p>Small: {@x.invest_small_as_markdown}</p>
+          <p>Testable: {@x.invest_testable_as_markdown}</p>
+
+        </.section>
+
         <.section id="touchpoints" title="Touchpoints">
 
           <h3 class="h3">

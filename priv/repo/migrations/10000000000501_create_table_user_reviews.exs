@@ -12,7 +12,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserReviews do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
+      retired_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       parent_id uuid CONSTRAINT user_reviews_parent_id_fk REFERENCES user_reviews (id),
       parent_order int CONSTRAINT user_reviews_parent_order_check CHECK (parent_order >= 0),
@@ -71,7 +71,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserReviews do
     """
     execute "CREATE INDEX user_reviews_created_at_index ON user_reviews (created_at);"
     execute "CREATE INDEX user_reviews_updated_at_index ON user_reviews (updated_at);"
-    execute "CREATE INDEX user_reviews_deleted_at_index ON user_reviews (deleted_at);"
+    execute "CREATE INDEX user_reviews_retired_at_index ON user_reviews (retired_at);"
     execute "CREATE INDEX user_reviews_locale_code_index ON user_reviews (locale_code);"
     execute "CREATE INDEX user_reviews_name_index ON user_reviews (name);"
     execute "CREATE INDEX user_reviews_name_index_tpo ON user_reviews (name text_pattern_ops);"
@@ -88,7 +88,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserReviews do
     execute "DROP INDEX IF EXISTS user_reviews_index_gto;"
     execute "DROP INDEX IF EXISTS user_reviews_created_at_index;"
     execute "DROP INDEX IF EXISTS user_reviews_updated_at_index;"
-    execute "DROP INDEX IF EXISTS user_reviews_deleted_at_index;"
+    execute "DROP INDEX IF EXISTS user_reviews_retired_at_index;"
     execute "DROP INDEX IF EXISTS user_reviews_locale_code_index;"
     execute "DROP INDEX IF EXISTS user_reviews_name_index;"
     execute "DROP INDEX IF EXISTS user_reviews_name_index_tpo;"

@@ -167,6 +167,14 @@ defmodule NavatrackWeb.Aims.NewTest do
     assert response =~ "Bargaining Power Of Suppliers"
     assert response =~ "Rivalry Of Competitors"
 
+    assert response =~ "INVEST: Independent Negotiable Valuable Estimable Small Testable"
+    assert response =~ "Independent"
+    assert response =~ "Negotiable"
+    assert response =~ "Valuable"
+    assert response =~ "Estimable"
+    assert response =~ "Small"
+    assert response =~ "Testable"
+
     assert response =~ "Policies"
     assert response =~ "Code of Conduct Policy"
     assert response =~ "Coordinated Disclosure Policy"

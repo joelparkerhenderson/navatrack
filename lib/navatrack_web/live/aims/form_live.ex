@@ -800,6 +800,52 @@ defmodule NavatrackWeb.Aims.FormLive do
           />
         </.section>
 
+        <.section id="invest" title="INVEST: Independent Negotiable Valuable Estimable Small Testable">
+
+          <.input
+            field={form[:invest_as_url]}
+            type="url"
+            label="🔗 URL"
+            placeholder="https://example.com"
+          />
+          <.input
+            field={form[:invest_independent_as_markdown]}
+            type="textarea"
+            label="Independent"
+            placeholder=""
+          />
+          <.input
+            field={form[:invest_negotiable_as_markdown]}
+            type="textarea"
+            label="Negotiable"
+            placeholder=""
+          />
+          <.input
+            field={form[:invest_valuable_as_markdown]}
+            type="textarea"
+            label="Valuable"
+            placeholder=""
+          />
+          <.input
+            field={form[:invest_estimable_as_markdown]}
+            type="textarea"
+            label="Estimable"
+            placeholder=""
+          />
+          <.input
+            field={form[:invest_small_as_markdown]}
+            type="textarea"
+            label="Small"
+            placeholder=""
+          />
+          <.input
+            field={form[:invest_testable_as_markdown]}
+            type="textarea"
+            label="Testable"
+            placeholder=""
+          />
+        </.section>
+
         <.section id="touchpoints" title="Touchpoints">
 
           <h3 class="h3">

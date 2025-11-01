@@ -127,14 +127,6 @@ defmodule NavatrackWeb.Aims.ShowTest do
     assert response =~ "Pessimistic: #{x.rope_pessimistic_as_markdown}"
     assert response =~ "Equilibristic: #{x.rope_equilibristic_as_markdown}"
 
-    assert response =~ "Porter&#39;s Five Forces"
-    assert response =~ "URL: <a href=\"#{x.porters_five_forces_as_url}\">#{x.porters_five_forces_as_url}</a>"
-    assert response =~ "Threat Of Entrants: #{x.porters_five_forces_entrants_as_markdown}"
-    assert response =~ "Threat Of Substitutes: #{x.porters_five_forces_substitutes_as_markdown}"
-    assert response =~ "Bargaining Power Of Customers: #{x.porters_five_forces_customers_as_markdown}"
-    assert response =~ "Bargaining Power Of Suppliers: #{x.porters_five_forces_suppliers_as_markdown}"
-    assert response =~ "Rivalry Of Competitors: #{x.porters_five_forces_competitors_as_markdown}"
-
     assert response =~ "SIPOC: Suppliers Inputs Processes Outputs Customers"
     assert response =~ "URL: <a href=\"#{x.sipoc_as_url}\">#{x.sipoc_as_url}</a>"
     assert response =~ "Suppliers: #{x.sipoc_suppliers_as_markdown}"
@@ -152,6 +144,22 @@ defmodule NavatrackWeb.Aims.ShowTest do
     assert response =~ "Political: #{x.steeple_political_as_markdown}"
     assert response =~ "Legal: #{x.steeple_legal_as_markdown}"
     assert response =~ "Ethical: #{x.steeple_ethical_as_markdown}"
+
+    assert response =~ "Porter&#39;s Five Forces"
+    assert response =~ "URL: <a href=\"#{x.porters_five_forces_as_url}\">#{x.porters_five_forces_as_url}</a>"
+    assert response =~ "Threat Of Entrants: #{x.porters_five_forces_entrants_as_markdown}"
+    assert response =~ "Threat Of Substitutes: #{x.porters_five_forces_substitutes_as_markdown}"
+    assert response =~ "Bargaining Power Of Customers: #{x.porters_five_forces_customers_as_markdown}"
+    assert response =~ "Bargaining Power Of Suppliers: #{x.porters_five_forces_suppliers_as_markdown}"
+    assert response =~ "Rivalry Of Competitors: #{x.porters_five_forces_competitors_as_markdown}"
+
+    assert response =~ "INVEST: Independent Negotiable Valuable Estimable Small Testable"
+    assert response =~ "Independent: #{x.invest_independent_as_markdown}"
+    assert response =~ "Negotiable: #{x.invest_negotiable_as_markdown}"
+    assert response =~ "Valuable: #{x.invest_valuable_as_markdown}"
+    assert response =~ "Estimable: #{x.invest_estimable_as_markdown}"
+    assert response =~ "Small: #{x.invest_small_as_markdown}"
+    assert response =~ "Testable: #{x.invest_testable_as_markdown}"
 
     assert response =~ "Roles and Responsibilities"
     assert response =~ "URL: <a href=\"#{x.roles_and_responsibilities_as_url}\">#{x.roles_and_responsibilities_as_url}</a>"

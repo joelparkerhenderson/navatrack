@@ -12,7 +12,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableEvents do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
+      retired_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       parent_id uuid CONSTRAINT events_parent_id_fk REFERENCES events (id),
       parent_order int CONSTRAINT events_parent_order_check CHECK (parent_order >= 0),
@@ -307,7 +307,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableEvents do
     """
     execute "CREATE INDEX events_created_at_index ON events (created_at);"
     execute "CREATE INDEX events_updated_at_index ON events (updated_at);"
-    execute "CREATE INDEX events_deleted_at_index ON events (deleted_at);"
+    execute "CREATE INDEX events_retired_at_index ON events (retired_at);"
     execute "CREATE INDEX events_locale_code_index ON events (locale_code);"
     execute "CREATE INDEX events_name_index ON events (name);"
     execute "CREATE INDEX events_name_index_tpo ON events (name text_pattern_ops);"
@@ -390,7 +390,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableEvents do
     execute "DROP INDEX IF EXISTS events_locale_code_index;"
     execute "DROP INDEX IF EXISTS events_created_at_index;"
     execute "DROP INDEX IF EXISTS events_updated_at_index;"
-    execute "DROP INDEX IF EXISTS events_deleted_at_index;"
+    execute "DROP INDEX IF EXISTS events_retired_at_index;"
     execute "DROP INDEX IF EXISTS events_name_index;"
     execute "DROP INDEX IF EXISTS events_name_index_tpo;"
     execute "DROP INDEX IF EXISTS events_tagging_index;"

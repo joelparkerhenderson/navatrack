@@ -11,7 +11,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableAccessAttributes do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
+      retired_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       parent_id uuid CONSTRAINT access_attributes_parent_id_fk REFERENCES access_attributes (id),
       parent_order int CONSTRAINT access_attributes_parent_order_check CHECK (parent_order >= 0),
@@ -47,7 +47,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableAccessAttributes do
     """
     execute "CREATE INDEX access_attributes_created_at_index ON access_attributes (created_at);"
     execute "CREATE INDEX access_attributes_updated_at_index ON access_attributes (updated_at);"
-    execute "CREATE INDEX access_attributes_deleted_at_index ON access_attributes (deleted_at);"
+    execute "CREATE INDEX access_attributes_retired_at_index ON access_attributes (retired_at);"
     execute "CREATE INDEX access_attributes_locale_code_index ON access_attributes (locale_code);"
     execute "CREATE INDEX access_attributes_name_index ON access_attributes (name);"
     execute "CREATE INDEX access_attributes_name_index_tpo ON access_attributes (name text_pattern_ops);"
@@ -63,7 +63,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableAccessAttributes do
     execute "DROP INDEX IF EXISTS access_attributes_index_gto;"
     execute "DROP INDEX IF EXISTS access_attributes_created_at_index;"
     execute "DROP INDEX IF EXISTS access_attributes_updated_at_index;"
-    execute "DROP INDEX IF EXISTS access_attributes_deleted_at_index;"
+    execute "DROP INDEX IF EXISTS access_attributes_retired_at_index;"
     execute "DROP INDEX IF EXISTS access_attributes_locale_code_index;"
     execute "DROP INDEX IF EXISTS access_attributes_name_index;"
     execute "DROP INDEX IF EXISTS access_attributes_name_index_tpo;"

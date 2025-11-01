@@ -11,7 +11,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
+      retired_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       parent_id uuid CONSTRAINT traits_parent_id_fk REFERENCES traits (id),
       parent_order int CONSTRAINT traits_parent_order_check CHECK (parent_order >= 0),
@@ -61,7 +61,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
     """
     execute "CREATE INDEX traits_created_at_index ON traits (created_at);"
     execute "CREATE INDEX traits_updated_at_index ON traits (updated_at);"
-    execute "CREATE INDEX traits_deleted_at_index ON traits (deleted_at);"
+    execute "CREATE INDEX traits_retired_at_index ON traits (retired_at);"
     execute "CREATE INDEX traits_locale_code_index ON traits (locale_code);"
     execute "CREATE INDEX traits_name_index ON traits (name);"
     execute "CREATE INDEX traits_name_index_tpo ON traits (name text_pattern_ops);"
@@ -82,7 +82,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableTraits do
     execute "DROP INDEX IF EXISTS traits_index_gto;"
     execute "DROP INDEX IF EXISTS traits_created_at_index;"
     execute "DROP INDEX IF EXISTS traits_updated_at_index;"
-    execute "DROP INDEX IF EXISTS traits_deleted_at_index;"
+    execute "DROP INDEX IF EXISTS traits_retired_at_index;"
     execute "DROP INDEX IF EXISTS traits_locale_code_index;"
     execute "DROP INDEX IF EXISTS traits_name_index;"
     execute "DROP INDEX IF EXISTS traits_name_index_tpo;"

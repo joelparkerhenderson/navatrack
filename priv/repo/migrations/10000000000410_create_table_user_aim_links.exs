@@ -11,7 +11,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserAimLinks do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
+      retired_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       user_id uuid REFERENCES users(id) ON DELETE SET NULL,
       aim_id uuid REFERENCES aims(id) ON DELETE SET NULL,
@@ -27,7 +27,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserAimLinks do
     """
     execute "CREATE INDEX user_aim_links_created_at_index ON user_aim_links (created_at);"
     execute "CREATE INDEX user_aim_links_updated_at_index ON user_aim_links (updated_at);"
-    execute "CREATE INDEX user_aim_links_deleted_at_index ON user_aim_links (deleted_at);"
+    execute "CREATE INDEX user_aim_links_retired_at_index ON user_aim_links (retired_at);"
     execute "CREATE INDEX user_aim_links_locale_code_index ON user_aim_links (locale_code);"
     execute "CREATE INDEX user_aim_links_user_id_index ON user_aim_links (user_id);"
     execute "CREATE INDEX user_aim_links_aim_id_index ON user_aim_links (aim_id);"
@@ -38,7 +38,7 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserAimLinks do
     execute "DROP INDEX IF EXISTS user_aim_links_locale_code_index;"
     execute "DROP INDEX IF EXISTS user_aim_links_created_at_index;"
     execute "DROP INDEX IF EXISTS user_aim_links_updated_at_index;"
-    execute "DROP INDEX IF EXISTS user_aim_links_deleted_at_index;"
+    execute "DROP INDEX IF EXISTS user_aim_links_retired_at_index;"
     execute "DROP INDEX IF EXISTS user_aim_links_user_id_index;"
     execute "DROP INDEX IF EXISTS user_aim_links_aim_id_index"
     execute "DROP TABLE IF EXISTS user_aim_links;"

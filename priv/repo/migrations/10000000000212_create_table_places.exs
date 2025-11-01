@@ -12,7 +12,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlaces do
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
       created_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
       updated_at TIMESTAMP(6) WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'utc'),
-      deleted_at TIMESTAMP(6) WITH TIME ZONE,
+      retired_at TIMESTAMP(6) WITH TIME ZONE,
       locale_code text,
       parent_id uuid CONSTRAINT places_parent_id_fk REFERENCES places (id),
       parent_order int CONSTRAINT places_parent_order_check CHECK (parent_order >= 0),
@@ -106,7 +106,7 @@ defmodule Navatrack.Repo.Migrations.CreateTablePlaces do
     """
     execute "CREATE INDEX places_created_at_index ON places (created_at);"
     execute "CREATE INDEX places_updated_at_index ON places (updated_at);"
-    execute "CREATE INDEX places_deleted_at_index ON places (deleted_at);"
+    execute "CREATE INDEX places_retired_at_index ON places (retired_at);"
     execute "CREATE INDEX places_locale_code_index ON places (locale_code);"
     execute "CREATE INDEX places_name_index ON places (name);"
     execute "CREATE INDEX places_name_index_tpo ON places (name text_pattern_ops);"
