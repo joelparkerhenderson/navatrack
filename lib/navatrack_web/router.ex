@@ -168,6 +168,9 @@ defmodule NavatrackWeb.Router do
 
         ### Read-Only Codes
 
+        live "/currencies", Currencies.IndexLive
+        live "/currencies/:id", Currencies.ShowLive
+
         live "/ilo_isco_2008s", IloIsco2008s.IndexLive
         live "/ilo_isco_2008s/:id", IloIsco2008s.ShowLive
 

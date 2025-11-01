@@ -9,6 +9,7 @@ defmodule Navatrack.Codes do
   end
 
   resources do
+    resource Navatrack.Codes.Currency
     resource Navatrack.Codes.IloIsco2008
     resource Navatrack.Codes.LuminaFoundationSkillLevel
     resource Navatrack.Codes.UkGdadPcfRole

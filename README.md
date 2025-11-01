@@ -115,6 +115,7 @@ Redo databases, which is equivalent to ecto.drop, ecto.create, ecto.migrate, and
 rm -rf priv/resource_snapshots/*
 for env in dev test; do
    export MIX_ENV=$env
+   mix
    mix ecto.reset
    mix ash.codegen tmp
    rm priv/repo/migrations/*_tmp.exs
