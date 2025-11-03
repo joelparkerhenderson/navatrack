@@ -16,15 +16,6 @@ defmodule Navatrack.Accounts do
     resource Navatrack.Accounts.AccessAttribute
     resource Navatrack.Accounts.AccessPermission
     resource Navatrack.Accounts.AccessOperation
-    # Links from different domains
-    resource Navatrack.Codes.IloIsco2008
-    resource Navatrack.Codes.LuminaFoundationSkillLevel
-    resource Navatrack.Works.Topic
-    resource Navatrack.Codes.UkGdadPcfRole
-    resource Navatrack.Codes.UkGdadPcfSkill
-    resource Navatrack.Works.Trait
-    resource Navatrack.Works.Topic
-    resource Navatrack.Works.Topic
     # Links into Codes domain
     resource Navatrack.Accounts.UserIloIsco2008Link
     resource Navatrack.Accounts.UserLuminaFoundationSkillLevelLink

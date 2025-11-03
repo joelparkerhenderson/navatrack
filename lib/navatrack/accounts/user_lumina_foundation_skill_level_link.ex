@@ -4,7 +4,12 @@ defmodule Navatrack.Accounts.UserLuminaFoundationSkillLevelLink do
     domain: Navatrack.Accounts,
     data_layer: AshPostgres.DataLayer,
     authorizers: [Ash.Policy.Authorizer],
-    extensions: [AshAuthentication]
+    extensions: [AshAuthentication],
+    fragments: [
+      Navatrack.Accounts.UserLuminaFoundationSkillLevelLink.Actions,
+      Navatrack.Accounts.UserLuminaFoundationSkillLevelLink.Attributes,
+    ]
+  use Navatrack.Accounts.UserLuminaFoundationSkillLevelLink.Fab
 
   def snake_case_singular(), do: "user_lumina_foundation_skill_level_link"
   def snake_case_plural(), do: "user_lumina_foundation_skill_level_links"
@@ -14,28 +19,6 @@ defmodule Navatrack.Accounts.UserLuminaFoundationSkillLevelLink do
   postgres do
     table "user_lumina_foundation_skill_level_links"
     repo Navatrack.Repo
-  end
-
-  actions do
-    defaults [:read, :destroy, :create, :update]
-    default_accept [
-      :created_at,
-      :updated_at,
-      :retired_at,
-      :locale_code,
-      :user_id,
-      :lumina_foundation_skill_level_id,
-    ]
-  end
-
-  attributes do
-    uuid_primary_key :id
-    attribute :created_at, :utc_datetime_usec
-    attribute :updated_at, :utc_datetime_usec
-    attribute :retired_at, :utc_datetime_usec
-    attribute :locale_code, :string
-    attribute :user_id, :uuid
-    attribute :lumina_foundation_skill_level_id, :uuid
   end
 
   relationships do
@@ -48,16 +31,6 @@ defmodule Navatrack.Accounts.UserLuminaFoundationSkillLevelLink do
     policy always() do
       authorize_if always()
     end
-  end
-
-  def fab!(map \\ %{}) do
-    map = Map.put_new_lazy(map, :user_id, fn -> Navatrack.Accounts.User.fab!().id end)
-    map = Map.put_new_lazy(map, :lumina_foundation_skill_level_id, fn -> Navatrack.Codes.LuminaFoundationSkillLevel.one().id end)
-    __MODULE__ |> Ash.Changeset.for_create(:create, __MODULE__.fab_map(map)) |> Ash.create!()
-  end
-
-  def fab_map(map \\ %{}) do
-    Map.merge(%{}, map)
   end
 
 end

@@ -2,7 +2,12 @@ defmodule Navatrack.Accounts.AccessAssignment do
   use Ash.Resource,
     otp_app: :navatrack,
     domain: Navatrack.Accounts,
-    data_layer: AshPostgres.DataLayer
+    data_layer: AshPostgres.DataLayer,
+    fragments: [
+      Navatrack.Accounts.AccessAssignment.Actions,
+      Navatrack.Accounts.AccessAssignment.Attributes,
+    ]
+  use Navatrack.Accounts.AccessAssignment.Fab
 
   def snake_case_singular(), do: "access_assignment"
   def snake_case_plural(), do: "access_assignments"
@@ -14,53 +19,9 @@ defmodule Navatrack.Accounts.AccessAssignment do
     repo Navatrack.Repo
   end
 
-  actions do
-    defaults [:read, :destroy, :create, :update]
-    default_accept [
-      ### meta
-      :created_at,
-      :updated_at,
-      :retired_at,
-      :locale_code,
-      :parent_id,
-      :parent_order,
-      ### relationships
-      :user_id,
-      :access_attribute_id
-    ]
-  end
-
-  attributes do
-    ### meta
-    uuid_primary_key :id
-    attribute :created_at, :utc_datetime_usec
-    attribute :updated_at, :utc_datetime_usec
-    attribute :retired_at, :utc_datetime_usec
-    attribute :locale_code, :string
-    attribute :parent_id, :uuid
-    attribute :parent_order, :integer
-    ### relationships
-    attribute :user_id, :uuid
-    attribute :access_attribute_id, :uuid
-  end
-
   relationships do
     belongs_to :user, Navatrack.Accounts.User
     belongs_to :access_attribute, Navatrack.Accounts.AccessAttribute
-  end
-
-  def fab!(map \\ %{}) do
-    map = Map.put_new_lazy(map, :user_id, fn -> Navatrack.Accounts.User.fab!().id end)
-    map = Map.put_new_lazy(map, :access_attribute_id, fn -> Navatrack.Accounts.AccessAttribute.fab!().id end)
-    x = __MODULE__ |> Ash.Changeset.for_create(:create, __MODULE__.fab_map(map)) |> Ash.create!()
-    x
-  end
-
-  def fab_map(map \\ %{}) do
-    Map.merge(
-      %{},
-      map
-    )
   end
 
 end

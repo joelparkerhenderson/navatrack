@@ -2,7 +2,11 @@ defmodule Navatrack.Codes.UkGdadPcfRole do
   use Ash.Resource,
     otp_app: :navatrack,
     domain: Navatrack.Codes,
-    data_layer: AshPostgres.DataLayer
+    data_layer: AshPostgres.DataLayer,
+    fragments: [
+      Navatrack.Codes.UkGdadPcfRole.Actions,
+      Navatrack.Codes.UkGdadPcfRole.Attributes,
+    ]
   use One
 
   def snake_case_singular(), do: "uk_gdad_pcf_role"
@@ -13,10 +17,6 @@ defmodule Navatrack.Codes.UkGdadPcfRole do
   postgres do
     table "uk_gdad_pcf_roles"
     repo Navatrack.Repo
-  end
-
-  actions do
-    defaults [:read, create: :*]
   end
 
   attributes do

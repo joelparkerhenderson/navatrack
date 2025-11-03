@@ -2,7 +2,12 @@ defmodule Navatrack.Works.PlaceReview do
   use Ash.Resource,
     otp_app: :navatrack,
     domain: Navatrack.Works,
-    data_layer: AshPostgres.DataLayer
+    data_layer: AshPostgres.DataLayer,
+    fragments: [
+      Navatrack.Works.PlaceReview.Actions,
+      Navatrack.Works.PlaceReview.Attributes,
+    ]
+  use Navatrack.Works.PlaceReview.Fab
 
   def snake_case_singular(), do: "place_review"
   def snake_case_plural(), do: "place_reviews"
@@ -32,6 +37,7 @@ defmodule Navatrack.Works.PlaceReview do
       :tagging,
       :note,
       ### relationships
+
       :by_user_id,
       :to_place_id,
       ### content
@@ -42,33 +48,6 @@ defmodule Navatrack.Works.PlaceReview do
       :change,
       :advice
     ]
-  end
-
-  attributes do
-    ### meta
-    uuid_primary_key :id
-    attribute :created_at, :utc_datetime_usec
-    attribute :updated_at, :utc_datetime_usec
-    attribute :retired_at, :utc_datetime_usec
-    attribute :locale_code, :string
-    attribute :parent_id, :uuid
-    attribute :parent_order, :integer
-    ### card
-    attribute :name, :string
-    attribute :sign, :string
-    attribute :status, :string
-    attribute :tagging, :string
-    attribute :note, :string
-    ### relationships
-    attribute :by_user_id, :uuid, allow_nil?: false
-    attribute :to_place_id, :uuid, allow_nil?: false
-    ### content
-    attribute :strength, :string
-    attribute :start, :string
-    attribute :stop, :string
-    attribute :continue, :string
-    attribute :change, :string
-    attribute :advice, :string
   end
 
   relationships do
@@ -83,40 +62,6 @@ defmodule Navatrack.Works.PlaceReview do
       source_attribute :to_place_id
     end
 
-  end
-
-  def fab!(map \\ %{}) do
-    map = Map.put_new_lazy(map, :by_user_id, fn -> Navatrack.Accounts.User.fab!().id end)
-    map = Map.put_new_lazy(map, :to_place_id, fn -> Navatrack.Works.Place.fab!().id end)
-    __MODULE__ |> Ash.Changeset.for_create(:create, __MODULE__.fab_map(map)) |> Ash.create!()
-  end
-
-  def fab_map(map \\ %{}) do
-    Map.merge(
-      %{
-        ### meta
-        locale_code: "en-US",
-        parent_id: nil,
-        parent_order: nil,
-        ### card
-        name: "my-name",
-        sign: "○",
-        status: "my-status",
-        tagging: "my-tagging",
-        note: "my-note",
-        ### relationships
-        by_user_id: nil,
-        to_place_id: nil,
-        ### content
-        strength: "my-strength",
-        start: "my-start",
-        stop: "my-stop",
-        continue: "my-continue",
-        change: "my-change",
-        advice: "my-advice"
-      },
-      map
-    )
   end
 
 end

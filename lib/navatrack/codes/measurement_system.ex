@@ -2,7 +2,11 @@ defmodule Navatrack.Codes.MeasurementSystem do
   use Ash.Resource,
     otp_app: :navatrack,
     domain: Navatrack.Codes,
-    data_layer: AshPostgres.DataLayer
+    data_layer: AshPostgres.DataLayer,
+    fragments: [
+      Navatrack.Codes.MeasurementSystem.Actions,
+      Navatrack.Codes.MeasurementSystem.Attributes,
+    ]
   use One
 
   def snake_case_singular(), do: "measurement_system"
@@ -13,19 +17,6 @@ defmodule Navatrack.Codes.MeasurementSystem do
   postgres do
     table "measurement_systems"
     repo Navatrack.Repo
-  end
-
-  actions do
-    defaults [:read]
-  end
-
-  attributes do
-    uuid_primary_key :id
-    attribute :locale_code, :string
-    attribute :name, :string
-    attribute :name_phonetic, :string
-    attribute :name_abbreviation, :string
-    attribute :name_abbreviation_phonetic, :string
   end
 
 end

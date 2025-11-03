@@ -19,7 +19,6 @@ defmodule Navatrack.Repo.Migrations.CreateTableUserTraitLinks do
       tagging text
     );
     """
-
     execute """
     CREATE TRIGGER trigger_user_trait_links_updated_at
       BEFORE UPDATE ON user_trait_links

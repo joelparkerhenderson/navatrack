@@ -4,7 +4,12 @@ defmodule Navatrack.Accounts.UserUkGdadPcfRoleLink do
     domain: Navatrack.Accounts,
     data_layer: AshPostgres.DataLayer,
     authorizers: [Ash.Policy.Authorizer],
-    extensions: [AshAuthentication]
+    extensions: [AshAuthentication],
+    fragments: [
+      Navatrack.Accounts.UserUkGdadPcfRoleLink.Actions,
+      Navatrack.Accounts.UserUkGdadPcfRoleLink.Attributes,
+    ]
+  use Navatrack.Accounts.UserUkGdadPcfRoleLink.Fab
 
   def snake_case_singular(), do: "user_uk_gdad_pcf_role_link"
   def snake_case_plural(), do: "user_uk_gdad_pcf_role_links"
@@ -14,28 +19,6 @@ defmodule Navatrack.Accounts.UserUkGdadPcfRoleLink do
   postgres do
     table "user_uk_gdad_pcf_role_links"
     repo Navatrack.Repo
-  end
-
-  actions do
-    defaults [:read, :destroy, :create, :update]
-    default_accept [
-      :created_at,
-      :updated_at,
-      :retired_at,
-      :locale_code,
-      :user_id,
-      :uk_gdad_pcf_role_id,
-    ]
-  end
-
-  attributes do
-    uuid_primary_key :id
-    attribute :created_at, :utc_datetime_usec
-    attribute :updated_at, :utc_datetime_usec
-    attribute :retired_at, :utc_datetime_usec
-    attribute :locale_code, :string
-    attribute :user_id, :uuid
-    attribute :uk_gdad_pcf_role_id, :uuid
   end
 
   relationships do
@@ -48,16 +31,6 @@ defmodule Navatrack.Accounts.UserUkGdadPcfRoleLink do
     policy always() do
       authorize_if always()
     end
-  end
-
-  def fab!(map \\ %{}) do
-    map = Map.put_new_lazy(map, :user_id, fn -> Navatrack.Accounts.User.fab!().id end)
-    map = Map.put_new_lazy(map, :uk_gdad_pcf_role_id, fn -> Navatrack.Codes.UkGdadPcfRole.one().id end)
-    __MODULE__ |> Ash.Changeset.for_create(:create, __MODULE__.fab_map(map)) |> Ash.create!()
-  end
-
-  def fab_map(map \\ %{}) do
-    Map.merge(%{}, map)
   end
 
 end

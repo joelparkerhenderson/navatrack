@@ -2,7 +2,11 @@ defmodule Navatrack.Codes.MeasurementUnit do
   use Ash.Resource,
     otp_app: :navatrack,
     domain: Navatrack.Codes,
-    data_layer: AshPostgres.DataLayer
+    data_layer: AshPostgres.DataLayer,
+    fragments: [
+      Navatrack.Codes.MeasurementUnit.Actions,
+      Navatrack.Codes.MeasurementUnit.Attributes
+    ]
   use One
 
   def snake_case_singular(), do: "measurement_unit"
@@ -13,22 +17,6 @@ defmodule Navatrack.Codes.MeasurementUnit do
   postgres do
     table "measurement_units"
     repo Navatrack.Repo
-  end
-
-  actions do
-    defaults [:read]
-  end
-
-  attributes do
-    attribute :id, type: :string, primary_key?: true, public?: true, allow_nil?: false, writable?: false, generated?: false
-    attribute :locale_code, :string
-    attribute :name, :string
-    attribute :name_phonetic, :string
-    attribute :category, :string
-    attribute :synonyms, :string
-    attribute :loinc_property, :string
-    attribute :guidance, :string
-    attribute :measurement_system_id, :uuid
   end
 
 end
