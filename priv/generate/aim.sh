@@ -1,8 +1,15 @@
 #!/bin/sh
 set -euf
 
+export App=Navatrack
+export app=navatrack
+export Dom=Works
+export Resource=Aim
+export Resources=Aims
+export resources=aims
+
 mix ash.gen.resource \
-    Navatrack.Works.Aim \
+    $App.$Dom.$Resource \
     --conflicts replace \
     --default-actions create,read,update,destroy \
     --extend postgres \
@@ -340,22 +347,22 @@ mix ash.gen.resource \
 mix ash.codegen create_plans
 mix ash.migrate
 
-touch priv/repo/migrations/00000000000000_create_plans.exs
+touch priv/repo/migrations/00000000000000_create_$resources.exs
 
-mkdir -p lib/navatrack_web/live/aims
-touch lib/navatrack_web/live/aims/form_live.ex
-touch lib/navatrack_web/live/aims/index_live.ex
-touch lib/navatrack_web/live/aims/show_live.ex
+mkdir -p lib/${app}_web/live/$resources
+touch lib/${app}_web/live/$resources/form_live.ex
+touch lib/${app}_web/live/$resources/index_live.ex
+touch lib/${app}_web/live/$resources/show_live.ex
 
-mkdir -p test/navatrack_web/live/aims
-touch test/navatrack_web/live/aims/form_test.ex
-touch test/navatrack_web/live/aims/index_test.ex
-touch test/navatrack_web/live/aims/show_test.ex
+mkdir -p test/${app}_web/live/$resources
+touch test/${app}_web/live/$resources/form_test.ex
+touch test/${app}_web/live/$resources/index_test.ex
+touch test/${app}_web/live/$resources/show_test.ex
 
 cat << EOF
-Edit file lib/navatrack_web/router.ex to add live routes:
-live "/aims", Aims.IndexLive
-live "/aims/new", Aims.FormLive, :new
-live "/aims/:id", Aims.ShowLive
-live "/aims/:id/edit", Aims.FormLive, :edit
+Edit file lib/${app}_web/router.ex to add live routes:
+live "$resources", $Resources.IndexLive
+live "$resources/new", $Resources.FormLive, :new
+live "$resources/:id", $Resources.ShowLive
+live "$resources/:id/edit", $Resources.FormLive, :edit
 EOF

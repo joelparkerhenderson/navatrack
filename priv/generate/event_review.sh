@@ -1,6 +1,13 @@
 #!/bin/sh
 set -euf
 
+export App=Navatrack
+export app=navatrack
+export Dom=Works
+export Resource=EventReview
+export Resources=EventReviews
+export resources=event_reviews
+
 #    - strength: What is the person's key strength?
 #    - start: What should the person start doing in order to be effective?
 #    - stop: What should the person stop doing in order to be effective?
@@ -9,7 +16,7 @@ set -euf
 #    - advice: What other advice can you suggest help them toward their potential?
 
 mix ash.gen.resource \
-    Navatrack.Works.EventReview \
+    $App.$Dom.$Resource \
     --conflicts replace \
     --default-actions create,read,update,destroy \
     --extend postgres \
@@ -20,8 +27,8 @@ mix ash.gen.resource \
     --attribute tagging:string \
     --attribute note:string \
     \
-    --relationship belongs_to:by_user_id:Navatrack.Accounts.Event \
-    --relationship belongs_to:to_event_id:Navatrack.Accounts.Event \
+    --relationship belongs_to:by_user_id:$App.$Dom.Event \
+    --relationship belongs_to:to_event_id:$App.$Dom.Event \
     \
     --attribute strength:string \
     --attribute start:string \
@@ -33,22 +40,22 @@ mix ash.gen.resource \
 mix ash.codegen create_event_reviews
 mix ash.migrate
 
-touch priv/repo/migrations/00000000000000_create_event_reviews.exs
+touch priv/repo/migrations/00000000000000_create_$resources.exs
 
-mkdir -p lib/navatrack_web/live/event_reviews
-touch lib/navatrack_web/live/event_reviews/form_live.ex
-touch lib/navatrack_web/live/event_reviews/index_live.ex
-touch lib/navatrack_web/live/event_reviews/show_live.ex
+mkdir -p lib/${app}_web/live/$resources
+touch lib/${app}_web/live/$resources/form_live.ex
+touch lib/${app}_web/live/$resources/index_live.ex
+touch lib/${app}_web/live/$resources/show_live.ex
 
-mkdir -p test/navatrack_web/live/event_reviews
-touch test/navatrack_web/live/event_reviews/form_test.ex
-touch test/navatrack_web/live/event_reviews/index_test.ex
-touch test/navatrack_web/live/event_reviews/show_test.ex
+mkdir -p test/${app}_web/live/$resources
+touch test/${app}_web/live/$resources/form_test.ex
+touch test/${app}_web/live/$resources/index_test.ex
+touch test/${app}_web/live/$resources/show_test.ex
 
 cat << EOF
-Edit file lib/navatrack_web/router.ex to add live routes:
-live "/event_reviews", EventReviews.IndexLive
-live "/event_reviews/new", EventReviews.FormLive, :new
-live "/event_reviews/:id", EventReviews.ShowLive
-live "/event_reviews/:id/edit", EventReviews.FormLive, :edit
+Edit file lib/${app}_web/router.ex to add live routes:
+live "$resources", $Resources.IndexLive
+live "$resources/new", $Resources.FormLive, :new
+live "$resources/:id", $Resources.ShowLive
+live "$resources/:id/edit", $Resources.FormLive, :edit
 EOF

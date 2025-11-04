@@ -1,6 +1,13 @@
 #!/bin/sh
 set -euf
 
+export App=Navatrack
+export app=navatrack
+export Dom=Works
+export Resource=User
+export Resources=Users
+export resources=users
+
 # This uses many flat fields i.e. not relations, because for this project we
 # prefer the simplest maintainability and leanest lookups.
 #
@@ -10,14 +17,14 @@ set -euf
 #
 # * The argument `:email` on action `:get_by_email` should have `:type` set to `Ash.Type.String`
 #
-# Edit file [`lib/navatrack/accounts/user.ex`](lib/navatrack/accounts/user.ex):
+# Edit file [`lib/$app/accounts/user.ex`](lib/$app/accounts/user.ex):
 #
 # * Find the text `request_magic_link` and change the email type from `ci_string` into `string`.
 #
 # * Find the text `get_by_email` and change the email type from `ci_string` into `string`.
 
 mix ash.gen.resource \
-    Navatrack.Accounts.User \
+    $App.$Dom.$Resource \
     --conflicts replace \
     --default-actions create,read,update,destroy \
     --extend postgres \
@@ -95,22 +102,22 @@ mix ash.gen.resource \
 mix ash.codegen create_users
 mix ash.migrate
 
-touch priv/repo/migrations/00000000000000_create_users.exs
+touch priv/repo/migrations/00000000000000_create_$resources.exs
 
-mkdir -p lib/navatrack_web/live/users
-touch lib/navatrack_web/live/users/form_live.ex
-touch lib/navatrack_web/live/users/index_live.ex
-touch lib/navatrack_web/live/users/show_live.ex
+mkdir -p lib/${app}_web/live/$resources
+touch lib/${app}_web/live/$resources/form_live.ex
+touch lib/${app}_web/live/$resources/index_live.ex
+touch lib/${app}_web/live/$resources/show_live.ex
 
-mkdir -p test/navatrack_web/live/users
-touch test/navatrack_web/live/users/form_test.ex
-touch test/navatrack_web/live/users/index_test.ex
-touch test/navatrack_web/live/users/show_test.ex
+mkdir -p test/${app}_web/live/$resources
+touch test/${app}_web/live/$resources/form_test.ex
+touch test/${app}_web/live/$resources/index_test.ex
+touch test/${app}_web/live/$resources/show_test.ex
 
 cat << EOF
-Edit file lib/navatrack_web/router.ex to add live routes:
-live "/users", Users.IndexLive
-live "/users/new", Users.FormLive, :new
-live "/users/:id", Users.ShowLive
-live "/users/:id/edit", Users.FormLive, :edit
+Edit file lib/${app}_web/router.ex to add live routes:
+live "$resources", $Resources.IndexLive
+live "$resources/new", $Resources.FormLive, :new
+live "$resources/:id", $Resources.ShowLive
+live "$resources/:id/edit", $Resources.FormLive, :edit
 EOF

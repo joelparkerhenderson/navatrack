@@ -1,6 +1,13 @@
 #!/bin/sh
 set -euf
 
+export App=Navatrack
+export app=navatrack
+export Dom=Works
+export Resource=AccessAttribute
+export Resources=AccessAttributes
+export resources=access_attributes
+
 mix ash.gen.resource \
     MyApp.Access.AccessAttribute \
     --conflicts replace \
@@ -18,24 +25,24 @@ mix ash.gen.resource \
 mix ash.codegen create_access_attributes
 mix ash.migrate
 
-touch priv/repo/migrations/00000000000000_create_access_attributes.exs
+touch priv/repo/migrations/00000000000000_create_$resources.exs
 
-mkdir -p lib/my_app_web/live/access_attributes
-touch lib/my_app_web/live/access_attributes/form_live.ex
-touch lib/my_app_web/live/access_attributes/index_live.ex
-touch lib/my_app_web/live/access_attributes/show_live.ex
+mkdir -p lib/my_{app}_web/live/$resources
+touch lib/my_{app}_web/live/$resources/form_live.ex
+touch lib/my_{app}_web/live/$resources/index_live.ex
+touch lib/my_{app}_web/live/$resources/show_live.ex
 
-mkdir -p test/my_app_web/live/access_attributes
-touch test/my_app_web/live/access_attributes/form_live.ex
-touch test/my_app_web/live/access_attributes/index_live.ex
-touch test/my_app_web/live/access_attributes/show_live.ex
+mkdir -p test/my_{app}_web/live/$resources
+touch test/my_{app}_web/live/$resources/form_live.ex
+touch test/my_{app}_web/live/$resources/index_live.ex
+touch test/my_{app}_web/live/$resources/show_live.ex
 
 cat << EOF
-Edit file lib/my_app_web/router.ex to add live routes:
-live "/access_attributes", AccessAttributes.IndexLive
-live "/access_attributes/new", AccessAttributes.FormLive, :new
-live "/access_attributes/:id", AccessAttributes.ShowLive
-live "/access_attributes/:id/edit", AccessAttributes.FormLive, :edit
+Edit file lib/my_{app}_web/router.ex to add live routes:
+live "$resources", $Resources.IndexLive
+live "$resources/new", $Resources.FormLive, :new
+live "$resources/:id", $Resources.ShowLive
+live "$resources/:id/edit", .FormLive, :edit
 EOF
 ### Extra ###
 #

@@ -43,7 +43,7 @@ defmodule Navatrack.Works.Place.Attributes do
       description "Note text"
     end
 
-    attribute :parent_id, :string do
+    attribute :parent_id, :uuid do
       description "Parent id"
     end
 

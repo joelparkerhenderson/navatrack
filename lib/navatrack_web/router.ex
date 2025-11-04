@@ -237,6 +237,10 @@ defmodule NavatrackWeb.Router do
         live "/user_uk_gdad_pcf_skill_links/:id", UserUkGdadPcfSkillLinks.ShowLive
         live "/user_uk_gdad_pcf_skill_links/:id/edit", UserUkGdadPcfSkillLinks.FormLive, :update
 
+        # Special search routes
+        live "/@:email", Users.ShowLive
+        live "/+:phone", Users.ShowLive
+
       end
 
     ash_authentication_live_session :ash_authentication_live_session_routes do

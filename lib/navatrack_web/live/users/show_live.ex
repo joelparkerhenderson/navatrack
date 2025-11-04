@@ -3,6 +3,7 @@ defmodule NavatrackWeb.Users.ShowLive do
   alias Navatrack.Accounts.User, as: X
 
   require Logger
+  require Ash.Query
 
   def mount(_params, _session, socket) do
     {:ok, socket}
@@ -15,6 +16,26 @@ defmodule NavatrackWeb.Users.ShowLive do
      socket
      |> assign(:page_title, x.name)
      |> assign(:x, x)}
+  end
+
+  def handle_params(params, _url, socket) when map_size(params) == 1 do
+    [{key_text, value}] = Map.to_list(params)
+    key = String.to_existing_atom(key_text)
+
+    x = X
+      |> Ash.Query.filter([{^key, ^value}])
+      |> Ash.read_one!()
+
+    {:noreply,
+    socket
+    |> assign(:page_title, x.name)
+    |> assign(:x, x)}
+  rescue
+    ArgumentError ->
+      {:noreply,
+      socket
+      |> put_flash(:error, "Invalid parameter")
+      |> push_navigate(to: ~p"/")}
   end
 
   def render(assigns) do

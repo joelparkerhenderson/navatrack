@@ -1,8 +1,15 @@
 #!/bin/sh
 set -euf
 
+export App=Navatrack
+export app=navatrack
+export Dom=Works
+export Resource=Todo
+export Resources=Todos
+export resources=todos
+
 mix ash.gen.resource \
-    Navatrack.Works.Place \
+    $App.$Dom.$Resource \
     --conflicts replace \
     --default-actions create,read,update,destroy \
     --extend postgres \
@@ -59,41 +66,23 @@ mix ash.gen.resource \
 mix ash.codegen create_places
 mix ash.migrate
 
-touch priv/repo/migrations/00000000000000_create_places.exs
-touch lib/navatrack/works/place.ex
+touch priv/repo/migrations/00000000000000_create_$resources.exs
+touch lib/$app/works/place.ex
 
-mkdir -p lib/navatrack_web/live/places
-touch lib/navatrack_web/live/places/form_live.ex
-touch lib/navatrack_web/live/places/index_live.ex
-touch lib/navatrack_web/live/places/show_live.ex
+mkdir -p lib/${app}_web/live/$resources
+touch lib/${app}_web/live/$resources/form_live.ex
+touch lib/${app}_web/live/$resources/index_live.ex
+touch lib/${app}_web/live/$resources/show_live.ex
 
-mkdir -p test/navatrack_web/live/places
-touch test/navatrack_web/live/places/form_test.ex
-touch test/navatrack_web/live/places/index_test.ex
-touch test/navatrack_web/live/places/show_test.ex
+mkdir -p test/${app}_web/live/$resources
+touch test/${app}_web/live/$resources/form_test.ex
+touch test/${app}_web/live/$resources/index_test.ex
+touch test/${app}_web/live/$resources/show_test.ex
 
 cat << EOF
-Edit file lib/navatrack_web/router.ex to add live routes:
-live "/places", Places.IndexLive
-live "/places/new", Places.FormLive, :new
-live "/places/:id", Places.ShowLive
-live "/places/:id/edit", Places.FormLive, :edit
+Edit file lib/${app}_web/router.ex to add live routes:
+live "$resources", $Resources.IndexLive
+live "$resources/new", $Resources.FormLive, :new
+live "$resources/:id", $Resources.ShowLive
+live "$resources/:id/edit", $Resources.FormLive, :edit
 EOF
-### Extra ###
-#
-# Edit file lib/navatrack/basics/place.ex
-#
-# Find this section:
-#
-#   postgres do
-#     table …
-#     repo …
-#
-# Add this:
-#
-#     index[:{attribute.id}]
-#
-# Change the attributes created_at and updated_at to:
-#
-#   create_timestamp :created_at
-#   update_timestamp :updated_at

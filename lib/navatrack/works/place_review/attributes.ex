@@ -23,7 +23,7 @@ defmodule Navatrack.Works.PlaceReview.Attributes do
       description "Locale code"
     end
 
-    attribute :parent_id, :string do
+    attribute :parent_id, :uuid do
       description "Parent id"
     end
 

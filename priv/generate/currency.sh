@@ -1,6 +1,13 @@
 #!/bin/sh
 set -euf
 
+export App=Navatrack
+export app=navatrack
+export Dom=Works
+export Resource=Currency
+export Resources=Currencies
+export resources=currencies
+
 mix ash.gen.resource \
     MyApp.Codes.Currency \
     --conflicts replace \
@@ -23,26 +30,26 @@ mix ash.gen.resource \
 mix ash.codegen create_currencies
 mix ash.migrate
 
-touch priv/repo/migrations/00000000000000_create_currencies.exs
+touch priv/repo/migrations/00000000000000_create_$resources.exs
 touch test/my_app/my_domain/currency.exs
 
-mkdir -p lib/my_app_web/live/currencies
-touch lib/my_app_web/live/currencies/form_live.ex
-touch lib/my_app_web/live/currencies/index_live.ex
-touch lib/my_app_web/live/currencies/show_live.ex
+mkdir -p lib/my_{app}_web/live/$resources
+touch lib/my_{app}_web/live/$resources/form_live.ex
+touch lib/my_{app}_web/live/$resources/index_live.ex
+touch lib/my_{app}_web/live/$resources/show_live.ex
 
-mkdir -p test/my_app_web/live/currencies
-touch test/my_app_web/live/currencies/form_test.exs
-touch test/my_app_web/live/currencies/index_test.exs
-touch test/my_app_web/live/currencies/show_test.exs
+mkdir -p test/my_{app}_web/live/$resources
+touch test/my_{app}_web/live/$resources/form_test.exs
+touch test/my_{app}_web/live/$resources/index_test.exs
+touch test/my_{app}_web/live/$resources/show_test.exs
 
 cat << EOF
-Edit file lib/my_app_web/router.ex to add live routes:
+Edit file lib/my_{app}_web/router.ex to add live routes:
 
-live "/currencies", CurrencyTypes.IndexLive
-live "/currencies/new", CurrencyTypes.FormLive, :new
-live "/currencies/:id", CurrencyTypes.ShowLive
-live "/currencies/:id/edit", CurrencyTypes.FormLive, :edit
+live "$resources", $Resources.IndexLive
+live "$resources/new", $Resources.FormLive, :new
+live "$resources/:id", $Resources.ShowLive
+live "$resources/:id/edit", $Resources.FormLive, :edit
 
 If there is a parent, then edit file lib/my_app/currency.ex to add:
 
