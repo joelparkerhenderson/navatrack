@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Codes
 export Resource=UkGdadPcfSkill
+export resource=uk_gdad_pcf_skill
 export Resources=UkGdadPcfSkills
 export resources=uk_gdad_pcf_skills
 

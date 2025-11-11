@@ -290,20 +290,20 @@ defmodule Navatrack.Works.Aim.Fab do
             deployment_frequency_unit: "my-deployment-frequency-unit",
             deployment_frequency_description: "my-deployment-frequency-description",
             ### lead time for changes
-            lead_time_for_changes_actual: 1.0,
-            lead_time_for_changes_expect: 2.0,
-            lead_time_for_changes_unit: "my-lead-time-for-changes-unit",
-            lead_time_for_changes_description: "my-lead-time-for-changes-description",
+            mean_lead_time_for_changes_actual: 1.0,
+            mean_lead_time_for_changes_expect: 2.0,
+            mean_lead_time_for_changes_unit: "my-lead-time-for-changes-unit",
+            mean_lead_time_for_changes_description: "my-lead-time-for-changes-description",
             ### change failure rate
             change_failure_rate_actual: 1.0,
             change_failure_rate_expect: 2.0,
             change_failure_rate_unit: "my-change-failure-rate-unit",
             change_failure_rate_description: "my-change-failure-rate-description",
             ### mean time to recovery
-            mean_time_to_recovery_actual: 1.0,
-            mean_time_to_recovery_expect: 2.0,
-            mean_time_to_recovery_unit: "my-mean-time-to-recovery-unit",
-            mean_time_to_recovery_description: "my-mean-time-to-recovery-description",
+            failed_deployment_recovery_time_actual: 1.0,
+            failed_deployment_recovery_time_expect: 2.0,
+            failed_deployment_recovery_time_unit: "my-mean-time-to-recovery-unit",
+            failed_deployment_recovery_time_description: "my-mean-time-to-recovery-description",
             ### maintainability index
             maintainability_index_actual: 1.0,
             maintainability_index_expect: 2.0,

@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Works
 export Resource=AccessAssignment
+export resource=access_assignment
 export Resources=AccessAssignments
 export resources=access_assignments
 

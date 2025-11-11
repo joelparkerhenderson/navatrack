@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Codes
 export Resource=IloIsco2008
+export resource=ilo_isco_2008
 export Resources=IloIsco2008s
 export resources=ilo_isco_2008s
 

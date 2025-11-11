@@ -516,13 +516,13 @@ defmodule NavatrackWeb.Aims.ShowLive do
           <p>Description: {@x.deployment_frequency_description}</p>
 
           <h3 class="h3">
-            Lead Time For Changes
+            Mean Lead Time For Changes
           </h3>
 
-          <p>Actual Value: {@x.lead_time_for_changes_actual}</p>
-          <p>Target Value: {@x.lead_time_for_changes_expect}</p>
-          <p>Unit: {@x.lead_time_for_changes_unit}</p>
-          <p>Description: {@x.lead_time_for_changes_description}</p>
+          <p>Actual Value: {@x.mean_lead_time_for_changes_actual}</p>
+          <p>Target Value: {@x.mean_lead_time_for_changes_expect}</p>
+          <p>Unit: {@x.mean_lead_time_for_changes_unit}</p>
+          <p>Description: {@x.mean_lead_time_for_changes_description}</p>
 
           <h3 class="h3">
             Change Failure Rate
@@ -534,13 +534,13 @@ defmodule NavatrackWeb.Aims.ShowLive do
           <p>Description: {@x.change_failure_rate_description}</p>
 
           <h3 class="h3">
-            Mean Time To Recovery
+            Failed Deployment Recovery Time
           </h3>
 
-          <p>Actual Value: {@x.mean_time_to_recovery_actual}</p>
-          <p>Target Value: {@x.mean_time_to_recovery_expect}</p>
-          <p>Unit: {@x.mean_time_to_recovery_unit}</p>
-          <p>Description: {@x.mean_time_to_recovery_description}</p>
+          <p>Actual Value: {@x.failed_deployment_recovery_time_actual}</p>
+          <p>Target Value: {@x.failed_deployment_recovery_time_expect}</p>
+          <p>Unit: {@x.failed_deployment_recovery_time_unit}</p>
+          <p>Description: {@x.failed_deployment_recovery_time_description}</p>
 
         </.section>
 

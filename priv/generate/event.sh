@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Works
 export Resource=Event
+export resource=event
 export Resources=Events
 export resources=events
 

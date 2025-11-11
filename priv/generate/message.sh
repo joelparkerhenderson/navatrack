@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Works
 export Resource=Message
+export resource=message
 export Resources=Messages
 export resources=messages
 

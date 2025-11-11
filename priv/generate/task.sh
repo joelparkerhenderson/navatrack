@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Works
 export Resource=Task
+export resource=task
 export Resources=Tasks
 export resources=tasks
 

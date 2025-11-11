@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Works
 export Resource=Currency
+export resource=currencie
 export Resources=Currencies
 export resources=currencies
 

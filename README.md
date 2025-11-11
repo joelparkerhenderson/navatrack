@@ -41,7 +41,7 @@ mix ash.migrate
 Optionally add ash authentication debugging to the development environment; edit file `config/dev.exs` then add:
 
 ```elixir
-config ​:ash_authentication​, ​debug_authentication_failures?:​ true
+config :ash_authentication, debug_authentication_failures?: true
 ```
 
 ## Resources

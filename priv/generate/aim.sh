@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Works
 export Resource=Aim
+export resource=aim
 export Resources=Aims
 export resources=aims
 
@@ -290,11 +291,11 @@ mix ash.gen.resource \
     --attribute deployment_frequency_unit:string \
     --attribute deployment_frequency_description_as_markdown:string \
     \
-    --attribute lead_time_for_changes_actual:decimal \
-    --attribute lead_time_for_changes_expect:decimal \
-    --attribute lead_time_for_changes_ratio:decimal \
-    --attribute lead_time_for_changes_unit:string \
-    --attribute lead_time_for_changes_description_as_markdown:string \
+    --attribute mean_lead_time_for_changes_actual:decimal \
+    --attribute mean_lead_time_for_changes_expect:decimal \
+    --attribute mean_lead_time_for_changes_ratio:decimal \
+    --attribute mean_lead_time_for_changes_unit:string \
+    --attribute mean_lead_time_for_changes_description_as_markdown:string \
     \
     --attribute change_failure_rate_actual:decimal \
     --attribute change_failure_rate_expect:decimal \
@@ -302,11 +303,11 @@ mix ash.gen.resource \
     --attribute change_failure_rate_unit:string \
     --attribute change_failure_rate_description_as_markdown:string \
     \
-    --attribute mean_time_to_recovery_actual:decimal \
-    --attribute mean_time_to_recovery_expect:decimal \
-    --attribute mean_time_to_recovery_ratio:decimal \
-    --attribute mean_time_to_recovery_unit:string \
-    --attribute mean_time_to_recovery_description_as_markdown:string\
+    --attribute failed_deployment_recovery_time_actual:decimal \
+    --attribute failed_deployment_recovery_time_expect:decimal \
+    --attribute failed_deployment_recovery_time_ratio:decimal \
+    --attribute failed_deployment_recovery_time_unit:string \
+    --attribute failed_deployment_recovery_time_description_as_markdown:string\
     \
     --attribute maintainability_index_actual:decimal \
     --attribute maintainability_index_expect:decimal \

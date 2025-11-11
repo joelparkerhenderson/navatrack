@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Codes
 export Resource=UkGdadPcfRoleFamily
+export resource=uk_gdad_pcf_role_familie
 export Resources=UkGdadPcfRoleFamilies
 export resources=uk_gdad_pcf_role_families
 

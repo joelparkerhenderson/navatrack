@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Works
 export Resource=PlaceReview
+export resource=place_review
 export Resources=PlaceReviews
 export resources=place_reviews
 

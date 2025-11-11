@@ -7,6 +7,7 @@ defmodule NavatrackWeb.AuthCase do
   AshAuthentication magic link strategy, with a default setup of user email
   address. Modify this example as you wish for your own needs and settings.
 
+  This code is extracted from contactopensource and is in the public domain.
   I appreciate any constructive user_review and advice on how to improve this code.
   And I'm happy to answer questions. Email joel@joelparkerhenderson.com.
   """

@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Codes
 export Resource=LuminaFoundationSkillLevel
+export resource=lumina_foundation_skill_level
 export Resources=LuminaFoundationSkillLevels
 export resources=lumina_foundation_skill_levels
 

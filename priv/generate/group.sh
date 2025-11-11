@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Works
 export Resource=Group
+export resource=group
 export Resources=Groups
 export resources=groups
 

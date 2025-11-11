@@ -1606,23 +1606,23 @@ defmodule NavatrackWeb.Aims.FormLive do
           />
 
           <h3 class="h3">
-            Lead Time For Changes
+            Mean Lead Time For Changes
           </h3>
 
           <.input
-            field={form[:lead_time_for_changes_actual]}
+            field={form[:mean_lead_time_for_changes_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:lead_time_for_changes_expect]}
+            field={form[:mean_lead_time_for_changes_expect]}
             label="Target Value"
           />
           <.input
-            field={form[:lead_time_for_changes_unit]}
+            field={form[:mean_lead_time_for_changes_unit]}
             label="Unit"
           />
           <.input
-            field={form[:lead_time_for_changes_description]}
+            field={form[:mean_lead_time_for_changes_description]}
             type="textarea"
             label="Description"
           />
@@ -1649,26 +1649,50 @@ defmodule NavatrackWeb.Aims.FormLive do
           />
 
           <h3 class="h3">
-            Mean Time To Recovery
+            Failed Deployment Recovery Time
           </h3>
 
           <.input
-            field={form[:mean_time_to_recovery_actual]}
+            field={form[:failed_deployment_recovery_time_actual]}
             label="Actual Value"
           />
           <.input
-            field={form[:mean_time_to_recovery_expect]}
+            field={form[:failed_deployment_recovery_time_expect]}
             label="Target Value"
           />
           <.input
-            field={form[:mean_time_to_recovery_unit]}
+            field={form[:failed_deployment_recovery_time_unit]}
             label="Unit"
           />
           <.input
-            field={form[:mean_time_to_recovery_description]}
+            field={form[:failed_deployment_recovery_time_description]}
             type="textarea"
             label="Description"
           />
+
+          <h3 class="h3">
+            Reliability
+          </h3>
+
+          <.input
+            field={form[:reliability_actual]}
+            label="Actual Value"
+          />
+          <.input
+            field={form[:reliability_expect]}
+            label="Target Value"
+          />
+          <.input
+            field={form[:reliability_unit]}
+            label="Unit"
+          />
+          <.input
+            field={form[:reliability_description]}
+            type="textarea"
+            label="Description"
+          />
+
+
         </.section>
 
         <.section id="code_metrics" title="Code Metrics">

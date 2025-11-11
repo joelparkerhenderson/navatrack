@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Works
 export Resource=Todo
+export resource=todo
 export Resources=Todos
 export resources=todos
 

@@ -55,30 +55,28 @@ defmodule Navatrack.Accounts.User do
   end
 
   policies do
+
     bypass AshAuthentication.Checks.AshAuthenticationInteraction do
       authorize_if always()
     end
 
-    # TODO tighten
+    # Allow anyone to create a new user account (public registration)
     policy action(:create) do
-      # Allows anyone to create users
+      description "Anyone can register a new account"
       authorize_if always()
     end
 
-    # TODO tighten
+    # Protect read actions - users can read their own data
     policy action(:read) do
-      authorize_if always()
+      authorize_if actor_present()
     end
 
-    # TODO tighten
-    policy action(:update) do
-      authorize_if always()
+    # Protect update/destroy actions - only the user can update/destroy their own data
+    policy action([:update, :destroy]) do
+      authorize_if actor_present()
+      authorize_if relates_to_actor_via(:id)
     end
 
-    # TODO tighten
-    policy action(:destroy) do
-      authorize_if always()
-    end
   end
 
   relationships do

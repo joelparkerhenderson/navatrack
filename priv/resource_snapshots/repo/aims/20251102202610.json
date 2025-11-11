@@ -3136,7 +3136,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "lead_time_for_changes_actual",
+      "source": "mean_lead_time_for_changes_actual",
       "type": "decimal"
     },
     {
@@ -3148,7 +3148,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "lead_time_for_changes_expect",
+      "source": "mean_lead_time_for_changes_expect",
       "type": "decimal"
     },
     {
@@ -3160,7 +3160,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "lead_time_for_changes_ratio",
+      "source": "mean_lead_time_for_changes_ratio",
       "type": "decimal"
     },
     {
@@ -3172,7 +3172,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "lead_time_for_changes_unit",
+      "source": "mean_lead_time_for_changes_unit",
       "type": "text"
     },
     {
@@ -3184,7 +3184,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "lead_time_for_changes_description",
+      "source": "mean_lead_time_for_changes_description",
       "type": "text"
     },
     {
@@ -3256,7 +3256,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "mean_time_to_recovery_actual",
+      "source": "failed_deployment_recovery_time_actual",
       "type": "decimal"
     },
     {
@@ -3268,7 +3268,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "mean_time_to_recovery_expect",
+      "source": "failed_deployment_recovery_time_expect",
       "type": "decimal"
     },
     {
@@ -3280,7 +3280,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "mean_time_to_recovery_ratio",
+      "source": "failed_deployment_recovery_time_ratio",
       "type": "decimal"
     },
     {
@@ -3292,7 +3292,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "mean_time_to_recovery_unit",
+      "source": "failed_deployment_recovery_time_unit",
       "type": "text"
     },
     {
@@ -3304,7 +3304,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "mean_time_to_recovery_description",
+      "source": "failed_deployment_recovery_time_description",
       "type": "text"
     },
     {

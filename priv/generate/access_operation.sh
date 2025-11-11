@@ -5,6 +5,7 @@ export App=Navatrack
 export app=navatrack
 export Dom=Works
 export Resource=AccessOperation
+export resource=access_operation
 export Resources=AccessOperations
 export resources=access_operations
 
