@@ -16,7 +16,7 @@ defmodule NavatrackWeb.Places.NewTest do
   end
 
   test "new", %{conn: conn} do
-    conn = get(conn, ~p"/places/new")
+    {:ok, lv, _html} = live(conn, ~p"/places/new")
     response = html_response(conn, 200)
 
     assert response =~ "Place"
@@ -74,6 +74,23 @@ defmodule NavatrackWeb.Places.NewTest do
     assert response =~ "Main image 1920x1080 landscape"
     assert response =~ "Main image 1080x1920 portrait"
 
+    x = X.fab!
+
+    result =
+      lv
+      |> form("#x_form", %{
+        "form[name]" => x.name
+      })
+      |> render_submit()
+
+    case result do
+      {:error, {:live_redirect, %{to: path}}} ->
+        assert path == "/places"
+      html when is_binary(html) ->
+        assert html =~ "📛"
+      other ->
+        flunk("Unexpected result: #{inspect(other)}")
+    end
   end
 
 end

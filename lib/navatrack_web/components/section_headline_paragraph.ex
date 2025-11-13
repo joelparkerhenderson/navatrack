@@ -3,24 +3,23 @@ defmodule NavatrackWeb.Components.SectionHeadlineParagraph do
   use NavatrackWeb, :html
 
   @doc """
-  Render a form section with a headline, paragraph.
+  Render a section with a headline and paragraph.
 
   Example:
 
   ```heex
-  <.section_with_headline_paragraph
+  <.section_headline_paragraph
     form={@form}
-    section_id={:my_section}
+    id={:my_section_id}
     headline="My Headline"
     paragraph="My Paragraph"
   >
     hello world
-  </.section_with_headline_paragraph>
+  </.section_headline_paragraph>
   ```
   """
 
-  attr :form, :any, required: true
-  attr :section_id, :atom, required: true
+  attr :id, :atom, required: true
   attr :headline, :string, required: true
   attr :paragraph, :string, required: true
   slot :inner_block, required: true
@@ -28,7 +27,7 @@ defmodule NavatrackWeb.Components.SectionHeadlineParagraph do
   def section_headline_paragraph(assigns) do
     ~H"""
     <section
-      id={@section_id}
+      id={@id}
       class="pb-4"
       phx-update="ignore"
     >

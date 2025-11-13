@@ -17,7 +17,7 @@ defmodule NavatrackWeb.Aims.NewTest do
   end
 
   test "new", %{conn: conn} do
-    conn = get(conn, ~p"/aims/new")
+    {:ok, lv, _html} = live(conn, ~p"/aims/new")
     response = html_response(conn, 200)
 
     assert response =~ "Aim"
@@ -272,6 +272,25 @@ defmodule NavatrackWeb.Aims.NewTest do
     assert response =~ "Halstead Complexity Volume"
     assert response =~ "Halstead Complexity Difficulty"
     assert response =~ "Halstead Complexity Effort"
+
+    x = X.fab!
+
+    result =
+      lv
+      |> form("#x_form", %{
+        "form[name]" => x.name
+      })
+      |> render_submit()
+
+    case result do
+      {:error, {:live_redirect, %{to: path}}} ->
+        assert path == "/aims"
+      html when is_binary(html) ->
+        assert html =~ "📛"
+      other ->
+        flunk("Unexpected result: #{inspect(other)}")
+    end
   end
+
 
 end

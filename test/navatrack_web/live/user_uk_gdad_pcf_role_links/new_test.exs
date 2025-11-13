@@ -16,9 +16,29 @@ defmodule NavatrackWeb.UserUkGdadPcfRoleLinks.NewTest do
   end
 
   # test "new", %{conn: conn} do
-  #   conn = get(conn, ~p"/user_uk_gdad_pcf_role_links/new")
+  #   {:ok, _lv, _html} = live(conn, ~p"/user_uk_gdad_pcf_role_links/new")
   #   response = html_response(conn, 200)
   #   assert response =~ "User UK GDAD PCF Role Link"
+  #
+  #   x = X.fab!
+  #
+  #   result =
+  #     lv
+  #     |> form("#x_form", %{
+  #       "form[name]" => x.name
+  #     })
+  #     |> render_submit()
+  #
+  #   case result do
+  #     {:error, {:live_redirect, %{to: path}}} ->
+  #       assert path == "/user_uk_gdad_pcf_role_links"
+  #
+  #     html when is_binary(html) ->
+  #       assert html =~ "User UK GDAD PCF Role Links"
+  #
+  #     other ->
+  #       flunk("Unexpected result: #{inspect(other)}")
+  #   end
   # end
 
 end

@@ -17,7 +17,8 @@ defmodule NavatrackWeb.Users.NewTest do
   end
 
   test "new", %{conn: conn} do
-    conn = get(conn, ~p"/users/new")
+    {:ok, lv, _html} = live(conn, ~p"/users/new")
+
     response = html_response(conn, 200)
     assert response =~ "Users"
     assert response =~ "📛 Name"
@@ -96,6 +97,24 @@ defmodule NavatrackWeb.Users.NewTest do
     assert response =~ "United Kingdom (UK) Civil Service Grade Abbreviation"
     assert response =~ "United Kingdom (UK) Standard Occupational Classification (SOC) 2020 Code Service Grade Abbreviation"
     assert response =~ "United Kingdom (UK) Government Digital and Data (GDAD) Profession Capability Framework (PCF) URL"
+
+    x = X.fab!
+
+    result =
+      lv
+      |> form("#x_form", %{
+        "form[name]" => x.name
+      })
+      |> render_submit()
+
+    case result do
+      {:error, {:live_redirect, %{to: path}}} ->
+        assert path == "/users"
+      html when is_binary(html) ->
+        assert html =~ "📛"
+      other ->
+        flunk("Unexpected result: #{inspect(other)}")
+    end
   end
 
 end

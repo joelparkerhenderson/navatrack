@@ -17,7 +17,7 @@ defmodule NavatrackWeb.Groups.NewTest do
   end
 
   test "new", %{conn: conn} do
-    conn = get(conn, ~p"/groups/new")
+    {:ok, lv, _html} = live(conn, ~p"/groups/new")
     response = html_response(conn, 200)
 
     assert response =~ "Group"
@@ -174,6 +174,24 @@ defmodule NavatrackWeb.Groups.NewTest do
     assert response =~ "Worker Perspective"
     assert response =~ "User Metrics"
     assert response =~ "Active Users"
+
+    x = X.fab!
+
+    result =
+      lv
+      |> form("#x_form", %{
+        "form[name]" => x.name
+      })
+      |> render_submit()
+
+    case result do
+      {:error, {:live_redirect, %{to: path}}} ->
+        assert path == "/groups"
+      html when is_binary(html) ->
+        assert html =~ "📛"
+      other ->
+        flunk("Unexpected result: #{inspect(other)}")
+    end
   end
 
 end

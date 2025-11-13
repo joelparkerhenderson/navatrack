@@ -2,7 +2,7 @@ defmodule NavatrackWeb.AccessAttributes.NewTest do
   # import Phoenix.LiveViewTest
   use NavatrackWeb.ConnCase
   use NavatrackWeb.AuthCase
-  # alias Navatrack.Accounts.AccessAttribute, as: X
+  alias Navatrack.Accounts.AccessAttribute, as: X
 
   setup %{conn: conn} do
     {:ok, user} = my_user()
@@ -16,13 +16,32 @@ defmodule NavatrackWeb.AccessAttributes.NewTest do
   end
 
   test "new", %{conn: conn} do
-    conn = get(conn, ~p"/access_attributes/new")
+    {:ok, lv, _html} = live(conn, ~p"/access_attributes/new")
     response = html_response(conn, 200)
+
     assert response =~ "📛 Name"
     assert response =~ "🚦 Sign"
     assert response =~ "📍 Status"
     assert response =~ "🏷️ Tags"
     assert response =~ "🗒️ Note"
+
+    x = X.fab!
+
+    result =
+      lv
+      |> form("#x_form", %{
+        "form[name]" => x.name
+      })
+      |> render_submit()
+
+    case result do
+      {:error, {:live_redirect, %{to: path}}} ->
+        assert path == "/access_attributes"
+      html when is_binary(html) ->
+        assert html =~ "📛"
+      other ->
+        flunk("Unexpected result: #{inspect(other)}")
+    end
   end
 
 end

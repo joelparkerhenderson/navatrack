@@ -16,7 +16,7 @@ defmodule NavatrackWeb.UserReviews.NewTest do
   end
 
   test "new", %{conn: conn} do
-    conn = get(conn, ~p"/user_reviews/new")
+    {:ok, lv, _html} = live(conn, ~p"/user_reviews/new")
     response = html_response(conn, 200)
 
     assert response =~ "📛 Name"
@@ -32,6 +32,25 @@ defmodule NavatrackWeb.UserReviews.NewTest do
     assert response =~ "What should the person continue doing in order to be effective?"
     assert response =~ "What should the person change doing in order to be effective?"
     assert response =~ "What more advice can help them?"
+
+    x = X.fab!
+
+    result =
+      lv
+      |> form("#x_form", %{
+        "form[by_user_id]" => x.by_user.id,
+        "form[to_user_id]" => x.to_user.id,
+      })
+      |> render_submit()
+
+    case result do
+      {:error, {:live_redirect, %{to: path}}} ->
+        assert path == "/user_reviews"
+      html when is_binary(html) ->
+        assert html =~ "📛"
+      other ->
+        flunk("Unexpected result: #{inspect(other)}")
+    end
   end
 
 end

@@ -17,8 +17,9 @@ defmodule NavatrackWeb.Tasks.NewTest do
   end
 
   test "new", %{conn: conn} do
-    conn = get(conn, ~p"/tasks/new")
+    {:ok, lv, _html} = live(conn, ~p"/tasks/new")
     response = html_response(conn, 200)
+
     assert response =~ "Task"
     assert response =~ "📛 Name"
     assert response =~ "🚦 Sign"
@@ -223,6 +224,23 @@ defmodule NavatrackWeb.Tasks.NewTest do
     assert response =~ "Expected Monetary Value"
     assert response =~ "Cost Estimate To Complete"
 
+    x = X.fab!
+
+    result =
+      lv
+      |> form("#x_form", %{
+        "form[name]" => x.name
+      })
+      |> render_submit()
+
+    case result do
+      {:error, {:live_redirect, %{to: path}}} ->
+        assert path == "/tasks"
+      html when is_binary(html) ->
+        assert html =~ "📛"
+      other ->
+        flunk("Unexpected result: #{inspect(other)}")
+    end
   end
 
 end

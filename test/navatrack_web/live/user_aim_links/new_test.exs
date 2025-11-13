@@ -16,9 +16,29 @@ defmodule NavatrackWeb.UserAimLinks.NewTest do
   end
 
   # test "new", %{conn: conn} do
-  #   conn = get(conn, ~p"/user_aim_links/new")
+  #   {:ok, _lv, _html} = live(conn, ~p"/user_aim_links/new")
   #   response = html_response(conn, 200)
   #   assert response =~ "User Aim Link"
+  #
+  #   x = X.fab!
+  #
+  #   result =
+  #     lv
+  #     |> form("#x_form", %{
+  #       "form[name]" => x.name
+  #     })
+  #     |> render_submit()
+  #
+  #   case result do
+  #     {:error, {:live_redirect, %{to: path}}} ->
+  #       assert path == "/users"
+  #
+  #     html when is_binary(html) ->
+  #       assert html =~ "User Aim Links"
+  #
+  #     other ->
+  #       flunk("Unexpected result: #{inspect(other)}")
+  #   end
   # end
 
 end

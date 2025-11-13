@@ -16,7 +16,7 @@ defmodule NavatrackWeb.Traits.NewTest do
   end
 
   test "new", %{conn: conn} do
-    conn = get(conn, ~p"/traits/new")
+    {:ok, lv, _html} = live(conn, ~p"/traits/new")
     response = html_response(conn, 200)
 
     assert response =~ "Trait"
@@ -33,6 +33,24 @@ defmodule NavatrackWeb.Traits.NewTest do
     assert response =~ "Main image 1080x1080 square"
     assert response =~ "Main image 1920x1080 landscape"
     assert response =~ "Main image 1080x1920 portrait"
+
+    x = X.fab!
+
+    result =
+      lv
+      |> form("#x_form", %{
+        "form[name]" => x.name
+      })
+      |> render_submit()
+
+    case result do
+      {:error, {:live_redirect, %{to: path}}} ->
+        assert path == "/traits"
+      html when is_binary(html) ->
+        assert html =~ "📛"
+      other ->
+        flunk("Unexpected result: #{inspect(other)}")
+    end
   end
 
 end

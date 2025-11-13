@@ -17,7 +17,7 @@ defmodule NavatrackWeb.Topics.NewTest do
   end
 
   test "new", %{conn: conn} do
-    conn = get(conn, ~p"/topics/new")
+    {:ok, lv, _html} = live(conn, ~p"/topics/new")
     response = html_response(conn, 200)
 
     assert response =~ "Topics"
@@ -225,6 +225,23 @@ defmodule NavatrackWeb.Topics.NewTest do
     assert response =~ "Expected Monetary Value"
     assert response =~ "Cost Estimate To Complete"
 
+    x = X.fab!
+
+    result =
+      lv
+      |> form("#x_form", %{
+        "form[name]" => x.name
+      })
+      |> render_submit()
+
+    case result do
+      {:error, {:live_redirect, %{to: path}}} ->
+        assert path == "/topics"
+      html when is_binary(html) ->
+        assert html =~ "📛"
+      other ->
+        flunk("Unexpected result: #{inspect(other)}")
+    end
   end
 
 end
