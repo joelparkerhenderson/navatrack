@@ -16,14 +16,17 @@ defmodule NavatrackWeb.AccessAssignments.NewTest do
   end
 
   test "new", %{conn: conn} do
-    {:ok, lv, _html} = live(conn, ~p"/access_assignments/new")
+    conn = get(conn, ~p"/access_assignments/new")
     response = html_response(conn, 200)
 
     assert response =~ "User Id"
     assert response =~ "Access Attribute Id"
 
-    x = X.fab!
+  end
 
+  test "new…", %{conn: conn} do
+    {:ok, lv, _html} = live(conn, ~p"/access_assignments/new")
+    x = X.fab!
     result =
       lv
       |> form("#x_form", %{

@@ -16,7 +16,7 @@ defmodule NavatrackWeb.Traits.NewTest do
   end
 
   test "new", %{conn: conn} do
-    {:ok, lv, _html} = live(conn, ~p"/traits/new")
+    conn = get(conn, ~p"/traits/new")
     response = html_response(conn, 200)
 
     assert response =~ "Trait"
@@ -34,8 +34,11 @@ defmodule NavatrackWeb.Traits.NewTest do
     assert response =~ "Main image 1920x1080 landscape"
     assert response =~ "Main image 1080x1920 portrait"
 
-    x = X.fab!
+  end
 
+  test "new…", %{conn: conn} do
+    {:ok, lv, _html} = live(conn, ~p"/traits/new")
+    x = X.fab!
     result =
       lv
       |> form("#x_form", %{

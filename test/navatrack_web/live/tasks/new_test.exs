@@ -17,7 +17,7 @@ defmodule NavatrackWeb.Tasks.NewTest do
   end
 
   test "new", %{conn: conn} do
-    {:ok, lv, _html} = live(conn, ~p"/tasks/new")
+    conn = get(conn, ~p"/tasks/new")
     response = html_response(conn, 200)
 
     assert response =~ "Task"
@@ -224,8 +224,11 @@ defmodule NavatrackWeb.Tasks.NewTest do
     assert response =~ "Expected Monetary Value"
     assert response =~ "Cost Estimate To Complete"
 
-    x = X.fab!
+  end
 
+  test "new…", %{conn: conn} do
+    {:ok, lv, _html} = live(conn, ~p"/tasks/new")
+    x = X.fab!
     result =
       lv
       |> form("#x_form", %{

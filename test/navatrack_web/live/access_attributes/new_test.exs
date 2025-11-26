@@ -16,7 +16,7 @@ defmodule NavatrackWeb.AccessAttributes.NewTest do
   end
 
   test "new", %{conn: conn} do
-    {:ok, lv, _html} = live(conn, ~p"/access_attributes/new")
+    conn = get(conn, ~p"/access_attributes/new")
     response = html_response(conn, 200)
 
     assert response =~ "📛 Name"
@@ -25,8 +25,11 @@ defmodule NavatrackWeb.AccessAttributes.NewTest do
     assert response =~ "🏷️ Tags"
     assert response =~ "🗒️ Note"
 
-    x = X.fab!
+  end
 
+  test "new…", %{conn: conn} do
+    {:ok, lv, _html} = live(conn, ~p"/access_attributes/new")
+    x = X.fab!
     result =
       lv
       |> form("#x_form", %{

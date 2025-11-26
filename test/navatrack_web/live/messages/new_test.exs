@@ -16,7 +16,7 @@ defmodule NavatrackWeb.Messages.NewTest do
   end
 
   test "new", %{conn: conn} do
-    {:ok, lv, _html} = live(conn, ~p"/messages/new")
+    conn = get(conn, ~p"/messages/new")
     response = html_response(conn, 200)
 
     assert response =~ "Message"
@@ -28,8 +28,11 @@ defmodule NavatrackWeb.Messages.NewTest do
     assert response =~ "From"
     assert response =~ "To"
 
-    x = X.fab!
+  end
 
+  test "new…", %{conn: conn} do
+    {:ok, lv, _html} = live(conn, ~p"/messages/new")
+    x = X.fab!
     result =
       lv
       |> form("#x_form", %{

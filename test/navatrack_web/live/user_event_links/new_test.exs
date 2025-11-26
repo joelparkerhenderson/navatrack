@@ -16,7 +16,7 @@ defmodule NavatrackWeb.UserEventLinks.NewTest do
   end
 
   # test "new", %{conn: conn} do
-  #   {:ok, _lv, _html} = live(conn, ~p"/user_event_links/new")
+  #   conn = get(conn, ~p"/user_event_links/new")
   #   response = html_response(conn, 200)
   #   assert response =~ "User Event Link"
   #

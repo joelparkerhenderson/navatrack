@@ -16,7 +16,7 @@ defmodule NavatrackWeb.Places.NewTest do
   end
 
   test "new", %{conn: conn} do
-    {:ok, lv, _html} = live(conn, ~p"/places/new")
+    conn = get(conn, ~p"/places/new")
     response = html_response(conn, 200)
 
     assert response =~ "Place"
@@ -74,8 +74,11 @@ defmodule NavatrackWeb.Places.NewTest do
     assert response =~ "Main image 1920x1080 landscape"
     assert response =~ "Main image 1080x1920 portrait"
 
-    x = X.fab!
+  end
 
+  test "new…", %{conn: conn} do
+    {:ok, lv, _html} = live(conn, ~p"/places/new")
+    x = X.fab!
     result =
       lv
       |> form("#x_form", %{

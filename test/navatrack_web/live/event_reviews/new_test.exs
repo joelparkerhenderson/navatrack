@@ -16,7 +16,7 @@ defmodule NavatrackWeb.EventReviews.NewTest do
   end
 
   test "new", %{conn: conn} do
-    {:ok, lv, _html} = live(conn, ~p"/event_reviews/new")
+    conn = get(conn, ~p"/event_reviews/new")
     response = html_response(conn, 200)
 
     assert response =~ "📛 Name"
@@ -33,8 +33,11 @@ defmodule NavatrackWeb.EventReviews.NewTest do
     assert response =~ "What should the event change doing in order to be effective?"
     assert response =~ "What more advice can help them?"
 
-    x = X.fab!
+  end
 
+  test "new…", %{conn: conn} do
+    {:ok, lv, _html} = live(conn, ~p"/event_reviews/new")
+    x = X.fab!
     result =
       lv
       |> form("#x_form", %{

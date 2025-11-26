@@ -16,7 +16,7 @@ defmodule NavatrackWeb.UserUkGdadPcfRoleLinks.NewTest do
   end
 
   # test "new", %{conn: conn} do
-  #   {:ok, _lv, _html} = live(conn, ~p"/user_uk_gdad_pcf_role_links/new")
+  #   conn = get(conn, ~p"/user_uk_gdad_pcf_role_links/new")
   #   response = html_response(conn, 200)
   #   assert response =~ "User UK GDAD PCF Role Link"
   #

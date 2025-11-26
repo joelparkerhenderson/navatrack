@@ -1,0 +1,9 @@
+[tools]
+awscli = "latest"
+elixir = "latest"
+erlang = "latest"
+node = "latest"
+npm = "latest"
+opentofu = "latest"
+python = "latest"
+ruby = "latest"

@@ -17,7 +17,7 @@ defmodule NavatrackWeb.Events.NewTest do
   end
 
   test "new", %{conn: conn} do
-    {:ok, lv, _html} = live(conn, ~p"/events/new")
+    conn = get(conn, ~p"/events/new")
     response = html_response(conn, 200)
 
     assert response =~ "Event"
@@ -224,8 +224,11 @@ defmodule NavatrackWeb.Events.NewTest do
     assert response =~ "Expected Monetary Value"
     assert response =~ "Cost Estimate To Complete"
 
-    x = X.fab!
+  end
 
+  test "new…", %{conn: conn} do
+    {:ok, lv, _html} = live(conn, ~p"/events/new")
+    x = X.fab!
     result =
       lv
       |> form("#x_form", %{

@@ -17,7 +17,7 @@ defmodule NavatrackWeb.Aims.NewTest do
   end
 
   test "new", %{conn: conn} do
-    {:ok, lv, _html} = live(conn, ~p"/aims/new")
+    conn = get(conn, ~p"/aims/new")
     response = html_response(conn, 200)
 
     assert response =~ "Aim"
@@ -273,8 +273,11 @@ defmodule NavatrackWeb.Aims.NewTest do
     assert response =~ "Halstead Complexity Difficulty"
     assert response =~ "Halstead Complexity Effort"
 
-    x = X.fab!
+  end
 
+  test "new…", %{conn: conn} do
+    {:ok, lv, _html} = live(conn, ~p"/aims/new")
+    x = X.fab!
     result =
       lv
       |> form("#x_form", %{

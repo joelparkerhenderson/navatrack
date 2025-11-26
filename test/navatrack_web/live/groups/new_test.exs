@@ -17,7 +17,7 @@ defmodule NavatrackWeb.Groups.NewTest do
   end
 
   test "new", %{conn: conn} do
-    {:ok, lv, _html} = live(conn, ~p"/groups/new")
+    conn = get(conn, ~p"/groups/new")
     response = html_response(conn, 200)
 
     assert response =~ "Group"
@@ -175,8 +175,11 @@ defmodule NavatrackWeb.Groups.NewTest do
     assert response =~ "User Metrics"
     assert response =~ "Active Users"
 
-    x = X.fab!
+  end
 
+  test "new…", %{conn: conn} do
+    {:ok, lv, _html} = live(conn, ~p"/groups/new")
+    x = X.fab!
     result =
       lv
       |> form("#x_form", %{

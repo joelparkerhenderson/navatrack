@@ -16,7 +16,7 @@ defmodule NavatrackWeb.UserTopicLinks.NewTest do
   end
 
   # test "new", %{conn: conn} do
-  #   {:ok, _lv, _html} = live(conn, ~p"/user_topic_links/new")
+  #   conn = get(conn, ~p"/user_topic_links/new")
   #   response = html_response(conn, 200)
   #   assert response =~ "User Topic Link"
   #

@@ -17,9 +17,9 @@ defmodule NavatrackWeb.Users.NewTest do
   end
 
   test "new", %{conn: conn} do
-    {:ok, lv, _html} = live(conn, ~p"/users/new")
-
+    conn = get(conn, ~p"/users/new")
     response = html_response(conn, 200)
+
     assert response =~ "Users"
     assert response =~ "📛 Name"
     assert response =~ "🚦 Sign"
@@ -98,8 +98,11 @@ defmodule NavatrackWeb.Users.NewTest do
     assert response =~ "United Kingdom (UK) Standard Occupational Classification (SOC) 2020 Code Service Grade Abbreviation"
     assert response =~ "United Kingdom (UK) Government Digital and Data (GDAD) Profession Capability Framework (PCF) URL"
 
-    x = X.fab!
+  end
 
+  test "new…", %{conn: conn} do
+    {:ok, lv, _html} = live(conn, ~p"/users/new")
+    x = X.fab!
     result =
       lv
       |> form("#x_form", %{
